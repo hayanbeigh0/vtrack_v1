@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'org.dart';
+part of 'organisation.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$Org {
+mixin _$Organisation {
   String get id => throw _privateConstructorUsedError;
   String get role => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -24,17 +24,19 @@ mixin _$Org {
   String get owner => throw _privateConstructorUsedError;
   String get createdBy => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
-  List<String> get orgs => throw _privateConstructorUsedError;
+  List<String> get organisations => throw _privateConstructorUsedError;
   List<String> get vehicles => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $OrgCopyWith<Org> get copyWith => throw _privateConstructorUsedError;
+  $OrganisationCopyWith<Organisation> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OrgCopyWith<$Res> {
-  factory $OrgCopyWith(Org value, $Res Function(Org) then) =
-      _$OrgCopyWithImpl<$Res, Org>;
+abstract class $OrganisationCopyWith<$Res> {
+  factory $OrganisationCopyWith(
+          Organisation value, $Res Function(Organisation) then) =
+      _$OrganisationCopyWithImpl<$Res, Organisation>;
   @useResult
   $Res call(
       {String id,
@@ -45,13 +47,14 @@ abstract class $OrgCopyWith<$Res> {
       String owner,
       String createdBy,
       String createdAt,
-      List<String> orgs,
+      List<String> organisations,
       List<String> vehicles});
 }
 
 /// @nodoc
-class _$OrgCopyWithImpl<$Res, $Val extends Org> implements $OrgCopyWith<$Res> {
-  _$OrgCopyWithImpl(this._value, this._then);
+class _$OrganisationCopyWithImpl<$Res, $Val extends Organisation>
+    implements $OrganisationCopyWith<$Res> {
+  _$OrganisationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,7 +72,7 @@ class _$OrgCopyWithImpl<$Res, $Val extends Org> implements $OrgCopyWith<$Res> {
     Object? owner = null,
     Object? createdBy = null,
     Object? createdAt = null,
-    Object? orgs = null,
+    Object? organisations = null,
     Object? vehicles = null,
   }) {
     return _then(_value.copyWith(
@@ -105,9 +108,9 @@ class _$OrgCopyWithImpl<$Res, $Val extends Org> implements $OrgCopyWith<$Res> {
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      orgs: null == orgs
-          ? _value.orgs
-          : orgs // ignore: cast_nullable_to_non_nullable
+      organisations: null == organisations
+          ? _value.organisations
+          : organisations // ignore: cast_nullable_to_non_nullable
               as List<String>,
       vehicles: null == vehicles
           ? _value.vehicles
@@ -118,9 +121,11 @@ class _$OrgCopyWithImpl<$Res, $Val extends Org> implements $OrgCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$OrgImplCopyWith<$Res> implements $OrgCopyWith<$Res> {
-  factory _$$OrgImplCopyWith(_$OrgImpl value, $Res Function(_$OrgImpl) then) =
-      __$$OrgImplCopyWithImpl<$Res>;
+abstract class _$$OrganisationImplCopyWith<$Res>
+    implements $OrganisationCopyWith<$Res> {
+  factory _$$OrganisationImplCopyWith(
+          _$OrganisationImpl value, $Res Function(_$OrganisationImpl) then) =
+      __$$OrganisationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -132,14 +137,16 @@ abstract class _$$OrgImplCopyWith<$Res> implements $OrgCopyWith<$Res> {
       String owner,
       String createdBy,
       String createdAt,
-      List<String> orgs,
+      List<String> organisations,
       List<String> vehicles});
 }
 
 /// @nodoc
-class __$$OrgImplCopyWithImpl<$Res> extends _$OrgCopyWithImpl<$Res, _$OrgImpl>
-    implements _$$OrgImplCopyWith<$Res> {
-  __$$OrgImplCopyWithImpl(_$OrgImpl _value, $Res Function(_$OrgImpl) _then)
+class __$$OrganisationImplCopyWithImpl<$Res>
+    extends _$OrganisationCopyWithImpl<$Res, _$OrganisationImpl>
+    implements _$$OrganisationImplCopyWith<$Res> {
+  __$$OrganisationImplCopyWithImpl(
+      _$OrganisationImpl _value, $Res Function(_$OrganisationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -153,10 +160,10 @@ class __$$OrgImplCopyWithImpl<$Res> extends _$OrgCopyWithImpl<$Res, _$OrgImpl>
     Object? owner = null,
     Object? createdBy = null,
     Object? createdAt = null,
-    Object? orgs = null,
+    Object? organisations = null,
     Object? vehicles = null,
   }) {
-    return _then(_$OrgImpl(
+    return _then(_$OrganisationImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -189,9 +196,9 @@ class __$$OrgImplCopyWithImpl<$Res> extends _$OrgCopyWithImpl<$Res, _$OrgImpl>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
-      orgs: null == orgs
-          ? _value._orgs
-          : orgs // ignore: cast_nullable_to_non_nullable
+      organisations: null == organisations
+          ? _value._organisations
+          : organisations // ignore: cast_nullable_to_non_nullable
               as List<String>,
       vehicles: null == vehicles
           ? _value._vehicles
@@ -203,8 +210,8 @@ class __$$OrgImplCopyWithImpl<$Res> extends _$OrgCopyWithImpl<$Res, _$OrgImpl>
 
 /// @nodoc
 
-class _$OrgImpl implements _Org {
-  const _$OrgImpl(
+class _$OrganisationImpl implements _Organisation {
+  const _$OrganisationImpl(
       {required this.id,
       required this.role,
       required this.name,
@@ -213,9 +220,9 @@ class _$OrgImpl implements _Org {
       required this.owner,
       required this.createdBy,
       required this.createdAt,
-      required final List<String> orgs,
+      required final List<String> organisations,
       required final List<String> vehicles})
-      : _orgs = orgs,
+      : _organisations = organisations,
         _vehicles = vehicles;
 
   @override
@@ -234,12 +241,12 @@ class _$OrgImpl implements _Org {
   final String createdBy;
   @override
   final String createdAt;
-  final List<String> _orgs;
+  final List<String> _organisations;
   @override
-  List<String> get orgs {
-    if (_orgs is EqualUnmodifiableListView) return _orgs;
+  List<String> get organisations {
+    if (_organisations is EqualUnmodifiableListView) return _organisations;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_orgs);
+    return EqualUnmodifiableListView(_organisations);
   }
 
   final List<String> _vehicles;
@@ -252,14 +259,14 @@ class _$OrgImpl implements _Org {
 
   @override
   String toString() {
-    return 'Org(id: $id, role: $role, name: $name, address: $address, code: $code, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, orgs: $orgs, vehicles: $vehicles)';
+    return 'Organisation(id: $id, role: $role, name: $name, address: $address, code: $code, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, organisations: $organisations, vehicles: $vehicles)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OrgImpl &&
+            other is _$OrganisationImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.role, role) || other.role == role) &&
             (identical(other.name, name) || other.name == name) &&
@@ -270,7 +277,8 @@ class _$OrgImpl implements _Org {
                 other.createdBy == createdBy) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            const DeepCollectionEquality().equals(other._orgs, _orgs) &&
+            const DeepCollectionEquality()
+                .equals(other._organisations, _organisations) &&
             const DeepCollectionEquality().equals(other._vehicles, _vehicles));
   }
 
@@ -285,18 +293,18 @@ class _$OrgImpl implements _Org {
       owner,
       createdBy,
       createdAt,
-      const DeepCollectionEquality().hash(_orgs),
+      const DeepCollectionEquality().hash(_organisations),
       const DeepCollectionEquality().hash(_vehicles));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OrgImplCopyWith<_$OrgImpl> get copyWith =>
-      __$$OrgImplCopyWithImpl<_$OrgImpl>(this, _$identity);
+  _$$OrganisationImplCopyWith<_$OrganisationImpl> get copyWith =>
+      __$$OrganisationImplCopyWithImpl<_$OrganisationImpl>(this, _$identity);
 }
 
-abstract class _Org implements Org {
-  const factory _Org(
+abstract class _Organisation implements Organisation {
+  const factory _Organisation(
       {required final String id,
       required final String role,
       required final String name,
@@ -305,8 +313,8 @@ abstract class _Org implements Org {
       required final String owner,
       required final String createdBy,
       required final String createdAt,
-      required final List<String> orgs,
-      required final List<String> vehicles}) = _$OrgImpl;
+      required final List<String> organisations,
+      required final List<String> vehicles}) = _$OrganisationImpl;
 
   @override
   String get id;
@@ -325,11 +333,11 @@ abstract class _Org implements Org {
   @override
   String get createdAt;
   @override
-  List<String> get orgs;
+  List<String> get organisations;
   @override
   List<String> get vehicles;
   @override
   @JsonKey(ignore: true)
-  _$$OrgImplCopyWith<_$OrgImpl> get copyWith =>
+  _$$OrganisationImplCopyWith<_$OrganisationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

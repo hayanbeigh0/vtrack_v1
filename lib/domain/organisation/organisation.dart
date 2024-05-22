@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'org.freezed.dart';
+part 'organisation.freezed.dart';
 
 @freezed
-abstract class Org with _$Org {
-  const factory Org({
+abstract class Organisation with _$Organisation {
+  const factory Organisation({
     required String id,
     required String role,
     required String name,
@@ -13,7 +13,7 @@ abstract class Org with _$Org {
     required String owner,
     required String createdBy,
     required String createdAt,
-    required List<String> orgs,
+    required List<String> organisations,
     required List<String> vehicles,
-  }) = _Org;
+  }) = _Organisation;
 }
