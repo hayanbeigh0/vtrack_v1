@@ -1,0 +1,34 @@
+name: vtrack_v1
+description: "A new Flutter project."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  another_flushbar: ^1.12.30
+  dartz: ^0.10.1
+  flutter_bloc: ^8.1.5
+  freezed_annotation: ^2.4.1
+  get_it: ^7.7.0
+  google_sign_in: ^6.2.1
+  injectable: ^2.4.0
+  uuid: ^4.4.0
+  dio: ^5.4.3+1
+  auto_route: ^8.1.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.10
+  freezed: ^2.5.2
+  injectable_generator: ^2.6.1
+  lint: ^2.3.0
+  auto_route_generator: ^8.0.0
+
+flutter:
+  uses-material-design: true
