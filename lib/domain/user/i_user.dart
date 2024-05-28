@@ -23,6 +23,7 @@ abstract class IUserRepository {
     required User user,
   });
   Future<Either<UserFailure, User>> getCurrentSavedUser();
+  Future<Either<UserFailure, Unit>> logout();
 }
 
 abstract class ISharedPreferencesUserRepository {

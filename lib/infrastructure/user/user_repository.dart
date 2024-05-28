@@ -52,6 +52,22 @@ class UserRepository extends IUserRepository {
   }
 
   @override
+  Future<Either<UserFailure, User>> getCurrentSavedUser() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final userJson = prefs.getString('user');
+      if (userJson != null) {
+        final User user = jsonDecode(userJson);
+        return right(user);
+      } else {
+        return left(const UserFailure.userNotFound());
+      }
+    } catch (e) {
+      return left(const UserFailure.unKnownError());
+    }
+  }
+
+  @override
   Future<Either<UserFailure, User>> updateUser({required User user}) {
     // TODO: implement updateUser
     throw UnimplementedError();
@@ -77,14 +93,19 @@ class UserRepository extends IUserRepository {
   }
 
   @override
-  Future<Either<UserFailure, User>> getCurrentSavedUser() {
-    // TODO: implement getCurrentSavedUser
+  Future<Either<UserFailure, User>> getUserById({required String userId}) {
+    // TODO: implement getUserById
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<UserFailure, User>> getUserById({required String userId}) {
-    // TODO: implement getUserById
-    throw UnimplementedError();
+  Future<Either<UserFailure, Unit>> logout() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('token');
+      return right(unit);
+    } catch (e) {
+      return left(const UserFailure.unKnownError());
+    }
   }
 }
