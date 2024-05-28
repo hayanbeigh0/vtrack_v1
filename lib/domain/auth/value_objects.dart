@@ -5,7 +5,7 @@ import 'package:vtrack_v1/domain/core/failures.dart';
 import 'package:vtrack_v1/domain/core/value_objects.dart';
 import 'package:vtrack_v1/domain/core/value_validators.dart';
 
-class EmailAddress extends ValueObject<String> {
+class EmailAddress extends ValueObject<String, ValueFailure<String>> {
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -19,7 +19,7 @@ class EmailAddress extends ValueObject<String> {
   );
 }
 
-class Password extends ValueObject<String> {
+class Password extends ValueObject<String, ValueFailure<String>> {
   @override
   final Either<ValueFailure<String>, String> value;
 

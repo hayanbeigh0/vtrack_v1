@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:vtrack_v1/domain/auth/auth_failure.dart';
-import 'package:vtrack_v1/domain/auth/user.dart';
+import 'package:vtrack_v1/domain/user/user.dart';
 import 'package:vtrack_v1/domain/auth/value_objects.dart';
 
 abstract class IAuthFacade {

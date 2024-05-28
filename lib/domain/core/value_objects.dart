@@ -1,16 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:vtrack_v1/domain/core/errors.dart';
-import 'package:vtrack_v1/domain/core/failures.dart';
 
 @immutable
-abstract class ValueObject<T> {
+abstract class ValueObject<T, I> {
   const ValueObject();
-  Either<ValueFailure<T>, T> get value;
+  Either<I, T> get value;
 
   T getOrCrash() {
     return value.fold(
-      (f) => throw UnexpectedValueError<ValueFailure>(f),
+      (f) => throw UnexpectedValueError<I>(f),
       (r) => r,
     );
   }

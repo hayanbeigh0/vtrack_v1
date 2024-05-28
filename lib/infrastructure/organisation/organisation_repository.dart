@@ -12,6 +12,9 @@ import 'package:vtrack_v1/infrastructure/organisation/organisation_dtos.dart';
 @LazySingleton(as: IOrganisationRepository)
 class OrganisationRepository extends IOrganisationRepository {
   final Dio dio = GetIt.instance<Dio>();
+  // final Dio dio;
+
+  // OrganisationRepository(this.dio);
 
   @override
   Future<Either<OrganisationFailure, Unit>> createOrganisation({

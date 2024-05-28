@@ -6,15 +6,14 @@ import 'package:vtrack_v1/infrastructure/core/auth_interceptor.dart';
 @module
 abstract class DioModule {
   @lazySingleton
-  Dio get dio {
+  Dio dio(AuthInterceptor authInterceptor) {
     final dio = Dio(
       BaseOptions(
         baseUrl: Globals.apiUrl!,
       ),
     );
 
-    // Add the interceptor
-    dio.interceptors.add(AuthInterceptor());
+    dio.interceptors.add(authInterceptor);
 
     return dio;
   }
