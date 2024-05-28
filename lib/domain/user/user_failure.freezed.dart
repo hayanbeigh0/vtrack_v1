@@ -22,6 +22,7 @@ mixin _$UserFailure {
     required TResult Function() serverError,
     required TResult Function() userNotFound,
     required TResult Function() unAuthenticated,
+    required TResult Function() unKnownError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$UserFailure {
     TResult? Function()? serverError,
     TResult? Function()? userNotFound,
     TResult? Function()? unAuthenticated,
+    TResult? Function()? unKnownError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$UserFailure {
     TResult Function()? serverError,
     TResult Function()? userNotFound,
     TResult Function()? unAuthenticated,
+    TResult Function()? unKnownError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$UserFailure {
     required TResult Function(ServerError value) serverError,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnKnownError value) unKnownError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$UserFailure {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnKnownError value)? unKnownError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$UserFailure {
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnKnownError value)? unKnownError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     required TResult Function() serverError,
     required TResult Function() userNotFound,
     required TResult Function() unAuthenticated,
+    required TResult Function() unKnownError,
   }) {
     return cancelledByUser();
   }
@@ -139,6 +146,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult? Function()? serverError,
     TResult? Function()? userNotFound,
     TResult? Function()? unAuthenticated,
+    TResult? Function()? unKnownError,
   }) {
     return cancelledByUser?.call();
   }
@@ -150,6 +158,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult Function()? serverError,
     TResult Function()? userNotFound,
     TResult Function()? unAuthenticated,
+    TResult Function()? unKnownError,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -165,6 +174,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     required TResult Function(ServerError value) serverError,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnKnownError value) unKnownError,
   }) {
     return cancelledByUser(this);
   }
@@ -176,6 +186,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnKnownError value)? unKnownError,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -187,6 +198,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnKnownError value)? unKnownError,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -242,6 +254,7 @@ class _$ServerErrorImpl implements ServerError {
     required TResult Function() serverError,
     required TResult Function() userNotFound,
     required TResult Function() unAuthenticated,
+    required TResult Function() unKnownError,
   }) {
     return serverError();
   }
@@ -253,6 +266,7 @@ class _$ServerErrorImpl implements ServerError {
     TResult? Function()? serverError,
     TResult? Function()? userNotFound,
     TResult? Function()? unAuthenticated,
+    TResult? Function()? unKnownError,
   }) {
     return serverError?.call();
   }
@@ -264,6 +278,7 @@ class _$ServerErrorImpl implements ServerError {
     TResult Function()? serverError,
     TResult Function()? userNotFound,
     TResult Function()? unAuthenticated,
+    TResult Function()? unKnownError,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -279,6 +294,7 @@ class _$ServerErrorImpl implements ServerError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnKnownError value) unKnownError,
   }) {
     return serverError(this);
   }
@@ -290,6 +306,7 @@ class _$ServerErrorImpl implements ServerError {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnKnownError value)? unKnownError,
   }) {
     return serverError?.call(this);
   }
@@ -301,6 +318,7 @@ class _$ServerErrorImpl implements ServerError {
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnKnownError value)? unKnownError,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -356,6 +374,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function() serverError,
     required TResult Function() userNotFound,
     required TResult Function() unAuthenticated,
+    required TResult Function() unKnownError,
   }) {
     return userNotFound();
   }
@@ -367,6 +386,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function()? serverError,
     TResult? Function()? userNotFound,
     TResult? Function()? unAuthenticated,
+    TResult? Function()? unKnownError,
   }) {
     return userNotFound?.call();
   }
@@ -378,6 +398,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function()? serverError,
     TResult Function()? userNotFound,
     TResult Function()? unAuthenticated,
+    TResult Function()? unKnownError,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -393,6 +414,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function(ServerError value) serverError,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnKnownError value) unKnownError,
   }) {
     return userNotFound(this);
   }
@@ -404,6 +426,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnKnownError value)? unKnownError,
   }) {
     return userNotFound?.call(this);
   }
@@ -415,6 +438,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnKnownError value)? unKnownError,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -470,6 +494,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     required TResult Function() serverError,
     required TResult Function() userNotFound,
     required TResult Function() unAuthenticated,
+    required TResult Function() unKnownError,
   }) {
     return unAuthenticated();
   }
@@ -481,6 +506,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     TResult? Function()? serverError,
     TResult? Function()? userNotFound,
     TResult? Function()? unAuthenticated,
+    TResult? Function()? unKnownError,
   }) {
     return unAuthenticated?.call();
   }
@@ -492,6 +518,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     TResult Function()? serverError,
     TResult Function()? userNotFound,
     TResult Function()? unAuthenticated,
+    TResult Function()? unKnownError,
     required TResult orElse(),
   }) {
     if (unAuthenticated != null) {
@@ -507,6 +534,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     required TResult Function(ServerError value) serverError,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnKnownError value) unKnownError,
   }) {
     return unAuthenticated(this);
   }
@@ -518,6 +546,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     TResult? Function(ServerError value)? serverError,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnKnownError value)? unKnownError,
   }) {
     return unAuthenticated?.call(this);
   }
@@ -529,6 +558,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     TResult Function(ServerError value)? serverError,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnKnownError value)? unKnownError,
     required TResult orElse(),
   }) {
     if (unAuthenticated != null) {
@@ -540,4 +570,124 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
 
 abstract class UnAuthenticated implements UserFailure {
   const factory UnAuthenticated() = _$UnAuthenticatedImpl;
+}
+
+/// @nodoc
+abstract class _$$UnKnownErrorImplCopyWith<$Res> {
+  factory _$$UnKnownErrorImplCopyWith(
+          _$UnKnownErrorImpl value, $Res Function(_$UnKnownErrorImpl) then) =
+      __$$UnKnownErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UnKnownErrorImplCopyWithImpl<$Res>
+    extends _$UserFailureCopyWithImpl<$Res, _$UnKnownErrorImpl>
+    implements _$$UnKnownErrorImplCopyWith<$Res> {
+  __$$UnKnownErrorImplCopyWithImpl(
+      _$UnKnownErrorImpl _value, $Res Function(_$UnKnownErrorImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UnKnownErrorImpl implements UnKnownError {
+  const _$UnKnownErrorImpl();
+
+  @override
+  String toString() {
+    return 'UserFailure.unKnownError()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UnKnownErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() userNotFound,
+    required TResult Function() unAuthenticated,
+    required TResult Function() unKnownError,
+  }) {
+    return unKnownError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? userNotFound,
+    TResult? Function()? unAuthenticated,
+    TResult? Function()? unKnownError,
+  }) {
+    return unKnownError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? userNotFound,
+    TResult Function()? unAuthenticated,
+    TResult Function()? unKnownError,
+    required TResult orElse(),
+  }) {
+    if (unKnownError != null) {
+      return unKnownError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnKnownError value) unKnownError,
+  }) {
+    return unKnownError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnKnownError value)? unKnownError,
+  }) {
+    return unKnownError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnKnownError value)? unKnownError,
+    required TResult orElse(),
+  }) {
+    if (unKnownError != null) {
+      return unKnownError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UnKnownError implements UserFailure {
+  const factory UnKnownError() = _$UnKnownErrorImpl;
 }

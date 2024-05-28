@@ -55,7 +55,7 @@ class UserPickupLocationDto with _$UserPickupLocationDto {
   const UserPickupLocationDto._();
   const factory UserPickupLocationDto({
     required String type,
-    required List<num> coordinates,
+    required List<num?> coordinates,
   }) = _UserPickupLocationDto;
 
   factory UserPickupLocationDto.fromDomain(UserPickupLocation pickupLocation) {

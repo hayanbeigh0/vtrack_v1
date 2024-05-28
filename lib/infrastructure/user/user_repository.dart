@@ -1,9 +1,11 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vtrack_v1/domain/user/i_user.dart';
 import 'package:vtrack_v1/domain/user/user.dart';
 import 'package:vtrack_v1/domain/user/user_failure.dart';
@@ -21,9 +23,11 @@ class UserRepository extends IUserRepository {
         '/users/me',
       );
       log(response.data.toString());
-      return right(
-        UserDto.fromDomain(response.data['data']['user']).toDomain(),
-      );
+      final User user =
+          UserDto.fromJson(response.data['data']['user']).toDomain();
+      await saveCurrentUser(user: user);
+
+      return right(user);
     } on DioException catch (e) {
       log('Error while signing up: $e');
       return left(const UserFailure.serverError());
@@ -34,9 +38,17 @@ class UserRepository extends IUserRepository {
   }
 
   @override
-  Future<Either<UserFailure, Unit>> saveCurrentUser({required User user}) {
-    // TODO: implement saveCurrentUser
-    throw UnimplementedError();
+  Future<Either<UserFailure, Unit>> saveCurrentUser({
+    required User user,
+  }) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('token', user.accessToken!);
+      await prefs.setString('user', jsonEncode(user));
+      return right(unit);
+    } catch (e) {
+      return left(const UserFailure.unKnownError());
+    }
   }
 
   @override

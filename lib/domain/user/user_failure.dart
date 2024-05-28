@@ -7,4 +7,5 @@ abstract class UserFailure with _$UserFailure{
   const factory UserFailure.serverError() = ServerError;
   const factory UserFailure.userNotFound() = UserNotFound;
   const factory UserFailure.unAuthenticated() = UnAuthenticated;
+  const factory UserFailure.unKnownError() = UnKnownError;
 }

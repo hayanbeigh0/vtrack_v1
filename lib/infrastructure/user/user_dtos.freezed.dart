@@ -341,7 +341,7 @@ UserPickupLocationDto _$UserPickupLocationDtoFromJson(
 /// @nodoc
 mixin _$UserPickupLocationDto {
   String get type => throw _privateConstructorUsedError;
-  List<num> get coordinates => throw _privateConstructorUsedError;
+  List<num?> get coordinates => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -355,7 +355,7 @@ abstract class $UserPickupLocationDtoCopyWith<$Res> {
           $Res Function(UserPickupLocationDto) then) =
       _$UserPickupLocationDtoCopyWithImpl<$Res, UserPickupLocationDto>;
   @useResult
-  $Res call({String type, List<num> coordinates});
+  $Res call({String type, List<num?> coordinates});
 }
 
 /// @nodoc
@@ -383,7 +383,7 @@ class _$UserPickupLocationDtoCopyWithImpl<$Res,
       coordinates: null == coordinates
           ? _value.coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
-              as List<num>,
+              as List<num?>,
     ) as $Val);
   }
 }
@@ -397,7 +397,7 @@ abstract class _$$UserPickupLocationDtoImplCopyWith<$Res>
       __$$UserPickupLocationDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String type, List<num> coordinates});
+  $Res call({String type, List<num?> coordinates});
 }
 
 /// @nodoc
@@ -423,7 +423,7 @@ class __$$UserPickupLocationDtoImplCopyWithImpl<$Res>
       coordinates: null == coordinates
           ? _value._coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
-              as List<num>,
+              as List<num?>,
     ));
   }
 }
@@ -432,7 +432,7 @@ class __$$UserPickupLocationDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserPickupLocationDtoImpl extends _UserPickupLocationDto {
   const _$UserPickupLocationDtoImpl(
-      {required this.type, required final List<num> coordinates})
+      {required this.type, required final List<num?> coordinates})
       : _coordinates = coordinates,
         super._();
 
@@ -441,9 +441,9 @@ class _$UserPickupLocationDtoImpl extends _UserPickupLocationDto {
 
   @override
   final String type;
-  final List<num> _coordinates;
+  final List<num?> _coordinates;
   @override
-  List<num> get coordinates {
+  List<num?> get coordinates {
     if (_coordinates is EqualUnmodifiableListView) return _coordinates;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_coordinates);
@@ -487,7 +487,7 @@ class _$UserPickupLocationDtoImpl extends _UserPickupLocationDto {
 abstract class _UserPickupLocationDto extends UserPickupLocationDto {
   const factory _UserPickupLocationDto(
       {required final String type,
-      required final List<num> coordinates}) = _$UserPickupLocationDtoImpl;
+      required final List<num?> coordinates}) = _$UserPickupLocationDtoImpl;
   const _UserPickupLocationDto._() : super._();
 
   factory _UserPickupLocationDto.fromJson(Map<String, dynamic> json) =
@@ -496,7 +496,7 @@ abstract class _UserPickupLocationDto extends UserPickupLocationDto {
   @override
   String get type;
   @override
-  List<num> get coordinates;
+  List<num?> get coordinates;
   @override
   @JsonKey(ignore: true)
   _$$UserPickupLocationDtoImplCopyWith<_$UserPickupLocationDtoImpl>

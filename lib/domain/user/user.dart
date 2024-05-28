@@ -20,8 +20,8 @@ abstract class User with _$User {
 @freezed
 class UserPickupLocation with _$UserPickupLocation {
   const factory UserPickupLocation({
-    required num latitude,
-    required num longitude,
+    num? latitude,
+    num? longitude,
   }) = _UserPickupLocation;
 }
 

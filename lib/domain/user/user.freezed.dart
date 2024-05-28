@@ -279,8 +279,8 @@ abstract class _User implements User {
 
 /// @nodoc
 mixin _$UserPickupLocation {
-  num get latitude => throw _privateConstructorUsedError;
-  num get longitude => throw _privateConstructorUsedError;
+  num? get latitude => throw _privateConstructorUsedError;
+  num? get longitude => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserPickupLocationCopyWith<UserPickupLocation> get copyWith =>
@@ -293,7 +293,7 @@ abstract class $UserPickupLocationCopyWith<$Res> {
           UserPickupLocation value, $Res Function(UserPickupLocation) then) =
       _$UserPickupLocationCopyWithImpl<$Res, UserPickupLocation>;
   @useResult
-  $Res call({num latitude, num longitude});
+  $Res call({num? latitude, num? longitude});
 }
 
 /// @nodoc
@@ -309,18 +309,18 @@ class _$UserPickupLocationCopyWithImpl<$Res, $Val extends UserPickupLocation>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_value.copyWith(
-      latitude: null == latitude
+      latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as num,
-      longitude: null == longitude
+              as num?,
+      longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as num,
+              as num?,
     ) as $Val);
   }
 }
@@ -333,7 +333,7 @@ abstract class _$$UserPickupLocationImplCopyWith<$Res>
       __$$UserPickupLocationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({num latitude, num longitude});
+  $Res call({num? latitude, num? longitude});
 }
 
 /// @nodoc
@@ -347,18 +347,18 @@ class __$$UserPickupLocationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_$UserPickupLocationImpl(
-      latitude: null == latitude
+      latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as num,
-      longitude: null == longitude
+              as num?,
+      longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as num,
+              as num?,
     ));
   }
 }
@@ -366,13 +366,12 @@ class __$$UserPickupLocationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UserPickupLocationImpl implements _UserPickupLocation {
-  const _$UserPickupLocationImpl(
-      {required this.latitude, required this.longitude});
+  const _$UserPickupLocationImpl({this.latitude, this.longitude});
 
   @override
-  final num latitude;
+  final num? latitude;
   @override
-  final num longitude;
+  final num? longitude;
 
   @override
   String toString() {
@@ -403,13 +402,12 @@ class _$UserPickupLocationImpl implements _UserPickupLocation {
 
 abstract class _UserPickupLocation implements UserPickupLocation {
   const factory _UserPickupLocation(
-      {required final num latitude,
-      required final num longitude}) = _$UserPickupLocationImpl;
+      {final num? latitude, final num? longitude}) = _$UserPickupLocationImpl;
 
   @override
-  num get latitude;
+  num? get latitude;
   @override
-  num get longitude;
+  num? get longitude;
   @override
   @JsonKey(ignore: true)
   _$$UserPickupLocationImplCopyWith<_$UserPickupLocationImpl> get copyWith =>

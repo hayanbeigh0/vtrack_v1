@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:vtrack_v1/domain/core/errors.dart';
 
+// The generic type T refers to the type of value and the generic type I refers to the type of ValueFailure (ValueFailure, OrganisationValueFailure, UserValueFailure, etc)
 @immutable
 abstract class ValueObject<T, I> {
   const ValueObject();

@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:vtrack_v1/domain/organisation/value_failure.dart';
 import 'package:vtrack_v1/domain/user/user.dart';
 import 'package:vtrack_v1/domain/user/value_failure.dart';
 
@@ -70,11 +69,13 @@ Either<UserValueFailure<UserPickupLocation>, UserPickupLocation>
   required UserPickupLocation input,
 }) {
   // Validation logic for invalid vehicles which is not yet decided.
-  if (input.latitude > 0) {
+  if (input.latitude == null && input.longitude == null ||
+      ((input.latitude != null && input.latitude! > 0) &&
+          (input.longitude != null && input.longitude! > 0))) {
     return right(input);
   } else {
     return left(
-      UserValueFailure.invalidOrganisationList(
+      UserValueFailure.invalidPickupLocation(
         failedValue: input,
       ),
     );
