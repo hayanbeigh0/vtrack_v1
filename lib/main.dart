@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
 import 'package:vtrack_v1/application/auth/auth_bloc/auth_bloc.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/routes/router.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   configureInjection(Environment.prod);
   runApp(MainApp());
 }

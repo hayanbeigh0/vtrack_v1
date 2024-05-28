@@ -15,112 +15,87 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UserValueFailure<T> {
-  String get failedValue => throw _privateConstructorUsedError;
+mixin _$OrganisationValueFailure<T> {
+  Object get failedValue => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String failedValue) invalidName,
-    required TResult Function(String failedValue) invalidEmail,
-    required TResult Function(String failedValue) invalidPhoto,
-    required TResult Function(String failedValue) pickupLocation,
+    required TResult Function(String failedValue, int maxLength) invalidName,
+    required TResult Function(String failedValue, int maxLength) invalidCode,
+    required TResult Function(Location failedValue) invalidLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String failedValue)? invalidName,
-    TResult? Function(String failedValue)? invalidEmail,
-    TResult? Function(String failedValue)? invalidPhoto,
-    TResult? Function(String failedValue)? pickupLocation,
+    TResult? Function(String failedValue, int maxLength)? invalidName,
+    TResult? Function(String failedValue, int maxLength)? invalidCode,
+    TResult? Function(Location failedValue)? invalidLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String failedValue)? invalidName,
-    TResult Function(String failedValue)? invalidEmail,
-    TResult Function(String failedValue)? invalidPhoto,
-    TResult Function(String failedValue)? pickupLocation,
+    TResult Function(String failedValue, int maxLength)? invalidName,
+    TResult Function(String failedValue, int maxLength)? invalidCode,
+    TResult Function(Location failedValue)? invalidLocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidName<T> value) invalidName,
-    required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(InvalidPhoto<T> value) invalidPhoto,
-    required TResult Function(PickupLocation<T> value) pickupLocation,
+    required TResult Function(InvalidCode<T> value) invalidCode,
+    required TResult Function(PickupLocation<T> value) invalidLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidName<T> value)? invalidName,
-    TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(InvalidPhoto<T> value)? invalidPhoto,
-    TResult? Function(PickupLocation<T> value)? pickupLocation,
+    TResult? Function(InvalidCode<T> value)? invalidCode,
+    TResult? Function(PickupLocation<T> value)? invalidLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidName<T> value)? invalidName,
-    TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(InvalidPhoto<T> value)? invalidPhoto,
-    TResult Function(PickupLocation<T> value)? pickupLocation,
+    TResult Function(InvalidCode<T> value)? invalidCode,
+    TResult Function(PickupLocation<T> value)? invalidLocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $UserValueFailureCopyWith<T, UserValueFailure<T>> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserValueFailureCopyWith<T, $Res> {
-  factory $UserValueFailureCopyWith(
-          UserValueFailure<T> value, $Res Function(UserValueFailure<T>) then) =
-      _$UserValueFailureCopyWithImpl<T, $Res, UserValueFailure<T>>;
-  @useResult
-  $Res call({String failedValue});
+abstract class $OrganisationValueFailureCopyWith<T, $Res> {
+  factory $OrganisationValueFailureCopyWith(OrganisationValueFailure<T> value,
+          $Res Function(OrganisationValueFailure<T>) then) =
+      _$OrganisationValueFailureCopyWithImpl<T, $Res,
+          OrganisationValueFailure<T>>;
 }
 
 /// @nodoc
-class _$UserValueFailureCopyWithImpl<T, $Res, $Val extends UserValueFailure<T>>
-    implements $UserValueFailureCopyWith<T, $Res> {
-  _$UserValueFailureCopyWithImpl(this._value, this._then);
+class _$OrganisationValueFailureCopyWithImpl<T, $Res,
+        $Val extends OrganisationValueFailure<T>>
+    implements $OrganisationValueFailureCopyWith<T, $Res> {
+  _$OrganisationValueFailureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? failedValue = null,
-  }) {
-    return _then(_value.copyWith(
-      failedValue: null == failedValue
-          ? _value.failedValue
-          : failedValue // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$InvalidNameImplCopyWith<T, $Res>
-    implements $UserValueFailureCopyWith<T, $Res> {
+abstract class _$$InvalidNameImplCopyWith<T, $Res> {
   factory _$$InvalidNameImplCopyWith(_$InvalidNameImpl<T> value,
           $Res Function(_$InvalidNameImpl<T>) then) =
       __$$InvalidNameImplCopyWithImpl<T, $Res>;
-  @override
   @useResult
-  $Res call({String failedValue});
+  $Res call({String failedValue, int maxLength});
 }
 
 /// @nodoc
 class __$$InvalidNameImplCopyWithImpl<T, $Res>
-    extends _$UserValueFailureCopyWithImpl<T, $Res, _$InvalidNameImpl<T>>
-    implements _$$InvalidNameImplCopyWith<T, $Res> {
+    extends _$OrganisationValueFailureCopyWithImpl<T, $Res,
+        _$InvalidNameImpl<T>> implements _$$InvalidNameImplCopyWith<T, $Res> {
   __$$InvalidNameImplCopyWithImpl(
       _$InvalidNameImpl<T> _value, $Res Function(_$InvalidNameImpl<T>) _then)
       : super(_value, _then);
@@ -129,12 +104,17 @@ class __$$InvalidNameImplCopyWithImpl<T, $Res>
   @override
   $Res call({
     Object? failedValue = null,
+    Object? maxLength = null,
   }) {
     return _then(_$InvalidNameImpl<T>(
       failedValue: null == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
               as String,
+      maxLength: null == maxLength
+          ? _value.maxLength
+          : maxLength // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -142,14 +122,16 @@ class __$$InvalidNameImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$InvalidNameImpl<T> implements InvalidName<T> {
-  const _$InvalidNameImpl({required this.failedValue});
+  const _$InvalidNameImpl({required this.failedValue, required this.maxLength});
 
   @override
   final String failedValue;
+  @override
+  final int maxLength;
 
   @override
   String toString() {
-    return 'UserValueFailure<$T>.invalidName(failedValue: $failedValue)';
+    return 'OrganisationValueFailure<$T>.invalidName(failedValue: $failedValue, maxLength: $maxLength)';
   }
 
   @override
@@ -158,11 +140,13 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
         (other.runtimeType == runtimeType &&
             other is _$InvalidNameImpl<T> &&
             (identical(other.failedValue, failedValue) ||
-                other.failedValue == failedValue));
+                other.failedValue == failedValue) &&
+            (identical(other.maxLength, maxLength) ||
+                other.maxLength == maxLength));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failedValue);
+  int get hashCode => Object.hash(runtimeType, failedValue, maxLength);
 
   @JsonKey(ignore: true)
   @override
@@ -174,36 +158,33 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String failedValue) invalidName,
-    required TResult Function(String failedValue) invalidEmail,
-    required TResult Function(String failedValue) invalidPhoto,
-    required TResult Function(String failedValue) pickupLocation,
+    required TResult Function(String failedValue, int maxLength) invalidName,
+    required TResult Function(String failedValue, int maxLength) invalidCode,
+    required TResult Function(Location failedValue) invalidLocation,
   }) {
-    return invalidName(failedValue);
+    return invalidName(failedValue, maxLength);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String failedValue)? invalidName,
-    TResult? Function(String failedValue)? invalidEmail,
-    TResult? Function(String failedValue)? invalidPhoto,
-    TResult? Function(String failedValue)? pickupLocation,
+    TResult? Function(String failedValue, int maxLength)? invalidName,
+    TResult? Function(String failedValue, int maxLength)? invalidCode,
+    TResult? Function(Location failedValue)? invalidLocation,
   }) {
-    return invalidName?.call(failedValue);
+    return invalidName?.call(failedValue, maxLength);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String failedValue)? invalidName,
-    TResult Function(String failedValue)? invalidEmail,
-    TResult Function(String failedValue)? invalidPhoto,
-    TResult Function(String failedValue)? pickupLocation,
+    TResult Function(String failedValue, int maxLength)? invalidName,
+    TResult Function(String failedValue, int maxLength)? invalidCode,
+    TResult Function(Location failedValue)? invalidLocation,
     required TResult orElse(),
   }) {
     if (invalidName != null) {
-      return invalidName(failedValue);
+      return invalidName(failedValue, maxLength);
     }
     return orElse();
   }
@@ -212,9 +193,8 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidName<T> value) invalidName,
-    required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(InvalidPhoto<T> value) invalidPhoto,
-    required TResult Function(PickupLocation<T> value) pickupLocation,
+    required TResult Function(InvalidCode<T> value) invalidCode,
+    required TResult Function(PickupLocation<T> value) invalidLocation,
   }) {
     return invalidName(this);
   }
@@ -223,9 +203,8 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidName<T> value)? invalidName,
-    TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(InvalidPhoto<T> value)? invalidPhoto,
-    TResult? Function(PickupLocation<T> value)? pickupLocation,
+    TResult? Function(InvalidCode<T> value)? invalidCode,
+    TResult? Function(PickupLocation<T> value)? invalidLocation,
   }) {
     return invalidName?.call(this);
   }
@@ -234,9 +213,8 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidName<T> value)? invalidName,
-    TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(InvalidPhoto<T> value)? invalidPhoto,
-    TResult Function(PickupLocation<T> value)? pickupLocation,
+    TResult Function(InvalidCode<T> value)? invalidCode,
+    TResult Function(PickupLocation<T> value)? invalidLocation,
     required TResult orElse(),
   }) {
     if (invalidName != null) {
@@ -246,116 +224,121 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
   }
 }
 
-abstract class InvalidName<T> implements UserValueFailure<T> {
-  const factory InvalidName({required final String failedValue}) =
-      _$InvalidNameImpl<T>;
+abstract class InvalidName<T> implements OrganisationValueFailure<T> {
+  const factory InvalidName(
+      {required final String failedValue,
+      required final int maxLength}) = _$InvalidNameImpl<T>;
 
   @override
   String get failedValue;
-  @override
+  int get maxLength;
   @JsonKey(ignore: true)
   _$$InvalidNameImplCopyWith<T, _$InvalidNameImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidEmailImplCopyWith<T, $Res>
-    implements $UserValueFailureCopyWith<T, $Res> {
-  factory _$$InvalidEmailImplCopyWith(_$InvalidEmailImpl<T> value,
-          $Res Function(_$InvalidEmailImpl<T>) then) =
-      __$$InvalidEmailImplCopyWithImpl<T, $Res>;
-  @override
+abstract class _$$InvalidCodeImplCopyWith<T, $Res> {
+  factory _$$InvalidCodeImplCopyWith(_$InvalidCodeImpl<T> value,
+          $Res Function(_$InvalidCodeImpl<T>) then) =
+      __$$InvalidCodeImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String failedValue});
+  $Res call({String failedValue, int maxLength});
 }
 
 /// @nodoc
-class __$$InvalidEmailImplCopyWithImpl<T, $Res>
-    extends _$UserValueFailureCopyWithImpl<T, $Res, _$InvalidEmailImpl<T>>
-    implements _$$InvalidEmailImplCopyWith<T, $Res> {
-  __$$InvalidEmailImplCopyWithImpl(
-      _$InvalidEmailImpl<T> _value, $Res Function(_$InvalidEmailImpl<T>) _then)
+class __$$InvalidCodeImplCopyWithImpl<T, $Res>
+    extends _$OrganisationValueFailureCopyWithImpl<T, $Res,
+        _$InvalidCodeImpl<T>> implements _$$InvalidCodeImplCopyWith<T, $Res> {
+  __$$InvalidCodeImplCopyWithImpl(
+      _$InvalidCodeImpl<T> _value, $Res Function(_$InvalidCodeImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? failedValue = null,
+    Object? maxLength = null,
   }) {
-    return _then(_$InvalidEmailImpl<T>(
+    return _then(_$InvalidCodeImpl<T>(
       failedValue: null == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
               as String,
+      maxLength: null == maxLength
+          ? _value.maxLength
+          : maxLength // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
 
-class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
-  const _$InvalidEmailImpl({required this.failedValue});
+class _$InvalidCodeImpl<T> implements InvalidCode<T> {
+  const _$InvalidCodeImpl({required this.failedValue, required this.maxLength});
 
   @override
   final String failedValue;
+  @override
+  final int maxLength;
 
   @override
   String toString() {
-    return 'UserValueFailure<$T>.invalidEmail(failedValue: $failedValue)';
+    return 'OrganisationValueFailure<$T>.invalidCode(failedValue: $failedValue, maxLength: $maxLength)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidEmailImpl<T> &&
+            other is _$InvalidCodeImpl<T> &&
             (identical(other.failedValue, failedValue) ||
-                other.failedValue == failedValue));
+                other.failedValue == failedValue) &&
+            (identical(other.maxLength, maxLength) ||
+                other.maxLength == maxLength));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failedValue);
+  int get hashCode => Object.hash(runtimeType, failedValue, maxLength);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidEmailImplCopyWith<T, _$InvalidEmailImpl<T>> get copyWith =>
-      __$$InvalidEmailImplCopyWithImpl<T, _$InvalidEmailImpl<T>>(
+  _$$InvalidCodeImplCopyWith<T, _$InvalidCodeImpl<T>> get copyWith =>
+      __$$InvalidCodeImplCopyWithImpl<T, _$InvalidCodeImpl<T>>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String failedValue) invalidName,
-    required TResult Function(String failedValue) invalidEmail,
-    required TResult Function(String failedValue) invalidPhoto,
-    required TResult Function(String failedValue) pickupLocation,
+    required TResult Function(String failedValue, int maxLength) invalidName,
+    required TResult Function(String failedValue, int maxLength) invalidCode,
+    required TResult Function(Location failedValue) invalidLocation,
   }) {
-    return invalidEmail(failedValue);
+    return invalidCode(failedValue, maxLength);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String failedValue)? invalidName,
-    TResult? Function(String failedValue)? invalidEmail,
-    TResult? Function(String failedValue)? invalidPhoto,
-    TResult? Function(String failedValue)? pickupLocation,
+    TResult? Function(String failedValue, int maxLength)? invalidName,
+    TResult? Function(String failedValue, int maxLength)? invalidCode,
+    TResult? Function(Location failedValue)? invalidLocation,
   }) {
-    return invalidEmail?.call(failedValue);
+    return invalidCode?.call(failedValue, maxLength);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String failedValue)? invalidName,
-    TResult Function(String failedValue)? invalidEmail,
-    TResult Function(String failedValue)? invalidPhoto,
-    TResult Function(String failedValue)? pickupLocation,
+    TResult Function(String failedValue, int maxLength)? invalidName,
+    TResult Function(String failedValue, int maxLength)? invalidCode,
+    TResult Function(Location failedValue)? invalidLocation,
     required TResult orElse(),
   }) {
-    if (invalidEmail != null) {
-      return invalidEmail(failedValue);
+    if (invalidCode != null) {
+      return invalidCode(failedValue, maxLength);
     }
     return orElse();
   }
@@ -364,218 +347,65 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidName<T> value) invalidName,
-    required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(InvalidPhoto<T> value) invalidPhoto,
-    required TResult Function(PickupLocation<T> value) pickupLocation,
+    required TResult Function(InvalidCode<T> value) invalidCode,
+    required TResult Function(PickupLocation<T> value) invalidLocation,
   }) {
-    return invalidEmail(this);
+    return invalidCode(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidName<T> value)? invalidName,
-    TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(InvalidPhoto<T> value)? invalidPhoto,
-    TResult? Function(PickupLocation<T> value)? pickupLocation,
+    TResult? Function(InvalidCode<T> value)? invalidCode,
+    TResult? Function(PickupLocation<T> value)? invalidLocation,
   }) {
-    return invalidEmail?.call(this);
+    return invalidCode?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidName<T> value)? invalidName,
-    TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(InvalidPhoto<T> value)? invalidPhoto,
-    TResult Function(PickupLocation<T> value)? pickupLocation,
+    TResult Function(InvalidCode<T> value)? invalidCode,
+    TResult Function(PickupLocation<T> value)? invalidLocation,
     required TResult orElse(),
   }) {
-    if (invalidEmail != null) {
-      return invalidEmail(this);
+    if (invalidCode != null) {
+      return invalidCode(this);
     }
     return orElse();
   }
 }
 
-abstract class InvalidEmail<T> implements UserValueFailure<T> {
-  const factory InvalidEmail({required final String failedValue}) =
-      _$InvalidEmailImpl<T>;
+abstract class InvalidCode<T> implements OrganisationValueFailure<T> {
+  const factory InvalidCode(
+      {required final String failedValue,
+      required final int maxLength}) = _$InvalidCodeImpl<T>;
 
   @override
   String get failedValue;
-  @override
+  int get maxLength;
   @JsonKey(ignore: true)
-  _$$InvalidEmailImplCopyWith<T, _$InvalidEmailImpl<T>> get copyWith =>
+  _$$InvalidCodeImplCopyWith<T, _$InvalidCodeImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidPhotoImplCopyWith<T, $Res>
-    implements $UserValueFailureCopyWith<T, $Res> {
-  factory _$$InvalidPhotoImplCopyWith(_$InvalidPhotoImpl<T> value,
-          $Res Function(_$InvalidPhotoImpl<T>) then) =
-      __$$InvalidPhotoImplCopyWithImpl<T, $Res>;
-  @override
-  @useResult
-  $Res call({String failedValue});
-}
-
-/// @nodoc
-class __$$InvalidPhotoImplCopyWithImpl<T, $Res>
-    extends _$UserValueFailureCopyWithImpl<T, $Res, _$InvalidPhotoImpl<T>>
-    implements _$$InvalidPhotoImplCopyWith<T, $Res> {
-  __$$InvalidPhotoImplCopyWithImpl(
-      _$InvalidPhotoImpl<T> _value, $Res Function(_$InvalidPhotoImpl<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? failedValue = null,
-  }) {
-    return _then(_$InvalidPhotoImpl<T>(
-      failedValue: null == failedValue
-          ? _value.failedValue
-          : failedValue // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$InvalidPhotoImpl<T> implements InvalidPhoto<T> {
-  const _$InvalidPhotoImpl({required this.failedValue});
-
-  @override
-  final String failedValue;
-
-  @override
-  String toString() {
-    return 'UserValueFailure<$T>.invalidPhoto(failedValue: $failedValue)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InvalidPhotoImpl<T> &&
-            (identical(other.failedValue, failedValue) ||
-                other.failedValue == failedValue));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, failedValue);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InvalidPhotoImplCopyWith<T, _$InvalidPhotoImpl<T>> get copyWith =>
-      __$$InvalidPhotoImplCopyWithImpl<T, _$InvalidPhotoImpl<T>>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String failedValue) invalidName,
-    required TResult Function(String failedValue) invalidEmail,
-    required TResult Function(String failedValue) invalidPhoto,
-    required TResult Function(String failedValue) pickupLocation,
-  }) {
-    return invalidPhoto(failedValue);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String failedValue)? invalidName,
-    TResult? Function(String failedValue)? invalidEmail,
-    TResult? Function(String failedValue)? invalidPhoto,
-    TResult? Function(String failedValue)? pickupLocation,
-  }) {
-    return invalidPhoto?.call(failedValue);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String failedValue)? invalidName,
-    TResult Function(String failedValue)? invalidEmail,
-    TResult Function(String failedValue)? invalidPhoto,
-    TResult Function(String failedValue)? pickupLocation,
-    required TResult orElse(),
-  }) {
-    if (invalidPhoto != null) {
-      return invalidPhoto(failedValue);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InvalidName<T> value) invalidName,
-    required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(InvalidPhoto<T> value) invalidPhoto,
-    required TResult Function(PickupLocation<T> value) pickupLocation,
-  }) {
-    return invalidPhoto(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InvalidName<T> value)? invalidName,
-    TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(InvalidPhoto<T> value)? invalidPhoto,
-    TResult? Function(PickupLocation<T> value)? pickupLocation,
-  }) {
-    return invalidPhoto?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InvalidName<T> value)? invalidName,
-    TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(InvalidPhoto<T> value)? invalidPhoto,
-    TResult Function(PickupLocation<T> value)? pickupLocation,
-    required TResult orElse(),
-  }) {
-    if (invalidPhoto != null) {
-      return invalidPhoto(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class InvalidPhoto<T> implements UserValueFailure<T> {
-  const factory InvalidPhoto({required final String failedValue}) =
-      _$InvalidPhotoImpl<T>;
-
-  @override
-  String get failedValue;
-  @override
-  @JsonKey(ignore: true)
-  _$$InvalidPhotoImplCopyWith<T, _$InvalidPhotoImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PickupLocationImplCopyWith<T, $Res>
-    implements $UserValueFailureCopyWith<T, $Res> {
+abstract class _$$PickupLocationImplCopyWith<T, $Res> {
   factory _$$PickupLocationImplCopyWith(_$PickupLocationImpl<T> value,
           $Res Function(_$PickupLocationImpl<T>) then) =
       __$$PickupLocationImplCopyWithImpl<T, $Res>;
-  @override
   @useResult
-  $Res call({String failedValue});
+  $Res call({Location failedValue});
+
+  $LocationCopyWith<$Res> get failedValue;
 }
 
 /// @nodoc
 class __$$PickupLocationImplCopyWithImpl<T, $Res>
-    extends _$UserValueFailureCopyWithImpl<T, $Res, _$PickupLocationImpl<T>>
+    extends _$OrganisationValueFailureCopyWithImpl<T, $Res,
+        _$PickupLocationImpl<T>>
     implements _$$PickupLocationImplCopyWith<T, $Res> {
   __$$PickupLocationImplCopyWithImpl(_$PickupLocationImpl<T> _value,
       $Res Function(_$PickupLocationImpl<T>) _then)
@@ -590,8 +420,16 @@ class __$$PickupLocationImplCopyWithImpl<T, $Res>
       failedValue: null == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Location,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationCopyWith<$Res> get failedValue {
+    return $LocationCopyWith<$Res>(_value.failedValue, (value) {
+      return _then(_value.copyWith(failedValue: value));
+    });
   }
 }
 
@@ -601,11 +439,11 @@ class _$PickupLocationImpl<T> implements PickupLocation<T> {
   const _$PickupLocationImpl({required this.failedValue});
 
   @override
-  final String failedValue;
+  final Location failedValue;
 
   @override
   String toString() {
-    return 'UserValueFailure<$T>.pickupLocation(failedValue: $failedValue)';
+    return 'OrganisationValueFailure<$T>.invalidLocation(failedValue: $failedValue)';
   }
 
   @override
@@ -630,36 +468,33 @@ class _$PickupLocationImpl<T> implements PickupLocation<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String failedValue) invalidName,
-    required TResult Function(String failedValue) invalidEmail,
-    required TResult Function(String failedValue) invalidPhoto,
-    required TResult Function(String failedValue) pickupLocation,
+    required TResult Function(String failedValue, int maxLength) invalidName,
+    required TResult Function(String failedValue, int maxLength) invalidCode,
+    required TResult Function(Location failedValue) invalidLocation,
   }) {
-    return pickupLocation(failedValue);
+    return invalidLocation(failedValue);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String failedValue)? invalidName,
-    TResult? Function(String failedValue)? invalidEmail,
-    TResult? Function(String failedValue)? invalidPhoto,
-    TResult? Function(String failedValue)? pickupLocation,
+    TResult? Function(String failedValue, int maxLength)? invalidName,
+    TResult? Function(String failedValue, int maxLength)? invalidCode,
+    TResult? Function(Location failedValue)? invalidLocation,
   }) {
-    return pickupLocation?.call(failedValue);
+    return invalidLocation?.call(failedValue);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String failedValue)? invalidName,
-    TResult Function(String failedValue)? invalidEmail,
-    TResult Function(String failedValue)? invalidPhoto,
-    TResult Function(String failedValue)? pickupLocation,
+    TResult Function(String failedValue, int maxLength)? invalidName,
+    TResult Function(String failedValue, int maxLength)? invalidCode,
+    TResult Function(Location failedValue)? invalidLocation,
     required TResult orElse(),
   }) {
-    if (pickupLocation != null) {
-      return pickupLocation(failedValue);
+    if (invalidLocation != null) {
+      return invalidLocation(failedValue);
     }
     return orElse();
   }
@@ -668,47 +503,43 @@ class _$PickupLocationImpl<T> implements PickupLocation<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidName<T> value) invalidName,
-    required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(InvalidPhoto<T> value) invalidPhoto,
-    required TResult Function(PickupLocation<T> value) pickupLocation,
+    required TResult Function(InvalidCode<T> value) invalidCode,
+    required TResult Function(PickupLocation<T> value) invalidLocation,
   }) {
-    return pickupLocation(this);
+    return invalidLocation(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidName<T> value)? invalidName,
-    TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(InvalidPhoto<T> value)? invalidPhoto,
-    TResult? Function(PickupLocation<T> value)? pickupLocation,
+    TResult? Function(InvalidCode<T> value)? invalidCode,
+    TResult? Function(PickupLocation<T> value)? invalidLocation,
   }) {
-    return pickupLocation?.call(this);
+    return invalidLocation?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidName<T> value)? invalidName,
-    TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(InvalidPhoto<T> value)? invalidPhoto,
-    TResult Function(PickupLocation<T> value)? pickupLocation,
+    TResult Function(InvalidCode<T> value)? invalidCode,
+    TResult Function(PickupLocation<T> value)? invalidLocation,
     required TResult orElse(),
   }) {
-    if (pickupLocation != null) {
-      return pickupLocation(this);
+    if (invalidLocation != null) {
+      return invalidLocation(this);
     }
     return orElse();
   }
 }
 
-abstract class PickupLocation<T> implements UserValueFailure<T> {
-  const factory PickupLocation({required final String failedValue}) =
+abstract class PickupLocation<T> implements OrganisationValueFailure<T> {
+  const factory PickupLocation({required final Location failedValue}) =
       _$PickupLocationImpl<T>;
 
   @override
-  String get failedValue;
-  @override
+  Location get failedValue;
   @JsonKey(ignore: true)
   _$$PickupLocationImplCopyWith<T, _$PickupLocationImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;

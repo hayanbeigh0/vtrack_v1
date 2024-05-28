@@ -7,6 +7,7 @@ import 'package:vtrack_v1/domain/auth/auth_failure.dart';
 import 'package:vtrack_v1/domain/auth/i_auth_facade.dart';
 import 'package:vtrack_v1/domain/auth/user.dart';
 import 'package:vtrack_v1/domain/auth/value_objects.dart';
+import 'package:vtrack_v1/globals.dart';
 
 @LazySingleton(as: IAuthFacade)
 class AuthFacade extends IAuthFacade {
@@ -19,7 +20,7 @@ class AuthFacade extends IAuthFacade {
     final String passwordStr = password.getOrCrash();
     try {
       final Response response = await Dio().post(
-        'http://192.168.1.11:8000/api/v1/users/signup',
+        '${Globals.apiUrl}/users/signup',
         data: {
           "name": "Hayan",
           "email": emailAddressStr,
@@ -51,7 +52,7 @@ class AuthFacade extends IAuthFacade {
     // TODO: implement getSignedInUser
     throw UnimplementedError();
   }
-  
+
   @override
   Future<void> signOut() {
     // TODO: implement signOut

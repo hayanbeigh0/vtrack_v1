@@ -16,42 +16,44 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ValueFailure<T> {
-  AuthValueFailure<T> get f => throw _privateConstructorUsedError;
+  Object get f => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(AuthValueFailure<T> f) auth,
+    required TResult Function(OrganisationValueFailure<T> f) organisation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AuthValueFailure<T> f)? auth,
+    TResult? Function(OrganisationValueFailure<T> f)? organisation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AuthValueFailure<T> f)? auth,
+    TResult Function(OrganisationValueFailure<T> f)? organisation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Auth<T> value) auth,
+    required TResult Function(_Organisation<T> value) organisation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Auth<T> value)? auth,
+    TResult? Function(_Organisation<T> value)? organisation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Auth<T> value)? auth,
+    TResult Function(_Organisation<T> value)? organisation,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,10 +62,6 @@ abstract class $ValueFailureCopyWith<T, $Res> {
   factory $ValueFailureCopyWith(
           ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
       _$ValueFailureCopyWithImpl<T, $Res, ValueFailure<T>>;
-  @useResult
-  $Res call({AuthValueFailure<T> f});
-
-  $AuthValueFailureCopyWith<T, $Res> get f;
 }
 
 /// @nodoc
@@ -75,40 +73,16 @@ class _$ValueFailureCopyWithImpl<T, $Res, $Val extends ValueFailure<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? f = null,
-  }) {
-    return _then(_value.copyWith(
-      f: null == f
-          ? _value.f
-          : f // ignore: cast_nullable_to_non_nullable
-              as AuthValueFailure<T>,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AuthValueFailureCopyWith<T, $Res> get f {
-    return $AuthValueFailureCopyWith<T, $Res>(_value.f, (value) {
-      return _then(_value.copyWith(f: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$AuthImplCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class _$$AuthImplCopyWith<T, $Res> {
   factory _$$AuthImplCopyWith(
           _$AuthImpl<T> value, $Res Function(_$AuthImpl<T>) then) =
       __$$AuthImplCopyWithImpl<T, $Res>;
-  @override
   @useResult
   $Res call({AuthValueFailure<T> f});
 
-  @override
   $AuthValueFailureCopyWith<T, $Res> get f;
 }
 
@@ -131,6 +105,14 @@ class __$$AuthImplCopyWithImpl<T, $Res>
           : f // ignore: cast_nullable_to_non_nullable
               as AuthValueFailure<T>,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AuthValueFailureCopyWith<T, $Res> get f {
+    return $AuthValueFailureCopyWith<T, $Res>(_value.f, (value) {
+      return _then(_value.copyWith(f: value));
+    });
   }
 }
 
@@ -168,6 +150,7 @@ class _$AuthImpl<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(AuthValueFailure<T> f) auth,
+    required TResult Function(OrganisationValueFailure<T> f) organisation,
   }) {
     return auth(f);
   }
@@ -176,6 +159,7 @@ class _$AuthImpl<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AuthValueFailure<T> f)? auth,
+    TResult? Function(OrganisationValueFailure<T> f)? organisation,
   }) {
     return auth?.call(f);
   }
@@ -184,6 +168,7 @@ class _$AuthImpl<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AuthValueFailure<T> f)? auth,
+    TResult Function(OrganisationValueFailure<T> f)? organisation,
     required TResult orElse(),
   }) {
     if (auth != null) {
@@ -196,6 +181,7 @@ class _$AuthImpl<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Auth<T> value) auth,
+    required TResult Function(_Organisation<T> value) organisation,
   }) {
     return auth(this);
   }
@@ -204,6 +190,7 @@ class _$AuthImpl<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Auth<T> value)? auth,
+    TResult? Function(_Organisation<T> value)? organisation,
   }) {
     return auth?.call(this);
   }
@@ -212,6 +199,7 @@ class _$AuthImpl<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Auth<T> value)? auth,
+    TResult Function(_Organisation<T> value)? organisation,
     required TResult orElse(),
   }) {
     if (auth != null) {
@@ -226,9 +214,154 @@ abstract class _Auth<T> implements ValueFailure<T> {
 
   @override
   AuthValueFailure<T> get f;
-  @override
   @JsonKey(ignore: true)
   _$$AuthImplCopyWith<T, _$AuthImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OrganisationImplCopyWith<T, $Res> {
+  factory _$$OrganisationImplCopyWith(_$OrganisationImpl<T> value,
+          $Res Function(_$OrganisationImpl<T>) then) =
+      __$$OrganisationImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({OrganisationValueFailure<T> f});
+
+  $OrganisationValueFailureCopyWith<T, $Res> get f;
+}
+
+/// @nodoc
+class __$$OrganisationImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$OrganisationImpl<T>>
+    implements _$$OrganisationImplCopyWith<T, $Res> {
+  __$$OrganisationImplCopyWithImpl(
+      _$OrganisationImpl<T> _value, $Res Function(_$OrganisationImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? f = null,
+  }) {
+    return _then(_$OrganisationImpl<T>(
+      null == f
+          ? _value.f
+          : f // ignore: cast_nullable_to_non_nullable
+              as OrganisationValueFailure<T>,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $OrganisationValueFailureCopyWith<T, $Res> get f {
+    return $OrganisationValueFailureCopyWith<T, $Res>(_value.f, (value) {
+      return _then(_value.copyWith(f: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$OrganisationImpl<T> implements _Organisation<T> {
+  const _$OrganisationImpl(this.f);
+
+  @override
+  final OrganisationValueFailure<T> f;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.organisation(f: $f)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrganisationImpl<T> &&
+            (identical(other.f, f) || other.f == f));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, f);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrganisationImplCopyWith<T, _$OrganisationImpl<T>> get copyWith =>
+      __$$OrganisationImplCopyWithImpl<T, _$OrganisationImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthValueFailure<T> f) auth,
+    required TResult Function(OrganisationValueFailure<T> f) organisation,
+  }) {
+    return organisation(f);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AuthValueFailure<T> f)? auth,
+    TResult? Function(OrganisationValueFailure<T> f)? organisation,
+  }) {
+    return organisation?.call(f);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthValueFailure<T> f)? auth,
+    TResult Function(OrganisationValueFailure<T> f)? organisation,
+    required TResult orElse(),
+  }) {
+    if (organisation != null) {
+      return organisation(f);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Auth<T> value) auth,
+    required TResult Function(_Organisation<T> value) organisation,
+  }) {
+    return organisation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Auth<T> value)? auth,
+    TResult? Function(_Organisation<T> value)? organisation,
+  }) {
+    return organisation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Auth<T> value)? auth,
+    TResult Function(_Organisation<T> value)? organisation,
+    required TResult orElse(),
+  }) {
+    if (organisation != null) {
+      return organisation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Organisation<T> implements ValueFailure<T> {
+  const factory _Organisation(final OrganisationValueFailure<T> f) =
+      _$OrganisationImpl<T>;
+
+  @override
+  OrganisationValueFailure<T> get f;
+  @JsonKey(ignore: true)
+  _$$OrganisationImplCopyWith<T, _$OrganisationImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

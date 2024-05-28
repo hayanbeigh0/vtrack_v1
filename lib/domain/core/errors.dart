@@ -1,7 +1,5 @@
-import 'package:vtrack_v1/domain/core/failures.dart';
-
-class UnexpectedValueError extends Error {
-  final ValueFailure valueFailure;
+class UnexpectedValueError<T> extends Error {
+  final T valueFailure;
 
   UnexpectedValueError(this.valueFailure);
 

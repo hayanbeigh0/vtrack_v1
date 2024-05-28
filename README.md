@@ -3,5 +3,5 @@
 A new Flutter project.
 
 # Run build_runner commands
-flutter pub run build_runner watch
+dart run build_runner watch --delete-conflicting-outputs
 # vtrack_v1

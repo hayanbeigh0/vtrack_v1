@@ -16,15 +16,14 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Organisation {
-  String get id => throw _privateConstructorUsedError;
-  String get role => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get role => throw _privateConstructorUsedError;
+  OrganisationName get name => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
-  String get code => throw _privateConstructorUsedError;
-  String get owner => throw _privateConstructorUsedError;
-  String get createdBy => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  List<String> get organisations => throw _privateConstructorUsedError;
+  OrganisationCode get code => throw _privateConstructorUsedError;
+  String? get owner => throw _privateConstructorUsedError;
+  String? get createdBy => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
   List<String> get vehicles => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -39,15 +38,14 @@ abstract class $OrganisationCopyWith<$Res> {
       _$OrganisationCopyWithImpl<$Res, Organisation>;
   @useResult
   $Res call(
-      {String id,
-      String role,
-      String name,
+      {String? id,
+      String? role,
+      OrganisationName name,
       String address,
-      String code,
-      String owner,
-      String createdBy,
-      String createdAt,
-      List<String> organisations,
+      OrganisationCode code,
+      String? owner,
+      String? createdBy,
+      String? createdAt,
       List<String> vehicles});
 }
 
@@ -64,30 +62,29 @@ class _$OrganisationCopyWithImpl<$Res, $Val extends Organisation>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? role = null,
+    Object? id = freezed,
+    Object? role = freezed,
     Object? name = null,
     Object? address = null,
     Object? code = null,
-    Object? owner = null,
-    Object? createdBy = null,
-    Object? createdAt = null,
-    Object? organisations = null,
+    Object? owner = freezed,
+    Object? createdBy = freezed,
+    Object? createdAt = freezed,
     Object? vehicles = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      role: null == role
+              as String?,
+      role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as OrganisationName,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -95,23 +92,19 @@ class _$OrganisationCopyWithImpl<$Res, $Val extends Organisation>
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
-      owner: null == owner
+              as OrganisationCode,
+      owner: freezed == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdBy: null == createdBy
+              as String?,
+      createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      organisations: null == organisations
-          ? _value.organisations
-          : organisations // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String?,
       vehicles: null == vehicles
           ? _value.vehicles
           : vehicles // ignore: cast_nullable_to_non_nullable
@@ -129,15 +122,14 @@ abstract class _$$OrganisationImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String role,
-      String name,
+      {String? id,
+      String? role,
+      OrganisationName name,
       String address,
-      String code,
-      String owner,
-      String createdBy,
-      String createdAt,
-      List<String> organisations,
+      OrganisationCode code,
+      String? owner,
+      String? createdBy,
+      String? createdAt,
       List<String> vehicles});
 }
 
@@ -152,30 +144,29 @@ class __$$OrganisationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? role = null,
+    Object? id = freezed,
+    Object? role = freezed,
     Object? name = null,
     Object? address = null,
     Object? code = null,
-    Object? owner = null,
-    Object? createdBy = null,
-    Object? createdAt = null,
-    Object? organisations = null,
+    Object? owner = freezed,
+    Object? createdBy = freezed,
+    Object? createdAt = freezed,
     Object? vehicles = null,
   }) {
     return _then(_$OrganisationImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      role: null == role
+              as String?,
+      role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as OrganisationName,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -183,23 +174,19 @@ class __$$OrganisationImplCopyWithImpl<$Res>
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
-      owner: null == owner
+              as OrganisationCode,
+      owner: freezed == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdBy: null == createdBy
+              as String?,
+      createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      organisations: null == organisations
-          ? _value._organisations
-          : organisations // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String?,
       vehicles: null == vehicles
           ? _value._vehicles
           : vehicles // ignore: cast_nullable_to_non_nullable
@@ -212,43 +199,33 @@ class __$$OrganisationImplCopyWithImpl<$Res>
 
 class _$OrganisationImpl implements _Organisation {
   const _$OrganisationImpl(
-      {required this.id,
-      required this.role,
+      {this.id,
+      this.role,
       required this.name,
       required this.address,
       required this.code,
-      required this.owner,
-      required this.createdBy,
-      required this.createdAt,
-      required final List<String> organisations,
+      this.owner,
+      this.createdBy,
+      this.createdAt,
       required final List<String> vehicles})
-      : _organisations = organisations,
-        _vehicles = vehicles;
+      : _vehicles = vehicles;
 
   @override
-  final String id;
+  final String? id;
   @override
-  final String role;
+  final String? role;
   @override
-  final String name;
+  final OrganisationName name;
   @override
   final String address;
   @override
-  final String code;
+  final OrganisationCode code;
   @override
-  final String owner;
+  final String? owner;
   @override
-  final String createdBy;
+  final String? createdBy;
   @override
-  final String createdAt;
-  final List<String> _organisations;
-  @override
-  List<String> get organisations {
-    if (_organisations is EqualUnmodifiableListView) return _organisations;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_organisations);
-  }
-
+  final String? createdAt;
   final List<String> _vehicles;
   @override
   List<String> get vehicles {
@@ -259,7 +236,7 @@ class _$OrganisationImpl implements _Organisation {
 
   @override
   String toString() {
-    return 'Organisation(id: $id, role: $role, name: $name, address: $address, code: $code, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, organisations: $organisations, vehicles: $vehicles)';
+    return 'Organisation(id: $id, role: $role, name: $name, address: $address, code: $code, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, vehicles: $vehicles)';
   }
 
   @override
@@ -277,8 +254,6 @@ class _$OrganisationImpl implements _Organisation {
                 other.createdBy == createdBy) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            const DeepCollectionEquality()
-                .equals(other._organisations, _organisations) &&
             const DeepCollectionEquality().equals(other._vehicles, _vehicles));
   }
 
@@ -293,7 +268,6 @@ class _$OrganisationImpl implements _Organisation {
       owner,
       createdBy,
       createdAt,
-      const DeepCollectionEquality().hash(_organisations),
       const DeepCollectionEquality().hash(_vehicles));
 
   @JsonKey(ignore: true)
@@ -305,39 +279,172 @@ class _$OrganisationImpl implements _Organisation {
 
 abstract class _Organisation implements Organisation {
   const factory _Organisation(
-      {required final String id,
-      required final String role,
-      required final String name,
+      {final String? id,
+      final String? role,
+      required final OrganisationName name,
       required final String address,
-      required final String code,
-      required final String owner,
-      required final String createdBy,
-      required final String createdAt,
-      required final List<String> organisations,
+      required final OrganisationCode code,
+      final String? owner,
+      final String? createdBy,
+      final String? createdAt,
       required final List<String> vehicles}) = _$OrganisationImpl;
 
   @override
-  String get id;
+  String? get id;
   @override
-  String get role;
+  String? get role;
   @override
-  String get name;
+  OrganisationName get name;
   @override
   String get address;
   @override
-  String get code;
+  OrganisationCode get code;
   @override
-  String get owner;
+  String? get owner;
   @override
-  String get createdBy;
+  String? get createdBy;
   @override
-  String get createdAt;
-  @override
-  List<String> get organisations;
+  String? get createdAt;
   @override
   List<String> get vehicles;
   @override
   @JsonKey(ignore: true)
   _$$OrganisationImplCopyWith<_$OrganisationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$Location {
+  num get latitude => throw _privateConstructorUsedError;
+  num get longitude => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $LocationCopyWith<Location> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LocationCopyWith<$Res> {
+  factory $LocationCopyWith(Location value, $Res Function(Location) then) =
+      _$LocationCopyWithImpl<$Res, Location>;
+  @useResult
+  $Res call({num latitude, num longitude});
+}
+
+/// @nodoc
+class _$LocationCopyWithImpl<$Res, $Val extends Location>
+    implements $LocationCopyWith<$Res> {
+  _$LocationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? latitude = null,
+    Object? longitude = null,
+  }) {
+    return _then(_value.copyWith(
+      latitude: null == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as num,
+      longitude: null == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as num,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$LocationImplCopyWith<$Res>
+    implements $LocationCopyWith<$Res> {
+  factory _$$LocationImplCopyWith(
+          _$LocationImpl value, $Res Function(_$LocationImpl) then) =
+      __$$LocationImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({num latitude, num longitude});
+}
+
+/// @nodoc
+class __$$LocationImplCopyWithImpl<$Res>
+    extends _$LocationCopyWithImpl<$Res, _$LocationImpl>
+    implements _$$LocationImplCopyWith<$Res> {
+  __$$LocationImplCopyWithImpl(
+      _$LocationImpl _value, $Res Function(_$LocationImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? latitude = null,
+    Object? longitude = null,
+  }) {
+    return _then(_$LocationImpl(
+      latitude: null == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as num,
+      longitude: null == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as num,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LocationImpl implements _Location {
+  const _$LocationImpl({required this.latitude, required this.longitude});
+
+  @override
+  final num latitude;
+  @override
+  final num longitude;
+
+  @override
+  String toString() {
+    return 'Location(latitude: $latitude, longitude: $longitude)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LocationImpl &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, latitude, longitude);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LocationImplCopyWith<_$LocationImpl> get copyWith =>
+      __$$LocationImplCopyWithImpl<_$LocationImpl>(this, _$identity);
+}
+
+abstract class _Location implements Location {
+  const factory _Location(
+      {required final num latitude,
+      required final num longitude}) = _$LocationImpl;
+
+  @override
+  num get latitude;
+  @override
+  num get longitude;
+  @override
+  @JsonKey(ignore: true)
+  _$$LocationImplCopyWith<_$LocationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

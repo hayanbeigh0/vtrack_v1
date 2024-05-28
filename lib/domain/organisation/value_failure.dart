@@ -1,15 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:vtrack_v1/domain/organisation/organisation.dart';
 
 part 'value_failure.freezed.dart';
 
 @freezed
-abstract class UserValueFailure<T> with _$UserValueFailure {
-  const factory UserValueFailure.invalidName({required String failedValue}) =
-      InvalidName<T>;
-  const factory UserValueFailure.invalidEmail({required String failedValue}) =
-      InvalidEmail<T>;
-  const factory UserValueFailure.invalidPhoto({required String failedValue}) =
-      InvalidPhoto<T>;
-  const factory UserValueFailure.pickupLocation({required String failedValue}) =
-      PickupLocation<T>;
+abstract class OrganisationValueFailure<T> with _$OrganisationValueFailure {
+  const factory OrganisationValueFailure.invalidName({
+    required String failedValue,
+    required int maxLength,
+  }) = InvalidName<T>;
+  const factory OrganisationValueFailure.invalidCode({
+    required String failedValue,
+    required int maxLength,
+  }) = InvalidCode<T>;
+  const factory OrganisationValueFailure.invalidLocation({
+    required Location failedValue,
+  }) = PickupLocation<T>;
 }
