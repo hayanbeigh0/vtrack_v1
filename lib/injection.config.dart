@@ -14,10 +14,12 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:vtrack_v1/application/auth/auth_bloc/auth_bloc.dart' as _i9;
 import 'package:vtrack_v1/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart'
     as _i10;
+import 'package:vtrack_v1/application/organisation_cubit/organisation_cubit.dart'
+    as _i11;
 import 'package:vtrack_v1/domain/auth/i_auth_facade.dart' as _i7;
 import 'package:vtrack_v1/domain/organisation/i_organisation.dart' as _i5;
 import 'package:vtrack_v1/infrastructure/auth/auth_facade.dart' as _i8;
-import 'package:vtrack_v1/infrastructure/core/dio_module.dart' as _i11;
+import 'package:vtrack_v1/infrastructure/core/dio_module.dart' as _i12;
 import 'package:vtrack_v1/infrastructure/organisation/organisation_repository.dart'
     as _i6;
 import 'package:vtrack_v1/presentation/routes/router.dart' as _i3;
@@ -42,8 +44,10 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i9.AuthBloc>(() => _i9.AuthBloc(gh<_i7.IAuthFacade>()));
     gh.factory<_i10.SignInFormBloc>(
         () => _i10.SignInFormBloc(gh<_i7.IAuthFacade>()));
+    gh.factory<_i11.OrganisationCubit>(
+        () => _i11.OrganisationCubit(gh<_i5.IOrganisationRepository>()));
     return this;
   }
 }
 
-class _$DioModule extends _i11.DioModule {}
+class _$DioModule extends _i12.DioModule {}

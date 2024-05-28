@@ -1,17 +1,21 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
+import 'package:vtrack_v1/domain/organisation/i_organisation.dart';
 import 'package:vtrack_v1/domain/organisation/organisation.dart';
-import 'package:vtrack_v1/infrastructure/organisation/organisation_repository.dart';
 
 part 'organisation_state.dart';
 part 'organisation_cubit.freezed.dart';
 
+@injectable
 class OrganisationCubit extends Cubit<OrganisationState> {
-  OrganisationCubit() : super(OrganisationState.initial());
+  final IOrganisationRepository _iOrganisationRepository;
+  OrganisationCubit(this._iOrganisationRepository)
+      : super(OrganisationState.initial());
 
   addOrganisation({required Organisation organisation}) async {
     emit(OrganisationState.initial());
-    await OrganisationRepository()
+    await _iOrganisationRepository
         .createOrganisation(
           organisation: organisation,
         )

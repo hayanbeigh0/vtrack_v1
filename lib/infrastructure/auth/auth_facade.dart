@@ -2,15 +2,16 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:vtrack_v1/domain/auth/auth_failure.dart';
 import 'package:vtrack_v1/domain/auth/i_auth_facade.dart';
 import 'package:vtrack_v1/domain/auth/user.dart';
 import 'package:vtrack_v1/domain/auth/value_objects.dart';
-import 'package:vtrack_v1/globals.dart';
 
 @LazySingleton(as: IAuthFacade)
 class AuthFacade extends IAuthFacade {
+  final Dio dio = GetIt.instance<Dio>();
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
     required EmailAddress emailAddress,
@@ -19,8 +20,8 @@ class AuthFacade extends IAuthFacade {
     final String emailAddressStr = emailAddress.getOrCrash();
     final String passwordStr = password.getOrCrash();
     try {
-      final Response response = await Dio().post(
-        '${Globals.apiUrl}/users/signup',
+      final Response response = await dio.post(
+        '/users/signup',
         data: {
           "name": "Hayan",
           "email": emailAddressStr,

@@ -7,7 +7,6 @@ import 'package:injectable/injectable.dart';
 import 'package:vtrack_v1/domain/organisation/i_organisation.dart';
 import 'package:vtrack_v1/domain/organisation/organisation.dart';
 import 'package:vtrack_v1/domain/organisation/organisation_failure.dart';
-import 'package:vtrack_v1/globals.dart';
 import 'package:vtrack_v1/infrastructure/organisation/organisation_dtos.dart';
 
 @LazySingleton(as: IOrganisationRepository)
@@ -20,7 +19,7 @@ class OrganisationRepository extends IOrganisationRepository {
   }) async {
     try {
       final Response response = await Dio().post(
-        '${Globals.apiUrl}/users/signup',
+        '/users/signup',
         data: {
           "name": organisation.name,
           "address": organisation.address,
@@ -45,7 +44,7 @@ class OrganisationRepository extends IOrganisationRepository {
   }) async {
     try {
       final Response response = await Dio().delete(
-        '${Globals.apiUrl}/users/signup/$organisationId',
+        '/users/signup/$organisationId',
       );
       log(response.data.toString());
       return right(unit);
