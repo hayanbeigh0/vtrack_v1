@@ -315,8 +315,8 @@ abstract class _Organisation implements Organisation {
 
 /// @nodoc
 mixin _$Location {
-  num get latitude => throw _privateConstructorUsedError;
-  num get longitude => throw _privateConstructorUsedError;
+  num? get latitude => throw _privateConstructorUsedError;
+  num? get longitude => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LocationCopyWith<Location> get copyWith =>
@@ -328,7 +328,7 @@ abstract class $LocationCopyWith<$Res> {
   factory $LocationCopyWith(Location value, $Res Function(Location) then) =
       _$LocationCopyWithImpl<$Res, Location>;
   @useResult
-  $Res call({num latitude, num longitude});
+  $Res call({num? latitude, num? longitude});
 }
 
 /// @nodoc
@@ -344,18 +344,18 @@ class _$LocationCopyWithImpl<$Res, $Val extends Location>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_value.copyWith(
-      latitude: null == latitude
+      latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as num,
-      longitude: null == longitude
+              as num?,
+      longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as num,
+              as num?,
     ) as $Val);
   }
 }
@@ -368,7 +368,7 @@ abstract class _$$LocationImplCopyWith<$Res>
       __$$LocationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({num latitude, num longitude});
+  $Res call({num? latitude, num? longitude});
 }
 
 /// @nodoc
@@ -382,18 +382,18 @@ class __$$LocationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
   }) {
     return _then(_$LocationImpl(
-      latitude: null == latitude
+      latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as num,
-      longitude: null == longitude
+              as num?,
+      longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as num,
+              as num?,
     ));
   }
 }
@@ -401,12 +401,12 @@ class __$$LocationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LocationImpl implements _Location {
-  const _$LocationImpl({required this.latitude, required this.longitude});
+  const _$LocationImpl({this.latitude, this.longitude});
 
   @override
-  final num latitude;
+  final num? latitude;
   @override
-  final num longitude;
+  final num? longitude;
 
   @override
   String toString() {
@@ -435,14 +435,13 @@ class _$LocationImpl implements _Location {
 }
 
 abstract class _Location implements Location {
-  const factory _Location(
-      {required final num latitude,
-      required final num longitude}) = _$LocationImpl;
+  const factory _Location({final num? latitude, final num? longitude}) =
+      _$LocationImpl;
 
   @override
-  num get latitude;
+  num? get latitude;
   @override
-  num get longitude;
+  num? get longitude;
   @override
   @JsonKey(ignore: true)
   _$$LocationImplCopyWith<_$LocationImpl> get copyWith =>

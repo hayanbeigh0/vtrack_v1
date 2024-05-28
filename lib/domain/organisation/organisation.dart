@@ -21,7 +21,7 @@ class Organisation with _$Organisation {
 @freezed
 class Location with _$Location {
   const factory Location({
-    required num latitude,
-    required num longitude,
+     num? latitude,
+     num? longitude,
   }) = _Location;
 }
