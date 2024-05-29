@@ -36,7 +36,7 @@ class AuthFacade extends IAuthFacade {
       return right(unit);
     } on DioException catch (e) {
       log('Error while signing up: $e');
-      return left(const AuthFailure.emailAlreadyInUse());
+      return left(const AuthFailure.serverError());
     } catch (e) {
       log(e.toString());
       return left(const AuthFailure.serverError());

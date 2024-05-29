@@ -15,8 +15,8 @@ part 'sign_in_form_bloc.freezed.dart';
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _iAuthFacade;
   SignInFormBloc(this._iAuthFacade) : super(SignInFormState.initial()) {
-    on<SignInFormEvent>((event, emit) {
-      event.map(
+    on<SignInFormEvent>((event, emit) async {
+      await event.map(
         emailChanged: (value) {
           emit(state.copyWith(
             emailAddress: EmailAddress(value.emailStr),
@@ -29,14 +29,14 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
             authFailureOrSuccessOption: none(),
           ));
         },
-        signInWithEmailAndPasswordPressed: (value) {
-          _performActionOnAuthFacadeWithEmailAndPassword(
+        signInWithEmailAndPasswordPressed: (value) async {
+          await _performActionOnAuthFacadeWithEmailAndPassword(
             emit,
             _iAuthFacade.signInWithEmailAndPassword,
           );
         },
-        registerWithEmailAndPasswordPressed: (value) {
-          _performActionOnAuthFacadeWithEmailAndPassword(
+        registerWithEmailAndPasswordPressed: (value) async {
+          await _performActionOnAuthFacadeWithEmailAndPassword(
             emit,
             _iAuthFacade.registerWithEmailAndPassword,
           );
@@ -45,7 +45,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     });
   }
 
-  void _performActionOnAuthFacadeWithEmailAndPassword(
+  Future<void> _performActionOnAuthFacadeWithEmailAndPassword(
     Emitter<SignInFormState> emit,
     Future<Either<AuthFailure, Unit>> Function({
       required EmailAddress emailAddress,
@@ -70,6 +70,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           authFailureOrSuccessOption: some(failureOrSuccess),
         ),
       );
+      return;
     }
 
     emit(state.copyWith(
