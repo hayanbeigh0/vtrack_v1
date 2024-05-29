@@ -26,7 +26,7 @@ class UserRepository extends IUserRepository {
 
       return right(user);
     } on DioException catch (e) {
-      log('Error while signing up: $e');
+      log('Error while getting signed in user: $e');
       return left(const UserFailure.serverError());
     } catch (e) {
       log(e.toString());
@@ -83,7 +83,7 @@ class UserRepository extends IUserRepository {
 
       return right(newUser);
     } on DioException catch (e) {
-      log('Error while signing up: $e');
+      log('Error while updating me: $e');
       return left(const UserFailure.serverError());
     } catch (e) {
       log(e.toString());
@@ -104,7 +104,7 @@ class UserRepository extends IUserRepository {
 
       return right(newUser);
     } on DioException catch (e) {
-      log('Error while signing up: $e');
+      log('Error while updating user: $e');
       return left(const UserFailure.serverError());
     } catch (e) {
       log(e.toString());
@@ -122,7 +122,7 @@ class UserRepository extends IUserRepository {
       log(response.data.toString());
       return right(unit);
     } on DioException catch (e) {
-      log('Error while signing up: $e');
+      log('Error while deleting user: $e');
       return left(const UserFailure.serverError());
     } catch (e) {
       log(e.toString());
@@ -144,7 +144,7 @@ class UserRepository extends IUserRepository {
           .toList();
       return right(userList);
     } on DioException catch (e) {
-      log('Error while signing up: $e');
+      log('Error while getting all org users: $e');
       return left(const UserFailure.serverError());
     } catch (e) {
       log(e.toString());
@@ -164,7 +164,7 @@ class UserRepository extends IUserRepository {
           .toList();
       return right(userList);
     } on DioException catch (e) {
-      log('Error while signing up: $e');
+      log('Error while getting all users: $e');
       return left(const UserFailure.serverError());
     } catch (e) {
       log(e.toString());
@@ -185,7 +185,7 @@ class UserRepository extends IUserRepository {
       final User user = userDto.toDomain();
       return right(user);
     } on DioException catch (e) {
-      log('Error while signing up: $e');
+      log('Error while getting user by id: $e');
       return left(const UserFailure.serverError());
     } catch (e) {
       log(e.toString());
