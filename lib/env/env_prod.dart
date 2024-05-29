@@ -5,7 +5,7 @@ part 'env_prod.g.dart';
 
 @Envied(
   path: '.env',
-  // obfuscate: true,
+  obfuscate: true,
 )
 class ProductionSecret implements AppSecret, AppEnvFields {
   ProductionSecret();
