@@ -71,10 +71,10 @@ class UserRepository extends IUserRepository {
   }
 
   @override
-  Future<Either<UserFailure, User>> updateUser({required User user}) async {
+  Future<Either<UserFailure, User>> updateMe({required User user}) async {
     try {
       final Response response = await dio.patch(
-        '/users/${user.id}',
+        '/users/updateMe',
         data: UserDto.fromDomain(user).toJson(),
       );
       log(response.data.toString());
@@ -83,7 +83,7 @@ class UserRepository extends IUserRepository {
       final User newUser = userDto.toDomain();
       await saveCurrentUser(user: newUser);
 
-      return right(user);
+      return right(newUser);
     } on DioException catch (e) {
       log('Error while signing up: $e');
       return left(const UserFailure.serverError());
@@ -94,28 +94,106 @@ class UserRepository extends IUserRepository {
   }
 
   @override
-  Future<Either<UserFailure, Unit>> deleteUserById({required String userId}) {
-    // TODO: implement deleteUserById
-    throw UnimplementedError();
+  Future<Either<UserFailure, User>> updateUser({required User user}) async {
+    try {
+      final Response response = await dio.patch(
+        '/users/${user.id}',
+        data: UserDto.fromDomain(user).toJson(),
+      );
+      log(response.data.toString());
+      UserDto userDto = UserDto.fromJson(response.data['data']['user']);
+      userDto = userDto.copyWith(accessToken: user.accessToken);
+      final User newUser = userDto.toDomain();
+
+      return right(newUser);
+    } on DioException catch (e) {
+      log('Error while signing up: $e');
+      return left(const UserFailure.serverError());
+    } catch (e) {
+      log(e.toString());
+      return left(const UserFailure.serverError());
+    }
   }
 
   @override
-  Future<Either<UserFailure, List<User>>> getAllOrgUsers(
-      {required String organisationId}) {
-    // TODO: implement getAllOrgUsers
-    throw UnimplementedError();
+  Future<Either<UserFailure, Unit>> deleteUserById(
+      {required String userId}) async {
+    try {
+      final Response response = await dio.delete(
+        '/users/$userId',
+      );
+      log(response.data.toString());
+      return right(unit);
+    } on DioException catch (e) {
+      log('Error while signing up: $e');
+      return left(const UserFailure.serverError());
+    } catch (e) {
+      log(e.toString());
+      return left(const UserFailure.serverError());
+    }
   }
 
   @override
-  Future<Either<UserFailure, List<User>>> getAllUsers() {
-    // TODO: implement getAllUsers
-    throw UnimplementedError();
+  Future<Either<UserFailure, List<User>>> getAllOrgUsers({
+    required String organisationId,
+  }) async {
+    try {
+      final Response response = await dio.get(
+        '/users/getAllOrgUsers/$organisationId',
+      );
+      log(response.data.toString());
+      final List<User> userList = response.data['data']['data']
+          .map((el) => UserDto.fromJson(el).toDomain())
+          .toList();
+      return right(userList);
+    } on DioException catch (e) {
+      log('Error while signing up: $e');
+      return left(const UserFailure.serverError());
+    } catch (e) {
+      log(e.toString());
+      return left(const UserFailure.serverError());
+    }
   }
 
   @override
-  Future<Either<UserFailure, User>> getUserById({required String userId}) {
-    // TODO: implement getUserById
-    throw UnimplementedError();
+  Future<Either<UserFailure, List<User>>> getAllUsers() async {
+    try {
+      final Response response = await dio.get(
+        '/users',
+      );
+      log(response.data.toString());
+      final List<User> userList = response.data['data']['data']
+          .map((el) => UserDto.fromJson(el).toDomain())
+          .toList();
+      return right(userList);
+    } on DioException catch (e) {
+      log('Error while signing up: $e');
+      return left(const UserFailure.serverError());
+    } catch (e) {
+      log(e.toString());
+      return left(const UserFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<UserFailure, User>> getUserById({
+    required String userId,
+  }) async {
+    try {
+      final Response response = await dio.get(
+        '/users/$userId',
+      );
+      log(response.data.toString());
+      UserDto userDto = UserDto.fromJson(response.data['data']['user']);
+      final User user = userDto.toDomain();
+      return right(user);
+    } on DioException catch (e) {
+      log('Error while signing up: $e');
+      return left(const UserFailure.serverError());
+    } catch (e) {
+      log(e.toString());
+      return left(const UserFailure.serverError());
+    }
   }
 
   @override

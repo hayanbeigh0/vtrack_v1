@@ -14,6 +14,9 @@ abstract class IUserRepository {
   Future<Either<UserFailure, User>> updateUser({
     required User user,
   });
+  Future<Either<UserFailure, User>> updateMe({
+    required User user,
+  });
   Future<Either<UserFailure, Unit>> deleteUserById({
     required String userId,
   });
