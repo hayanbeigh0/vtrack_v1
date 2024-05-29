@@ -23,7 +23,6 @@ class UserRepository extends IUserRepository {
       log(response.data.toString());
       final User user =
           UserDto.fromJson(response.data['data']['user']).toDomain();
-      await saveCurrentUser(user: user);
 
       return right(user);
     } on DioException catch (e) {
@@ -81,7 +80,6 @@ class UserRepository extends IUserRepository {
       UserDto userDto = UserDto.fromJson(response.data['data']['user']);
       userDto = userDto.copyWith(accessToken: user.accessToken);
       final User newUser = userDto.toDomain();
-      await saveCurrentUser(user: newUser);
 
       return right(newUser);
     } on DioException catch (e) {

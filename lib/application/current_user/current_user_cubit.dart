@@ -27,9 +27,25 @@ class CurrentUserCubit extends Cubit<CurrentUserState> {
   getSignedInUser() async {
     final Either<UserFailure, User> userOrFailure =
         await _userRepository.getSignedInUser();
+    return userOrFailure.fold((f) => emit(CurrentUserState.failure(failure: f)),
+        (user) async {
+      await _userRepository.saveCurrentUser(user: user);
+      return emit(CurrentUserState.success(user: user));
+    });
+  }
+
+  updateMe({required User user}) async {
+    final Either<UserFailure, User> userOrFailure =
+        await _userRepository.updateMe(
+      user: user,
+    );
+
     return userOrFailure.fold(
       (f) => emit(CurrentUserState.failure(failure: f)),
-      (user) => emit(CurrentUserState.success(user: user)),
+      (newUser) async {
+        await _userRepository.saveCurrentUser(user: newUser);
+        return emit(CurrentUserState.success(user: newUser));
+      },
     );
   }
 
