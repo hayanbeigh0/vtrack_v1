@@ -33,7 +33,6 @@ class AuthFacade extends IAuthFacade {
           "passwordConfirm": passwordStr
         },
       );
-      log(response.data.toString());
       return right(UserDto.fromJson(response.data['data']['user']).toDomain());
     } on DioException catch (e) {
       log('Error while signing up: $e');
