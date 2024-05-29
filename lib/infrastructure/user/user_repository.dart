@@ -15,9 +15,7 @@ import 'package:vtrack_v1/infrastructure/user/user_dtos.dart';
 class UserRepository extends IUserRepository {
   final Dio dio = GetIt.instance<Dio>();
   @override
-  Future<Either<UserFailure, User>> getSignedInUser({
-    required String accessToken,
-  }) async {
+  Future<Either<UserFailure, User>> getSignedInUser() async {
     try {
       final Response response = await dio.get(
         '/users/me',
@@ -44,9 +42,13 @@ class UserRepository extends IUserRepository {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', user.accessToken!);
-      await prefs.setString('user', jsonEncode(user));
+      await prefs.setString(
+        'user',
+        jsonEncode(UserDto.fromDomain(user).toJson()),
+      );
       return right(unit);
     } catch (e) {
+      log("error while saving user: $e");
       return left(const UserFailure.unKnownError());
     }
   }
@@ -55,14 +57,15 @@ class UserRepository extends IUserRepository {
   Future<Either<UserFailure, User>> getCurrentSavedUser() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final userJson = prefs.getString('user');
+      final userJson =  prefs.getString('user');
       if (userJson != null) {
-        final User user = jsonDecode(userJson);
+        final User user = UserDto.fromJson(jsonDecode(userJson)).toDomain();
         return right(user);
       } else {
         return left(const UserFailure.userNotFound());
       }
     } catch (e) {
+      log('Error while getting saved user: $e');
       return left(const UserFailure.unKnownError());
     }
   }

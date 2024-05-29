@@ -4,11 +4,11 @@ import 'package:vtrack_v1/domain/user/user.dart';
 import 'package:vtrack_v1/domain/auth/value_objects.dart';
 
 abstract class IAuthFacade {
-  Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
+  Future<Either<AuthFailure, User>> registerWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
   });
-  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
+  Future<Either<AuthFailure, User>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
   });

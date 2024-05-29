@@ -20,11 +20,12 @@ UserDto _$UserDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserDto {
+  @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
   String? get accessToken => throw _privateConstructorUsedError;
   String get role => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get emailAddress => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
   List<String> get organisations => throw _privateConstructorUsedError;
   List<String> get vehicles => throw _privateConstructorUsedError;
   UserPickupLocationDto get pickupLocation =>
@@ -41,11 +42,11 @@ abstract class $UserDtoCopyWith<$Res> {
       _$UserDtoCopyWithImpl<$Res, UserDto>;
   @useResult
   $Res call(
-      {String id,
+      {@JsonKey(name: '_id') String id,
       String? accessToken,
       String role,
       String name,
-      String emailAddress,
+      String email,
       List<String> organisations,
       List<String> vehicles,
       UserPickupLocationDto pickupLocation});
@@ -70,7 +71,7 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
     Object? accessToken = freezed,
     Object? role = null,
     Object? name = null,
-    Object? emailAddress = null,
+    Object? email = null,
     Object? organisations = null,
     Object? vehicles = null,
     Object? pickupLocation = null,
@@ -92,9 +93,9 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      emailAddress: null == emailAddress
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       organisations: null == organisations
           ? _value.organisations
@@ -128,11 +129,11 @@ abstract class _$$UserDtoImplCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {@JsonKey(name: '_id') String id,
       String? accessToken,
       String role,
       String name,
-      String emailAddress,
+      String email,
       List<String> organisations,
       List<String> vehicles,
       UserPickupLocationDto pickupLocation});
@@ -156,7 +157,7 @@ class __$$UserDtoImplCopyWithImpl<$Res>
     Object? accessToken = freezed,
     Object? role = null,
     Object? name = null,
-    Object? emailAddress = null,
+    Object? email = null,
     Object? organisations = null,
     Object? vehicles = null,
     Object? pickupLocation = null,
@@ -178,9 +179,9 @@ class __$$UserDtoImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      emailAddress: null == emailAddress
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       organisations: null == organisations
           ? _value._organisations
@@ -202,11 +203,11 @@ class __$$UserDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserDtoImpl extends _UserDto {
   const _$UserDtoImpl(
-      {required this.id,
+      {@JsonKey(name: '_id') required this.id,
       this.accessToken,
       required this.role,
       required this.name,
-      required this.emailAddress,
+      required this.email,
       required final List<String> organisations,
       required final List<String> vehicles,
       required this.pickupLocation})
@@ -218,6 +219,7 @@ class _$UserDtoImpl extends _UserDto {
       _$$UserDtoImplFromJson(json);
 
   @override
+  @JsonKey(name: '_id')
   final String id;
   @override
   final String? accessToken;
@@ -226,7 +228,7 @@ class _$UserDtoImpl extends _UserDto {
   @override
   final String name;
   @override
-  final String emailAddress;
+  final String email;
   final List<String> _organisations;
   @override
   List<String> get organisations {
@@ -248,7 +250,7 @@ class _$UserDtoImpl extends _UserDto {
 
   @override
   String toString() {
-    return 'UserDto(id: $id, accessToken: $accessToken, role: $role, name: $name, emailAddress: $emailAddress, organisations: $organisations, vehicles: $vehicles, pickupLocation: $pickupLocation)';
+    return 'UserDto(id: $id, accessToken: $accessToken, role: $role, name: $name, email: $email, organisations: $organisations, vehicles: $vehicles, pickupLocation: $pickupLocation)';
   }
 
   @override
@@ -261,8 +263,7 @@ class _$UserDtoImpl extends _UserDto {
                 other.accessToken == accessToken) &&
             (identical(other.role, role) || other.role == role) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.emailAddress, emailAddress) ||
-                other.emailAddress == emailAddress) &&
+            (identical(other.email, email) || other.email == email) &&
             const DeepCollectionEquality()
                 .equals(other._organisations, _organisations) &&
             const DeepCollectionEquality().equals(other._vehicles, _vehicles) &&
@@ -278,7 +279,7 @@ class _$UserDtoImpl extends _UserDto {
       accessToken,
       role,
       name,
-      emailAddress,
+      email,
       const DeepCollectionEquality().hash(_organisations),
       const DeepCollectionEquality().hash(_vehicles),
       pickupLocation);
@@ -299,11 +300,11 @@ class _$UserDtoImpl extends _UserDto {
 
 abstract class _UserDto extends UserDto {
   const factory _UserDto(
-      {required final String id,
+      {@JsonKey(name: '_id') required final String id,
       final String? accessToken,
       required final String role,
       required final String name,
-      required final String emailAddress,
+      required final String email,
       required final List<String> organisations,
       required final List<String> vehicles,
       required final UserPickupLocationDto pickupLocation}) = _$UserDtoImpl;
@@ -312,6 +313,7 @@ abstract class _UserDto extends UserDto {
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$UserDtoImpl.fromJson;
 
   @override
+  @JsonKey(name: '_id')
   String get id;
   @override
   String? get accessToken;
@@ -320,7 +322,7 @@ abstract class _UserDto extends UserDto {
   @override
   String get name;
   @override
-  String get emailAddress;
+  String get email;
   @override
   List<String> get organisations;
   @override

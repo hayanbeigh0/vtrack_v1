@@ -7,7 +7,8 @@ import 'package:vtrack_v1/presentation/routes/router.gr.dart';
 class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: SigninRoute.page, path: '/sign-in'),
         AutoRoute(page: SplashRoute.page, path: '/splash', initial: true),
+        AutoRoute(page: SigninRoute.page, path: '/sign-in'),
+        AutoRoute(page: HomeRoute.page, path: '/home'),
       ];
 }

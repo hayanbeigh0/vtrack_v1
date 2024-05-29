@@ -8,6 +8,7 @@ import 'package:vtrack_v1/domain/auth/auth_failure.dart';
 import 'package:vtrack_v1/domain/auth/i_auth_facade.dart';
 import 'package:vtrack_v1/domain/user/user.dart';
 import 'package:vtrack_v1/domain/auth/value_objects.dart';
+import 'package:vtrack_v1/infrastructure/user/user_dtos.dart';
 
 @LazySingleton(as: IAuthFacade)
 class AuthFacade extends IAuthFacade {
@@ -16,7 +17,7 @@ class AuthFacade extends IAuthFacade {
 
   // AuthFacade(this.dio);
   @override
-  Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
+  Future<Either<AuthFailure, User>> registerWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
   }) async {
@@ -33,7 +34,7 @@ class AuthFacade extends IAuthFacade {
         },
       );
       log(response.data.toString());
-      return right(unit);
+      return right(UserDto.fromJson(response.data['data']['user']).toDomain());
     } on DioException catch (e) {
       log('Error while signing up: $e');
       return left(const AuthFailure.serverError());
@@ -44,11 +45,35 @@ class AuthFacade extends IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
+  Future<Either<AuthFailure, User>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
-  }) {
-    throw UnimplementedError();
+  }) async {
+    final String emailAddressStr = emailAddress.getOrCrash();
+    final String passwordStr = password.getOrCrash();
+    try {
+      final Response response = await dio.post(
+        '/users/login',
+        data: {
+          "email": emailAddressStr,
+          "password": passwordStr,
+        },
+      );
+      log(response.data.toString());
+      final Map<String, dynamic> responseData = response.data;
+      final String accessToken = responseData['token'];
+      final Map<String, dynamic> userData = responseData['data']['user'];
+
+      UserDto userDto = UserDto.fromJson(userData);
+      userDto = userDto.copyWith(accessToken: accessToken);
+      return right(userDto.toDomain());
+    } on DioException catch (e) {
+      log('Error while signing in: $e');
+      return left(const AuthFailure.serverError());
+    } catch (e) {
+      log(e.toString());
+      return left(const AuthFailure.serverError());
+    }
   }
 
   @override

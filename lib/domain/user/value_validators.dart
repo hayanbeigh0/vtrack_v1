@@ -38,30 +38,30 @@ Either<UserValueFailure<List<String>>, List<String>> validateUserVehicles({
   required List<String> input,
 }) {
   // Validation logic for invalid vehicles which is not yet decided.
-  if (input.length <= -1) {
+  // if (input.length <= -1) {
     return right(input);
-  } else {
-    return left(
-      UserValueFailure.invalidVehicleList(
-        failedValue: input,
-      ),
-    );
-  }
+  // } else {
+  //   return left(
+  //     UserValueFailure.invalidVehicleList(
+  //       failedValue: input,
+  //     ),
+  //   );
+  // }
 }
 
 Either<UserValueFailure<List<String>>, List<String>> validateUserOrganisations({
   required List<String> input,
 }) {
   // Validation logic for invalid vehicles which is not yet decided.
-  if (input.length <= -1) {
+  // if (input.length <= -1) {
     return right(input);
-  } else {
-    return left(
-      UserValueFailure.invalidOrganisationList(
-        failedValue: input,
-      ),
-    );
-  }
+  // } else {
+  //   return left(
+  //     UserValueFailure.invalidOrganisationList(
+  //       failedValue: input,
+  //     ),
+  //   );
+  // }
 }
 
 Either<UserValueFailure<UserPickupLocation>, UserPickupLocation>

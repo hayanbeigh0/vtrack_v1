@@ -9,11 +9,11 @@ part 'user_dtos.g.dart';
 class UserDto with _$UserDto {
   const UserDto._();
   const factory UserDto({
-    required String id,
+    @JsonKey(name: '_id') required String id,
     String? accessToken,
     required String role,
     required String name,
-    required String emailAddress,
+    required String email,
     required List<String> organisations,
     required List<String> vehicles,
     required UserPickupLocationDto pickupLocation,
@@ -24,7 +24,7 @@ class UserDto with _$UserDto {
       id: user.id,
       accessToken: user.accessToken,
       name: user.name.getOrCrash(),
-      emailAddress: user.emailAddress.getOrCrash(),
+      email: user.emailAddress.getOrCrash(),
       vehicles: user.vehicles.getOrCrash(),
       organisations: user.organisations.getOrCrash(),
       role: user.role.getOrCrash(),
@@ -39,7 +39,7 @@ class UserDto with _$UserDto {
       accessToken: accessToken,
       name: UserName(name),
       vehicles: UserVehicles(vehicles),
-      emailAddress: UserEmail(emailAddress),
+      emailAddress: UserEmail(email),
       organisations: UserOrganisations(organisations),
       pickupLocation: UserPickupLocations(pickupLocation.toDomain()),
       role: UserRole(role),
@@ -66,9 +66,18 @@ class UserPickupLocationDto with _$UserPickupLocationDto {
   }
 
   UserPickupLocation toDomain() {
+    final num? latitude;
+    final num? longitude;
+    if (coordinates.length == 2) {
+      latitude = coordinates[0];
+      longitude = coordinates[1];
+    } else {
+      latitude = null;
+      longitude = null;
+    }
     return UserPickupLocation(
-      latitude: coordinates[0],
-      longitude: coordinates[1],
+      latitude: latitude,
+      longitude: longitude,
     );
   }
 

@@ -6,6 +6,8 @@ import 'package:injectable/injectable.dart';
 import 'package:vtrack_v1/domain/auth/auth_failure.dart';
 import 'package:vtrack_v1/domain/auth/i_auth_facade.dart';
 import 'package:vtrack_v1/domain/auth/value_objects.dart';
+import 'package:vtrack_v1/domain/user/i_user.dart';
+import 'package:vtrack_v1/domain/user/user.dart';
 
 part 'sign_in_form_event.dart';
 part 'sign_in_form_state.dart';
@@ -14,7 +16,9 @@ part 'sign_in_form_bloc.freezed.dart';
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _iAuthFacade;
-  SignInFormBloc(this._iAuthFacade) : super(SignInFormState.initial()) {
+  final IUserRepository _iUserRepository;
+  SignInFormBloc(this._iAuthFacade, this._iUserRepository)
+      : super(SignInFormState.initial()) {
     on<SignInFormEvent>((event, emit) async {
       await event.map(
         emailChanged: (value) {
@@ -47,12 +51,12 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
   Future<void> _performActionOnAuthFacadeWithEmailAndPassword(
     Emitter<SignInFormState> emit,
-    Future<Either<AuthFailure, Unit>> Function({
+    Future<Either<AuthFailure, User>> Function({
       required EmailAddress emailAddress,
       required Password password,
     }) forwardedCall,
   ) async {
-    Either<AuthFailure, Unit>? failureOrSuccess;
+    Either<AuthFailure, User>? failureOrSuccess;
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
 
@@ -70,6 +74,13 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           authFailureOrSuccessOption: some(failureOrSuccess),
         ),
       );
+      final User? user = failureOrSuccess.fold(
+        (l) => null,
+        (r) => r,
+      );
+      if (user != null) {
+        _iUserRepository.saveCurrentUser(user: user);
+      }
       return;
     }
 

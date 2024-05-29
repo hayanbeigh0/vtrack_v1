@@ -8,11 +8,11 @@ part of 'user_dtos.dart';
 
 _$UserDtoImpl _$$UserDtoImplFromJson(Map<String, dynamic> json) =>
     _$UserDtoImpl(
-      id: json['id'] as String,
+      id: json['_id'] as String,
       accessToken: json['accessToken'] as String?,
       role: json['role'] as String,
       name: json['name'] as String,
-      emailAddress: json['emailAddress'] as String,
+      email: json['email'] as String,
       organisations: (json['organisations'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -24,11 +24,11 @@ _$UserDtoImpl _$$UserDtoImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$UserDtoImplToJson(_$UserDtoImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'accessToken': instance.accessToken,
       'role': instance.role,
       'name': instance.name,
-      'emailAddress': instance.emailAddress,
+      'email': instance.email,
       'organisations': instance.organisations,
       'vehicles': instance.vehicles,
       'pickupLocation': instance.pickupLocation,

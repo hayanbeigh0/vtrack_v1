@@ -1,7 +1,9 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vtrack_v1/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
+import 'package:vtrack_v1/application/current_user/current_user_cubit.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
@@ -26,6 +28,8 @@ class SignInForm extends StatelessWidget {
             },
             (_) {
               // TODO: Navigate
+              // BlocProvider.of<CurrentUserCubit>(context).getCurrentSavedUser();
+              context.router.replaceNamed('/home');
             },
           ),
         );
@@ -57,6 +61,7 @@ class SignInForm extends StatelessWidget {
                     color: Colors.grey,
                   ),
                 ),
+                initialValue: 'hayanbeigh55@gmail.com',
                 autocorrect: false,
                 onChanged: (value) {
                   BlocProvider.of<SignInFormBloc>(context).add(
@@ -92,6 +97,7 @@ class SignInForm extends StatelessWidget {
                   floatingLabelStyle: TextStyle(color: Colors.green),
                 ),
                 autocorrect: false,
+                initialValue: 'hayan123',
                 obscureText: true,
                 onChanged: (value) {
                   BlocProvider.of<SignInFormBloc>(context).add(
