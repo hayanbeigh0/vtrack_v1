@@ -21,7 +21,7 @@ class OrganisationRepository extends IOrganisationRepository {
     required Organisation organisation,
   }) async {
     try {
-      final Response response = await Dio().post(
+      final Response response = await dio.post(
         '/users/signup',
         data: {
           "name": organisation.name,
@@ -46,7 +46,7 @@ class OrganisationRepository extends IOrganisationRepository {
     required String organisationId,
   }) async {
     try {
-      final Response response = await Dio().delete(
+      final Response response = await dio.delete(
         '/users/signup/$organisationId',
       );
       log(response.data.toString());
@@ -84,7 +84,7 @@ class OrganisationRepository extends IOrganisationRepository {
     required Organisation organisation,
   }) async {
     try {
-      final Response response = await Dio().patch(
+      final Response response = await dio.patch(
         '/users/signup/${organisation.id}',
         data: organisation,
       );
