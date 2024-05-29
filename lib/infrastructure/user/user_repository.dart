@@ -71,9 +71,26 @@ class UserRepository extends IUserRepository {
   }
 
   @override
-  Future<Either<UserFailure, User>> updateUser({required User user}) {
-    // TODO: implement updateUser
-    throw UnimplementedError();
+  Future<Either<UserFailure, User>> updateUser({required User user}) async {
+    try {
+      final Response response = await dio.patch(
+        '/users/${user.id}',
+        data: UserDto.fromDomain(user).toJson(),
+      );
+      log(response.data.toString());
+      UserDto userDto = UserDto.fromJson(response.data['data']['user']);
+      userDto = userDto.copyWith(accessToken: user.accessToken);
+      final User newUser = userDto.toDomain();
+      await saveCurrentUser(user: newUser);
+
+      return right(user);
+    } on DioException catch (e) {
+      log('Error while signing up: $e');
+      return left(const UserFailure.serverError());
+    } catch (e) {
+      log(e.toString());
+      return left(const UserFailure.serverError());
+    }
   }
 
   @override
