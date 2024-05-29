@@ -32,4 +32,13 @@ class CurrentUserCubit extends Cubit<CurrentUserState> {
       (user) => emit(CurrentUserState.success(user: user)),
     );
   }
+
+  logout() async {
+    emit(const CurrentUserState.loading());
+    final failureOrUnit = await _userRepository.logout();
+    failureOrUnit.fold(
+      (logoutFailure) => emit(CurrentUserState.failure(failure: logoutFailure)),
+      (r) => emit(const CurrentUserState.logoutSuccess()),
+    );
+  }
 }

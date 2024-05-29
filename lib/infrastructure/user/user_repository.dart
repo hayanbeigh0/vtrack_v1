@@ -57,7 +57,7 @@ class UserRepository extends IUserRepository {
   Future<Either<UserFailure, User>> getCurrentSavedUser() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final userJson =  prefs.getString('user');
+      final userJson = prefs.getString('user');
       if (userJson != null) {
         final User user = UserDto.fromJson(jsonDecode(userJson)).toDomain();
         return right(user);
@@ -106,6 +106,7 @@ class UserRepository extends IUserRepository {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.remove('token');
+      await prefs.remove('user');
       return right(unit);
     } catch (e) {
       return left(const UserFailure.unKnownError());

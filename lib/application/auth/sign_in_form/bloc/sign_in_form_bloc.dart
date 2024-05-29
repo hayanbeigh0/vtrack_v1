@@ -68,19 +68,19 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         password: state.password,
       );
 
+      final User? user = failureOrSuccess.fold(
+        (l) => null,
+        (r) => r,
+      );
+      if (user != null) {
+        await _iUserRepository.saveCurrentUser(user: user);
+      }
       emit(
         state.copyWith(
           isSubmitting: false,
           authFailureOrSuccessOption: some(failureOrSuccess),
         ),
       );
-      final User? user = failureOrSuccess.fold(
-        (l) => null,
-        (r) => r,
-      );
-      if (user != null) {
-        _iUserRepository.saveCurrentUser(user: user);
-      }
       return;
     }
 

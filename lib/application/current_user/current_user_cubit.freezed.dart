@@ -21,6 +21,7 @@ mixin _$CurrentUserState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$CurrentUserState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$CurrentUserState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
   }) =>
@@ -46,6 +49,7 @@ mixin _$CurrentUserState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +58,7 @@ mixin _$CurrentUserState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +67,7 @@ mixin _$CurrentUserState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) =>
@@ -127,6 +133,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) {
     return initial();
@@ -138,6 +145,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) {
     return initial?.call();
@@ -149,6 +157,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
   }) {
@@ -164,6 +173,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) {
     return initial(this);
@@ -175,6 +185,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) {
     return initial?.call(this);
@@ -186,6 +197,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -241,6 +253,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) {
     return loading();
@@ -252,6 +265,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) {
     return loading?.call();
@@ -263,6 +277,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
   }) {
@@ -278,6 +293,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) {
     return loading(this);
@@ -289,6 +305,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) {
     return loading?.call(this);
@@ -300,6 +317,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -391,6 +409,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) {
     return success(user);
@@ -402,6 +421,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) {
     return success?.call(user);
@@ -413,6 +433,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
   }) {
@@ -428,6 +449,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) {
     return success(this);
@@ -439,6 +461,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) {
     return success?.call(this);
@@ -450,6 +473,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -467,6 +491,126 @@ abstract class _Success implements CurrentUserState {
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LogoutSuccessImplCopyWith<$Res> {
+  factory _$$LogoutSuccessImplCopyWith(
+          _$LogoutSuccessImpl value, $Res Function(_$LogoutSuccessImpl) then) =
+      __$$LogoutSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LogoutSuccessImplCopyWithImpl<$Res>
+    extends _$CurrentUserStateCopyWithImpl<$Res, _$LogoutSuccessImpl>
+    implements _$$LogoutSuccessImplCopyWith<$Res> {
+  __$$LogoutSuccessImplCopyWithImpl(
+      _$LogoutSuccessImpl _value, $Res Function(_$LogoutSuccessImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LogoutSuccessImpl implements _LogoutSuccess {
+  const _$LogoutSuccessImpl();
+
+  @override
+  String toString() {
+    return 'CurrentUserState.logoutSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LogoutSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(User user) success,
+    required TResult Function() logoutSuccess,
+    required TResult Function(UserFailure failure) failure,
+  }) {
+    return logoutSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? success,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(UserFailure failure)? failure,
+  }) {
+    return logoutSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(User user)? success,
+    TResult Function()? logoutSuccess,
+    TResult Function(UserFailure failure)? failure,
+    required TResult orElse(),
+  }) {
+    if (logoutSuccess != null) {
+      return logoutSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return logoutSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return logoutSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (logoutSuccess != null) {
+      return logoutSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LogoutSuccess implements CurrentUserState {
+  const factory _LogoutSuccess() = _$LogoutSuccessImpl;
 }
 
 /// @nodoc
@@ -546,6 +690,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) {
     return failure(this.failure);
@@ -557,6 +702,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) {
     return failure?.call(this.failure);
@@ -568,6 +714,7 @@ class _$FailureImpl implements _Failure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
   }) {
@@ -583,6 +730,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) {
     return failure(this);
@@ -594,6 +742,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) {
     return failure?.call(this);
@@ -605,6 +754,7 @@ class _$FailureImpl implements _Failure {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {

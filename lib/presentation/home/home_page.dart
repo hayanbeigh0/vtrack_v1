@@ -16,13 +16,26 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Home'),
         ),
-        body: BlocBuilder<CurrentUserCubit, CurrentUserState>(
+        body: BlocConsumer<CurrentUserCubit, CurrentUserState>(
+          listener: (context, state) {
+            state.map(
+              initial: (value) {},
+              loading: (value) {},
+              success: (value) {},
+              logoutSuccess: (value) {
+                context.router.replaceNamed('/sign-in');
+              },
+              failure: (value) {},
+            );
+          },
           builder: (context, state) {
             return state.map(
               failure: (value) => Center(
                 child: Text(
                   value.failure
                       .map(
+                        logoutErro: (value) =>
+                            'Could not logout due to some reason!',
                         cancelledByUser: (value) => '',
                         serverError: (value) => 'Server error',
                         userNotFound: (value) => 'User not found!',
@@ -39,13 +52,25 @@ class HomePage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               ),
               success: (value) => Center(
-                child: Text(
-                  value.user.name.value.fold(
-                    (l) => 'Failed',
-                    (r) => r,
-                  ),
+                child: Column(
+                  children: [
+                    Text(
+                      value.user.name.value.fold(
+                        (l) => 'Failed',
+                        (r) => r,
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () =>
+                          BlocProvider.of<CurrentUserCubit>(context).logout(),
+                      child: const Text('Logout'),
+                    ),
+                  ],
                 ),
               ),
+              logoutSuccess: (value) {
+                return const Text('You have been logged out');
+              },
             );
           },
         ),
