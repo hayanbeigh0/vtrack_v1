@@ -102,7 +102,6 @@ class UserRepository extends IUserRepository {
       );
       log(response.data.toString());
       UserDto userDto = UserDto.fromJson(response.data['data']['user']);
-      userDto = userDto.copyWith(accessToken: user.accessToken);
       final User newUser = userDto.toDomain();
 
       return right(newUser);
