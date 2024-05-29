@@ -23,12 +23,7 @@ class OrganisationRepository extends IOrganisationRepository {
     try {
       final Response response = await dio.post(
         '/users/signup',
-        data: {
-          "name": organisation.name,
-          "address": organisation.address,
-          "code": organisation.code,
-          "vehicles": organisation.vehicles,
-        },
+        data: OrganisationDto.fromDomain(organisation).toJson(),
       );
       log(response.data.toString());
       return right(unit);
