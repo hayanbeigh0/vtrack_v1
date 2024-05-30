@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vtrack_v1/application/current_user/current_user_cubit.dart';
+import 'package:vtrack_v1/application/current_user/current_user_cubit/current_user_cubit.dart';
 import 'package:vtrack_v1/injection.dart';
 
 @RoutePage()
@@ -31,10 +31,13 @@ class HomePage extends StatelessWidget {
             );
           },
           builder: (context, state) {
-            return state.map(
+            return state.maybeWhen(
+              orElse: () => const Center(
+                child: Text('Something went wrong!'),
+              ),
               failure: (value) => Center(
                 child: Text(
-                  value.failure
+                  value
                       .map(
                         logoutErro: (value) =>
                             'Could not logout due to some reason!',
@@ -47,27 +50,14 @@ class HomePage extends StatelessWidget {
                       .toString(),
                 ),
               ),
-              initial: (value) => const Center(
+              loading: () => const Center(
                 child: CircularProgressIndicator(),
               ),
-              loading: (value) => const Center(
-                child: CircularProgressIndicator(),
-              ),
-              allOrgUsers: (value) {
-                return Text(
-                  value.users.length.toString(),
-                );
-              },
-              allUsers: (value) {
-                return Text(
-                  value.users.length.toString(),
-                );
-              },
               success: (value) => Center(
                 child: Column(
                   children: [
                     Text(
-                      value.user.name.value.fold(
+                      value.name.value.fold(
                         (l) => 'Failed',
                         (r) => r,
                       ),
@@ -80,8 +70,10 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              logoutSuccess: (value) {
-                return const Text('You have been logged out');
+              logoutSuccess: () {
+                return const Center(
+                  child: Text('You have been logged out'),
+                );
               },
             );
           },
