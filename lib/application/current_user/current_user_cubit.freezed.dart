@@ -21,6 +21,8 @@ mixin _$CurrentUserState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function(List<User> users) allOrgUsers,
+    required TResult Function(List<User> users) allUsers,
     required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) =>
@@ -30,6 +32,8 @@ mixin _$CurrentUserState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function(List<User> users)? allOrgUsers,
+    TResult? Function(List<User> users)? allUsers,
     TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) =>
@@ -39,6 +43,8 @@ mixin _$CurrentUserState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function(List<User> users)? allOrgUsers,
+    TResult Function(List<User> users)? allUsers,
     TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
@@ -49,6 +55,8 @@ mixin _$CurrentUserState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_AllOrgUsers value) allOrgUsers,
+    required TResult Function(_AllUsers value) allUsers,
     required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) =>
@@ -58,6 +66,8 @@ mixin _$CurrentUserState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AllOrgUsers value)? allOrgUsers,
+    TResult? Function(_AllUsers value)? allUsers,
     TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) =>
@@ -67,6 +77,8 @@ mixin _$CurrentUserState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_AllOrgUsers value)? allOrgUsers,
+    TResult Function(_AllUsers value)? allUsers,
     TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -133,6 +145,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function(List<User> users) allOrgUsers,
+    required TResult Function(List<User> users) allUsers,
     required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) {
@@ -145,6 +159,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function(List<User> users)? allOrgUsers,
+    TResult? Function(List<User> users)? allUsers,
     TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) {
@@ -157,6 +173,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function(List<User> users)? allOrgUsers,
+    TResult Function(List<User> users)? allUsers,
     TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
@@ -173,6 +191,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_AllOrgUsers value) allOrgUsers,
+    required TResult Function(_AllUsers value) allUsers,
     required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) {
@@ -185,6 +205,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AllOrgUsers value)? allOrgUsers,
+    TResult? Function(_AllUsers value)? allUsers,
     TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -197,6 +219,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_AllOrgUsers value)? allOrgUsers,
+    TResult Function(_AllUsers value)? allUsers,
     TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -253,6 +277,8 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function(List<User> users) allOrgUsers,
+    required TResult Function(List<User> users) allUsers,
     required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) {
@@ -265,6 +291,8 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function(List<User> users)? allOrgUsers,
+    TResult? Function(List<User> users)? allUsers,
     TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) {
@@ -277,6 +305,8 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function(List<User> users)? allOrgUsers,
+    TResult Function(List<User> users)? allUsers,
     TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
@@ -293,6 +323,8 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_AllOrgUsers value) allOrgUsers,
+    required TResult Function(_AllUsers value) allUsers,
     required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) {
@@ -305,6 +337,8 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AllOrgUsers value)? allOrgUsers,
+    TResult? Function(_AllUsers value)? allUsers,
     TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -317,6 +351,8 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_AllOrgUsers value)? allOrgUsers,
+    TResult Function(_AllUsers value)? allUsers,
     TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -409,6 +445,8 @@ class _$SuccessImpl implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function(List<User> users) allOrgUsers,
+    required TResult Function(List<User> users) allUsers,
     required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) {
@@ -421,6 +459,8 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function(List<User> users)? allOrgUsers,
+    TResult? Function(List<User> users)? allUsers,
     TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) {
@@ -433,6 +473,8 @@ class _$SuccessImpl implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function(List<User> users)? allOrgUsers,
+    TResult Function(List<User> users)? allUsers,
     TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
@@ -449,6 +491,8 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_AllOrgUsers value) allOrgUsers,
+    required TResult Function(_AllUsers value) allUsers,
     required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) {
@@ -461,6 +505,8 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AllOrgUsers value)? allOrgUsers,
+    TResult? Function(_AllUsers value)? allUsers,
     TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -473,6 +519,8 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_AllOrgUsers value)? allOrgUsers,
+    TResult Function(_AllUsers value)? allUsers,
     TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -490,6 +538,345 @@ abstract class _Success implements CurrentUserState {
   User get user;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AllOrgUsersImplCopyWith<$Res> {
+  factory _$$AllOrgUsersImplCopyWith(
+          _$AllOrgUsersImpl value, $Res Function(_$AllOrgUsersImpl) then) =
+      __$$AllOrgUsersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<User> users});
+}
+
+/// @nodoc
+class __$$AllOrgUsersImplCopyWithImpl<$Res>
+    extends _$CurrentUserStateCopyWithImpl<$Res, _$AllOrgUsersImpl>
+    implements _$$AllOrgUsersImplCopyWith<$Res> {
+  __$$AllOrgUsersImplCopyWithImpl(
+      _$AllOrgUsersImpl _value, $Res Function(_$AllOrgUsersImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? users = null,
+  }) {
+    return _then(_$AllOrgUsersImpl(
+      users: null == users
+          ? _value._users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<User>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AllOrgUsersImpl implements _AllOrgUsers {
+  const _$AllOrgUsersImpl({required final List<User> users}) : _users = users;
+
+  final List<User> _users;
+  @override
+  List<User> get users {
+    if (_users is EqualUnmodifiableListView) return _users;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_users);
+  }
+
+  @override
+  String toString() {
+    return 'CurrentUserState.allOrgUsers(users: $users)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AllOrgUsersImpl &&
+            const DeepCollectionEquality().equals(other._users, _users));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_users));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AllOrgUsersImplCopyWith<_$AllOrgUsersImpl> get copyWith =>
+      __$$AllOrgUsersImplCopyWithImpl<_$AllOrgUsersImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(User user) success,
+    required TResult Function(List<User> users) allOrgUsers,
+    required TResult Function(List<User> users) allUsers,
+    required TResult Function() logoutSuccess,
+    required TResult Function(UserFailure failure) failure,
+  }) {
+    return allOrgUsers(users);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? success,
+    TResult? Function(List<User> users)? allOrgUsers,
+    TResult? Function(List<User> users)? allUsers,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(UserFailure failure)? failure,
+  }) {
+    return allOrgUsers?.call(users);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(User user)? success,
+    TResult Function(List<User> users)? allOrgUsers,
+    TResult Function(List<User> users)? allUsers,
+    TResult Function()? logoutSuccess,
+    TResult Function(UserFailure failure)? failure,
+    required TResult orElse(),
+  }) {
+    if (allOrgUsers != null) {
+      return allOrgUsers(users);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_AllOrgUsers value) allOrgUsers,
+    required TResult Function(_AllUsers value) allUsers,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return allOrgUsers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_AllOrgUsers value)? allOrgUsers,
+    TResult? Function(_AllUsers value)? allUsers,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return allOrgUsers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_AllOrgUsers value)? allOrgUsers,
+    TResult Function(_AllUsers value)? allUsers,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (allOrgUsers != null) {
+      return allOrgUsers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AllOrgUsers implements CurrentUserState {
+  const factory _AllOrgUsers({required final List<User> users}) =
+      _$AllOrgUsersImpl;
+
+  List<User> get users;
+  @JsonKey(ignore: true)
+  _$$AllOrgUsersImplCopyWith<_$AllOrgUsersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AllUsersImplCopyWith<$Res> {
+  factory _$$AllUsersImplCopyWith(
+          _$AllUsersImpl value, $Res Function(_$AllUsersImpl) then) =
+      __$$AllUsersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<User> users});
+}
+
+/// @nodoc
+class __$$AllUsersImplCopyWithImpl<$Res>
+    extends _$CurrentUserStateCopyWithImpl<$Res, _$AllUsersImpl>
+    implements _$$AllUsersImplCopyWith<$Res> {
+  __$$AllUsersImplCopyWithImpl(
+      _$AllUsersImpl _value, $Res Function(_$AllUsersImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? users = null,
+  }) {
+    return _then(_$AllUsersImpl(
+      users: null == users
+          ? _value._users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<User>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AllUsersImpl implements _AllUsers {
+  const _$AllUsersImpl({required final List<User> users}) : _users = users;
+
+  final List<User> _users;
+  @override
+  List<User> get users {
+    if (_users is EqualUnmodifiableListView) return _users;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_users);
+  }
+
+  @override
+  String toString() {
+    return 'CurrentUserState.allUsers(users: $users)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AllUsersImpl &&
+            const DeepCollectionEquality().equals(other._users, _users));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_users));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AllUsersImplCopyWith<_$AllUsersImpl> get copyWith =>
+      __$$AllUsersImplCopyWithImpl<_$AllUsersImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(User user) success,
+    required TResult Function(List<User> users) allOrgUsers,
+    required TResult Function(List<User> users) allUsers,
+    required TResult Function() logoutSuccess,
+    required TResult Function(UserFailure failure) failure,
+  }) {
+    return allUsers(users);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? success,
+    TResult? Function(List<User> users)? allOrgUsers,
+    TResult? Function(List<User> users)? allUsers,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(UserFailure failure)? failure,
+  }) {
+    return allUsers?.call(users);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(User user)? success,
+    TResult Function(List<User> users)? allOrgUsers,
+    TResult Function(List<User> users)? allUsers,
+    TResult Function()? logoutSuccess,
+    TResult Function(UserFailure failure)? failure,
+    required TResult orElse(),
+  }) {
+    if (allUsers != null) {
+      return allUsers(users);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_AllOrgUsers value) allOrgUsers,
+    required TResult Function(_AllUsers value) allUsers,
+    required TResult Function(_LogoutSuccess value) logoutSuccess,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return allUsers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_AllOrgUsers value)? allOrgUsers,
+    TResult? Function(_AllUsers value)? allUsers,
+    TResult? Function(_LogoutSuccess value)? logoutSuccess,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return allUsers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_AllOrgUsers value)? allOrgUsers,
+    TResult Function(_AllUsers value)? allUsers,
+    TResult Function(_LogoutSuccess value)? logoutSuccess,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (allUsers != null) {
+      return allUsers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AllUsers implements CurrentUserState {
+  const factory _AllUsers({required final List<User> users}) = _$AllUsersImpl;
+
+  List<User> get users;
+  @JsonKey(ignore: true)
+  _$$AllUsersImplCopyWith<_$AllUsersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -534,6 +921,8 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function(List<User> users) allOrgUsers,
+    required TResult Function(List<User> users) allUsers,
     required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) {
@@ -546,6 +935,8 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function(List<User> users)? allOrgUsers,
+    TResult? Function(List<User> users)? allUsers,
     TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) {
@@ -558,6 +949,8 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function(List<User> users)? allOrgUsers,
+    TResult Function(List<User> users)? allUsers,
     TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
@@ -574,6 +967,8 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_AllOrgUsers value) allOrgUsers,
+    required TResult Function(_AllUsers value) allUsers,
     required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) {
@@ -586,6 +981,8 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AllOrgUsers value)? allOrgUsers,
+    TResult? Function(_AllUsers value)? allUsers,
     TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -598,6 +995,8 @@ class _$LogoutSuccessImpl implements _LogoutSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_AllOrgUsers value)? allOrgUsers,
+    TResult Function(_AllUsers value)? allUsers,
     TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
@@ -690,6 +1089,8 @@ class _$FailureImpl implements _Failure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(User user) success,
+    required TResult Function(List<User> users) allOrgUsers,
+    required TResult Function(List<User> users) allUsers,
     required TResult Function() logoutSuccess,
     required TResult Function(UserFailure failure) failure,
   }) {
@@ -702,6 +1103,8 @@ class _$FailureImpl implements _Failure {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(User user)? success,
+    TResult? Function(List<User> users)? allOrgUsers,
+    TResult? Function(List<User> users)? allUsers,
     TResult? Function()? logoutSuccess,
     TResult? Function(UserFailure failure)? failure,
   }) {
@@ -714,6 +1117,8 @@ class _$FailureImpl implements _Failure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(User user)? success,
+    TResult Function(List<User> users)? allOrgUsers,
+    TResult Function(List<User> users)? allUsers,
     TResult Function()? logoutSuccess,
     TResult Function(UserFailure failure)? failure,
     required TResult orElse(),
@@ -730,6 +1135,8 @@ class _$FailureImpl implements _Failure {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_AllOrgUsers value) allOrgUsers,
+    required TResult Function(_AllUsers value) allUsers,
     required TResult Function(_LogoutSuccess value) logoutSuccess,
     required TResult Function(_Failure value) failure,
   }) {
@@ -742,6 +1149,8 @@ class _$FailureImpl implements _Failure {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_AllOrgUsers value)? allOrgUsers,
+    TResult? Function(_AllUsers value)? allUsers,
     TResult? Function(_LogoutSuccess value)? logoutSuccess,
     TResult? Function(_Failure value)? failure,
   }) {
@@ -754,6 +1163,8 @@ class _$FailureImpl implements _Failure {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_AllOrgUsers value)? allOrgUsers,
+    TResult Function(_AllUsers value)? allUsers,
     TResult Function(_LogoutSuccess value)? logoutSuccess,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),

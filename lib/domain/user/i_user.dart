@@ -4,9 +4,12 @@ import 'package:vtrack_v1/domain/user/user_failure.dart';
 
 abstract class IUserRepository {
   Future<Either<UserFailure, User>> getSignedInUser();
-  Future<Either<UserFailure, List<User>>> getAllUsers();
+  Future<Either<UserFailure, List<User>>> getAllUsers({
+    required int pageNumber,
+  });
   Future<Either<UserFailure, List<User>>> getAllOrgUsers({
     required String organisationId,
+    required int pageNumber,
   });
   Future<Either<UserFailure, User>> getUserById({
     required String userId,

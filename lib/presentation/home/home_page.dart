@@ -19,6 +19,8 @@ class HomePage extends StatelessWidget {
         body: BlocConsumer<CurrentUserCubit, CurrentUserState>(
           listener: (context, state) {
             state.map(
+              allOrgUsers: (value) {},
+              allUsers: (value) {},
               initial: (value) {},
               loading: (value) {},
               success: (value) {},
@@ -51,6 +53,16 @@ class HomePage extends StatelessWidget {
               loading: (value) => const Center(
                 child: CircularProgressIndicator(),
               ),
+              allOrgUsers: (value) {
+                return Text(
+                  value.users.length.toString(),
+                );
+              },
+              allUsers: (value) {
+                return Text(
+                  value.users.length.toString(),
+                );
+              },
               success: (value) => Center(
                 child: Column(
                   children: [

@@ -131,9 +131,8 @@ class UserRepository extends IUserRepository {
   }
 
   @override
-  Future<Either<UserFailure, List<User>>> getAllOrgUsers({
-    required String organisationId,
-  }) async {
+  Future<Either<UserFailure, List<User>>> getAllOrgUsers(
+      {required String organisationId, required int pageNumber}) async {
     try {
       final Response response = await dio.get(
         '/users/getAllOrgUsers/$organisationId',
@@ -153,7 +152,9 @@ class UserRepository extends IUserRepository {
   }
 
   @override
-  Future<Either<UserFailure, List<User>>> getAllUsers() async {
+  Future<Either<UserFailure, List<User>>> getAllUsers({
+    required int pageNumber,
+  }) async {
     try {
       final Response response = await dio.get(
         '/users',

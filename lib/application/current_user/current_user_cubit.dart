@@ -34,6 +34,34 @@ class CurrentUserCubit extends Cubit<CurrentUserState> {
     });
   }
 
+  getAllOrgUsers({
+    required int pageNumber,
+    required String organisationId,
+  }) async {
+    final Either<UserFailure, List<User>> userOrFailure =
+        await _userRepository.getAllOrgUsers(
+      organisationId: organisationId,
+      pageNumber: pageNumber,
+    );
+    return userOrFailure.fold((f) => emit(CurrentUserState.failure(failure: f)),
+        (users) async {
+      return emit(CurrentUserState.allOrgUsers(users: users));
+    });
+  }
+
+  getAllUsers({
+    required int pageNumber,
+  }) async {
+    final Either<UserFailure, List<User>> userOrFailure =
+        await _userRepository.getAllUsers(
+      pageNumber: pageNumber,
+    );
+    return userOrFailure.fold((f) => emit(CurrentUserState.failure(failure: f)),
+        (users) async {
+      return emit(CurrentUserState.allUsers(users: users));
+    });
+  }
+
   updateMe({required User user}) async {
     final Either<UserFailure, User> userOrFailure =
         await _userRepository.updateMe(
