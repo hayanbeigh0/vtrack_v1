@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,16 +19,24 @@ class HomePage extends StatelessWidget {
         ),
         body: BlocConsumer<CurrentUserCubit, CurrentUserState>(
           listener: (context, state) {
-            state.map(
-              allOrgUsers: (value) {},
-              allUsers: (value) {},
-              initial: (value) {},
-              loading: (value) {},
-              success: (value) {},
-              logoutSuccess: (value) {
+            state.maybeWhen(
+              orElse: () {},
+              logoutSuccess: () {
                 context.router.replaceNamed('/sign-in');
               },
-              failure: (value) {},
+              failure: (failure) {
+                FlushbarHelper.createError(
+                  message: failure.maybeMap(
+                    orElse: () => 'Something went wrong!',
+                    cancelledByUser: (_) => 'Cancelled',
+                    serverError: (_) => 'Server Error',
+                    unAuthenticated: (value) => 'You are not authenticated!',
+                    unKnownError: (value) => 'Unknown error occurred!',
+                    userNotFound: (value) => 'User not found!',
+                    logoutErro: (value) => 'Could not logout!',
+                  ),
+                ).show(context);
+              },
             );
           },
           builder: (context, state) {
