@@ -131,6 +131,34 @@ class VehicleRepository implements IVehicleRepository {
     required List<VehiclePickupLocation> vehiclePickupLocations,
   }) async {
     try {
+      final Response response = await dio.post(
+        '/vehicles/getPickupLocations/$vehicleId',
+        data: vehiclePickupLocations.map(
+          (el) => VehiclePickupLocationsDto.fromDomain(el).toJson(),
+        ),
+      );
+      log(response.data.toString());
+      final List<VehiclePickupLocation> newPickupLocations = response
+          .data['pickupLocations']
+          .map((el) => VehicleDto.fromDomain(el).toDomain())
+          .toList();
+
+      return right(newPickupLocations);
+    } on DioException catch (e) {
+      log('Error while getting pickup locations for vehicle: $e');
+      return left(const VehicleFailure.serverError());
+    } catch (e) {
+      log('Error while getting pickup locations for vehicle: $e');
+      return left(const VehicleFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<VehicleFailure, List<VehiclePickupLocation>>>
+      getVehiclePickupLocations({
+    required String vehicleId,
+  }) async {
+    try {
       final Response response = await dio.get(
         '/vehicles/getPickupLocations/$vehicleId',
       );
@@ -151,19 +179,24 @@ class VehicleRepository implements IVehicleRepository {
   }
 
   @override
-  Future<Either<VehicleFailure, List<VehiclePickupLocation>>>
-      getVehiclePickupLocations({
-    required String vehicleId,
-  }) {
-    // TODO: implement getVehiclePickupLocations
-    throw UnimplementedError();
-  }
-
-  @override
   Future<Either<VehicleFailure, Vehicle>> updateVehicleById({
     required Vehicle vehicle,
-  }) {
-    // TODO: implement updateVehicleById
-    throw UnimplementedError();
+  }) async {
+    try {
+      final Response response = await dio.patch(
+        '/vehicles/${vehicle.id}',
+        data: VehicleDto.fromDomain(vehicle).toJson(),
+      );
+      log(response.data.toString());
+      final newVehicle =
+          VehicleDto.fromJson(response.data['data']['data']).toDomain();
+      return right(newVehicle);
+    } on DioException catch (e) {
+      log('Error while updating the vehicle: $e');
+      return left(const VehicleFailure.serverError());
+    } catch (e) {
+      log('Error while updating the vehicle: $e');
+      return left(const VehicleFailure.serverError());
+    }
   }
 }
