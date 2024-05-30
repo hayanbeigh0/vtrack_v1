@@ -197,7 +197,7 @@ class __$$OrganisationImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OrganisationImpl implements _Organisation {
+class _$OrganisationImpl extends _Organisation {
   const _$OrganisationImpl(
       {this.id,
       this.role,
@@ -208,7 +208,8 @@ class _$OrganisationImpl implements _Organisation {
       this.createdBy,
       this.createdAt,
       required final List<String> vehicles})
-      : _vehicles = vehicles;
+      : _vehicles = vehicles,
+        super._();
 
   @override
   final String? id;
@@ -277,7 +278,7 @@ class _$OrganisationImpl implements _Organisation {
       __$$OrganisationImplCopyWithImpl<_$OrganisationImpl>(this, _$identity);
 }
 
-abstract class _Organisation implements Organisation {
+abstract class _Organisation extends Organisation {
   const factory _Organisation(
       {final String? id,
       final String? role,
@@ -288,6 +289,7 @@ abstract class _Organisation implements Organisation {
       final String? createdBy,
       final String? createdAt,
       required final List<String> vehicles}) = _$OrganisationImpl;
+  const _Organisation._() : super._();
 
   @override
   String? get id;

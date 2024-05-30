@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$OrganisationFailure {
+mixin _$OrganisationFailure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
@@ -43,44 +43,45 @@ mixin _$OrganisationFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(DuplicateOrganisationCode value)
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(DuplicateOrganisationCode<T> value)
         duplicateOrganisationCode,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(DuplicateOrganisationCode value)?
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(DuplicateOrganisationCode<T> value)?
         duplicateOrganisationCode,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(DuplicateOrganisationCode value)?
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(DuplicateOrganisationCode<T> value)?
         duplicateOrganisationCode,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OrganisationFailureCopyWith<$Res> {
-  factory $OrganisationFailureCopyWith(
-          OrganisationFailure value, $Res Function(OrganisationFailure) then) =
-      _$OrganisationFailureCopyWithImpl<$Res, OrganisationFailure>;
+abstract class $OrganisationFailureCopyWith<T, $Res> {
+  factory $OrganisationFailureCopyWith(OrganisationFailure<T> value,
+          $Res Function(OrganisationFailure<T>) then) =
+      _$OrganisationFailureCopyWithImpl<T, $Res, OrganisationFailure<T>>;
 }
 
 /// @nodoc
-class _$OrganisationFailureCopyWithImpl<$Res, $Val extends OrganisationFailure>
-    implements $OrganisationFailureCopyWith<$Res> {
+class _$OrganisationFailureCopyWithImpl<T, $Res,
+        $Val extends OrganisationFailure<T>>
+    implements $OrganisationFailureCopyWith<T, $Res> {
   _$OrganisationFailureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -90,35 +91,35 @@ class _$OrganisationFailureCopyWithImpl<$Res, $Val extends OrganisationFailure>
 }
 
 /// @nodoc
-abstract class _$$CancelledByUserImplCopyWith<$Res> {
-  factory _$$CancelledByUserImplCopyWith(_$CancelledByUserImpl value,
-          $Res Function(_$CancelledByUserImpl) then) =
-      __$$CancelledByUserImplCopyWithImpl<$Res>;
+abstract class _$$CancelledByUserImplCopyWith<T, $Res> {
+  factory _$$CancelledByUserImplCopyWith(_$CancelledByUserImpl<T> value,
+          $Res Function(_$CancelledByUserImpl<T>) then) =
+      __$$CancelledByUserImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$CancelledByUserImplCopyWithImpl<$Res>
-    extends _$OrganisationFailureCopyWithImpl<$Res, _$CancelledByUserImpl>
-    implements _$$CancelledByUserImplCopyWith<$Res> {
-  __$$CancelledByUserImplCopyWithImpl(
-      _$CancelledByUserImpl _value, $Res Function(_$CancelledByUserImpl) _then)
+class __$$CancelledByUserImplCopyWithImpl<T, $Res>
+    extends _$OrganisationFailureCopyWithImpl<T, $Res, _$CancelledByUserImpl<T>>
+    implements _$$CancelledByUserImplCopyWith<T, $Res> {
+  __$$CancelledByUserImplCopyWithImpl(_$CancelledByUserImpl<T> _value,
+      $Res Function(_$CancelledByUserImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CancelledByUserImpl implements CancelledByUser {
+class _$CancelledByUserImpl<T> implements CancelledByUser<T> {
   const _$CancelledByUserImpl();
 
   @override
   String toString() {
-    return 'OrganisationFailure.cancelledByUser()';
+    return 'OrganisationFailure<$T>.cancelledByUser()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CancelledByUserImpl);
+        (other.runtimeType == runtimeType && other is _$CancelledByUserImpl<T>);
   }
 
   @override
@@ -164,11 +165,11 @@ class _$CancelledByUserImpl implements CancelledByUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(DuplicateOrganisationCode value)
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(DuplicateOrganisationCode<T> value)
         duplicateOrganisationCode,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
   }) {
     return cancelledByUser(this);
   }
@@ -176,11 +177,11 @@ class _$CancelledByUserImpl implements CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(DuplicateOrganisationCode value)?
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(DuplicateOrganisationCode<T> value)?
         duplicateOrganisationCode,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -188,11 +189,11 @@ class _$CancelledByUserImpl implements CancelledByUser {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(DuplicateOrganisationCode value)?
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(DuplicateOrganisationCode<T> value)?
         duplicateOrganisationCode,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -202,40 +203,40 @@ class _$CancelledByUserImpl implements CancelledByUser {
   }
 }
 
-abstract class CancelledByUser implements OrganisationFailure {
-  const factory CancelledByUser() = _$CancelledByUserImpl;
+abstract class CancelledByUser<T> implements OrganisationFailure<T> {
+  const factory CancelledByUser() = _$CancelledByUserImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$ServerErrorImplCopyWith<$Res> {
-  factory _$$ServerErrorImplCopyWith(
-          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
-      __$$ServerErrorImplCopyWithImpl<$Res>;
+abstract class _$$ServerErrorImplCopyWith<T, $Res> {
+  factory _$$ServerErrorImplCopyWith(_$ServerErrorImpl<T> value,
+          $Res Function(_$ServerErrorImpl<T>) then) =
+      __$$ServerErrorImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$ServerErrorImplCopyWithImpl<$Res>
-    extends _$OrganisationFailureCopyWithImpl<$Res, _$ServerErrorImpl>
-    implements _$$ServerErrorImplCopyWith<$Res> {
+class __$$ServerErrorImplCopyWithImpl<T, $Res>
+    extends _$OrganisationFailureCopyWithImpl<T, $Res, _$ServerErrorImpl<T>>
+    implements _$$ServerErrorImplCopyWith<T, $Res> {
   __$$ServerErrorImplCopyWithImpl(
-      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
+      _$ServerErrorImpl<T> _value, $Res Function(_$ServerErrorImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ServerErrorImpl implements ServerError {
+class _$ServerErrorImpl<T> implements ServerError<T> {
   const _$ServerErrorImpl();
 
   @override
   String toString() {
-    return 'OrganisationFailure.serverError()';
+    return 'OrganisationFailure<$T>.serverError()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ServerErrorImpl);
+        (other.runtimeType == runtimeType && other is _$ServerErrorImpl<T>);
   }
 
   @override
@@ -281,11 +282,11 @@ class _$ServerErrorImpl implements ServerError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(DuplicateOrganisationCode value)
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(DuplicateOrganisationCode<T> value)
         duplicateOrganisationCode,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
   }) {
     return serverError(this);
   }
@@ -293,11 +294,11 @@ class _$ServerErrorImpl implements ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(DuplicateOrganisationCode value)?
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(DuplicateOrganisationCode<T> value)?
         duplicateOrganisationCode,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
   }) {
     return serverError?.call(this);
   }
@@ -305,11 +306,11 @@ class _$ServerErrorImpl implements ServerError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(DuplicateOrganisationCode value)?
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(DuplicateOrganisationCode<T> value)?
         duplicateOrganisationCode,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -319,44 +320,45 @@ class _$ServerErrorImpl implements ServerError {
   }
 }
 
-abstract class ServerError implements OrganisationFailure {
-  const factory ServerError() = _$ServerErrorImpl;
+abstract class ServerError<T> implements OrganisationFailure<T> {
+  const factory ServerError() = _$ServerErrorImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$DuplicateOrganisationCodeImplCopyWith<$Res> {
+abstract class _$$DuplicateOrganisationCodeImplCopyWith<T, $Res> {
   factory _$$DuplicateOrganisationCodeImplCopyWith(
-          _$DuplicateOrganisationCodeImpl value,
-          $Res Function(_$DuplicateOrganisationCodeImpl) then) =
-      __$$DuplicateOrganisationCodeImplCopyWithImpl<$Res>;
+          _$DuplicateOrganisationCodeImpl<T> value,
+          $Res Function(_$DuplicateOrganisationCodeImpl<T>) then) =
+      __$$DuplicateOrganisationCodeImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$DuplicateOrganisationCodeImplCopyWithImpl<$Res>
-    extends _$OrganisationFailureCopyWithImpl<$Res,
-        _$DuplicateOrganisationCodeImpl>
-    implements _$$DuplicateOrganisationCodeImplCopyWith<$Res> {
+class __$$DuplicateOrganisationCodeImplCopyWithImpl<T, $Res>
+    extends _$OrganisationFailureCopyWithImpl<T, $Res,
+        _$DuplicateOrganisationCodeImpl<T>>
+    implements _$$DuplicateOrganisationCodeImplCopyWith<T, $Res> {
   __$$DuplicateOrganisationCodeImplCopyWithImpl(
-      _$DuplicateOrganisationCodeImpl _value,
-      $Res Function(_$DuplicateOrganisationCodeImpl) _then)
+      _$DuplicateOrganisationCodeImpl<T> _value,
+      $Res Function(_$DuplicateOrganisationCodeImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DuplicateOrganisationCodeImpl implements DuplicateOrganisationCode {
+class _$DuplicateOrganisationCodeImpl<T>
+    implements DuplicateOrganisationCode<T> {
   const _$DuplicateOrganisationCodeImpl();
 
   @override
   String toString() {
-    return 'OrganisationFailure.duplicateOrganisationCode()';
+    return 'OrganisationFailure<$T>.duplicateOrganisationCode()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DuplicateOrganisationCodeImpl);
+            other is _$DuplicateOrganisationCodeImpl<T>);
   }
 
   @override
@@ -402,11 +404,11 @@ class _$DuplicateOrganisationCodeImpl implements DuplicateOrganisationCode {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(DuplicateOrganisationCode value)
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(DuplicateOrganisationCode<T> value)
         duplicateOrganisationCode,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
   }) {
     return duplicateOrganisationCode(this);
   }
@@ -414,11 +416,11 @@ class _$DuplicateOrganisationCodeImpl implements DuplicateOrganisationCode {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(DuplicateOrganisationCode value)?
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(DuplicateOrganisationCode<T> value)?
         duplicateOrganisationCode,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
   }) {
     return duplicateOrganisationCode?.call(this);
   }
@@ -426,11 +428,11 @@ class _$DuplicateOrganisationCodeImpl implements DuplicateOrganisationCode {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(DuplicateOrganisationCode value)?
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(DuplicateOrganisationCode<T> value)?
         duplicateOrganisationCode,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
     required TResult orElse(),
   }) {
     if (duplicateOrganisationCode != null) {
@@ -440,40 +442,41 @@ class _$DuplicateOrganisationCodeImpl implements DuplicateOrganisationCode {
   }
 }
 
-abstract class DuplicateOrganisationCode implements OrganisationFailure {
-  const factory DuplicateOrganisationCode() = _$DuplicateOrganisationCodeImpl;
+abstract class DuplicateOrganisationCode<T> implements OrganisationFailure<T> {
+  const factory DuplicateOrganisationCode() =
+      _$DuplicateOrganisationCodeImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$UnAuthenticatedImplCopyWith<$Res> {
-  factory _$$UnAuthenticatedImplCopyWith(_$UnAuthenticatedImpl value,
-          $Res Function(_$UnAuthenticatedImpl) then) =
-      __$$UnAuthenticatedImplCopyWithImpl<$Res>;
+abstract class _$$UnAuthenticatedImplCopyWith<T, $Res> {
+  factory _$$UnAuthenticatedImplCopyWith(_$UnAuthenticatedImpl<T> value,
+          $Res Function(_$UnAuthenticatedImpl<T>) then) =
+      __$$UnAuthenticatedImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$UnAuthenticatedImplCopyWithImpl<$Res>
-    extends _$OrganisationFailureCopyWithImpl<$Res, _$UnAuthenticatedImpl>
-    implements _$$UnAuthenticatedImplCopyWith<$Res> {
-  __$$UnAuthenticatedImplCopyWithImpl(
-      _$UnAuthenticatedImpl _value, $Res Function(_$UnAuthenticatedImpl) _then)
+class __$$UnAuthenticatedImplCopyWithImpl<T, $Res>
+    extends _$OrganisationFailureCopyWithImpl<T, $Res, _$UnAuthenticatedImpl<T>>
+    implements _$$UnAuthenticatedImplCopyWith<T, $Res> {
+  __$$UnAuthenticatedImplCopyWithImpl(_$UnAuthenticatedImpl<T> _value,
+      $Res Function(_$UnAuthenticatedImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UnAuthenticatedImpl implements UnAuthenticated {
+class _$UnAuthenticatedImpl<T> implements UnAuthenticated<T> {
   const _$UnAuthenticatedImpl();
 
   @override
   String toString() {
-    return 'OrganisationFailure.unAuthenticated()';
+    return 'OrganisationFailure<$T>.unAuthenticated()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnAuthenticatedImpl);
+        (other.runtimeType == runtimeType && other is _$UnAuthenticatedImpl<T>);
   }
 
   @override
@@ -519,11 +522,11 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(DuplicateOrganisationCode value)
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(DuplicateOrganisationCode<T> value)
         duplicateOrganisationCode,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
   }) {
     return unAuthenticated(this);
   }
@@ -531,11 +534,11 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(DuplicateOrganisationCode value)?
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(DuplicateOrganisationCode<T> value)?
         duplicateOrganisationCode,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
   }) {
     return unAuthenticated?.call(this);
   }
@@ -543,11 +546,11 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(DuplicateOrganisationCode value)?
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(DuplicateOrganisationCode<T> value)?
         duplicateOrganisationCode,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
     required TResult orElse(),
   }) {
     if (unAuthenticated != null) {
@@ -557,6 +560,6 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
   }
 }
 
-abstract class UnAuthenticated implements OrganisationFailure {
-  const factory UnAuthenticated() = _$UnAuthenticatedImpl;
+abstract class UnAuthenticated<T> implements OrganisationFailure<T> {
+  const factory UnAuthenticated() = _$UnAuthenticatedImpl<T>;
 }

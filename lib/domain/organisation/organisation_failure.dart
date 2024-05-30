@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'organisation_failure.freezed.dart';
 @freezed
-abstract class OrganisationFailure with _$OrganisationFailure{
+abstract class OrganisationFailure<T> with _$OrganisationFailure<T>{
   const factory OrganisationFailure.cancelledByUser() = CancelledByUser;
   const factory OrganisationFailure.serverError() = ServerError;
   const factory OrganisationFailure.duplicateOrganisationCode() = DuplicateOrganisationCode;

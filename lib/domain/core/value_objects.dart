@@ -15,6 +15,13 @@ abstract class ValueObject<T, I> {
     );
   }
 
+  Either<I, Unit> get failureOrUnit {
+    return value.fold(
+      (l) => left(l),
+      (r) => right(unit),
+    );
+  }
+
   bool isValid() => value.isRight();
 
   @override
