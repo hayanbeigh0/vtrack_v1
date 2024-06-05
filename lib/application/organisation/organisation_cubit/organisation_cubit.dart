@@ -14,16 +14,6 @@ class OrganisationCubit extends Cubit<OrganisationState> {
       : super(OrganisationState.initial());
 
   addOrganisation({required Organisation organisation}) async {
-    emit(OrganisationState.initial());
-    await _iOrganisationRepository
-        .createOrganisation(
-          organisation: organisation,
-        )
-        .then(
-          (value) => value.fold(
-            (l) => emit(OrganisationState.failed(errorMessage: l.toString())),
-            (r) => emit(OrganisationState.success()),
-          ),
-        );
+    // This job is already done by the OrganisationFormBloc
   }
 }

@@ -1,9 +1,14 @@
+import 'dart:developer';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vtrack_v1/application/current_user/current_user_cubit/current_user_cubit.dart';
 import 'package:vtrack_v1/injection.dart';
+import 'package:vtrack_v1/presentation/home/widgets/associated_vehicles_card.dart';
+import 'package:vtrack_v1/presentation/home/widgets/running_vehicles_card.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -14,13 +19,22 @@ class HomePage extends StatelessWidget {
     return BlocProvider<CurrentUserCubit>(
       create: (context) => getIt<CurrentUserCubit>()..getCurrentSavedUser(),
       child: Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-          title: const Text('Home'),
+          title: Text(
+            'Home',
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
         ),
         body: BlocConsumer<CurrentUserCubit, CurrentUserState>(
           listener: (context, state) {
             state.maybeWhen(
-              orElse: () {},
+              orElse: () {
+                log(
+                  'Home Page BlocConsumer-Listener',
+                  error: 'State emitted not handled!',
+                );
+              },
               logoutSuccess: () {
                 context.router.replaceNamed('/sign-in');
               },
@@ -62,21 +76,71 @@ class HomePage extends StatelessWidget {
               loading: () => const Center(
                 child: CircularProgressIndicator(),
               ),
-              success: (value) => Center(
-                child: Column(
-                  children: [
-                    Text(
-                      value.name.value.fold(
-                        (l) => 'Failed',
-                        (r) => r,
+              success: (value) => SingleChildScrollView(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8.0.w),
+                        child: Text(
+                          'Hi, ${value.name.getOrCrash()}!',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
                       ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () =>
-                          BlocProvider.of<CurrentUserCubit>(context).logout(),
-                      child: const Text('Logout'),
-                    ),
-                  ],
+                      SizedBox(height: 10.h),
+                      Padding(
+                        padding: EdgeInsets.all(8.0.w),
+                        child: Text(
+                          'Associated vehicles',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(fontSize: 14),
+                        ),
+                      ),
+                      SizedBox(height: 5.h),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: 1,
+                        itemBuilder: (context, index) =>
+                            const AssociatedVehiclesCard(
+                          vehicleName: 'My Vehicle - 97 (Allied Tech)',
+                          driverName: 'Imtiyaz',
+                          totalCapacity: '55',
+                          totalStops: '18',
+                          vehicleType: 'Bus',
+                        ),
+                      ),
+                      SizedBox(height: 10.h),
+                      Padding(
+                        padding: EdgeInsets.all(8.0.w),
+                        child: Text(
+                          'Running vehicles',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(fontSize: 14),
+                        ),
+                      ),
+                      SizedBox(height: 5.h),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: 1,
+                        itemBuilder: (context, index) =>
+                            const RunningVehiclesCard(
+                          vehicleName: 'My Vehicle - 97 (Allied Tech)',
+                          arrivingIn: 8,
+                          distanceLeftInMeters: 3000,
+                          remainingCapacity: 8,
+                          speedInMetersPerSecond: 9.72222,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               logoutSuccess: () {
