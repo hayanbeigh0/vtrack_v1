@@ -74,6 +74,7 @@ class AssociatedVehiclesCard extends StatelessWidget {
           Icon(
             Icons.bus_alert,
             size: 80.sp,
+            color: Colors.orange,
           ),
         ],
       ),

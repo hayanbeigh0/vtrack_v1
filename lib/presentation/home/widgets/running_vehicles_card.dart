@@ -53,10 +53,14 @@ class RunningVehiclesCard extends StatelessWidget {
                     text: TextSpan(children: [
                       TextSpan(
                         text: formatDistance(distanceLeftInMeters),
-                        style: Theme.of(context)
-                            .textTheme
-                            .displayLarge!
-                            .copyWith(fontSize: 18),
+                        style:
+                            Theme.of(context).textTheme.displayLarge!.copyWith(
+                                  fontSize: 18,
+                                  color: getColor(
+                                    DataType.distanceRemaining,
+                                    distanceLeftInMeters,
+                                  ),
+                                ),
                       ),
                       TextSpan(
                         text: ' to your pickup point',
@@ -77,10 +81,14 @@ class RunningVehiclesCard extends StatelessWidget {
                       ),
                       TextSpan(
                         text: formatSpeed(speedInMetersPerSecond),
-                        style: Theme.of(context)
-                            .textTheme
-                            .displayLarge!
-                            .copyWith(fontSize: 18),
+                        style:
+                            Theme.of(context).textTheme.displayLarge!.copyWith(
+                                  fontSize: 18,
+                                  color: getColor(
+                                    DataType.speed,
+                                    speedInMetersPerSecond,
+                                  ),
+                                ),
                       ),
                       TextSpan(
                         text: '.',
@@ -97,10 +105,14 @@ class RunningVehiclesCard extends StatelessWidget {
                       ),
                       TextSpan(
                         text: '$remainingCapacity',
-                        style: Theme.of(context)
-                            .textTheme
-                            .displayLarge!
-                            .copyWith(fontSize: 18),
+                        style:
+                            Theme.of(context).textTheme.displayLarge!.copyWith(
+                                  fontSize: 18,
+                                  color: getColor(
+                                    DataType.capacity,
+                                    remainingCapacity.toDouble(),
+                                  ),
+                                ),
                       ),
                       TextSpan(
                         text: '.',
@@ -130,10 +142,13 @@ class RunningVehiclesCard extends StatelessWidget {
                 ),
                 Text(
                   formatTime(arrivingIn),
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(fontSize: 18),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        fontSize: 18,
+                        color: getColor(
+                          DataType.remainingTime,
+                          arrivingIn,
+                        ),
+                      ),
                 ),
               ],
             ),
@@ -174,5 +189,55 @@ class RunningVehiclesCard extends StatelessWidget {
     } else {
       return '>2 hr';
     }
+  }
+}
+
+enum DataType {
+  distanceRemaining,
+  speed,
+  capacity,
+  remainingTime,
+}
+
+Color getColor(DataType dataType, double value) {
+  switch (dataType) {
+    case DataType.remainingTime:
+      if (value < 5 * 60) {
+        // less than 5 minutes
+        return Colors.red;
+      } else if (value < 15 * 60) {
+        // between 5 and 15 minutes
+        return Colors.orange;
+      } else {
+        // more than 15 minutes
+        return Colors.green;
+      }
+    case DataType.distanceRemaining:
+      if (value < 1 * 1000) {
+        // less than 1 km
+        return Colors.red;
+      } else if (value < 4 * 1000) {
+        // between 1 and 4 km
+        return Colors.orange;
+      } else {
+        // more than 4 km
+        return Colors.green;
+      }
+    case DataType.capacity:
+      if (value < 5) {
+        // less than 5
+        return Colors.red;
+      } else if (value < 9) {
+        // between 5 and 9
+        return Colors.orange;
+      } else {
+        // 9 or more
+        return Colors.green;
+      }
+    case DataType.speed:
+      // Define color logic for speed if needed
+      return Colors.blue; // Placeholder color
+    default:
+      return Colors.grey; // Default color
   }
 }
