@@ -25,6 +25,17 @@ class HomePage extends StatelessWidget {
             'Home',
             style: Theme.of(context).textTheme.displayLarge,
           ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                context.router.pushNamed('/settings');
+              },
+              icon: Icon(
+                Icons.settings,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+          ],
         ),
         body: BlocConsumer<CurrentUserCubit, CurrentUserState>(
           listener: (context, state) {
@@ -149,6 +160,19 @@ class HomePage extends StatelessWidget {
                 );
               },
             );
+          },
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Theme.of(context).primaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100),
+          ),
+          child: const Icon(
+            Icons.notifications,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            context.router.pushNamed('/notifications');
           },
         ),
       ),

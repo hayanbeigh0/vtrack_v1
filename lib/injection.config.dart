@@ -18,9 +18,9 @@ import 'package:vtrack_v1/application/auth/sign_in_form_bloc/sign_in_form_bloc.d
 import 'package:vtrack_v1/application/current_user/current_user_cubit/current_user_cubit.dart'
     as _i20;
 import 'package:vtrack_v1/application/organisation/organisation_cubit/organisation_cubit.dart'
-    as _i17;
-import 'package:vtrack_v1/application/organisation/organisation_form_bloc/organisation_form_bloc.dart'
     as _i18;
+import 'package:vtrack_v1/application/organisation/organisation_form_bloc/organisation_form_bloc.dart'
+    as _i17;
 import 'package:vtrack_v1/application/vehicle/vehicle_cubit/vehicle_cubit.dart'
     as _i19;
 import 'package:vtrack_v1/domain/auth/i_auth_facade.dart' as _i10;
@@ -69,10 +69,10 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i12.IUserRepository>(),
         ));
     gh.lazySingleton<_i16.Dio>(() => dioModule.dio(gh<_i3.AuthInterceptor>()));
-    gh.factory<_i17.OrganisationCubit>(
-        () => _i17.OrganisationCubit(gh<_i6.IOrganisationRepository>()));
-    gh.factory<_i18.OrganisationFormBloc>(
-        () => _i18.OrganisationFormBloc(gh<_i6.IOrganisationRepository>()));
+    gh.factory<_i17.OrganisationFormBloc>(
+        () => _i17.OrganisationFormBloc(gh<_i6.IOrganisationRepository>()));
+    gh.factory<_i18.OrganisationCubit>(
+        () => _i18.OrganisationCubit(gh<_i6.IOrganisationRepository>()));
     gh.factory<_i19.VehicleCubit>(
         () => _i19.VehicleCubit(gh<_i8.IVehicleRepository>()));
     gh.factory<_i20.CurrentUserCubit>(
