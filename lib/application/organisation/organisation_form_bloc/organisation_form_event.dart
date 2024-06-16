@@ -12,6 +12,5 @@ class OrganisationFormEvent with _$OrganisationFormEvent {
       _AddressChanged;
   const factory OrganisationFormEvent.vehiclesChanged(
       List<String> vehicleList) = _VehiclesChanged;
-  const factory OrganisationFormEvent.submitOrganisation(
-      Organisation organisation) = _SubmitOrganisation;
+  const factory OrganisationFormEvent.submitOrganisation() = _SubmitOrganisation;
 }

@@ -18,12 +18,13 @@ class OrganisationFormBloc
   OrganisationFormBloc(this._iOrganisationRepository)
       : super(OrganisationFormState.initial()) {
     on<OrganisationFormEvent>((event, emit) async {
-      event.map(
+      await event.map(
         initialized: (value) {
           if (value.organisation != null) {
             emit(state.copyWith(
               organisation: value.organisation!,
-              isEditing: true,
+              isEditing: false,
+              isSaved: false,
             ));
           } else {
             emit(state);
@@ -69,13 +70,18 @@ class OrganisationFormBloc
           ));
           if (state.organisation.failureOption.isNone()) {
             failureOrSuccess = state.isEditing
-                ? await _iOrganisationRepository.createOrganisation(
-                    organisation: value.organisation,
+                ? await _iOrganisationRepository.updateOrganisation(
+                    organisation: state.organisation,
                   )
-                : await _iOrganisationRepository.updateOrganisation(
-                    organisation: value.organisation,
+                : await _iOrganisationRepository.createOrganisation(
+                    organisation: state.organisation,
                   );
           }
+
+          failureOrSuccess!.fold(
+            (_) => emit(state.copyWith(isSaved: false)),
+            (_) => emit(state.copyWith(isSaved: true)),
+          );
 
           emit(state.copyWith(
             isSaving: false,

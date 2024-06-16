@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             'Home',
-            style: Theme.of(context).textTheme.displayLarge,
+            style: Theme.of(context).textTheme.displaySmall,
           ),
           actions: [
             IconButton(

@@ -23,7 +23,7 @@ mixin _$OrganisationFormEvent {
     required TResult Function(String codeStr) codeChanged,
     required TResult Function(String addressStr) addressChanged,
     required TResult Function(List<String> vehicleList) vehiclesChanged,
-    required TResult Function(Organisation organisation) submitOrganisation,
+    required TResult Function() submitOrganisation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,7 +33,7 @@ mixin _$OrganisationFormEvent {
     TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String addressStr)? addressChanged,
     TResult? Function(List<String> vehicleList)? vehiclesChanged,
-    TResult? Function(Organisation organisation)? submitOrganisation,
+    TResult? Function()? submitOrganisation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,7 +43,7 @@ mixin _$OrganisationFormEvent {
     TResult Function(String codeStr)? codeChanged,
     TResult Function(String addressStr)? addressChanged,
     TResult Function(List<String> vehicleList)? vehiclesChanged,
-    TResult Function(Organisation organisation)? submitOrganisation,
+    TResult Function()? submitOrganisation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -183,7 +183,7 @@ class _$InitializedImpl implements _Initialized {
     required TResult Function(String codeStr) codeChanged,
     required TResult Function(String addressStr) addressChanged,
     required TResult Function(List<String> vehicleList) vehiclesChanged,
-    required TResult Function(Organisation organisation) submitOrganisation,
+    required TResult Function() submitOrganisation,
   }) {
     return initialized(organisation);
   }
@@ -196,7 +196,7 @@ class _$InitializedImpl implements _Initialized {
     TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String addressStr)? addressChanged,
     TResult? Function(List<String> vehicleList)? vehiclesChanged,
-    TResult? Function(Organisation organisation)? submitOrganisation,
+    TResult? Function()? submitOrganisation,
   }) {
     return initialized?.call(organisation);
   }
@@ -209,7 +209,7 @@ class _$InitializedImpl implements _Initialized {
     TResult Function(String codeStr)? codeChanged,
     TResult Function(String addressStr)? addressChanged,
     TResult Function(List<String> vehicleList)? vehiclesChanged,
-    TResult Function(Organisation organisation)? submitOrganisation,
+    TResult Function()? submitOrganisation,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -341,7 +341,7 @@ class _$NameChangedImpl implements _NameChanged {
     required TResult Function(String codeStr) codeChanged,
     required TResult Function(String addressStr) addressChanged,
     required TResult Function(List<String> vehicleList) vehiclesChanged,
-    required TResult Function(Organisation organisation) submitOrganisation,
+    required TResult Function() submitOrganisation,
   }) {
     return nameChanged(nameStr);
   }
@@ -354,7 +354,7 @@ class _$NameChangedImpl implements _NameChanged {
     TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String addressStr)? addressChanged,
     TResult? Function(List<String> vehicleList)? vehiclesChanged,
-    TResult? Function(Organisation organisation)? submitOrganisation,
+    TResult? Function()? submitOrganisation,
   }) {
     return nameChanged?.call(nameStr);
   }
@@ -367,7 +367,7 @@ class _$NameChangedImpl implements _NameChanged {
     TResult Function(String codeStr)? codeChanged,
     TResult Function(String addressStr)? addressChanged,
     TResult Function(List<String> vehicleList)? vehiclesChanged,
-    TResult Function(Organisation organisation)? submitOrganisation,
+    TResult Function()? submitOrganisation,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -498,7 +498,7 @@ class _$CodeChangedImpl implements _CodeChanged {
     required TResult Function(String codeStr) codeChanged,
     required TResult Function(String addressStr) addressChanged,
     required TResult Function(List<String> vehicleList) vehiclesChanged,
-    required TResult Function(Organisation organisation) submitOrganisation,
+    required TResult Function() submitOrganisation,
   }) {
     return codeChanged(codeStr);
   }
@@ -511,7 +511,7 @@ class _$CodeChangedImpl implements _CodeChanged {
     TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String addressStr)? addressChanged,
     TResult? Function(List<String> vehicleList)? vehiclesChanged,
-    TResult? Function(Organisation organisation)? submitOrganisation,
+    TResult? Function()? submitOrganisation,
   }) {
     return codeChanged?.call(codeStr);
   }
@@ -524,7 +524,7 @@ class _$CodeChangedImpl implements _CodeChanged {
     TResult Function(String codeStr)? codeChanged,
     TResult Function(String addressStr)? addressChanged,
     TResult Function(List<String> vehicleList)? vehiclesChanged,
-    TResult Function(Organisation organisation)? submitOrganisation,
+    TResult Function()? submitOrganisation,
     required TResult orElse(),
   }) {
     if (codeChanged != null) {
@@ -657,7 +657,7 @@ class _$AddressChangedImpl implements _AddressChanged {
     required TResult Function(String codeStr) codeChanged,
     required TResult Function(String addressStr) addressChanged,
     required TResult Function(List<String> vehicleList) vehiclesChanged,
-    required TResult Function(Organisation organisation) submitOrganisation,
+    required TResult Function() submitOrganisation,
   }) {
     return addressChanged(addressStr);
   }
@@ -670,7 +670,7 @@ class _$AddressChangedImpl implements _AddressChanged {
     TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String addressStr)? addressChanged,
     TResult? Function(List<String> vehicleList)? vehiclesChanged,
-    TResult? Function(Organisation organisation)? submitOrganisation,
+    TResult? Function()? submitOrganisation,
   }) {
     return addressChanged?.call(addressStr);
   }
@@ -683,7 +683,7 @@ class _$AddressChangedImpl implements _AddressChanged {
     TResult Function(String codeStr)? codeChanged,
     TResult Function(String addressStr)? addressChanged,
     TResult Function(List<String> vehicleList)? vehiclesChanged,
-    TResult Function(Organisation organisation)? submitOrganisation,
+    TResult Function()? submitOrganisation,
     required TResult orElse(),
   }) {
     if (addressChanged != null) {
@@ -823,7 +823,7 @@ class _$VehiclesChangedImpl implements _VehiclesChanged {
     required TResult Function(String codeStr) codeChanged,
     required TResult Function(String addressStr) addressChanged,
     required TResult Function(List<String> vehicleList) vehiclesChanged,
-    required TResult Function(Organisation organisation) submitOrganisation,
+    required TResult Function() submitOrganisation,
   }) {
     return vehiclesChanged(vehicleList);
   }
@@ -836,7 +836,7 @@ class _$VehiclesChangedImpl implements _VehiclesChanged {
     TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String addressStr)? addressChanged,
     TResult? Function(List<String> vehicleList)? vehiclesChanged,
-    TResult? Function(Organisation organisation)? submitOrganisation,
+    TResult? Function()? submitOrganisation,
   }) {
     return vehiclesChanged?.call(vehicleList);
   }
@@ -849,7 +849,7 @@ class _$VehiclesChangedImpl implements _VehiclesChanged {
     TResult Function(String codeStr)? codeChanged,
     TResult Function(String addressStr)? addressChanged,
     TResult Function(List<String> vehicleList)? vehiclesChanged,
-    TResult Function(Organisation organisation)? submitOrganisation,
+    TResult Function()? submitOrganisation,
     required TResult orElse(),
   }) {
     if (vehiclesChanged != null) {
@@ -917,10 +917,6 @@ abstract class _$$SubmitOrganisationImplCopyWith<$Res> {
   factory _$$SubmitOrganisationImplCopyWith(_$SubmitOrganisationImpl value,
           $Res Function(_$SubmitOrganisationImpl) then) =
       __$$SubmitOrganisationImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Organisation organisation});
-
-  $OrganisationCopyWith<$Res> get organisation;
 }
 
 /// @nodoc
@@ -930,60 +926,26 @@ class __$$SubmitOrganisationImplCopyWithImpl<$Res>
   __$$SubmitOrganisationImplCopyWithImpl(_$SubmitOrganisationImpl _value,
       $Res Function(_$SubmitOrganisationImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? organisation = null,
-  }) {
-    return _then(_$SubmitOrganisationImpl(
-      null == organisation
-          ? _value.organisation
-          : organisation // ignore: cast_nullable_to_non_nullable
-              as Organisation,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $OrganisationCopyWith<$Res> get organisation {
-    return $OrganisationCopyWith<$Res>(_value.organisation, (value) {
-      return _then(_value.copyWith(organisation: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$SubmitOrganisationImpl implements _SubmitOrganisation {
-  const _$SubmitOrganisationImpl(this.organisation);
-
-  @override
-  final Organisation organisation;
+  const _$SubmitOrganisationImpl();
 
   @override
   String toString() {
-    return 'OrganisationFormEvent.submitOrganisation(organisation: $organisation)';
+    return 'OrganisationFormEvent.submitOrganisation()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SubmitOrganisationImpl &&
-            (identical(other.organisation, organisation) ||
-                other.organisation == organisation));
+        (other.runtimeType == runtimeType && other is _$SubmitOrganisationImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, organisation);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SubmitOrganisationImplCopyWith<_$SubmitOrganisationImpl> get copyWith =>
-      __$$SubmitOrganisationImplCopyWithImpl<_$SubmitOrganisationImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -993,9 +955,9 @@ class _$SubmitOrganisationImpl implements _SubmitOrganisation {
     required TResult Function(String codeStr) codeChanged,
     required TResult Function(String addressStr) addressChanged,
     required TResult Function(List<String> vehicleList) vehiclesChanged,
-    required TResult Function(Organisation organisation) submitOrganisation,
+    required TResult Function() submitOrganisation,
   }) {
-    return submitOrganisation(organisation);
+    return submitOrganisation();
   }
 
   @override
@@ -1006,9 +968,9 @@ class _$SubmitOrganisationImpl implements _SubmitOrganisation {
     TResult? Function(String codeStr)? codeChanged,
     TResult? Function(String addressStr)? addressChanged,
     TResult? Function(List<String> vehicleList)? vehiclesChanged,
-    TResult? Function(Organisation organisation)? submitOrganisation,
+    TResult? Function()? submitOrganisation,
   }) {
-    return submitOrganisation?.call(organisation);
+    return submitOrganisation?.call();
   }
 
   @override
@@ -1019,11 +981,11 @@ class _$SubmitOrganisationImpl implements _SubmitOrganisation {
     TResult Function(String codeStr)? codeChanged,
     TResult Function(String addressStr)? addressChanged,
     TResult Function(List<String> vehicleList)? vehiclesChanged,
-    TResult Function(Organisation organisation)? submitOrganisation,
+    TResult Function()? submitOrganisation,
     required TResult orElse(),
   }) {
     if (submitOrganisation != null) {
-      return submitOrganisation(organisation);
+      return submitOrganisation();
     }
     return orElse();
   }
@@ -1073,13 +1035,7 @@ class _$SubmitOrganisationImpl implements _SubmitOrganisation {
 }
 
 abstract class _SubmitOrganisation implements OrganisationFormEvent {
-  const factory _SubmitOrganisation(final Organisation organisation) =
-      _$SubmitOrganisationImpl;
-
-  Organisation get organisation;
-  @JsonKey(ignore: true)
-  _$$SubmitOrganisationImplCopyWith<_$SubmitOrganisationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _SubmitOrganisation() = _$SubmitOrganisationImpl;
 }
 
 /// @nodoc
@@ -1087,6 +1043,7 @@ mixin _$OrganisationFormState {
   Organisation get organisation => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
+  bool get isSaved => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   Option<Either<OrganisationFailure, Unit>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -1106,6 +1063,7 @@ abstract class $OrganisationFormStateCopyWith<$Res> {
       {Organisation organisation,
       bool showErrorMessages,
       bool isSaving,
+      bool isSaved,
       bool isEditing,
       Option<Either<OrganisationFailure, Unit>> saveFailureOrSuccessOption});
 
@@ -1129,6 +1087,7 @@ class _$OrganisationFormStateCopyWithImpl<$Res,
     Object? organisation = null,
     Object? showErrorMessages = null,
     Object? isSaving = null,
+    Object? isSaved = null,
     Object? isEditing = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
@@ -1144,6 +1103,10 @@ class _$OrganisationFormStateCopyWithImpl<$Res,
       isSaving: null == isSaving
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSaved: null == isSaved
+          ? _value.isSaved
+          : isSaved // ignore: cast_nullable_to_non_nullable
               as bool,
       isEditing: null == isEditing
           ? _value.isEditing
@@ -1178,6 +1141,7 @@ abstract class _$$OrganisationFormStateImplCopyWith<$Res>
       {Organisation organisation,
       bool showErrorMessages,
       bool isSaving,
+      bool isSaved,
       bool isEditing,
       Option<Either<OrganisationFailure, Unit>> saveFailureOrSuccessOption});
 
@@ -1200,6 +1164,7 @@ class __$$OrganisationFormStateImplCopyWithImpl<$Res>
     Object? organisation = null,
     Object? showErrorMessages = null,
     Object? isSaving = null,
+    Object? isSaved = null,
     Object? isEditing = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
@@ -1215,6 +1180,10 @@ class __$$OrganisationFormStateImplCopyWithImpl<$Res>
       isSaving: null == isSaving
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSaved: null == isSaved
+          ? _value.isSaved
+          : isSaved // ignore: cast_nullable_to_non_nullable
               as bool,
       isEditing: null == isEditing
           ? _value.isEditing
@@ -1235,6 +1204,7 @@ class _$OrganisationFormStateImpl implements _OrganisationFormState {
       {required this.organisation,
       required this.showErrorMessages,
       required this.isSaving,
+      required this.isSaved,
       required this.isEditing,
       required this.saveFailureOrSuccessOption});
 
@@ -1245,13 +1215,15 @@ class _$OrganisationFormStateImpl implements _OrganisationFormState {
   @override
   final bool isSaving;
   @override
+  final bool isSaved;
+  @override
   final bool isEditing;
   @override
   final Option<Either<OrganisationFailure, Unit>> saveFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'OrganisationFormState(organisation: $organisation, showErrorMessages: $showErrorMessages, isSaving: $isSaving, isEditing: $isEditing, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'OrganisationFormState(organisation: $organisation, showErrorMessages: $showErrorMessages, isSaving: $isSaving, isSaved: $isSaved, isEditing: $isEditing, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -1265,6 +1237,7 @@ class _$OrganisationFormStateImpl implements _OrganisationFormState {
                 other.showErrorMessages == showErrorMessages) &&
             (identical(other.isSaving, isSaving) ||
                 other.isSaving == isSaving) &&
+            (identical(other.isSaved, isSaved) || other.isSaved == isSaved) &&
             (identical(other.isEditing, isEditing) ||
                 other.isEditing == isEditing) &&
             (identical(other.saveFailureOrSuccessOption,
@@ -1275,7 +1248,7 @@ class _$OrganisationFormStateImpl implements _OrganisationFormState {
 
   @override
   int get hashCode => Object.hash(runtimeType, organisation, showErrorMessages,
-      isSaving, isEditing, saveFailureOrSuccessOption);
+      isSaving, isSaved, isEditing, saveFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -1290,6 +1263,7 @@ abstract class _OrganisationFormState implements OrganisationFormState {
       {required final Organisation organisation,
       required final bool showErrorMessages,
       required final bool isSaving,
+      required final bool isSaved,
       required final bool isEditing,
       required final Option<Either<OrganisationFailure, Unit>>
           saveFailureOrSuccessOption}) = _$OrganisationFormStateImpl;
@@ -1300,6 +1274,8 @@ abstract class _OrganisationFormState implements OrganisationFormState {
   bool get showErrorMessages;
   @override
   bool get isSaving;
+  @override
+  bool get isSaved;
   @override
   bool get isEditing;
   @override

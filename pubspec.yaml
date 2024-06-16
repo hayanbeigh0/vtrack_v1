@@ -26,6 +26,7 @@ dependencies:
   envied: ^0.5.4+1
   flutter_screenutil: ^5.9.3
   google_fonts: ^6.2.1
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -38,13 +39,19 @@ dev_dependencies:
   auto_route_generator: ^8.0.0
   json_serializable: ^6.8.0
   envied_generator: ^0.5.4+1
+  flutter_launcher_icons: "^0.13.1"
 
 flutter:
   uses-material-design: true
-
 
   assets:
     - assets/
     - assets/images/
     - assets/images/svgs/
     - assets/images/pngs/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/app_icon/vt.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21

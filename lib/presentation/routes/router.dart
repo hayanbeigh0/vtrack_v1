@@ -12,5 +12,7 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: HomeRoute.page, path: '/home'),
         AutoRoute(page: NotificationsRoute.page, path: '/notifications'),
         AutoRoute(page: SettingsRoute.page, path: '/settings'),
+        AutoRoute(page: CreateOrganisation.page, path: '/create-organisation'),
+        AutoRoute(page: CreateVehicleRoute.page, path: '/create-vehicle'),
       ];
 }

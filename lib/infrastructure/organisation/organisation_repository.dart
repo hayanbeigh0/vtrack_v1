@@ -22,7 +22,7 @@ class OrganisationRepository extends IOrganisationRepository {
   }) async {
     try {
       final Response response = await dio.post(
-        '/users/signup',
+        '/organisations',
         data: OrganisationDto.fromDomain(organisation).toJson(),
       );
       log(response.data.toString());
@@ -42,7 +42,7 @@ class OrganisationRepository extends IOrganisationRepository {
   }) async {
     try {
       final Response response = await dio.delete(
-        '/users/signup/$organisationId',
+        '/organisations/$organisationId',
       );
       log(response.data.toString());
       return right(unit);
@@ -61,7 +61,7 @@ class OrganisationRepository extends IOrganisationRepository {
   }) async {
     try {
       final Response response = await dio.get(
-        '/users/signup/$organisationId',
+        '/organisations/$organisationId',
       );
       log(response.data.toString());
       return right(OrganisationDto.fromJson(response.data).toDomain());
@@ -80,7 +80,7 @@ class OrganisationRepository extends IOrganisationRepository {
   }) async {
     try {
       final Response response = await dio.patch(
-        '/users/signup/${organisation.id}',
+        '/organisations/${organisation.id}',
         data: organisation,
       );
       log(response.data.toString());

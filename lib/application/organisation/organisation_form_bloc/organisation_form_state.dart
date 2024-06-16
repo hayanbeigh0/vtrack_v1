@@ -6,6 +6,7 @@ class OrganisationFormState with _$OrganisationFormState {
     required Organisation organisation,
     required bool showErrorMessages,
     required bool isSaving,
+    required bool isSaved,
     required bool isEditing,
     required Option<Either<OrganisationFailure, Unit>>
         saveFailureOrSuccessOption,
@@ -15,6 +16,7 @@ class OrganisationFormState with _$OrganisationFormState {
         organisation: Organisation.empty(),
         isEditing: false,
         isSaving: false,
+        isSaved: false,
         saveFailureOrSuccessOption: none(),
         showErrorMessages: false,
       );

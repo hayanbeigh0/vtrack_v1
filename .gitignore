@@ -44,5 +44,7 @@ app.*.map.json
 
 # ENVIRONMENT
 *.env
-/lib/env/env_dev.g.dart
-/lib/env/env_prod.g.dart
+# /lib/env/env_dev.g.dart
+# /lib/env/env_prod.g.dart
+upload-keystore.jks
+android/key.properties

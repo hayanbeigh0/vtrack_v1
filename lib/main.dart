@@ -64,7 +64,17 @@ class MainApp extends StatelessWidget {
                 fontWeight: FontWeight.normal,
               ),
               displayLarge: GoogleFonts.lexend(
+                fontSize: 28,
+                color: const Color(0xFF686666),
+                fontWeight: FontWeight.normal,
+              ),
+              displayMedium: GoogleFonts.lexend(
                 fontSize: 24,
+                color: const Color(0xFF686666),
+                fontWeight: FontWeight.normal,
+              ),
+              displaySmall: GoogleFonts.lexend(
+                fontSize: 20,
                 color: const Color(0xFF686666),
                 fontWeight: FontWeight.normal,
               ),
@@ -88,7 +98,6 @@ class MainApp extends StatelessWidget {
                 color: const Color.fromARGB(255, 84, 80, 80),
                 fontWeight: FontWeight.normal,
               ),
-
             ),
             cardColor: Colors.white,
             cardTheme: CardTheme(
