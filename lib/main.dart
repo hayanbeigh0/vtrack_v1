@@ -25,6 +25,7 @@ class MainApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => MultiBlocProvider(
         providers: [
+          
           BlocProvider(
             create: (context) => getIt<AuthBloc>()
               ..add(
