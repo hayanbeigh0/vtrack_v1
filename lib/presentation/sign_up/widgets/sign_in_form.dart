@@ -4,8 +4,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vtrack_v1/application/auth/sign_in_form_bloc/sign_in_form_bloc.dart';
 
-class SignInForm extends StatelessWidget {
+class SignInForm extends StatefulWidget {
   const SignInForm({super.key});
+
+  @override
+  State<SignInForm> createState() => _SignInFormState();
+}
+
+class _SignInFormState extends State<SignInForm> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    WidgetsBinding.instance.addPostFrameCallback(
+      (timeStamp) {
+        BlocProvider.of<SignInFormBloc>(context).add(
+          SignInFormEvent.emailChanged('hayanbeigh50@gmail.com'),
+        );
+        BlocProvider.of<SignInFormBloc>(context).add(
+          SignInFormEvent.passwordChanged('hayan123'),
+        );
+      },
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +81,7 @@ class SignInForm extends StatelessWidget {
                     color: Colors.grey,
                   ),
                 ),
-                initialValue: 'hayanbeigh55@gmail.com',
+                initialValue: 'hayanbeigh50@gmail.com',
                 autocorrect: false,
                 onChanged: (value) {
                   BlocProvider.of<SignInFormBloc>(context).add(

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vtrack_v1/application/current_user/current_user_cubit/current_user_cubit.dart';
 import 'package:vtrack_v1/injection.dart';
+import 'package:vtrack_v1/presentation/routes/router.gr.dart';
 import 'package:vtrack_v1/presentation/settings/widgets/settings_list_tile.dart';
 
 @RoutePage()
@@ -24,11 +25,17 @@ class SettingsPage extends StatelessWidget {
         child: BlocConsumer<CurrentUserCubit, CurrentUserState>(
           listener: (context, state) {
             // TODO: implement listener
+            state.maybeMap(
+              orElse: () {},
+              logoutSuccess: (value) {
+                context.router.replaceAll([const SigninRoute()]);
+              },
+            );
           },
           builder: (context, state) {
             return state.maybeMap(
               orElse: () => const Center(
-                child: Text('No user data found!'),
+                child: CircularProgressIndicator(),
               ),
               success: (value) {
                 return Container(
@@ -56,11 +63,23 @@ class SettingsPage extends StatelessWidget {
                           // Based on the value we pass to the isSwitchActive, we will decide whether to create organisation on switch change or to disable the organisation if already created.
                           if (value.user.role.getOrCrash() == 'org-admin') {
                             // Disable organisation
-                          } else if(value.user.role.getOrCrash() == 'user') {
+                          } else if (value.user.role.getOrCrash() == 'user') {
                             // Navigate to Create Organisation
                             context.router.pushNamed('/create-organisation');
                           }
                         },
+                      ),
+                      const Expanded(child: SizedBox()),
+                      Center(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            BlocProvider.of<CurrentUserCubit>(context).logout();
+                          },
+                          child: const Text('Logout'),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.h,
                       ),
                     ],
                   ),
