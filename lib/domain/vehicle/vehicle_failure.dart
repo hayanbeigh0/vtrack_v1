@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'vehicle_failure.freezed.dart';
 @freezed
-abstract class VehicleFailure with _$VehicleFailure{
+abstract class VehicleFailure<T> with _$VehicleFailure<T>{
   const factory VehicleFailure.cancelledByUser() = CancelledByUser;
   const factory VehicleFailure.serverError() = ServerError;
   const factory VehicleFailure.vehicleNotFound() = VehicleNotFound;

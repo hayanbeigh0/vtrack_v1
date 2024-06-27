@@ -23,6 +23,8 @@ mixin _$VehicleValueFailure<T> {
     required TResult Function(String failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
+    required TResult Function(String failedValue) invalidVehicleOwner,
+    required TResult Function(String failedValue) invalidVehicleOrganisation,
     required TResult Function(List<String> failedValue) invalidUsersList,
     required TResult Function(List<VehiclePickupLocation> failedValue)
         invalidPickupLocations,
@@ -34,6 +36,8 @@ mixin _$VehicleValueFailure<T> {
     TResult? Function(String failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
+    TResult? Function(String failedValue)? invalidVehicleOwner,
+    TResult? Function(String failedValue)? invalidVehicleOrganisation,
     TResult? Function(List<String> failedValue)? invalidUsersList,
     TResult? Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -45,6 +49,8 @@ mixin _$VehicleValueFailure<T> {
     TResult Function(String failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
+    TResult Function(String failedValue)? invalidVehicleOwner,
+    TResult Function(String failedValue)? invalidVehicleOrganisation,
     TResult Function(List<String> failedValue)? invalidUsersList,
     TResult Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -58,6 +64,10 @@ mixin _$VehicleValueFailure<T> {
     required TResult Function(_InvalidVehicleNumber<T> value)
         invalidVehicleNumber,
     required TResult Function(_InvalidRoute<T> value) invalidRoute,
+    required TResult Function(_InvalidVehicleOwner<T> value)
+        invalidVehicleOwner,
+    required TResult Function(_InvalidVehicleOrganisation<T> value)
+        invalidVehicleOrganisation,
     required TResult Function(_InvalidUsersList<T> value) invalidUsersList,
     required TResult Function(_InvalidPickupLocations<T> value)
         invalidPickupLocations,
@@ -69,6 +79,9 @@ mixin _$VehicleValueFailure<T> {
     TResult? Function(_InvalidDriver<T> value)? invalidDriver,
     TResult? Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult? Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult? Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult? Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult? Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult? Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) =>
@@ -79,6 +92,9 @@ mixin _$VehicleValueFailure<T> {
     TResult Function(_InvalidDriver<T> value)? invalidDriver,
     TResult Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
@@ -184,6 +200,8 @@ class _$InvalidNameImpl<T> implements _InvalidName<T> {
     required TResult Function(String failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
+    required TResult Function(String failedValue) invalidVehicleOwner,
+    required TResult Function(String failedValue) invalidVehicleOrganisation,
     required TResult Function(List<String> failedValue) invalidUsersList,
     required TResult Function(List<VehiclePickupLocation> failedValue)
         invalidPickupLocations,
@@ -198,6 +216,8 @@ class _$InvalidNameImpl<T> implements _InvalidName<T> {
     TResult? Function(String failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
+    TResult? Function(String failedValue)? invalidVehicleOwner,
+    TResult? Function(String failedValue)? invalidVehicleOrganisation,
     TResult? Function(List<String> failedValue)? invalidUsersList,
     TResult? Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -212,6 +232,8 @@ class _$InvalidNameImpl<T> implements _InvalidName<T> {
     TResult Function(String failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
+    TResult Function(String failedValue)? invalidVehicleOwner,
+    TResult Function(String failedValue)? invalidVehicleOrganisation,
     TResult Function(List<String> failedValue)? invalidUsersList,
     TResult Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -231,6 +253,10 @@ class _$InvalidNameImpl<T> implements _InvalidName<T> {
     required TResult Function(_InvalidVehicleNumber<T> value)
         invalidVehicleNumber,
     required TResult Function(_InvalidRoute<T> value) invalidRoute,
+    required TResult Function(_InvalidVehicleOwner<T> value)
+        invalidVehicleOwner,
+    required TResult Function(_InvalidVehicleOrganisation<T> value)
+        invalidVehicleOrganisation,
     required TResult Function(_InvalidUsersList<T> value) invalidUsersList,
     required TResult Function(_InvalidPickupLocations<T> value)
         invalidPickupLocations,
@@ -245,6 +271,9 @@ class _$InvalidNameImpl<T> implements _InvalidName<T> {
     TResult? Function(_InvalidDriver<T> value)? invalidDriver,
     TResult? Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult? Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult? Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult? Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult? Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult? Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
@@ -258,6 +287,9 @@ class _$InvalidNameImpl<T> implements _InvalidName<T> {
     TResult Function(_InvalidDriver<T> value)? invalidDriver,
     TResult Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
@@ -352,6 +384,8 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
     required TResult Function(String failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
+    required TResult Function(String failedValue) invalidVehicleOwner,
+    required TResult Function(String failedValue) invalidVehicleOrganisation,
     required TResult Function(List<String> failedValue) invalidUsersList,
     required TResult Function(List<VehiclePickupLocation> failedValue)
         invalidPickupLocations,
@@ -366,6 +400,8 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
     TResult? Function(String failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
+    TResult? Function(String failedValue)? invalidVehicleOwner,
+    TResult? Function(String failedValue)? invalidVehicleOrganisation,
     TResult? Function(List<String> failedValue)? invalidUsersList,
     TResult? Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -380,6 +416,8 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
     TResult Function(String failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
+    TResult Function(String failedValue)? invalidVehicleOwner,
+    TResult Function(String failedValue)? invalidVehicleOrganisation,
     TResult Function(List<String> failedValue)? invalidUsersList,
     TResult Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -399,6 +437,10 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
     required TResult Function(_InvalidVehicleNumber<T> value)
         invalidVehicleNumber,
     required TResult Function(_InvalidRoute<T> value) invalidRoute,
+    required TResult Function(_InvalidVehicleOwner<T> value)
+        invalidVehicleOwner,
+    required TResult Function(_InvalidVehicleOrganisation<T> value)
+        invalidVehicleOrganisation,
     required TResult Function(_InvalidUsersList<T> value) invalidUsersList,
     required TResult Function(_InvalidPickupLocations<T> value)
         invalidPickupLocations,
@@ -413,6 +455,9 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
     TResult? Function(_InvalidDriver<T> value)? invalidDriver,
     TResult? Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult? Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult? Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult? Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult? Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult? Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
@@ -426,6 +471,9 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
     TResult Function(_InvalidDriver<T> value)? invalidDriver,
     TResult Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
@@ -520,6 +568,8 @@ class _$InvalidVehicleNumberImpl<T> implements _InvalidVehicleNumber<T> {
     required TResult Function(String failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
+    required TResult Function(String failedValue) invalidVehicleOwner,
+    required TResult Function(String failedValue) invalidVehicleOrganisation,
     required TResult Function(List<String> failedValue) invalidUsersList,
     required TResult Function(List<VehiclePickupLocation> failedValue)
         invalidPickupLocations,
@@ -534,6 +584,8 @@ class _$InvalidVehicleNumberImpl<T> implements _InvalidVehicleNumber<T> {
     TResult? Function(String failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
+    TResult? Function(String failedValue)? invalidVehicleOwner,
+    TResult? Function(String failedValue)? invalidVehicleOrganisation,
     TResult? Function(List<String> failedValue)? invalidUsersList,
     TResult? Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -548,6 +600,8 @@ class _$InvalidVehicleNumberImpl<T> implements _InvalidVehicleNumber<T> {
     TResult Function(String failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
+    TResult Function(String failedValue)? invalidVehicleOwner,
+    TResult Function(String failedValue)? invalidVehicleOrganisation,
     TResult Function(List<String> failedValue)? invalidUsersList,
     TResult Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -567,6 +621,10 @@ class _$InvalidVehicleNumberImpl<T> implements _InvalidVehicleNumber<T> {
     required TResult Function(_InvalidVehicleNumber<T> value)
         invalidVehicleNumber,
     required TResult Function(_InvalidRoute<T> value) invalidRoute,
+    required TResult Function(_InvalidVehicleOwner<T> value)
+        invalidVehicleOwner,
+    required TResult Function(_InvalidVehicleOrganisation<T> value)
+        invalidVehicleOrganisation,
     required TResult Function(_InvalidUsersList<T> value) invalidUsersList,
     required TResult Function(_InvalidPickupLocations<T> value)
         invalidPickupLocations,
@@ -581,6 +639,9 @@ class _$InvalidVehicleNumberImpl<T> implements _InvalidVehicleNumber<T> {
     TResult? Function(_InvalidDriver<T> value)? invalidDriver,
     TResult? Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult? Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult? Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult? Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult? Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult? Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
@@ -594,6 +655,9 @@ class _$InvalidVehicleNumberImpl<T> implements _InvalidVehicleNumber<T> {
     TResult Function(_InvalidDriver<T> value)? invalidDriver,
     TResult Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
@@ -686,6 +750,8 @@ class _$InvalidRouteImpl<T> implements _InvalidRoute<T> {
     required TResult Function(String failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
+    required TResult Function(String failedValue) invalidVehicleOwner,
+    required TResult Function(String failedValue) invalidVehicleOrganisation,
     required TResult Function(List<String> failedValue) invalidUsersList,
     required TResult Function(List<VehiclePickupLocation> failedValue)
         invalidPickupLocations,
@@ -700,6 +766,8 @@ class _$InvalidRouteImpl<T> implements _InvalidRoute<T> {
     TResult? Function(String failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
+    TResult? Function(String failedValue)? invalidVehicleOwner,
+    TResult? Function(String failedValue)? invalidVehicleOrganisation,
     TResult? Function(List<String> failedValue)? invalidUsersList,
     TResult? Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -714,6 +782,8 @@ class _$InvalidRouteImpl<T> implements _InvalidRoute<T> {
     TResult Function(String failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
+    TResult Function(String failedValue)? invalidVehicleOwner,
+    TResult Function(String failedValue)? invalidVehicleOrganisation,
     TResult Function(List<String> failedValue)? invalidUsersList,
     TResult Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -733,6 +803,10 @@ class _$InvalidRouteImpl<T> implements _InvalidRoute<T> {
     required TResult Function(_InvalidVehicleNumber<T> value)
         invalidVehicleNumber,
     required TResult Function(_InvalidRoute<T> value) invalidRoute,
+    required TResult Function(_InvalidVehicleOwner<T> value)
+        invalidVehicleOwner,
+    required TResult Function(_InvalidVehicleOrganisation<T> value)
+        invalidVehicleOrganisation,
     required TResult Function(_InvalidUsersList<T> value) invalidUsersList,
     required TResult Function(_InvalidPickupLocations<T> value)
         invalidPickupLocations,
@@ -747,6 +821,9 @@ class _$InvalidRouteImpl<T> implements _InvalidRoute<T> {
     TResult? Function(_InvalidDriver<T> value)? invalidDriver,
     TResult? Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult? Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult? Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult? Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult? Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult? Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
@@ -760,6 +837,9 @@ class _$InvalidRouteImpl<T> implements _InvalidRoute<T> {
     TResult Function(_InvalidDriver<T> value)? invalidDriver,
     TResult Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
@@ -780,6 +860,379 @@ abstract class _InvalidRoute<T> implements VehicleValueFailure<T> {
   @JsonKey(ignore: true)
   _$$InvalidRouteImplCopyWith<T, _$InvalidRouteImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InvalidVehicleOwnerImplCopyWith<T, $Res> {
+  factory _$$InvalidVehicleOwnerImplCopyWith(_$InvalidVehicleOwnerImpl<T> value,
+          $Res Function(_$InvalidVehicleOwnerImpl<T>) then) =
+      __$$InvalidVehicleOwnerImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String failedValue});
+}
+
+/// @nodoc
+class __$$InvalidVehicleOwnerImplCopyWithImpl<T, $Res>
+    extends _$VehicleValueFailureCopyWithImpl<T, $Res,
+        _$InvalidVehicleOwnerImpl<T>>
+    implements _$$InvalidVehicleOwnerImplCopyWith<T, $Res> {
+  __$$InvalidVehicleOwnerImplCopyWithImpl(_$InvalidVehicleOwnerImpl<T> _value,
+      $Res Function(_$InvalidVehicleOwnerImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = null,
+  }) {
+    return _then(_$InvalidVehicleOwnerImpl<T>(
+      failedValue: null == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidVehicleOwnerImpl<T> implements _InvalidVehicleOwner<T> {
+  const _$InvalidVehicleOwnerImpl({required this.failedValue});
+
+  @override
+  final String failedValue;
+
+  @override
+  String toString() {
+    return 'VehicleValueFailure<$T>.invalidVehicleOwner(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidVehicleOwnerImpl<T> &&
+            (identical(other.failedValue, failedValue) ||
+                other.failedValue == failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvalidVehicleOwnerImplCopyWith<T, _$InvalidVehicleOwnerImpl<T>>
+      get copyWith => __$$InvalidVehicleOwnerImplCopyWithImpl<T,
+          _$InvalidVehicleOwnerImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue, int maxLength) invalidName,
+    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(int failedValue) invalidVehicleNumber,
+    required TResult Function(String failedValue) invalidRoute,
+    required TResult Function(String failedValue) invalidVehicleOwner,
+    required TResult Function(String failedValue) invalidVehicleOrganisation,
+    required TResult Function(List<String> failedValue) invalidUsersList,
+    required TResult Function(List<VehiclePickupLocation> failedValue)
+        invalidPickupLocations,
+  }) {
+    return invalidVehicleOwner(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String failedValue, int maxLength)? invalidName,
+    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(int failedValue)? invalidVehicleNumber,
+    TResult? Function(String failedValue)? invalidRoute,
+    TResult? Function(String failedValue)? invalidVehicleOwner,
+    TResult? Function(String failedValue)? invalidVehicleOrganisation,
+    TResult? Function(List<String> failedValue)? invalidUsersList,
+    TResult? Function(List<VehiclePickupLocation> failedValue)?
+        invalidPickupLocations,
+  }) {
+    return invalidVehicleOwner?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue, int maxLength)? invalidName,
+    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(int failedValue)? invalidVehicleNumber,
+    TResult Function(String failedValue)? invalidRoute,
+    TResult Function(String failedValue)? invalidVehicleOwner,
+    TResult Function(String failedValue)? invalidVehicleOrganisation,
+    TResult Function(List<String> failedValue)? invalidUsersList,
+    TResult Function(List<VehiclePickupLocation> failedValue)?
+        invalidPickupLocations,
+    required TResult orElse(),
+  }) {
+    if (invalidVehicleOwner != null) {
+      return invalidVehicleOwner(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InvalidName<T> value) invalidName,
+    required TResult Function(_InvalidDriver<T> value) invalidDriver,
+    required TResult Function(_InvalidVehicleNumber<T> value)
+        invalidVehicleNumber,
+    required TResult Function(_InvalidRoute<T> value) invalidRoute,
+    required TResult Function(_InvalidVehicleOwner<T> value)
+        invalidVehicleOwner,
+    required TResult Function(_InvalidVehicleOrganisation<T> value)
+        invalidVehicleOrganisation,
+    required TResult Function(_InvalidUsersList<T> value) invalidUsersList,
+    required TResult Function(_InvalidPickupLocations<T> value)
+        invalidPickupLocations,
+  }) {
+    return invalidVehicleOwner(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InvalidName<T> value)? invalidName,
+    TResult? Function(_InvalidDriver<T> value)? invalidDriver,
+    TResult? Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
+    TResult? Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult? Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult? Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
+    TResult? Function(_InvalidUsersList<T> value)? invalidUsersList,
+    TResult? Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
+  }) {
+    return invalidVehicleOwner?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InvalidName<T> value)? invalidName,
+    TResult Function(_InvalidDriver<T> value)? invalidDriver,
+    TResult Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
+    TResult Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
+    TResult Function(_InvalidUsersList<T> value)? invalidUsersList,
+    TResult Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
+    required TResult orElse(),
+  }) {
+    if (invalidVehicleOwner != null) {
+      return invalidVehicleOwner(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidVehicleOwner<T> implements VehicleValueFailure<T> {
+  const factory _InvalidVehicleOwner({required final String failedValue}) =
+      _$InvalidVehicleOwnerImpl<T>;
+
+  @override
+  String get failedValue;
+  @JsonKey(ignore: true)
+  _$$InvalidVehicleOwnerImplCopyWith<T, _$InvalidVehicleOwnerImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InvalidVehicleOrganisationImplCopyWith<T, $Res> {
+  factory _$$InvalidVehicleOrganisationImplCopyWith(
+          _$InvalidVehicleOrganisationImpl<T> value,
+          $Res Function(_$InvalidVehicleOrganisationImpl<T>) then) =
+      __$$InvalidVehicleOrganisationImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String failedValue});
+}
+
+/// @nodoc
+class __$$InvalidVehicleOrganisationImplCopyWithImpl<T, $Res>
+    extends _$VehicleValueFailureCopyWithImpl<T, $Res,
+        _$InvalidVehicleOrganisationImpl<T>>
+    implements _$$InvalidVehicleOrganisationImplCopyWith<T, $Res> {
+  __$$InvalidVehicleOrganisationImplCopyWithImpl(
+      _$InvalidVehicleOrganisationImpl<T> _value,
+      $Res Function(_$InvalidVehicleOrganisationImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = null,
+  }) {
+    return _then(_$InvalidVehicleOrganisationImpl<T>(
+      failedValue: null == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidVehicleOrganisationImpl<T>
+    implements _InvalidVehicleOrganisation<T> {
+  const _$InvalidVehicleOrganisationImpl({required this.failedValue});
+
+  @override
+  final String failedValue;
+
+  @override
+  String toString() {
+    return 'VehicleValueFailure<$T>.invalidVehicleOrganisation(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidVehicleOrganisationImpl<T> &&
+            (identical(other.failedValue, failedValue) ||
+                other.failedValue == failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvalidVehicleOrganisationImplCopyWith<T,
+          _$InvalidVehicleOrganisationImpl<T>>
+      get copyWith => __$$InvalidVehicleOrganisationImplCopyWithImpl<T,
+          _$InvalidVehicleOrganisationImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue, int maxLength) invalidName,
+    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(int failedValue) invalidVehicleNumber,
+    required TResult Function(String failedValue) invalidRoute,
+    required TResult Function(String failedValue) invalidVehicleOwner,
+    required TResult Function(String failedValue) invalidVehicleOrganisation,
+    required TResult Function(List<String> failedValue) invalidUsersList,
+    required TResult Function(List<VehiclePickupLocation> failedValue)
+        invalidPickupLocations,
+  }) {
+    return invalidVehicleOrganisation(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String failedValue, int maxLength)? invalidName,
+    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(int failedValue)? invalidVehicleNumber,
+    TResult? Function(String failedValue)? invalidRoute,
+    TResult? Function(String failedValue)? invalidVehicleOwner,
+    TResult? Function(String failedValue)? invalidVehicleOrganisation,
+    TResult? Function(List<String> failedValue)? invalidUsersList,
+    TResult? Function(List<VehiclePickupLocation> failedValue)?
+        invalidPickupLocations,
+  }) {
+    return invalidVehicleOrganisation?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue, int maxLength)? invalidName,
+    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(int failedValue)? invalidVehicleNumber,
+    TResult Function(String failedValue)? invalidRoute,
+    TResult Function(String failedValue)? invalidVehicleOwner,
+    TResult Function(String failedValue)? invalidVehicleOrganisation,
+    TResult Function(List<String> failedValue)? invalidUsersList,
+    TResult Function(List<VehiclePickupLocation> failedValue)?
+        invalidPickupLocations,
+    required TResult orElse(),
+  }) {
+    if (invalidVehicleOrganisation != null) {
+      return invalidVehicleOrganisation(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InvalidName<T> value) invalidName,
+    required TResult Function(_InvalidDriver<T> value) invalidDriver,
+    required TResult Function(_InvalidVehicleNumber<T> value)
+        invalidVehicleNumber,
+    required TResult Function(_InvalidRoute<T> value) invalidRoute,
+    required TResult Function(_InvalidVehicleOwner<T> value)
+        invalidVehicleOwner,
+    required TResult Function(_InvalidVehicleOrganisation<T> value)
+        invalidVehicleOrganisation,
+    required TResult Function(_InvalidUsersList<T> value) invalidUsersList,
+    required TResult Function(_InvalidPickupLocations<T> value)
+        invalidPickupLocations,
+  }) {
+    return invalidVehicleOrganisation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InvalidName<T> value)? invalidName,
+    TResult? Function(_InvalidDriver<T> value)? invalidDriver,
+    TResult? Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
+    TResult? Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult? Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult? Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
+    TResult? Function(_InvalidUsersList<T> value)? invalidUsersList,
+    TResult? Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
+  }) {
+    return invalidVehicleOrganisation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InvalidName<T> value)? invalidName,
+    TResult Function(_InvalidDriver<T> value)? invalidDriver,
+    TResult Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
+    TResult Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
+    TResult Function(_InvalidUsersList<T> value)? invalidUsersList,
+    TResult Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
+    required TResult orElse(),
+  }) {
+    if (invalidVehicleOrganisation != null) {
+      return invalidVehicleOrganisation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidVehicleOrganisation<T>
+    implements VehicleValueFailure<T> {
+  const factory _InvalidVehicleOrganisation(
+          {required final String failedValue}) =
+      _$InvalidVehicleOrganisationImpl<T>;
+
+  @override
+  String get failedValue;
+  @JsonKey(ignore: true)
+  _$$InvalidVehicleOrganisationImplCopyWith<T,
+          _$InvalidVehicleOrganisationImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -860,6 +1313,8 @@ class _$InvalidUsersListImpl<T> implements _InvalidUsersList<T> {
     required TResult Function(String failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
+    required TResult Function(String failedValue) invalidVehicleOwner,
+    required TResult Function(String failedValue) invalidVehicleOrganisation,
     required TResult Function(List<String> failedValue) invalidUsersList,
     required TResult Function(List<VehiclePickupLocation> failedValue)
         invalidPickupLocations,
@@ -874,6 +1329,8 @@ class _$InvalidUsersListImpl<T> implements _InvalidUsersList<T> {
     TResult? Function(String failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
+    TResult? Function(String failedValue)? invalidVehicleOwner,
+    TResult? Function(String failedValue)? invalidVehicleOrganisation,
     TResult? Function(List<String> failedValue)? invalidUsersList,
     TResult? Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -888,6 +1345,8 @@ class _$InvalidUsersListImpl<T> implements _InvalidUsersList<T> {
     TResult Function(String failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
+    TResult Function(String failedValue)? invalidVehicleOwner,
+    TResult Function(String failedValue)? invalidVehicleOrganisation,
     TResult Function(List<String> failedValue)? invalidUsersList,
     TResult Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -907,6 +1366,10 @@ class _$InvalidUsersListImpl<T> implements _InvalidUsersList<T> {
     required TResult Function(_InvalidVehicleNumber<T> value)
         invalidVehicleNumber,
     required TResult Function(_InvalidRoute<T> value) invalidRoute,
+    required TResult Function(_InvalidVehicleOwner<T> value)
+        invalidVehicleOwner,
+    required TResult Function(_InvalidVehicleOrganisation<T> value)
+        invalidVehicleOrganisation,
     required TResult Function(_InvalidUsersList<T> value) invalidUsersList,
     required TResult Function(_InvalidPickupLocations<T> value)
         invalidPickupLocations,
@@ -921,6 +1384,9 @@ class _$InvalidUsersListImpl<T> implements _InvalidUsersList<T> {
     TResult? Function(_InvalidDriver<T> value)? invalidDriver,
     TResult? Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult? Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult? Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult? Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult? Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult? Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
@@ -934,6 +1400,9 @@ class _$InvalidUsersListImpl<T> implements _InvalidUsersList<T> {
     TResult Function(_InvalidDriver<T> value)? invalidDriver,
     TResult Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
@@ -1037,6 +1506,8 @@ class _$InvalidPickupLocationsImpl<T> implements _InvalidPickupLocations<T> {
     required TResult Function(String failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
+    required TResult Function(String failedValue) invalidVehicleOwner,
+    required TResult Function(String failedValue) invalidVehicleOrganisation,
     required TResult Function(List<String> failedValue) invalidUsersList,
     required TResult Function(List<VehiclePickupLocation> failedValue)
         invalidPickupLocations,
@@ -1051,6 +1522,8 @@ class _$InvalidPickupLocationsImpl<T> implements _InvalidPickupLocations<T> {
     TResult? Function(String failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
+    TResult? Function(String failedValue)? invalidVehicleOwner,
+    TResult? Function(String failedValue)? invalidVehicleOrganisation,
     TResult? Function(List<String> failedValue)? invalidUsersList,
     TResult? Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -1065,6 +1538,8 @@ class _$InvalidPickupLocationsImpl<T> implements _InvalidPickupLocations<T> {
     TResult Function(String failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
+    TResult Function(String failedValue)? invalidVehicleOwner,
+    TResult Function(String failedValue)? invalidVehicleOrganisation,
     TResult Function(List<String> failedValue)? invalidUsersList,
     TResult Function(List<VehiclePickupLocation> failedValue)?
         invalidPickupLocations,
@@ -1084,6 +1559,10 @@ class _$InvalidPickupLocationsImpl<T> implements _InvalidPickupLocations<T> {
     required TResult Function(_InvalidVehicleNumber<T> value)
         invalidVehicleNumber,
     required TResult Function(_InvalidRoute<T> value) invalidRoute,
+    required TResult Function(_InvalidVehicleOwner<T> value)
+        invalidVehicleOwner,
+    required TResult Function(_InvalidVehicleOrganisation<T> value)
+        invalidVehicleOrganisation,
     required TResult Function(_InvalidUsersList<T> value) invalidUsersList,
     required TResult Function(_InvalidPickupLocations<T> value)
         invalidPickupLocations,
@@ -1098,6 +1577,9 @@ class _$InvalidPickupLocationsImpl<T> implements _InvalidPickupLocations<T> {
     TResult? Function(_InvalidDriver<T> value)? invalidDriver,
     TResult? Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult? Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult? Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult? Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult? Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult? Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
@@ -1111,6 +1593,9 @@ class _$InvalidPickupLocationsImpl<T> implements _InvalidPickupLocations<T> {
     TResult Function(_InvalidDriver<T> value)? invalidDriver,
     TResult Function(_InvalidVehicleNumber<T> value)? invalidVehicleNumber,
     TResult Function(_InvalidRoute<T> value)? invalidRoute,
+    TResult Function(_InvalidVehicleOwner<T> value)? invalidVehicleOwner,
+    TResult Function(_InvalidVehicleOrganisation<T> value)?
+        invalidVehicleOrganisation,
     TResult Function(_InvalidUsersList<T> value)? invalidUsersList,
     TResult Function(_InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),

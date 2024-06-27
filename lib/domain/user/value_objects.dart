@@ -59,11 +59,11 @@ class UserVehicles extends ValueObject<List<String>, UserValueFailure> {
   const UserVehicles._(this.value);
 }
 
-class UserOrganisations extends ValueObject<List<String>, UserValueFailure> {
+class UserOrganisations extends ValueObject<List<Map<String,dynamic>>, UserValueFailure> {
   @override
-  final Either<UserValueFailure<List<String>>, List<String>> value;
+  final Either<UserValueFailure<List<Map<String,dynamic>>>, List<Map<String,dynamic>>> value;
 
-  factory UserOrganisations(List<String> input) {
+  factory UserOrganisations(List<Map<String,dynamic>> input) {
     return UserOrganisations._(validateUserOrganisations(input: input));
   }
 

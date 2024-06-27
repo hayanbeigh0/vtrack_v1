@@ -18,6 +18,12 @@ abstract class VehicleValueFailure<T> with _$VehicleValueFailure {
   const factory VehicleValueFailure.invalidRoute({
     required String failedValue,
   }) = _InvalidRoute;
+  const factory VehicleValueFailure.invalidVehicleOwner({
+    required String failedValue,
+  }) = _InvalidVehicleOwner;
+  const factory VehicleValueFailure.invalidVehicleOrganisation({
+    required String failedValue,
+  }) = _InvalidVehicleOrganisation;
   const factory VehicleValueFailure.invalidUsersList({
     required List<String> failedValue,
   }) = _InvalidUsersList;

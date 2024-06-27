@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vtrack_v1/application/current_user/current_user_cubit/current_user_cubit.dart';
+import 'package:vtrack_v1/domain/user/value_objects.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/routes/router.gr.dart';
 import 'package:vtrack_v1/presentation/settings/widgets/settings_list_tile.dart';
@@ -24,7 +25,6 @@ class SettingsPage extends StatelessWidget {
         create: (context) => getIt<CurrentUserCubit>()..getCurrentSavedUser(),
         child: BlocConsumer<CurrentUserCubit, CurrentUserState>(
           listener: (context, state) {
-            // TODO: implement listener
             state.maybeMap(
               orElse: () {},
               logoutSuccess: (value) {
@@ -63,6 +63,9 @@ class SettingsPage extends StatelessWidget {
                           // Based on the value we pass to the isSwitchActive, we will decide whether to create organisation on switch change or to disable the organisation if already created.
                           if (value.user.role.getOrCrash() == 'org-admin') {
                             // Disable organisation
+                          BlocProvider.of<CurrentUserCubit>(context).updateMe(
+                              user:
+                                  value.user.copyWith(role: UserRole('user')));
                           } else if (value.user.role.getOrCrash() == 'user') {
                             // Navigate to Create Organisation
                             context.router.pushNamed('/create-organisation');

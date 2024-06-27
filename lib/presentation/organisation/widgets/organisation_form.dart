@@ -30,6 +30,9 @@ class OrganisationForm extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 8.0.sp),
           child: Form(
             key: _formKey,
+            autovalidateMode: state.showErrorMessages
+                ? AutovalidateMode.always
+                : AutovalidateMode.disabled,
             child: Column(
               children: [
                 AppTextFormField(
@@ -90,7 +93,7 @@ class OrganisationForm extends StatelessWidget {
                         .value
                         .fold(
                           (f) => f.maybeMap(
-                            invalidName: (_) => 'Invalid organisation code!',
+                            invalidCode: (_) => 'Invalid organisation code!',
                             orElse: () => null,
                           ),
                           (_) => null,
@@ -100,6 +103,7 @@ class OrganisationForm extends StatelessWidget {
                 SizedBox(height: 10.h),
                 ElevatedButton(
                   onPressed: () {
+                    _formKey.currentState!.validate();
                     BlocProvider.of<OrganisationFormBloc>(context).add(
                       const OrganisationFormEvent.submitOrganisation(),
                     );

@@ -14,7 +14,7 @@ _$UserDtoImpl _$$UserDtoImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       email: json['email'] as String,
       organisations: (json['organisations'] as List<dynamic>)
-          .map((e) => e as String)
+          .map((e) => UserOrganisationDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       vehicles:
           (json['vehicles'] as List<dynamic>).map((e) => e as String).toList(),
@@ -47,4 +47,31 @@ Map<String, dynamic> _$$UserPickupLocationDtoImplToJson(
     <String, dynamic>{
       'type': instance.type,
       'coordinates': instance.coordinates,
+    };
+
+_$UserOrganisationDtoImpl _$$UserOrganisationDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UserOrganisationDtoImpl(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      address: json['address'] as String,
+      code: json['code'] as String,
+      createdBy: json['createdBy'] as String,
+      createdAt: json['createdAt'] as String,
+      owner: json['owner'] as String,
+      vehicles:
+          (json['vehicles'] as List<dynamic>).map((e) => e as String).toList(),
+    );
+
+Map<String, dynamic> _$$UserOrganisationDtoImplToJson(
+        _$UserOrganisationDtoImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'address': instance.address,
+      'code': instance.code,
+      'createdBy': instance.createdBy,
+      'createdAt': instance.createdAt,
+      'owner': instance.owner,
+      'vehicles': instance.vehicles,
     };

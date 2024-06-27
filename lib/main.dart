@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
 import 'package:vtrack_v1/application/auth/auth_bloc/auth_bloc.dart';
+import 'package:vtrack_v1/application/organisation/selected_organisation_bloc/selected_organisation_bloc.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/routes/router.dart';
 
@@ -25,12 +26,14 @@ class MainApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => MultiBlocProvider(
         providers: [
-          
           BlocProvider(
             create: (context) => getIt<AuthBloc>()
               ..add(
                 const AuthEvent.authCheckRequested(),
               ),
+          ),
+          BlocProvider<SelectedOrganisationBloc>(
+            create: (context) => getIt<SelectedOrganisationBloc>(),
           ),
         ],
         child: MaterialApp.router(

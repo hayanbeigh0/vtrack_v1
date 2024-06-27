@@ -24,7 +24,7 @@ mixin _$VehicleState {
     required TResult Function(List<Vehicle> vehicles) allOrgVehicles,
     required TResult Function(List<Vehicle> vehicles) allVehicles,
     required TResult Function(Vehicle vehicle) success,
-    required TResult Function(VehicleFailure failure) failure,
+    required TResult Function(VehicleFailure<dynamic> failure) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,7 +35,7 @@ mixin _$VehicleState {
     TResult? Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult? Function(List<Vehicle> vehicles)? allVehicles,
     TResult? Function(Vehicle vehicle)? success,
-    TResult? Function(VehicleFailure failure)? failure,
+    TResult? Function(VehicleFailure<dynamic> failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,7 +46,7 @@ mixin _$VehicleState {
     TResult Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult Function(List<Vehicle> vehicles)? allVehicles,
     TResult Function(Vehicle vehicle)? success,
-    TResult Function(VehicleFailure failure)? failure,
+    TResult Function(VehicleFailure<dynamic> failure)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(List<Vehicle> vehicles) allOrgVehicles,
     required TResult Function(List<Vehicle> vehicles) allVehicles,
     required TResult Function(Vehicle vehicle) success,
-    required TResult Function(VehicleFailure failure) failure,
+    required TResult Function(VehicleFailure<dynamic> failure) failure,
   }) {
     return initial();
   }
@@ -162,7 +162,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult? Function(List<Vehicle> vehicles)? allVehicles,
     TResult? Function(Vehicle vehicle)? success,
-    TResult? Function(VehicleFailure failure)? failure,
+    TResult? Function(VehicleFailure<dynamic> failure)? failure,
   }) {
     return initial?.call();
   }
@@ -176,7 +176,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult Function(List<Vehicle> vehicles)? allVehicles,
     TResult Function(Vehicle vehicle)? success,
-    TResult Function(VehicleFailure failure)? failure,
+    TResult Function(VehicleFailure<dynamic> failure)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -280,7 +280,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(List<Vehicle> vehicles) allOrgVehicles,
     required TResult Function(List<Vehicle> vehicles) allVehicles,
     required TResult Function(Vehicle vehicle) success,
-    required TResult Function(VehicleFailure failure) failure,
+    required TResult Function(VehicleFailure<dynamic> failure) failure,
   }) {
     return loading();
   }
@@ -294,7 +294,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult? Function(List<Vehicle> vehicles)? allVehicles,
     TResult? Function(Vehicle vehicle)? success,
-    TResult? Function(VehicleFailure failure)? failure,
+    TResult? Function(VehicleFailure<dynamic> failure)? failure,
   }) {
     return loading?.call();
   }
@@ -308,7 +308,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult Function(List<Vehicle> vehicles)? allVehicles,
     TResult Function(Vehicle vehicle)? success,
-    TResult Function(VehicleFailure failure)? failure,
+    TResult Function(VehicleFailure<dynamic> failure)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -412,7 +412,7 @@ class _$DeletedImpl implements _Deleted {
     required TResult Function(List<Vehicle> vehicles) allOrgVehicles,
     required TResult Function(List<Vehicle> vehicles) allVehicles,
     required TResult Function(Vehicle vehicle) success,
-    required TResult Function(VehicleFailure failure) failure,
+    required TResult Function(VehicleFailure<dynamic> failure) failure,
   }) {
     return deleted();
   }
@@ -426,7 +426,7 @@ class _$DeletedImpl implements _Deleted {
     TResult? Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult? Function(List<Vehicle> vehicles)? allVehicles,
     TResult? Function(Vehicle vehicle)? success,
-    TResult? Function(VehicleFailure failure)? failure,
+    TResult? Function(VehicleFailure<dynamic> failure)? failure,
   }) {
     return deleted?.call();
   }
@@ -440,7 +440,7 @@ class _$DeletedImpl implements _Deleted {
     TResult Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult Function(List<Vehicle> vehicles)? allVehicles,
     TResult Function(Vehicle vehicle)? success,
-    TResult Function(VehicleFailure failure)? failure,
+    TResult Function(VehicleFailure<dynamic> failure)? failure,
     required TResult orElse(),
   }) {
     if (deleted != null) {
@@ -578,7 +578,7 @@ class _$AllOrgVehiclesImpl implements _AllOrgVehicles {
     required TResult Function(List<Vehicle> vehicles) allOrgVehicles,
     required TResult Function(List<Vehicle> vehicles) allVehicles,
     required TResult Function(Vehicle vehicle) success,
-    required TResult Function(VehicleFailure failure) failure,
+    required TResult Function(VehicleFailure<dynamic> failure) failure,
   }) {
     return allOrgVehicles(vehicles);
   }
@@ -592,7 +592,7 @@ class _$AllOrgVehiclesImpl implements _AllOrgVehicles {
     TResult? Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult? Function(List<Vehicle> vehicles)? allVehicles,
     TResult? Function(Vehicle vehicle)? success,
-    TResult? Function(VehicleFailure failure)? failure,
+    TResult? Function(VehicleFailure<dynamic> failure)? failure,
   }) {
     return allOrgVehicles?.call(vehicles);
   }
@@ -606,7 +606,7 @@ class _$AllOrgVehiclesImpl implements _AllOrgVehicles {
     TResult Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult Function(List<Vehicle> vehicles)? allVehicles,
     TResult Function(Vehicle vehicle)? success,
-    TResult Function(VehicleFailure failure)? failure,
+    TResult Function(VehicleFailure<dynamic> failure)? failure,
     required TResult orElse(),
   }) {
     if (allOrgVehicles != null) {
@@ -749,7 +749,7 @@ class _$AllVehiclesImpl implements _AllVehicles {
     required TResult Function(List<Vehicle> vehicles) allOrgVehicles,
     required TResult Function(List<Vehicle> vehicles) allVehicles,
     required TResult Function(Vehicle vehicle) success,
-    required TResult Function(VehicleFailure failure) failure,
+    required TResult Function(VehicleFailure<dynamic> failure) failure,
   }) {
     return allVehicles(vehicles);
   }
@@ -763,7 +763,7 @@ class _$AllVehiclesImpl implements _AllVehicles {
     TResult? Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult? Function(List<Vehicle> vehicles)? allVehicles,
     TResult? Function(Vehicle vehicle)? success,
-    TResult? Function(VehicleFailure failure)? failure,
+    TResult? Function(VehicleFailure<dynamic> failure)? failure,
   }) {
     return allVehicles?.call(vehicles);
   }
@@ -777,7 +777,7 @@ class _$AllVehiclesImpl implements _AllVehicles {
     TResult Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult Function(List<Vehicle> vehicles)? allVehicles,
     TResult Function(Vehicle vehicle)? success,
-    TResult Function(VehicleFailure failure)? failure,
+    TResult Function(VehicleFailure<dynamic> failure)? failure,
     required TResult orElse(),
   }) {
     if (allVehicles != null) {
@@ -923,7 +923,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(List<Vehicle> vehicles) allOrgVehicles,
     required TResult Function(List<Vehicle> vehicles) allVehicles,
     required TResult Function(Vehicle vehicle) success,
-    required TResult Function(VehicleFailure failure) failure,
+    required TResult Function(VehicleFailure<dynamic> failure) failure,
   }) {
     return success(vehicle);
   }
@@ -937,7 +937,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult? Function(List<Vehicle> vehicles)? allVehicles,
     TResult? Function(Vehicle vehicle)? success,
-    TResult? Function(VehicleFailure failure)? failure,
+    TResult? Function(VehicleFailure<dynamic> failure)? failure,
   }) {
     return success?.call(vehicle);
   }
@@ -951,7 +951,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult Function(List<Vehicle> vehicles)? allVehicles,
     TResult Function(Vehicle vehicle)? success,
-    TResult Function(VehicleFailure failure)? failure,
+    TResult Function(VehicleFailure<dynamic> failure)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1022,9 +1022,9 @@ abstract class _$$FailureImplCopyWith<$Res> {
           _$FailureImpl value, $Res Function(_$FailureImpl) then) =
       __$$FailureImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({VehicleFailure failure});
+  $Res call({VehicleFailure<dynamic> failure});
 
-  $VehicleFailureCopyWith<$Res> get failure;
+  $VehicleFailureCopyWith<dynamic, $Res> get failure;
 }
 
 /// @nodoc
@@ -1044,14 +1044,14 @@ class __$$FailureImplCopyWithImpl<$Res>
       failure: null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
-              as VehicleFailure,
+              as VehicleFailure<dynamic>,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $VehicleFailureCopyWith<$Res> get failure {
-    return $VehicleFailureCopyWith<$Res>(_value.failure, (value) {
+  $VehicleFailureCopyWith<dynamic, $Res> get failure {
+    return $VehicleFailureCopyWith<dynamic, $Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
     });
   }
@@ -1063,7 +1063,7 @@ class _$FailureImpl implements _Failure {
   const _$FailureImpl({required this.failure});
 
   @override
-  final VehicleFailure failure;
+  final VehicleFailure<dynamic> failure;
 
   @override
   String toString() {
@@ -1096,7 +1096,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function(List<Vehicle> vehicles) allOrgVehicles,
     required TResult Function(List<Vehicle> vehicles) allVehicles,
     required TResult Function(Vehicle vehicle) success,
-    required TResult Function(VehicleFailure failure) failure,
+    required TResult Function(VehicleFailure<dynamic> failure) failure,
   }) {
     return failure(this.failure);
   }
@@ -1110,7 +1110,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult? Function(List<Vehicle> vehicles)? allVehicles,
     TResult? Function(Vehicle vehicle)? success,
-    TResult? Function(VehicleFailure failure)? failure,
+    TResult? Function(VehicleFailure<dynamic> failure)? failure,
   }) {
     return failure?.call(this.failure);
   }
@@ -1124,7 +1124,7 @@ class _$FailureImpl implements _Failure {
     TResult Function(List<Vehicle> vehicles)? allOrgVehicles,
     TResult Function(List<Vehicle> vehicles)? allVehicles,
     TResult Function(Vehicle vehicle)? success,
-    TResult Function(VehicleFailure failure)? failure,
+    TResult Function(VehicleFailure<dynamic> failure)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -1181,10 +1181,10 @@ class _$FailureImpl implements _Failure {
 }
 
 abstract class _Failure implements VehicleState {
-  const factory _Failure({required final VehicleFailure failure}) =
+  const factory _Failure({required final VehicleFailure<dynamic> failure}) =
       _$FailureImpl;
 
-  VehicleFailure get failure;
+  VehicleFailure<dynamic> get failure;
   @JsonKey(ignore: true)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;

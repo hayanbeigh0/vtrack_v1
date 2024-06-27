@@ -61,16 +61,23 @@ class VehicleRepository implements IVehicleRepository {
     required int pageNumber,
   }) async {
     try {
-      final Response response = await dio.post(
+      final Response response = await dio.get(
         '/vehicles/getOrgVehicles/$organisationId',
       );
       log(response.data.toString());
+      if (response.data['data']['data'].length == 0) {
+        return right([]);
+      }
       final List<Vehicle> vehicleList = response.data['data']['data']
           .map((el) => VehicleDto.fromJson(el).toDomain())
           .toList();
 
       return right(vehicleList);
     } on DioException catch (e) {
+      if (e.response != null && e.response!.statusCode == 403) {
+        log('Error while getting all vehicles list: $e');
+        return left(const VehicleFailure.unAuthenticated());
+      }
       log('Error while getting all vehicles list: $e');
       return left(const VehicleFailure.serverError());
     } catch (e) {

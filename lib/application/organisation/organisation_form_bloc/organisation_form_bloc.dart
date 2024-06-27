@@ -76,12 +76,14 @@ class OrganisationFormBloc
                 : await _iOrganisationRepository.createOrganisation(
                     organisation: state.organisation,
                   );
+            failureOrSuccess.fold(
+              (_) => emit(state.copyWith(
+                isSaved: false,
+                showErrorMessages: true,
+              )),
+              (_) => emit(state.copyWith(isSaved: true)),
+            );
           }
-
-          failureOrSuccess!.fold(
-            (_) => emit(state.copyWith(isSaved: false)),
-            (_) => emit(state.copyWith(isSaved: true)),
-          );
 
           emit(state.copyWith(
             isSaving: false,

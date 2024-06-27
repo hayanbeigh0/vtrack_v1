@@ -6,9 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vtrack_v1/application/current_user/current_user_cubit/current_user_cubit.dart';
+import 'package:vtrack_v1/application/organisation/selected_organisation_bloc/selected_organisation_bloc.dart';
+import 'package:vtrack_v1/domain/organisation/organisation.dart';
+import 'package:vtrack_v1/domain/organisation/value_objects.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/home/widgets/associated_vehicles_card.dart';
+import 'package:vtrack_v1/presentation/home/widgets/my_organisation_card.dart';
 import 'package:vtrack_v1/presentation/home/widgets/running_vehicles_card.dart';
+import 'package:vtrack_v1/presentation/routes/router.gr.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -40,6 +45,12 @@ class HomePage extends StatelessWidget {
         body: BlocConsumer<CurrentUserCubit, CurrentUserState>(
           listener: (context, state) {
             state.maybeWhen(
+              success: (user) {
+                BlocProvider.of<SelectedOrganisationBloc>(context)
+                    .add(SelectedOrganisationEvent.selectOrganisation(
+                  id: user.organisations.organisations.first.id!,
+                ));
+              },
               orElse: () {
                 log(
                   'Home Page BlocConsumer-Listener',
@@ -87,70 +98,180 @@ class HomePage extends StatelessWidget {
               loading: () => const Center(
                 child: CircularProgressIndicator(),
               ),
-              success: (value) => SingleChildScrollView(
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w),
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(8.0.w),
-                        child: Text(
-                          'Hi, ${value.name.getOrCrash()}!',
-                          style: Theme.of(context).textTheme.titleMedium,
+              success: (value) => BlocListener<SelectedOrganisationBloc,
+                  SelectedOrganisationState>(
+                listener: (context, state) {
+                  state.maybeMap(
+                    orElse: () {},
+                    selectedOrganisation: (value) {
+                      // TODO: Make API call to get the user dashboard info...
+                    },
+                  );
+                },
+                child: SingleChildScrollView(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(8.0.w),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Hi, ${value.name.getOrCrash()}!',
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                              const Expanded(child: SizedBox()),
+                              Expanded(
+                                child: BlocBuilder<SelectedOrganisationBloc,
+                                    SelectedOrganisationState>(
+                                  builder: (context, state) {
+                                    return state.maybeMap(
+                                      orElse: () => const SizedBox(),
+                                      selectedOrganisation:
+                                          (selectedOrganisation) =>
+                                              DropdownButton<String>(
+                                        isExpanded: true,
+                                        value: selectedOrganisation.id,
+                                        items: value.organisations.organisations
+                                            .map(
+                                              (el) => DropdownMenuItem<String>(
+                                                value: el.id,
+                                                child: Text(
+                                                    el.name.value.getOrElse(
+                                                  () => '--Invalid value--',
+                                                )),
+                                              ),
+                                            )
+                                            .toList(),
+                                        onChanged: (value) {
+                                          BlocProvider.of<
+                                                      SelectedOrganisationBloc>(
+                                                  context)
+                                              .add(SelectedOrganisationEvent
+                                                  .selectOrganisation(
+                                            id: value!,
+                                          ));
+                                        },
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 10.h),
-                      Padding(
-                        padding: EdgeInsets.all(8.0.w),
-                        child: Text(
-                          'Associated vehicles',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(fontSize: 14),
+                        BlocBuilder<SelectedOrganisationBloc,
+                            SelectedOrganisationState>(
+                          builder: (context, state) {
+                            return state.maybeMap(
+                                orElse: () => const SizedBox(),
+                                selectedOrganisation: (selectedOrganisation) {
+                                  final Organisation organisation = value
+                                      .organisations.organisations
+                                      .firstWhere(
+                                    (organisation) => isOrganisationOwner(
+                                      organisation: organisation,
+                                      selectedOrganisationId:
+                                          selectedOrganisation.id,
+                                      userId: value.id,
+                                    ),
+                                    orElse: () => Organisation(
+                                      name: OrganisationName(''),
+                                      address: '',
+                                      code: OrganisationCode(''),
+                                      vehicles: [],
+                                    ),
+                                  );
+                                  if (organisation.id != null) {
+                                    return Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(height: 10.h),
+                                        Padding(
+                                          padding: EdgeInsets.all(8.0.w),
+                                          child: Text(
+                                            'My Organisation',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .copyWith(fontSize: 14),
+                                          ),
+                                        ),
+                                        SizedBox(height: 5.h),
+                                        MyOrganisationCard(
+                                          organisationName:
+                                              organisation.name.getOrCrash(),
+                                          totalUsers: '10',
+                                          totalVehicles: '3',
+                                          onTap: () {
+                                            context.router
+                                                .push(OrganisationDetailRoute(
+                                              organisation: organisation,
+                                            ));
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  }
+                                  return const SizedBox();
+                                });
+                          },
                         ),
-                      ),
-                      SizedBox(height: 5.h),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: 1,
-                        itemBuilder: (context, index) =>
-                            const AssociatedVehiclesCard(
-                          vehicleName: 'My Vehicle - 97 (Allied Tech)',
-                          driverName: 'Imtiyaz',
-                          totalCapacity: '55',
-                          totalStops: '18',
-                          vehicleType: 'Bus',
+                        SizedBox(height: 10.h),
+                        Padding(
+                          padding: EdgeInsets.all(8.0.w),
+                          child: Text(
+                            'Associated vehicles',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(fontSize: 14),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 10.h),
-                      Padding(
-                        padding: EdgeInsets.all(8.0.w),
-                        child: Text(
-                          'Running vehicles',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(fontSize: 14),
+                        SizedBox(height: 5.h),
+                        ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: 1,
+                          itemBuilder: (context, index) =>
+                              const AssociatedVehiclesCard(
+                            vehicleName: 'My Vehicle - 97 (Allied Tech)',
+                            driverName: 'Imtiyaz',
+                            totalCapacity: '55',
+                            totalStops: '18',
+                            vehicleType: 'Bus',
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 5.h),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: 1,
-                        itemBuilder: (context, index) =>
-                            const RunningVehiclesCard(
-                          vehicleName: 'My Vehicle - 97 (Allied Tech)',
-                          arrivingIn: 8,
-                          distanceLeftInMeters: 3000,
-                          remainingCapacity: 8,
-                          speedInMetersPerSecond: 9.72222,
+                        SizedBox(height: 10.h),
+                        Padding(
+                          padding: EdgeInsets.all(8.0.w),
+                          child: Text(
+                            'Running vehicles',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(fontSize: 14),
+                          ),
                         ),
-                      ),
-                    ],
+                        SizedBox(height: 5.h),
+                        ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: 1,
+                          itemBuilder: (context, index) =>
+                              const RunningVehiclesCard(
+                            vehicleName: 'My Vehicle - 97 (Allied Tech)',
+                            arrivingIn: 8,
+                            distanceLeftInMeters: 3000,
+                            remainingCapacity: 8,
+                            speedInMetersPerSecond: 9.72222,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -177,5 +298,15 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  bool isOrganisationOwner({
+    required Organisation organisation,
+    required String userId,
+    required String selectedOrganisationId,
+  }) {
+    // Check if the selected organisation is same as the recieved organisation and if the current user is owner of the selected organisation.
+    return organisation.id == selectedOrganisationId &&
+        organisation.owner == userId;
   }
 }

@@ -12,10 +12,13 @@ _$VehicleDtoImpl _$$VehicleDtoImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       driver: json['driver'] as String,
       vehicleNumber: (json['vehicleNumber'] as num).toInt(),
+      vehicleCapacity: (json['vehicleCapacity'] as num).toInt(),
       route: json['route'] as String,
       owner: json['owner'] as String,
-      createdBy: json['createdBy'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
+      createdBy: json['createdBy'] as String?,
+      createdAt: json['createdAt'] == null
+          ? null
+          : DateTime.parse(json['createdAt'] as String),
       organisation: json['organisation'] as String,
       users: (json['users'] as List<dynamic>).map((e) => e as String).toList(),
       pickupLocations: (json['pickupLocations'] as List<dynamic>)
@@ -30,10 +33,11 @@ Map<String, dynamic> _$$VehicleDtoImplToJson(_$VehicleDtoImpl instance) =>
       'name': instance.name,
       'driver': instance.driver,
       'vehicleNumber': instance.vehicleNumber,
+      'vehicleCapacity': instance.vehicleCapacity,
       'route': instance.route,
       'owner': instance.owner,
       'createdBy': instance.createdBy,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': instance.createdAt?.toIso8601String(),
       'organisation': instance.organisation,
       'users': instance.users,
       'pickupLocations': instance.pickupLocations,

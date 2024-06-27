@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$VehicleFailure {
+mixin _$VehicleFailure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
@@ -46,44 +46,44 @@ mixin _$VehicleFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(VehicleNotFound value) vehicleNotFound,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
-    required TResult Function(UnKnownError value) unKnownError,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(VehicleNotFound<T> value) vehicleNotFound,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
+    required TResult Function(UnKnownError<T> value) unKnownError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(VehicleNotFound value)? vehicleNotFound,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
-    TResult? Function(UnKnownError value)? unKnownError,
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult? Function(UnKnownError<T> value)? unKnownError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(VehicleNotFound value)? vehicleNotFound,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
-    TResult Function(UnKnownError value)? unKnownError,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult Function(UnKnownError<T> value)? unKnownError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $VehicleFailureCopyWith<$Res> {
+abstract class $VehicleFailureCopyWith<T, $Res> {
   factory $VehicleFailureCopyWith(
-          VehicleFailure value, $Res Function(VehicleFailure) then) =
-      _$VehicleFailureCopyWithImpl<$Res, VehicleFailure>;
+          VehicleFailure<T> value, $Res Function(VehicleFailure<T>) then) =
+      _$VehicleFailureCopyWithImpl<T, $Res, VehicleFailure<T>>;
 }
 
 /// @nodoc
-class _$VehicleFailureCopyWithImpl<$Res, $Val extends VehicleFailure>
-    implements $VehicleFailureCopyWith<$Res> {
+class _$VehicleFailureCopyWithImpl<T, $Res, $Val extends VehicleFailure<T>>
+    implements $VehicleFailureCopyWith<T, $Res> {
   _$VehicleFailureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -93,35 +93,35 @@ class _$VehicleFailureCopyWithImpl<$Res, $Val extends VehicleFailure>
 }
 
 /// @nodoc
-abstract class _$$CancelledByUserImplCopyWith<$Res> {
-  factory _$$CancelledByUserImplCopyWith(_$CancelledByUserImpl value,
-          $Res Function(_$CancelledByUserImpl) then) =
-      __$$CancelledByUserImplCopyWithImpl<$Res>;
+abstract class _$$CancelledByUserImplCopyWith<T, $Res> {
+  factory _$$CancelledByUserImplCopyWith(_$CancelledByUserImpl<T> value,
+          $Res Function(_$CancelledByUserImpl<T>) then) =
+      __$$CancelledByUserImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$CancelledByUserImplCopyWithImpl<$Res>
-    extends _$VehicleFailureCopyWithImpl<$Res, _$CancelledByUserImpl>
-    implements _$$CancelledByUserImplCopyWith<$Res> {
-  __$$CancelledByUserImplCopyWithImpl(
-      _$CancelledByUserImpl _value, $Res Function(_$CancelledByUserImpl) _then)
+class __$$CancelledByUserImplCopyWithImpl<T, $Res>
+    extends _$VehicleFailureCopyWithImpl<T, $Res, _$CancelledByUserImpl<T>>
+    implements _$$CancelledByUserImplCopyWith<T, $Res> {
+  __$$CancelledByUserImplCopyWithImpl(_$CancelledByUserImpl<T> _value,
+      $Res Function(_$CancelledByUserImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CancelledByUserImpl implements CancelledByUser {
+class _$CancelledByUserImpl<T> implements CancelledByUser<T> {
   const _$CancelledByUserImpl();
 
   @override
   String toString() {
-    return 'VehicleFailure.cancelledByUser()';
+    return 'VehicleFailure<$T>.cancelledByUser()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CancelledByUserImpl);
+        (other.runtimeType == runtimeType && other is _$CancelledByUserImpl<T>);
   }
 
   @override
@@ -170,11 +170,11 @@ class _$CancelledByUserImpl implements CancelledByUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(VehicleNotFound value) vehicleNotFound,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
-    required TResult Function(UnKnownError value) unKnownError,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(VehicleNotFound<T> value) vehicleNotFound,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
+    required TResult Function(UnKnownError<T> value) unKnownError,
   }) {
     return cancelledByUser(this);
   }
@@ -182,11 +182,11 @@ class _$CancelledByUserImpl implements CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(VehicleNotFound value)? vehicleNotFound,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
-    TResult? Function(UnKnownError value)? unKnownError,
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult? Function(UnKnownError<T> value)? unKnownError,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -194,11 +194,11 @@ class _$CancelledByUserImpl implements CancelledByUser {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(VehicleNotFound value)? vehicleNotFound,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
-    TResult Function(UnKnownError value)? unKnownError,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult Function(UnKnownError<T> value)? unKnownError,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -208,40 +208,40 @@ class _$CancelledByUserImpl implements CancelledByUser {
   }
 }
 
-abstract class CancelledByUser implements VehicleFailure {
-  const factory CancelledByUser() = _$CancelledByUserImpl;
+abstract class CancelledByUser<T> implements VehicleFailure<T> {
+  const factory CancelledByUser() = _$CancelledByUserImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$ServerErrorImplCopyWith<$Res> {
-  factory _$$ServerErrorImplCopyWith(
-          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
-      __$$ServerErrorImplCopyWithImpl<$Res>;
+abstract class _$$ServerErrorImplCopyWith<T, $Res> {
+  factory _$$ServerErrorImplCopyWith(_$ServerErrorImpl<T> value,
+          $Res Function(_$ServerErrorImpl<T>) then) =
+      __$$ServerErrorImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$ServerErrorImplCopyWithImpl<$Res>
-    extends _$VehicleFailureCopyWithImpl<$Res, _$ServerErrorImpl>
-    implements _$$ServerErrorImplCopyWith<$Res> {
+class __$$ServerErrorImplCopyWithImpl<T, $Res>
+    extends _$VehicleFailureCopyWithImpl<T, $Res, _$ServerErrorImpl<T>>
+    implements _$$ServerErrorImplCopyWith<T, $Res> {
   __$$ServerErrorImplCopyWithImpl(
-      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
+      _$ServerErrorImpl<T> _value, $Res Function(_$ServerErrorImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ServerErrorImpl implements ServerError {
+class _$ServerErrorImpl<T> implements ServerError<T> {
   const _$ServerErrorImpl();
 
   @override
   String toString() {
-    return 'VehicleFailure.serverError()';
+    return 'VehicleFailure<$T>.serverError()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ServerErrorImpl);
+        (other.runtimeType == runtimeType && other is _$ServerErrorImpl<T>);
   }
 
   @override
@@ -290,11 +290,11 @@ class _$ServerErrorImpl implements ServerError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(VehicleNotFound value) vehicleNotFound,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
-    required TResult Function(UnKnownError value) unKnownError,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(VehicleNotFound<T> value) vehicleNotFound,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
+    required TResult Function(UnKnownError<T> value) unKnownError,
   }) {
     return serverError(this);
   }
@@ -302,11 +302,11 @@ class _$ServerErrorImpl implements ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(VehicleNotFound value)? vehicleNotFound,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
-    TResult? Function(UnKnownError value)? unKnownError,
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult? Function(UnKnownError<T> value)? unKnownError,
   }) {
     return serverError?.call(this);
   }
@@ -314,11 +314,11 @@ class _$ServerErrorImpl implements ServerError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(VehicleNotFound value)? vehicleNotFound,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
-    TResult Function(UnKnownError value)? unKnownError,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult Function(UnKnownError<T> value)? unKnownError,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -328,40 +328,40 @@ class _$ServerErrorImpl implements ServerError {
   }
 }
 
-abstract class ServerError implements VehicleFailure {
-  const factory ServerError() = _$ServerErrorImpl;
+abstract class ServerError<T> implements VehicleFailure<T> {
+  const factory ServerError() = _$ServerErrorImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$VehicleNotFoundImplCopyWith<$Res> {
-  factory _$$VehicleNotFoundImplCopyWith(_$VehicleNotFoundImpl value,
-          $Res Function(_$VehicleNotFoundImpl) then) =
-      __$$VehicleNotFoundImplCopyWithImpl<$Res>;
+abstract class _$$VehicleNotFoundImplCopyWith<T, $Res> {
+  factory _$$VehicleNotFoundImplCopyWith(_$VehicleNotFoundImpl<T> value,
+          $Res Function(_$VehicleNotFoundImpl<T>) then) =
+      __$$VehicleNotFoundImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$VehicleNotFoundImplCopyWithImpl<$Res>
-    extends _$VehicleFailureCopyWithImpl<$Res, _$VehicleNotFoundImpl>
-    implements _$$VehicleNotFoundImplCopyWith<$Res> {
-  __$$VehicleNotFoundImplCopyWithImpl(
-      _$VehicleNotFoundImpl _value, $Res Function(_$VehicleNotFoundImpl) _then)
+class __$$VehicleNotFoundImplCopyWithImpl<T, $Res>
+    extends _$VehicleFailureCopyWithImpl<T, $Res, _$VehicleNotFoundImpl<T>>
+    implements _$$VehicleNotFoundImplCopyWith<T, $Res> {
+  __$$VehicleNotFoundImplCopyWithImpl(_$VehicleNotFoundImpl<T> _value,
+      $Res Function(_$VehicleNotFoundImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$VehicleNotFoundImpl implements VehicleNotFound {
+class _$VehicleNotFoundImpl<T> implements VehicleNotFound<T> {
   const _$VehicleNotFoundImpl();
 
   @override
   String toString() {
-    return 'VehicleFailure.vehicleNotFound()';
+    return 'VehicleFailure<$T>.vehicleNotFound()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$VehicleNotFoundImpl);
+        (other.runtimeType == runtimeType && other is _$VehicleNotFoundImpl<T>);
   }
 
   @override
@@ -410,11 +410,11 @@ class _$VehicleNotFoundImpl implements VehicleNotFound {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(VehicleNotFound value) vehicleNotFound,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
-    required TResult Function(UnKnownError value) unKnownError,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(VehicleNotFound<T> value) vehicleNotFound,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
+    required TResult Function(UnKnownError<T> value) unKnownError,
   }) {
     return vehicleNotFound(this);
   }
@@ -422,11 +422,11 @@ class _$VehicleNotFoundImpl implements VehicleNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(VehicleNotFound value)? vehicleNotFound,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
-    TResult? Function(UnKnownError value)? unKnownError,
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult? Function(UnKnownError<T> value)? unKnownError,
   }) {
     return vehicleNotFound?.call(this);
   }
@@ -434,11 +434,11 @@ class _$VehicleNotFoundImpl implements VehicleNotFound {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(VehicleNotFound value)? vehicleNotFound,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
-    TResult Function(UnKnownError value)? unKnownError,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult Function(UnKnownError<T> value)? unKnownError,
     required TResult orElse(),
   }) {
     if (vehicleNotFound != null) {
@@ -448,40 +448,40 @@ class _$VehicleNotFoundImpl implements VehicleNotFound {
   }
 }
 
-abstract class VehicleNotFound implements VehicleFailure {
-  const factory VehicleNotFound() = _$VehicleNotFoundImpl;
+abstract class VehicleNotFound<T> implements VehicleFailure<T> {
+  const factory VehicleNotFound() = _$VehicleNotFoundImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$UnAuthenticatedImplCopyWith<$Res> {
-  factory _$$UnAuthenticatedImplCopyWith(_$UnAuthenticatedImpl value,
-          $Res Function(_$UnAuthenticatedImpl) then) =
-      __$$UnAuthenticatedImplCopyWithImpl<$Res>;
+abstract class _$$UnAuthenticatedImplCopyWith<T, $Res> {
+  factory _$$UnAuthenticatedImplCopyWith(_$UnAuthenticatedImpl<T> value,
+          $Res Function(_$UnAuthenticatedImpl<T>) then) =
+      __$$UnAuthenticatedImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$UnAuthenticatedImplCopyWithImpl<$Res>
-    extends _$VehicleFailureCopyWithImpl<$Res, _$UnAuthenticatedImpl>
-    implements _$$UnAuthenticatedImplCopyWith<$Res> {
-  __$$UnAuthenticatedImplCopyWithImpl(
-      _$UnAuthenticatedImpl _value, $Res Function(_$UnAuthenticatedImpl) _then)
+class __$$UnAuthenticatedImplCopyWithImpl<T, $Res>
+    extends _$VehicleFailureCopyWithImpl<T, $Res, _$UnAuthenticatedImpl<T>>
+    implements _$$UnAuthenticatedImplCopyWith<T, $Res> {
+  __$$UnAuthenticatedImplCopyWithImpl(_$UnAuthenticatedImpl<T> _value,
+      $Res Function(_$UnAuthenticatedImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UnAuthenticatedImpl implements UnAuthenticated {
+class _$UnAuthenticatedImpl<T> implements UnAuthenticated<T> {
   const _$UnAuthenticatedImpl();
 
   @override
   String toString() {
-    return 'VehicleFailure.unAuthenticated()';
+    return 'VehicleFailure<$T>.unAuthenticated()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnAuthenticatedImpl);
+        (other.runtimeType == runtimeType && other is _$UnAuthenticatedImpl<T>);
   }
 
   @override
@@ -530,11 +530,11 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(VehicleNotFound value) vehicleNotFound,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
-    required TResult Function(UnKnownError value) unKnownError,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(VehicleNotFound<T> value) vehicleNotFound,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
+    required TResult Function(UnKnownError<T> value) unKnownError,
   }) {
     return unAuthenticated(this);
   }
@@ -542,11 +542,11 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(VehicleNotFound value)? vehicleNotFound,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
-    TResult? Function(UnKnownError value)? unKnownError,
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult? Function(UnKnownError<T> value)? unKnownError,
   }) {
     return unAuthenticated?.call(this);
   }
@@ -554,11 +554,11 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(VehicleNotFound value)? vehicleNotFound,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
-    TResult Function(UnKnownError value)? unKnownError,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult Function(UnKnownError<T> value)? unKnownError,
     required TResult orElse(),
   }) {
     if (unAuthenticated != null) {
@@ -568,40 +568,40 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
   }
 }
 
-abstract class UnAuthenticated implements VehicleFailure {
-  const factory UnAuthenticated() = _$UnAuthenticatedImpl;
+abstract class UnAuthenticated<T> implements VehicleFailure<T> {
+  const factory UnAuthenticated() = _$UnAuthenticatedImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$UnKnownErrorImplCopyWith<$Res> {
-  factory _$$UnKnownErrorImplCopyWith(
-          _$UnKnownErrorImpl value, $Res Function(_$UnKnownErrorImpl) then) =
-      __$$UnKnownErrorImplCopyWithImpl<$Res>;
+abstract class _$$UnKnownErrorImplCopyWith<T, $Res> {
+  factory _$$UnKnownErrorImplCopyWith(_$UnKnownErrorImpl<T> value,
+          $Res Function(_$UnKnownErrorImpl<T>) then) =
+      __$$UnKnownErrorImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$UnKnownErrorImplCopyWithImpl<$Res>
-    extends _$VehicleFailureCopyWithImpl<$Res, _$UnKnownErrorImpl>
-    implements _$$UnKnownErrorImplCopyWith<$Res> {
+class __$$UnKnownErrorImplCopyWithImpl<T, $Res>
+    extends _$VehicleFailureCopyWithImpl<T, $Res, _$UnKnownErrorImpl<T>>
+    implements _$$UnKnownErrorImplCopyWith<T, $Res> {
   __$$UnKnownErrorImplCopyWithImpl(
-      _$UnKnownErrorImpl _value, $Res Function(_$UnKnownErrorImpl) _then)
+      _$UnKnownErrorImpl<T> _value, $Res Function(_$UnKnownErrorImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UnKnownErrorImpl implements UnKnownError {
+class _$UnKnownErrorImpl<T> implements UnKnownError<T> {
   const _$UnKnownErrorImpl();
 
   @override
   String toString() {
-    return 'VehicleFailure.unKnownError()';
+    return 'VehicleFailure<$T>.unKnownError()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnKnownErrorImpl);
+        (other.runtimeType == runtimeType && other is _$UnKnownErrorImpl<T>);
   }
 
   @override
@@ -650,11 +650,11 @@ class _$UnKnownErrorImpl implements UnKnownError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CancelledByUser value) cancelledByUser,
-    required TResult Function(ServerError value) serverError,
-    required TResult Function(VehicleNotFound value) vehicleNotFound,
-    required TResult Function(UnAuthenticated value) unAuthenticated,
-    required TResult Function(UnKnownError value) unKnownError,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(VehicleNotFound<T> value) vehicleNotFound,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
+    required TResult Function(UnKnownError<T> value) unKnownError,
   }) {
     return unKnownError(this);
   }
@@ -662,11 +662,11 @@ class _$UnKnownErrorImpl implements UnKnownError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CancelledByUser value)? cancelledByUser,
-    TResult? Function(ServerError value)? serverError,
-    TResult? Function(VehicleNotFound value)? vehicleNotFound,
-    TResult? Function(UnAuthenticated value)? unAuthenticated,
-    TResult? Function(UnKnownError value)? unKnownError,
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult? Function(UnKnownError<T> value)? unKnownError,
   }) {
     return unKnownError?.call(this);
   }
@@ -674,11 +674,11 @@ class _$UnKnownErrorImpl implements UnKnownError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(VehicleNotFound value)? vehicleNotFound,
-    TResult Function(UnAuthenticated value)? unAuthenticated,
-    TResult Function(UnKnownError value)? unKnownError,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult Function(UnKnownError<T> value)? unKnownError,
     required TResult orElse(),
   }) {
     if (unKnownError != null) {
@@ -688,6 +688,6 @@ class _$UnKnownErrorImpl implements UnKnownError {
   }
 }
 
-abstract class UnKnownError implements VehicleFailure {
-  const factory UnKnownError() = _$UnKnownErrorImpl;
+abstract class UnKnownError<T> implements VehicleFailure<T> {
+  const factory UnKnownError() = _$UnKnownErrorImpl<T>;
 }

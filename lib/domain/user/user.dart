@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:vtrack_v1/domain/organisation/organisation.dart';
 import 'package:vtrack_v1/domain/user/value_objects.dart';
 
 part 'user.freezed.dart';
@@ -23,6 +24,19 @@ class UserPickupLocation with _$UserPickupLocation {
     num? latitude,
     num? longitude,
   }) = _UserPickupLocation;
+}
+@freezed
+class UserOrganisations with _$UserOrganisations{
+  const factory UserOrganisations({
+    required List<Organisation> organisations
+  }) = _UserOrganisations;
+}
+@freezed
+class Organisations with _$Organisations{
+  const factory Organisations({
+    String? name,
+    required String id,
+  }) = _Organisations;
 }
 
 

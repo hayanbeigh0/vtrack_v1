@@ -7,7 +7,7 @@ Either<VehicleValueFailure<String>, String> validateVehicleName({
   required int maxLength,
 }) {
   // Validation logic for invalid vehicles which is not yet decided.
-  if (input.length > maxLength) {
+  if (input.isNotEmpty && input.length < maxLength) {
     return right(input);
   } else {
     return left(
@@ -24,7 +24,15 @@ Either<VehicleValueFailure<String>, String> validateVehicleDriver({
   required int maxLength,
 }) {
   // Validation logic for invalid vehicles driver which is not yet decided.
-  return right(input);
+  if (input.isNotEmpty && input.length < maxLength) {
+    return right(input);
+  } else {
+    return left(
+      VehicleValueFailure.invalidDriver(
+        failedValue: input,
+      ),
+    );
+  }
 }
 
 Either<VehicleValueFailure<String>, String> validateVehicleRoute({
@@ -32,7 +40,15 @@ Either<VehicleValueFailure<String>, String> validateVehicleRoute({
   required int maxLength,
 }) {
   // Validation logic for invalid vehicles driver which is not yet decided.
-  return right(input);
+  if (input.isNotEmpty && input.length < maxLength) {
+    return right(input);
+  } else {
+    return left(
+      VehicleValueFailure.invalidRoute(
+        failedValue: input,
+      ),
+    );
+  }
 }
 
 Either<VehicleValueFailure<String>, String> validateVehicleOwner({
@@ -40,7 +56,15 @@ Either<VehicleValueFailure<String>, String> validateVehicleOwner({
   required int maxLength,
 }) {
   // Validation logic for invalid vehicles driver which is not yet decided.
-  return right(input);
+  if (input.isNotEmpty && input.length < maxLength) {
+    return right(input);
+  } else {
+    return left(
+      VehicleValueFailure.invalidVehicleOwner(
+        failedValue: input,
+      ),
+    );
+  }
 }
 
 Either<VehicleValueFailure<String>, String> validateVehicleOrganisation({
@@ -48,7 +72,15 @@ Either<VehicleValueFailure<String>, String> validateVehicleOrganisation({
   required int maxLength,
 }) {
   // Validation logic for invalid vehicles driver which is not yet decided.
-  return right(input);
+  if (input.isNotEmpty && input.length < maxLength) {
+    return right(input);
+  } else {
+    return left(
+      VehicleValueFailure.invalidVehicleOrganisation(
+        failedValue: input,
+      ),
+    );
+  }
 }
 
 Either<VehicleValueFailure<VehiclePickupLocation>, VehiclePickupLocation>
@@ -65,5 +97,13 @@ Either<VehicleValueFailure<int>, int> validateVehicleNumber({
   required int maxLength,
 }) {
   // Validation logic for invalid vehicles driver which is not yet decided.
-  return right(input);
+  if (input != -1 && input > 0) {
+    return right(input);
+  } else {
+    return left(
+      VehicleValueFailure.invalidVehicleNumber(
+        failedValue: input,
+      ),
+    );
+  }
 }

@@ -39,7 +39,7 @@ Either<UserValueFailure<List<String>>, List<String>> validateUserVehicles({
 }) {
   // Validation logic for invalid vehicles which is not yet decided.
   // if (input.length <= -1) {
-    return right(input);
+  return right(input);
   // } else {
   //   return left(
   //     UserValueFailure.invalidVehicleList(
@@ -49,12 +49,13 @@ Either<UserValueFailure<List<String>>, List<String>> validateUserVehicles({
   // }
 }
 
-Either<UserValueFailure<List<String>>, List<String>> validateUserOrganisations({
-  required List<String> input,
+Either<UserValueFailure<List<Map<String, dynamic>>>, List<Map<String, dynamic>>>
+    validateUserOrganisations({
+  required List<Map<String, dynamic>> input,
 }) {
   // Validation logic for invalid vehicles which is not yet decided.
   // if (input.length <= -1) {
-    return right(input);
+  return right(input);
   // } else {
   //   return left(
   //     UserValueFailure.invalidOrganisationList(

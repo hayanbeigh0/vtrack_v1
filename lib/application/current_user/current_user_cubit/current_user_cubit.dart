@@ -63,10 +63,12 @@ class CurrentUserCubit extends Cubit<CurrentUserState> {
   }
 
   updateMe({required User user}) async {
+    emit(const CurrentUserState.loading());
     final Either<UserFailure, User> userOrFailure =
         await _userRepository.updateMe(
       user: user,
     );
+    await _userRepository.saveCurrentUser(user: user);
 
     return userOrFailure.fold(
       (f) => emit(CurrentUserState.failure(failure: f)),

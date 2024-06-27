@@ -43,6 +43,8 @@ abstract class $UserCopyWith<$Res> {
       UserOrganisations organisations,
       UserVehicles vehicles,
       UserPickupLocations pickupLocation});
+
+  $UserOrganisationsCopyWith<$Res> get organisations;
 }
 
 /// @nodoc
@@ -102,6 +104,14 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
               as UserPickupLocations,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserOrganisationsCopyWith<$Res> get organisations {
+    return $UserOrganisationsCopyWith<$Res>(_value.organisations, (value) {
+      return _then(_value.copyWith(organisations: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -120,6 +130,9 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       UserOrganisations organisations,
       UserVehicles vehicles,
       UserPickupLocations pickupLocation});
+
+  @override
+  $UserOrganisationsCopyWith<$Res> get organisations;
 }
 
 /// @nodoc
@@ -411,5 +424,268 @@ abstract class _UserPickupLocation implements UserPickupLocation {
   @override
   @JsonKey(ignore: true)
   _$$UserPickupLocationImplCopyWith<_$UserPickupLocationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$UserOrganisations {
+  List<Organisation> get organisations => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UserOrganisationsCopyWith<UserOrganisations> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserOrganisationsCopyWith<$Res> {
+  factory $UserOrganisationsCopyWith(
+          UserOrganisations value, $Res Function(UserOrganisations) then) =
+      _$UserOrganisationsCopyWithImpl<$Res, UserOrganisations>;
+  @useResult
+  $Res call({List<Organisation> organisations});
+}
+
+/// @nodoc
+class _$UserOrganisationsCopyWithImpl<$Res, $Val extends UserOrganisations>
+    implements $UserOrganisationsCopyWith<$Res> {
+  _$UserOrganisationsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? organisations = null,
+  }) {
+    return _then(_value.copyWith(
+      organisations: null == organisations
+          ? _value.organisations
+          : organisations // ignore: cast_nullable_to_non_nullable
+              as List<Organisation>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserOrganisationsImplCopyWith<$Res>
+    implements $UserOrganisationsCopyWith<$Res> {
+  factory _$$UserOrganisationsImplCopyWith(_$UserOrganisationsImpl value,
+          $Res Function(_$UserOrganisationsImpl) then) =
+      __$$UserOrganisationsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<Organisation> organisations});
+}
+
+/// @nodoc
+class __$$UserOrganisationsImplCopyWithImpl<$Res>
+    extends _$UserOrganisationsCopyWithImpl<$Res, _$UserOrganisationsImpl>
+    implements _$$UserOrganisationsImplCopyWith<$Res> {
+  __$$UserOrganisationsImplCopyWithImpl(_$UserOrganisationsImpl _value,
+      $Res Function(_$UserOrganisationsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? organisations = null,
+  }) {
+    return _then(_$UserOrganisationsImpl(
+      organisations: null == organisations
+          ? _value._organisations
+          : organisations // ignore: cast_nullable_to_non_nullable
+              as List<Organisation>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UserOrganisationsImpl implements _UserOrganisations {
+  const _$UserOrganisationsImpl(
+      {required final List<Organisation> organisations})
+      : _organisations = organisations;
+
+  final List<Organisation> _organisations;
+  @override
+  List<Organisation> get organisations {
+    if (_organisations is EqualUnmodifiableListView) return _organisations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_organisations);
+  }
+
+  @override
+  String toString() {
+    return 'UserOrganisations(organisations: $organisations)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserOrganisationsImpl &&
+            const DeepCollectionEquality()
+                .equals(other._organisations, _organisations));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_organisations));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserOrganisationsImplCopyWith<_$UserOrganisationsImpl> get copyWith =>
+      __$$UserOrganisationsImplCopyWithImpl<_$UserOrganisationsImpl>(
+          this, _$identity);
+}
+
+abstract class _UserOrganisations implements UserOrganisations {
+  const factory _UserOrganisations(
+          {required final List<Organisation> organisations}) =
+      _$UserOrganisationsImpl;
+
+  @override
+  List<Organisation> get organisations;
+  @override
+  @JsonKey(ignore: true)
+  _$$UserOrganisationsImplCopyWith<_$UserOrganisationsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$Organisations {
+  String? get name => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $OrganisationsCopyWith<Organisations> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OrganisationsCopyWith<$Res> {
+  factory $OrganisationsCopyWith(
+          Organisations value, $Res Function(Organisations) then) =
+      _$OrganisationsCopyWithImpl<$Res, Organisations>;
+  @useResult
+  $Res call({String? name, String id});
+}
+
+/// @nodoc
+class _$OrganisationsCopyWithImpl<$Res, $Val extends Organisations>
+    implements $OrganisationsCopyWith<$Res> {
+  _$OrganisationsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? id = null,
+  }) {
+    return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OrganisationsImplCopyWith<$Res>
+    implements $OrganisationsCopyWith<$Res> {
+  factory _$$OrganisationsImplCopyWith(
+          _$OrganisationsImpl value, $Res Function(_$OrganisationsImpl) then) =
+      __$$OrganisationsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? name, String id});
+}
+
+/// @nodoc
+class __$$OrganisationsImplCopyWithImpl<$Res>
+    extends _$OrganisationsCopyWithImpl<$Res, _$OrganisationsImpl>
+    implements _$$OrganisationsImplCopyWith<$Res> {
+  __$$OrganisationsImplCopyWithImpl(
+      _$OrganisationsImpl _value, $Res Function(_$OrganisationsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? id = null,
+  }) {
+    return _then(_$OrganisationsImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OrganisationsImpl implements _Organisations {
+  const _$OrganisationsImpl({this.name, required this.id});
+
+  @override
+  final String? name;
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'Organisations(name: $name, id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrganisationsImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrganisationsImplCopyWith<_$OrganisationsImpl> get copyWith =>
+      __$$OrganisationsImplCopyWithImpl<_$OrganisationsImpl>(this, _$identity);
+}
+
+abstract class _Organisations implements Organisations {
+  const factory _Organisations({final String? name, required final String id}) =
+      _$OrganisationsImpl;
+
+  @override
+  String? get name;
+  @override
+  String get id;
+  @override
+  @JsonKey(ignore: true)
+  _$$OrganisationsImplCopyWith<_$OrganisationsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

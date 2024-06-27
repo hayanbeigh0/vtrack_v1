@@ -1,10 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:vtrack_v1/domain/organisation/organisation.dart';
+import 'package:vtrack_v1/domain/organisation/value_objects.dart';
 import 'package:vtrack_v1/domain/user/user.dart';
-import 'package:vtrack_v1/domain/user/value_objects.dart';
+import 'package:vtrack_v1/domain/user/value_objects.dart'
+    hide UserOrganisations;
 
 part 'user_dtos.freezed.dart';
 part 'user_dtos.g.dart';
-
 @freezed
 class UserDto with _$UserDto {
   const UserDto._();
@@ -15,7 +17,7 @@ class UserDto with _$UserDto {
     required String role,
     required String name,
     required String email,
-    required List<String> organisations,
+    required List<UserOrganisationDto> organisations,
     required List<String> vehicles,
     required UserPickupLocationDto pickupLocation,
   }) = _UserDto;
@@ -27,7 +29,9 @@ class UserDto with _$UserDto {
       name: user.name.getOrCrash(),
       email: user.emailAddress.getOrCrash(),
       vehicles: user.vehicles.getOrCrash(),
-      organisations: user.organisations.getOrCrash(),
+      organisations: user.organisations.organisations
+          .map((e) => UserOrganisationDto.fromDomain(e))
+          .toList(),
       role: user.role.getOrCrash(),
       pickupLocation:
           UserPickupLocationDto.fromDomain(user.pickupLocation.getOrCrash()),
@@ -41,7 +45,9 @@ class UserDto with _$UserDto {
       name: UserName(name),
       vehicles: UserVehicles(vehicles),
       emailAddress: UserEmail(email),
-      organisations: UserOrganisations(organisations),
+      organisations: UserOrganisations(
+        organisations: organisations.map((e) => e.toDomain()).toList(),
+      ),
       pickupLocation: UserPickupLocations(pickupLocation.toDomain()),
       role: UserRole(role),
     );
@@ -50,6 +56,7 @@ class UserDto with _$UserDto {
   factory UserDto.fromJson(Map<String, dynamic> json) =>
       _$UserDtoFromJson(json);
 }
+
 
 @freezed
 class UserPickupLocationDto with _$UserPickupLocationDto {
@@ -84,4 +91,48 @@ class UserPickupLocationDto with _$UserPickupLocationDto {
 
   factory UserPickupLocationDto.fromJson(Map<String, dynamic> json) =>
       _$UserPickupLocationDtoFromJson(json);
+}
+
+@freezed
+class UserOrganisationDto with _$UserOrganisationDto {
+  const UserOrganisationDto._();
+  const factory UserOrganisationDto({
+    required String id,
+    required String name,
+    required String address,
+    required String code,
+    required String createdBy,
+    required String createdAt,
+    required String owner,
+    required List<String> vehicles,
+  }) = _UserOrganisationDto;
+
+  factory UserOrganisationDto.fromDomain(Organisation organisation) {
+    return UserOrganisationDto(
+      id: organisation.id!,
+      name: organisation.name.getOrCrash(),
+      address: organisation.address,
+      code: organisation.code.getOrCrash(),
+      vehicles: organisation.vehicles,
+      createdBy: organisation.createdBy!,
+      createdAt: organisation.createdAt!,
+      owner: organisation.owner!,
+    );
+  }
+
+  Organisation toDomain() {
+    return Organisation(
+      id: id,
+      name: OrganisationName(name),
+      address: address,
+      code: OrganisationCode(code),
+      vehicles: vehicles,
+      createdBy: createdBy,
+      owner: owner,
+      createdAt: createdAt
+    );
+  }
+
+  factory UserOrganisationDto.fromJson(Map<String, dynamic> json) =>
+      _$UserOrganisationDtoFromJson(json);
 }

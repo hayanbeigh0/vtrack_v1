@@ -20,10 +20,11 @@ mixin _$Vehicle {
   VehicleName get name => throw _privateConstructorUsedError;
   VehicleDriver get driver => throw _privateConstructorUsedError;
   int get vehicleNumber => throw _privateConstructorUsedError;
+  int get vehicleCapacity => throw _privateConstructorUsedError;
   VehicleRoute get route => throw _privateConstructorUsedError;
   VehicleOwner get owner => throw _privateConstructorUsedError;
-  String get createdBy => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  String? get createdBy => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   VehicleOrganisation get organisation => throw _privateConstructorUsedError;
   List<String> get users => throw _privateConstructorUsedError;
   List<VehiclePickupLocation> get pickupLocations =>
@@ -43,10 +44,11 @@ abstract class $VehicleCopyWith<$Res> {
       VehicleName name,
       VehicleDriver driver,
       int vehicleNumber,
+      int vehicleCapacity,
       VehicleRoute route,
       VehicleOwner owner,
-      String createdBy,
-      DateTime createdAt,
+      String? createdBy,
+      DateTime? createdAt,
       VehicleOrganisation organisation,
       List<String> users,
       List<VehiclePickupLocation> pickupLocations});
@@ -69,10 +71,11 @@ class _$VehicleCopyWithImpl<$Res, $Val extends Vehicle>
     Object? name = null,
     Object? driver = null,
     Object? vehicleNumber = null,
+    Object? vehicleCapacity = null,
     Object? route = null,
     Object? owner = null,
-    Object? createdBy = null,
-    Object? createdAt = null,
+    Object? createdBy = freezed,
+    Object? createdAt = freezed,
     Object? organisation = null,
     Object? users = null,
     Object? pickupLocations = null,
@@ -94,6 +97,10 @@ class _$VehicleCopyWithImpl<$Res, $Val extends Vehicle>
           ? _value.vehicleNumber
           : vehicleNumber // ignore: cast_nullable_to_non_nullable
               as int,
+      vehicleCapacity: null == vehicleCapacity
+          ? _value.vehicleCapacity
+          : vehicleCapacity // ignore: cast_nullable_to_non_nullable
+              as int,
       route: null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
@@ -102,14 +109,14 @@ class _$VehicleCopyWithImpl<$Res, $Val extends Vehicle>
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
               as VehicleOwner,
-      createdBy: null == createdBy
+      createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       organisation: null == organisation
           ? _value.organisation
           : organisation // ignore: cast_nullable_to_non_nullable
@@ -138,10 +145,11 @@ abstract class _$$VehicleImplCopyWith<$Res> implements $VehicleCopyWith<$Res> {
       VehicleName name,
       VehicleDriver driver,
       int vehicleNumber,
+      int vehicleCapacity,
       VehicleRoute route,
       VehicleOwner owner,
-      String createdBy,
-      DateTime createdAt,
+      String? createdBy,
+      DateTime? createdAt,
       VehicleOrganisation organisation,
       List<String> users,
       List<VehiclePickupLocation> pickupLocations});
@@ -162,10 +170,11 @@ class __$$VehicleImplCopyWithImpl<$Res>
     Object? name = null,
     Object? driver = null,
     Object? vehicleNumber = null,
+    Object? vehicleCapacity = null,
     Object? route = null,
     Object? owner = null,
-    Object? createdBy = null,
-    Object? createdAt = null,
+    Object? createdBy = freezed,
+    Object? createdAt = freezed,
     Object? organisation = null,
     Object? users = null,
     Object? pickupLocations = null,
@@ -187,6 +196,10 @@ class __$$VehicleImplCopyWithImpl<$Res>
           ? _value.vehicleNumber
           : vehicleNumber // ignore: cast_nullable_to_non_nullable
               as int,
+      vehicleCapacity: null == vehicleCapacity
+          ? _value.vehicleCapacity
+          : vehicleCapacity // ignore: cast_nullable_to_non_nullable
+              as int,
       route: null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
@@ -195,14 +208,14 @@ class __$$VehicleImplCopyWithImpl<$Res>
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
               as VehicleOwner,
-      createdBy: null == createdBy
+      createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       organisation: null == organisation
           ? _value.organisation
           : organisation // ignore: cast_nullable_to_non_nullable
@@ -221,21 +234,23 @@ class __$$VehicleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$VehicleImpl implements _Vehicle {
+class _$VehicleImpl extends _Vehicle {
   const _$VehicleImpl(
       {this.id,
       required this.name,
       required this.driver,
       required this.vehicleNumber,
+      required this.vehicleCapacity,
       required this.route,
       required this.owner,
-      required this.createdBy,
-      required this.createdAt,
+      this.createdBy,
+      this.createdAt,
       required this.organisation,
       required final List<String> users,
       required final List<VehiclePickupLocation> pickupLocations})
       : _users = users,
-        _pickupLocations = pickupLocations;
+        _pickupLocations = pickupLocations,
+        super._();
 
   @override
   final String? id;
@@ -246,13 +261,15 @@ class _$VehicleImpl implements _Vehicle {
   @override
   final int vehicleNumber;
   @override
+  final int vehicleCapacity;
+  @override
   final VehicleRoute route;
   @override
   final VehicleOwner owner;
   @override
-  final String createdBy;
+  final String? createdBy;
   @override
-  final DateTime createdAt;
+  final DateTime? createdAt;
   @override
   final VehicleOrganisation organisation;
   final List<String> _users;
@@ -273,7 +290,7 @@ class _$VehicleImpl implements _Vehicle {
 
   @override
   String toString() {
-    return 'Vehicle(id: $id, name: $name, driver: $driver, vehicleNumber: $vehicleNumber, route: $route, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, organisation: $organisation, users: $users, pickupLocations: $pickupLocations)';
+    return 'Vehicle(id: $id, name: $name, driver: $driver, vehicleNumber: $vehicleNumber, vehicleCapacity: $vehicleCapacity, route: $route, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, organisation: $organisation, users: $users, pickupLocations: $pickupLocations)';
   }
 
   @override
@@ -286,6 +303,8 @@ class _$VehicleImpl implements _Vehicle {
             (identical(other.driver, driver) || other.driver == driver) &&
             (identical(other.vehicleNumber, vehicleNumber) ||
                 other.vehicleNumber == vehicleNumber) &&
+            (identical(other.vehicleCapacity, vehicleCapacity) ||
+                other.vehicleCapacity == vehicleCapacity) &&
             (identical(other.route, route) || other.route == route) &&
             (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.createdBy, createdBy) ||
@@ -306,6 +325,7 @@ class _$VehicleImpl implements _Vehicle {
       name,
       driver,
       vehicleNumber,
+      vehicleCapacity,
       route,
       owner,
       createdBy,
@@ -321,20 +341,22 @@ class _$VehicleImpl implements _Vehicle {
       __$$VehicleImplCopyWithImpl<_$VehicleImpl>(this, _$identity);
 }
 
-abstract class _Vehicle implements Vehicle {
+abstract class _Vehicle extends Vehicle {
   const factory _Vehicle(
           {final String? id,
           required final VehicleName name,
           required final VehicleDriver driver,
           required final int vehicleNumber,
+          required final int vehicleCapacity,
           required final VehicleRoute route,
           required final VehicleOwner owner,
-          required final String createdBy,
-          required final DateTime createdAt,
+          final String? createdBy,
+          final DateTime? createdAt,
           required final VehicleOrganisation organisation,
           required final List<String> users,
           required final List<VehiclePickupLocation> pickupLocations}) =
       _$VehicleImpl;
+  const _Vehicle._() : super._();
 
   @override
   String? get id;
@@ -345,13 +367,15 @@ abstract class _Vehicle implements Vehicle {
   @override
   int get vehicleNumber;
   @override
+  int get vehicleCapacity;
+  @override
   VehicleRoute get route;
   @override
   VehicleOwner get owner;
   @override
-  String get createdBy;
+  String? get createdBy;
   @override
-  DateTime get createdAt;
+  DateTime? get createdAt;
   @override
   VehicleOrganisation get organisation;
   @override

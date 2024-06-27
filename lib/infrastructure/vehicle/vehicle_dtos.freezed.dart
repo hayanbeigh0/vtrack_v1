@@ -25,10 +25,11 @@ mixin _$VehicleDto {
   String get name => throw _privateConstructorUsedError;
   String get driver => throw _privateConstructorUsedError;
   int get vehicleNumber => throw _privateConstructorUsedError;
+  int get vehicleCapacity => throw _privateConstructorUsedError;
   String get route => throw _privateConstructorUsedError;
   String get owner => throw _privateConstructorUsedError;
-  String get createdBy => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  String? get createdBy => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   String get organisation => throw _privateConstructorUsedError;
   List<String> get users => throw _privateConstructorUsedError;
   List<VehiclePickupLocationsDto> get pickupLocations =>
@@ -51,10 +52,11 @@ abstract class $VehicleDtoCopyWith<$Res> {
       String name,
       String driver,
       int vehicleNumber,
+      int vehicleCapacity,
       String route,
       String owner,
-      String createdBy,
-      DateTime createdAt,
+      String? createdBy,
+      DateTime? createdAt,
       String organisation,
       List<String> users,
       List<VehiclePickupLocationsDto> pickupLocations});
@@ -77,10 +79,11 @@ class _$VehicleDtoCopyWithImpl<$Res, $Val extends VehicleDto>
     Object? name = null,
     Object? driver = null,
     Object? vehicleNumber = null,
+    Object? vehicleCapacity = null,
     Object? route = null,
     Object? owner = null,
-    Object? createdBy = null,
-    Object? createdAt = null,
+    Object? createdBy = freezed,
+    Object? createdAt = freezed,
     Object? organisation = null,
     Object? users = null,
     Object? pickupLocations = null,
@@ -102,6 +105,10 @@ class _$VehicleDtoCopyWithImpl<$Res, $Val extends VehicleDto>
           ? _value.vehicleNumber
           : vehicleNumber // ignore: cast_nullable_to_non_nullable
               as int,
+      vehicleCapacity: null == vehicleCapacity
+          ? _value.vehicleCapacity
+          : vehicleCapacity // ignore: cast_nullable_to_non_nullable
+              as int,
       route: null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
@@ -110,14 +117,14 @@ class _$VehicleDtoCopyWithImpl<$Res, $Val extends VehicleDto>
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
               as String,
-      createdBy: null == createdBy
+      createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       organisation: null == organisation
           ? _value.organisation
           : organisation // ignore: cast_nullable_to_non_nullable
@@ -147,10 +154,11 @@ abstract class _$$VehicleDtoImplCopyWith<$Res>
       String name,
       String driver,
       int vehicleNumber,
+      int vehicleCapacity,
       String route,
       String owner,
-      String createdBy,
-      DateTime createdAt,
+      String? createdBy,
+      DateTime? createdAt,
       String organisation,
       List<String> users,
       List<VehiclePickupLocationsDto> pickupLocations});
@@ -171,10 +179,11 @@ class __$$VehicleDtoImplCopyWithImpl<$Res>
     Object? name = null,
     Object? driver = null,
     Object? vehicleNumber = null,
+    Object? vehicleCapacity = null,
     Object? route = null,
     Object? owner = null,
-    Object? createdBy = null,
-    Object? createdAt = null,
+    Object? createdBy = freezed,
+    Object? createdAt = freezed,
     Object? organisation = null,
     Object? users = null,
     Object? pickupLocations = null,
@@ -196,6 +205,10 @@ class __$$VehicleDtoImplCopyWithImpl<$Res>
           ? _value.vehicleNumber
           : vehicleNumber // ignore: cast_nullable_to_non_nullable
               as int,
+      vehicleCapacity: null == vehicleCapacity
+          ? _value.vehicleCapacity
+          : vehicleCapacity // ignore: cast_nullable_to_non_nullable
+              as int,
       route: null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
@@ -204,14 +217,14 @@ class __$$VehicleDtoImplCopyWithImpl<$Res>
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
               as String,
-      createdBy: null == createdBy
+      createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       organisation: null == organisation
           ? _value.organisation
           : organisation // ignore: cast_nullable_to_non_nullable
@@ -236,10 +249,11 @@ class _$VehicleDtoImpl extends _VehicleDto {
       required this.name,
       required this.driver,
       required this.vehicleNumber,
+      required this.vehicleCapacity,
       required this.route,
       required this.owner,
-      required this.createdBy,
-      required this.createdAt,
+      this.createdBy,
+      this.createdAt,
       required this.organisation,
       required final List<String> users,
       required final List<VehiclePickupLocationsDto> pickupLocations})
@@ -260,13 +274,15 @@ class _$VehicleDtoImpl extends _VehicleDto {
   @override
   final int vehicleNumber;
   @override
+  final int vehicleCapacity;
+  @override
   final String route;
   @override
   final String owner;
   @override
-  final String createdBy;
+  final String? createdBy;
   @override
-  final DateTime createdAt;
+  final DateTime? createdAt;
   @override
   final String organisation;
   final List<String> _users;
@@ -287,7 +303,7 @@ class _$VehicleDtoImpl extends _VehicleDto {
 
   @override
   String toString() {
-    return 'VehicleDto(id: $id, name: $name, driver: $driver, vehicleNumber: $vehicleNumber, route: $route, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, organisation: $organisation, users: $users, pickupLocations: $pickupLocations)';
+    return 'VehicleDto(id: $id, name: $name, driver: $driver, vehicleNumber: $vehicleNumber, vehicleCapacity: $vehicleCapacity, route: $route, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, organisation: $organisation, users: $users, pickupLocations: $pickupLocations)';
   }
 
   @override
@@ -300,6 +316,8 @@ class _$VehicleDtoImpl extends _VehicleDto {
             (identical(other.driver, driver) || other.driver == driver) &&
             (identical(other.vehicleNumber, vehicleNumber) ||
                 other.vehicleNumber == vehicleNumber) &&
+            (identical(other.vehicleCapacity, vehicleCapacity) ||
+                other.vehicleCapacity == vehicleCapacity) &&
             (identical(other.route, route) || other.route == route) &&
             (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.createdBy, createdBy) ||
@@ -321,6 +339,7 @@ class _$VehicleDtoImpl extends _VehicleDto {
       name,
       driver,
       vehicleNumber,
+      vehicleCapacity,
       route,
       owner,
       createdBy,
@@ -349,10 +368,11 @@ abstract class _VehicleDto extends VehicleDto {
           required final String name,
           required final String driver,
           required final int vehicleNumber,
+          required final int vehicleCapacity,
           required final String route,
           required final String owner,
-          required final String createdBy,
-          required final DateTime createdAt,
+          final String? createdBy,
+          final DateTime? createdAt,
           required final String organisation,
           required final List<String> users,
           required final List<VehiclePickupLocationsDto> pickupLocations}) =
@@ -372,13 +392,15 @@ abstract class _VehicleDto extends VehicleDto {
   @override
   int get vehicleNumber;
   @override
+  int get vehicleCapacity;
+  @override
   String get route;
   @override
   String get owner;
   @override
-  String get createdBy;
+  String? get createdBy;
   @override
-  DateTime get createdAt;
+  DateTime? get createdAt;
   @override
   String get organisation;
   @override

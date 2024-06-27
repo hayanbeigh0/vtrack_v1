@@ -7,7 +7,7 @@ Either<OrganisationValueFailure<String>, String> validateOrganisationName({
   required String input,
   required int maxLength,
 }) {
-  if (input.length <= maxLength) {
+  if (input.isNotEmpty && input.length <= maxLength) {
     return right(input);
   } else {
     return left(
@@ -23,7 +23,7 @@ Either<OrganisationValueFailure<String>, String> validateOrganisationCode({
   required String input,
   required int maxLength,
 }) {
-  if (input.length <= maxLength) {
+  if (input.isNotEmpty && input.length <= maxLength) {
     return right(input);
   } else {
     return left(

@@ -5,7 +5,7 @@ import 'package:vtrack_v1/application/organisation/organisation_form_bloc/organi
 import 'package:vtrack_v1/domain/organisation/organisation.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets.dart';
-import 'package:vtrack_v1/presentation/create-organisation/widgets/organisation_form.dart';
+import 'package:vtrack_v1/presentation/organisation/widgets/organisation_form.dart';
 
 @RoutePage()
 class CreateOrganisation extends StatelessWidget {
