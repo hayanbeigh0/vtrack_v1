@@ -7,6 +7,7 @@ import 'package:vtrack_v1/domain/user/value_objects.dart'
 
 part 'user_dtos.freezed.dart';
 part 'user_dtos.g.dart';
+
 @freezed
 class UserDto with _$UserDto {
   const UserDto._();
@@ -57,13 +58,12 @@ class UserDto with _$UserDto {
       _$UserDtoFromJson(json);
 }
 
-
 @freezed
 class UserPickupLocationDto with _$UserPickupLocationDto {
   const UserPickupLocationDto._();
   const factory UserPickupLocationDto({
     required String type,
-    required List<num?> coordinates,
+    required List<num?>? coordinates,
   }) = _UserPickupLocationDto;
 
   factory UserPickupLocationDto.fromDomain(UserPickupLocation pickupLocation) {
@@ -76,9 +76,11 @@ class UserPickupLocationDto with _$UserPickupLocationDto {
   UserPickupLocation toDomain() {
     final num? latitude;
     final num? longitude;
-    if (coordinates.length == 2) {
-      latitude = coordinates[0];
-      longitude = coordinates[1];
+    if (coordinates != null &&
+        coordinates!.isNotEmpty &&
+        coordinates!.length == 2) {
+      latitude = coordinates![0];
+      longitude = coordinates![1];
     } else {
       latitude = null;
       longitude = null;
@@ -129,7 +131,7 @@ class UserOrganisationDto with _$UserOrganisationDto {
       vehicles: vehicles,
       createdBy: createdBy,
       owner: owner,
-      createdAt: createdAt
+      createdAt: createdAt,
     );
   }
 

@@ -16,6 +16,17 @@ abstract class User with _$User {
     required UserVehicles vehicles,
     required UserPickupLocations pickupLocation,
   }) = _User;
+
+  factory User.empty() => User(
+        name: UserName(''),
+        emailAddress: UserEmail(''),
+        organisations: const UserOrganisations(organisations: []),
+        vehicles: UserVehicles(const []),
+        pickupLocation: UserPickupLocations(const UserPickupLocation()),
+        role: UserRole(''),
+        accessToken: '',
+        id: '',
+      );
 }
 
 @freezed
@@ -25,14 +36,15 @@ class UserPickupLocation with _$UserPickupLocation {
     num? longitude,
   }) = _UserPickupLocation;
 }
+
 @freezed
-class UserOrganisations with _$UserOrganisations{
-  const factory UserOrganisations({
-    required List<Organisation> organisations
-  }) = _UserOrganisations;
+class UserOrganisations with _$UserOrganisations {
+  const factory UserOrganisations({required List<Organisation> organisations}) =
+      _UserOrganisations;
 }
+
 @freezed
-class Organisations with _$Organisations{
+class Organisations with _$Organisations {
   const factory Organisations({
     String? name,
     required String id,

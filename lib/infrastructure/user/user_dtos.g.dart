@@ -38,8 +38,9 @@ _$UserPickupLocationDtoImpl _$$UserPickupLocationDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$UserPickupLocationDtoImpl(
       type: json['type'] as String,
-      coordinates:
-          (json['coordinates'] as List<dynamic>).map((e) => e as num?).toList(),
+      coordinates: (json['coordinates'] as List<dynamic>?)
+          ?.map((e) => e as num?)
+          .toList(),
     );
 
 Map<String, dynamic> _$$UserPickupLocationDtoImplToJson(

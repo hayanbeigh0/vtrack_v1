@@ -205,4 +205,42 @@ class UserRepository extends IUserRepository {
       return left(const UserFailure.unKnownError());
     }
   }
+
+  @override
+  Future<Either<UserFailure, List<User>>> searchUser({
+    required String searchStr,
+    required String role,
+    required String? organisationId,
+  }) async {
+    try {
+      final Response response = await dio.get(
+        '/users/search',
+        queryParameters: {
+          "name": searchStr,
+          "role": role,
+          "organisationId": organisationId,
+        },
+      );
+      final responseData = response.data['data'];
+      if (responseData != null &&
+          responseData['data'] != null &&
+          responseData['data'].isEmpty) {
+        return right([]);
+      }
+      // List<UserDto> userDtos =
+      //     responseData['users'].map((el) => UserDto.fromJson(el)).toList();
+      List<UserDto> userDtos = (responseData['users'] as List)
+          .map((el) => UserDto.fromJson(el as Map<String, dynamic>))
+          .toList();
+
+      final List<User> users = userDtos.map((el) => el.toDomain()).toList();
+      return right(users);
+    } on DioException catch (e) {
+      log('Error while getting users: $e');
+      return left(const UserFailure.serverError());
+    } catch (e) {
+      log(e.toString());
+      return left(const UserFailure.serverError());
+    }
+  }
 }

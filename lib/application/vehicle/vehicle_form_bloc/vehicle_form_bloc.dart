@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:vtrack_v1/domain/user/user.dart';
 import 'package:vtrack_v1/domain/vehicle/i_vehicle.dart';
 import 'package:vtrack_v1/domain/vehicle/value_objects.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
@@ -15,6 +16,8 @@ part 'vehicle_form_bloc.freezed.dart';
 class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
   final IVehicleRepository _iVehicleRepository;
   final List<VehiclePickupLocation> vehiclePickupLocation = [];
+  final List<User> vehicleUsers = [];
+  User? vehicleDriver;
   VehicleFormBloc(this._iVehicleRepository)
       : super(
           VehicleFormState.initial(
@@ -22,6 +25,8 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
             isSaved: false,
             isSaving: false,
             showErrorMessages: false,
+            back: false,
+            next: false,
             saveFailureOrSuccessOption: none(),
             vehicle: Vehicle(
               name: VehicleName(''),
@@ -60,11 +65,12 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
         driverChanged: (value) {
           emit(state.copyWith(
             vehicle: state.vehicle.copyWith(
-              driver: VehicleDriver(value.driverId),
+              driver: VehicleDriver(value.driver.id),
             ),
             saveFailureOrSuccessOption: none(),
           ));
         },
+        removeDriver: (value) {},
         vehicleNumberChanged: (value) {
           emit(state.copyWith(
             vehicle: state.vehicle.copyWith(
@@ -82,8 +88,24 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
           ));
         },
         vehicleUsersChanged: (value) {
+          emit(state.copyWith(isSaving: true));
+          vehicleUsers.addAll(value.users);
           emit(state.copyWith(
-            vehicle: state.vehicle.copyWith(users: value.userIds),
+            vehicle: state.vehicle.copyWith(
+              users: vehicleUsers,
+            ),
+            isSaving: false,
+            saveFailureOrSuccessOption: none(),
+          ));
+        },
+        removeUsers: (value) {
+          emit(state.copyWith(isSaving: true));
+          vehicleUsers.removeWhere((el) => el.id == value.user.id);
+          emit(state.copyWith(
+            vehicle: state.vehicle.copyWith(
+              users: vehicleUsers,
+            ),
+            isSaving: false,
             saveFailureOrSuccessOption: none(),
           ));
         },
@@ -109,6 +131,10 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
             isSaving: false,
             saveFailureOrSuccessOption: none(),
           ));
+        },
+        next: (value) {
+          emit(state.copyWith(isSaving: true));
+          emit(state.copyWith(next: true, isSaving: false));
         },
         submitVehicle: (value) async {
           Either<VehicleFailure<dynamic>, Vehicle>? successOrFailure;

@@ -26,7 +26,7 @@ mixin _$Vehicle {
   String? get createdBy => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   VehicleOrganisation get organisation => throw _privateConstructorUsedError;
-  List<String> get users => throw _privateConstructorUsedError;
+  List<User> get users => throw _privateConstructorUsedError;
   List<VehiclePickupLocation> get pickupLocations =>
       throw _privateConstructorUsedError;
 
@@ -50,7 +50,7 @@ abstract class $VehicleCopyWith<$Res> {
       String? createdBy,
       DateTime? createdAt,
       VehicleOrganisation organisation,
-      List<String> users,
+      List<User> users,
       List<VehiclePickupLocation> pickupLocations});
 }
 
@@ -124,7 +124,7 @@ class _$VehicleCopyWithImpl<$Res, $Val extends Vehicle>
       users: null == users
           ? _value.users
           : users // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<User>,
       pickupLocations: null == pickupLocations
           ? _value.pickupLocations
           : pickupLocations // ignore: cast_nullable_to_non_nullable
@@ -151,7 +151,7 @@ abstract class _$$VehicleImplCopyWith<$Res> implements $VehicleCopyWith<$Res> {
       String? createdBy,
       DateTime? createdAt,
       VehicleOrganisation organisation,
-      List<String> users,
+      List<User> users,
       List<VehiclePickupLocation> pickupLocations});
 }
 
@@ -223,7 +223,7 @@ class __$$VehicleImplCopyWithImpl<$Res>
       users: null == users
           ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<User>,
       pickupLocations: null == pickupLocations
           ? _value._pickupLocations
           : pickupLocations // ignore: cast_nullable_to_non_nullable
@@ -246,7 +246,7 @@ class _$VehicleImpl extends _Vehicle {
       this.createdBy,
       this.createdAt,
       required this.organisation,
-      required final List<String> users,
+      required final List<User> users,
       required final List<VehiclePickupLocation> pickupLocations})
       : _users = users,
         _pickupLocations = pickupLocations,
@@ -272,9 +272,9 @@ class _$VehicleImpl extends _Vehicle {
   final DateTime? createdAt;
   @override
   final VehicleOrganisation organisation;
-  final List<String> _users;
+  final List<User> _users;
   @override
-  List<String> get users {
+  List<User> get users {
     if (_users is EqualUnmodifiableListView) return _users;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_users);
@@ -353,7 +353,7 @@ abstract class _Vehicle extends Vehicle {
           final String? createdBy,
           final DateTime? createdAt,
           required final VehicleOrganisation organisation,
-          required final List<String> users,
+          required final List<User> users,
           required final List<VehiclePickupLocation> pickupLocations}) =
       _$VehicleImpl;
   const _Vehicle._() : super._();
@@ -379,7 +379,7 @@ abstract class _Vehicle extends Vehicle {
   @override
   VehicleOrganisation get organisation;
   @override
-  List<String> get users;
+  List<User> get users;
   @override
   List<VehiclePickupLocation> get pickupLocations;
   @override

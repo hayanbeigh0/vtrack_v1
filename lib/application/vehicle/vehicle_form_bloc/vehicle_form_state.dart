@@ -8,6 +8,8 @@ class VehicleFormState with _$VehicleFormState {
     required bool isSaving,
     required bool isSaved,
     required bool isEditing,
+    required bool next,
+    required bool back,
     required Option<Either<VehicleFailure, Vehicle>> saveFailureOrSuccessOption,
   }) = _Initial;
 }

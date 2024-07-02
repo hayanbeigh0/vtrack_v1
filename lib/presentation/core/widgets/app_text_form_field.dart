@@ -12,6 +12,8 @@ class AppTextFormField extends StatelessWidget {
     this.validator,
     this.initialValue,
     this.enabled,
+    this.onFieldSubmitted,
+    this.suffix,
   });
   final TextEditingController controller;
   final String label;
@@ -19,7 +21,9 @@ class AppTextFormField extends StatelessWidget {
   final String? initialValue;
   final void Function(String)? onChanged;
   final String? Function(String?)? validator;
+  final void Function(String)? onFieldSubmitted;
   final bool? enabled;
+  final Widget? suffix;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +40,13 @@ class AppTextFormField extends StatelessWidget {
             // height: 48.h,
             child: TextFormField(
               controller: controller,
-              decoration: _buildInputDecoration(hintText),
+              decoration:
+                  _buildInputDecoration(labelText: hintText, suffix: suffix),
               validator: validator,
               onChanged: onChanged,
               initialValue: initialValue,
               enabled: enabled,
+              onFieldSubmitted: onFieldSubmitted,
             ),
           ),
         ],
@@ -48,14 +54,21 @@ class AppTextFormField extends StatelessWidget {
     );
   }
 
-  InputDecoration _buildInputDecoration(String labelText) {
+  InputDecoration _buildInputDecoration({
+    required String labelText,
+    required Widget? suffix,
+  }) {
     return InputDecoration(
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0.sp),
       ),
       // labelText: labelText,
       hintText: labelText,
-      hintStyle: GoogleFonts.lexend(color: Colors.grey, fontSize: 12.sp),
+      hintStyle: GoogleFonts.lexend(
+        color: Colors.grey,
+        fontSize: 12.sp,
+      ),
+      suffix: suffix,
     );
   }
 }

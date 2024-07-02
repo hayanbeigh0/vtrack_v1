@@ -7,6 +7,11 @@ abstract class IUserRepository {
   Future<Either<UserFailure, List<User>>> getAllUsers({
     required int pageNumber,
   });
+  Future<Either<UserFailure, List<User>>> searchUser({
+    required String searchStr,
+    required String role,
+    required String? organisationId,
+  });
   Future<Either<UserFailure, List<User>>> getAllOrgUsers({
     required String organisationId,
     required int pageNumber,

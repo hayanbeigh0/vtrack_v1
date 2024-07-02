@@ -8,4 +8,8 @@ abstract class VehicleFailure<T> with _$VehicleFailure<T>{
   const factory VehicleFailure.vehicleNotFound() = VehicleNotFound;
   const factory VehicleFailure.unAuthenticated() = UnAuthenticated;
   const factory VehicleFailure.unKnownError() = UnKnownError;
+  const factory VehicleFailure.invalidDriver() = InvalidDriver;
+  const factory VehicleFailure.invalidName() = InvalidName;
+  const factory VehicleFailure.invalidCapacity() = InvalidCapacity;
+  const factory VehicleFailure.invalidPickupLocations() = InvalidPickupLocations;
 }

@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:vtrack_v1/domain/user/user.dart';
 import 'package:vtrack_v1/domain/vehicle/value_failure.dart';
 import 'package:vtrack_v1/domain/vehicle/value_objects.dart';
 
@@ -19,7 +20,7 @@ abstract class Vehicle with _$Vehicle {
     String? createdBy,
     DateTime? createdAt,
     required VehicleOrganisation organisation,
-    required List<String> users,
+    required List<User> users,
     required List<VehiclePickupLocation> pickupLocations,
   }) = _Vehicle;
 

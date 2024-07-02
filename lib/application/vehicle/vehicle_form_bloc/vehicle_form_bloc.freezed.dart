@@ -20,45 +20,54 @@ mixin _$VehicleFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Vehicle? vehicle) initalized,
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String driverId) driverChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<String> userIds) vehicleUsersChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
+    required TResult Function() next,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
+    required TResult Function(User user) removeUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Vehicle? vehicle)? initalized,
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String driverId)? driverChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<String> userIds)? vehicleUsersChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
+    TResult? Function()? next,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult? Function(User user)? removeUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Vehicle? vehicle)? initalized,
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(String driverId)? driverChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<String> userIds)? vehicleUsersChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
+    TResult Function()? next,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +76,7 @@ mixin _$VehicleFormEvent {
     required TResult Function(_Started value) initalized,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
     required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
     required TResult Function(_VehicleCapacityChanged value)
         vehicleCapacityChanged,
@@ -74,7 +84,9 @@ mixin _$VehicleFormEvent {
     required TResult Function(_VehiclePickupLocationsChanged value)
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,13 +94,16 @@ mixin _$VehicleFormEvent {
     TResult? Function(_Started value)? initalized,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
     TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult? Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,13 +111,16 @@ mixin _$VehicleFormEvent {
     TResult Function(_Started value)? initalized,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
     TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -206,15 +224,18 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function(Vehicle? vehicle) initalized,
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String driverId) driverChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<String> userIds) vehicleUsersChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
+    required TResult Function() next,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
+    required TResult Function(User user) removeUsers,
   }) {
     return initalized(vehicle);
   }
@@ -224,15 +245,18 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Vehicle? vehicle)? initalized,
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String driverId)? driverChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<String> userIds)? vehicleUsersChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
+    TResult? Function()? next,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult? Function(User user)? removeUsers,
   }) {
     return initalized?.call(vehicle);
   }
@@ -242,15 +266,18 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Vehicle? vehicle)? initalized,
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(String driverId)? driverChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<String> userIds)? vehicleUsersChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
+    TResult Function()? next,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) {
     if (initalized != null) {
@@ -265,6 +292,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) initalized,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
     required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
     required TResult Function(_VehicleCapacityChanged value)
         vehicleCapacityChanged,
@@ -272,7 +300,9 @@ class _$StartedImpl implements _Started {
     required TResult Function(_VehiclePickupLocationsChanged value)
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
   }) {
     return initalized(this);
   }
@@ -283,13 +313,16 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? initalized,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
     TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult? Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
     return initalized?.call(this);
   }
@@ -300,13 +333,16 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? initalized,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
     TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
   }) {
     if (initalized != null) {
@@ -391,15 +427,18 @@ class _$NameChangedImpl implements _NameChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Vehicle? vehicle) initalized,
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String driverId) driverChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<String> userIds) vehicleUsersChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
+    required TResult Function() next,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
+    required TResult Function(User user) removeUsers,
   }) {
     return nameChanged(nameStr);
   }
@@ -409,15 +448,18 @@ class _$NameChangedImpl implements _NameChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Vehicle? vehicle)? initalized,
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String driverId)? driverChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<String> userIds)? vehicleUsersChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
+    TResult? Function()? next,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult? Function(User user)? removeUsers,
   }) {
     return nameChanged?.call(nameStr);
   }
@@ -427,15 +469,18 @@ class _$NameChangedImpl implements _NameChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Vehicle? vehicle)? initalized,
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(String driverId)? driverChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<String> userIds)? vehicleUsersChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
+    TResult Function()? next,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -450,6 +495,7 @@ class _$NameChangedImpl implements _NameChanged {
     required TResult Function(_Started value) initalized,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
     required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
     required TResult Function(_VehicleCapacityChanged value)
         vehicleCapacityChanged,
@@ -457,7 +503,9 @@ class _$NameChangedImpl implements _NameChanged {
     required TResult Function(_VehiclePickupLocationsChanged value)
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
   }) {
     return nameChanged(this);
   }
@@ -468,13 +516,16 @@ class _$NameChangedImpl implements _NameChanged {
     TResult? Function(_Started value)? initalized,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
     TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult? Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
     return nameChanged?.call(this);
   }
@@ -485,13 +536,16 @@ class _$NameChangedImpl implements _NameChanged {
     TResult Function(_Started value)? initalized,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
     TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -516,7 +570,9 @@ abstract class _$$DriverChangedImplCopyWith<$Res> {
           _$DriverChangedImpl value, $Res Function(_$DriverChangedImpl) then) =
       __$$DriverChangedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String driverId});
+  $Res call({User driver});
+
+  $UserCopyWith<$Res> get driver;
 }
 
 /// @nodoc
@@ -530,28 +586,36 @@ class __$$DriverChangedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? driverId = null,
+    Object? driver = null,
   }) {
     return _then(_$DriverChangedImpl(
-      null == driverId
-          ? _value.driverId
-          : driverId // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == driver
+          ? _value.driver
+          : driver // ignore: cast_nullable_to_non_nullable
+              as User,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get driver {
+    return $UserCopyWith<$Res>(_value.driver, (value) {
+      return _then(_value.copyWith(driver: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$DriverChangedImpl implements _DriverChanged {
-  const _$DriverChangedImpl(this.driverId);
+  const _$DriverChangedImpl(this.driver);
 
   @override
-  final String driverId;
+  final User driver;
 
   @override
   String toString() {
-    return 'VehicleFormEvent.driverChanged(driverId: $driverId)';
+    return 'VehicleFormEvent.driverChanged(driver: $driver)';
   }
 
   @override
@@ -559,12 +623,11 @@ class _$DriverChangedImpl implements _DriverChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DriverChangedImpl &&
-            (identical(other.driverId, driverId) ||
-                other.driverId == driverId));
+            (identical(other.driver, driver) || other.driver == driver));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, driverId);
+  int get hashCode => Object.hash(runtimeType, driver);
 
   @JsonKey(ignore: true)
   @override
@@ -577,17 +640,20 @@ class _$DriverChangedImpl implements _DriverChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Vehicle? vehicle) initalized,
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String driverId) driverChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<String> userIds) vehicleUsersChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
+    required TResult Function() next,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
+    required TResult Function(User user) removeUsers,
   }) {
-    return driverChanged(driverId);
+    return driverChanged(driver);
   }
 
   @override
@@ -595,17 +661,20 @@ class _$DriverChangedImpl implements _DriverChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Vehicle? vehicle)? initalized,
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String driverId)? driverChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<String> userIds)? vehicleUsersChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
+    TResult? Function()? next,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult? Function(User user)? removeUsers,
   }) {
-    return driverChanged?.call(driverId);
+    return driverChanged?.call(driver);
   }
 
   @override
@@ -613,19 +682,22 @@ class _$DriverChangedImpl implements _DriverChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Vehicle? vehicle)? initalized,
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(String driverId)? driverChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<String> userIds)? vehicleUsersChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
+    TResult Function()? next,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) {
     if (driverChanged != null) {
-      return driverChanged(driverId);
+      return driverChanged(driver);
     }
     return orElse();
   }
@@ -636,6 +708,7 @@ class _$DriverChangedImpl implements _DriverChanged {
     required TResult Function(_Started value) initalized,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
     required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
     required TResult Function(_VehicleCapacityChanged value)
         vehicleCapacityChanged,
@@ -643,7 +716,9 @@ class _$DriverChangedImpl implements _DriverChanged {
     required TResult Function(_VehiclePickupLocationsChanged value)
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
   }) {
     return driverChanged(this);
   }
@@ -654,13 +729,16 @@ class _$DriverChangedImpl implements _DriverChanged {
     TResult? Function(_Started value)? initalized,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
     TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult? Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
     return driverChanged?.call(this);
   }
@@ -671,13 +749,16 @@ class _$DriverChangedImpl implements _DriverChanged {
     TResult Function(_Started value)? initalized,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
     TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
   }) {
     if (driverChanged != null) {
@@ -688,11 +769,224 @@ class _$DriverChangedImpl implements _DriverChanged {
 }
 
 abstract class _DriverChanged implements VehicleFormEvent {
-  const factory _DriverChanged(final String driverId) = _$DriverChangedImpl;
+  const factory _DriverChanged(final User driver) = _$DriverChangedImpl;
 
-  String get driverId;
+  User get driver;
   @JsonKey(ignore: true)
   _$$DriverChangedImplCopyWith<_$DriverChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveDriverImplCopyWith<$Res> {
+  factory _$$RemoveDriverImplCopyWith(
+          _$RemoveDriverImpl value, $Res Function(_$RemoveDriverImpl) then) =
+      __$$RemoveDriverImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({User driver});
+
+  $UserCopyWith<$Res> get driver;
+}
+
+/// @nodoc
+class __$$RemoveDriverImplCopyWithImpl<$Res>
+    extends _$VehicleFormEventCopyWithImpl<$Res, _$RemoveDriverImpl>
+    implements _$$RemoveDriverImplCopyWith<$Res> {
+  __$$RemoveDriverImplCopyWithImpl(
+      _$RemoveDriverImpl _value, $Res Function(_$RemoveDriverImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? driver = null,
+  }) {
+    return _then(_$RemoveDriverImpl(
+      null == driver
+          ? _value.driver
+          : driver // ignore: cast_nullable_to_non_nullable
+              as User,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get driver {
+    return $UserCopyWith<$Res>(_value.driver, (value) {
+      return _then(_value.copyWith(driver: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$RemoveDriverImpl implements _RemoveDriver {
+  const _$RemoveDriverImpl(this.driver);
+
+  @override
+  final User driver;
+
+  @override
+  String toString() {
+    return 'VehicleFormEvent.removeDriver(driver: $driver)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveDriverImpl &&
+            (identical(other.driver, driver) || other.driver == driver));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, driver);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveDriverImplCopyWith<_$RemoveDriverImpl> get copyWith =>
+      __$$RemoveDriverImplCopyWithImpl<_$RemoveDriverImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Vehicle? vehicle) initalized,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
+    required TResult Function(int vehicleNumber) vehicleNumberChanged,
+    required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(List<VehiclePickupLocation> pickupLocations)
+        vehiclePickupLocationsChanged,
+    required TResult Function() submitVehicle,
+    required TResult Function() next,
+    required TResult Function(VehiclePickupLocation vehiclePickupLocation)
+        removePickupLocation,
+    required TResult Function(User user) removeUsers,
+  }) {
+    return removeDriver(driver);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Vehicle? vehicle)? initalized,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
+    TResult? Function(int vehicleNumber)? vehicleNumberChanged,
+    TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(List<VehiclePickupLocation> pickupLocations)?
+        vehiclePickupLocationsChanged,
+    TResult? Function()? submitVehicle,
+    TResult? Function()? next,
+    TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
+        removePickupLocation,
+    TResult? Function(User user)? removeUsers,
+  }) {
+    return removeDriver?.call(driver);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Vehicle? vehicle)? initalized,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
+    TResult Function(int vehicleNumber)? vehicleNumberChanged,
+    TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(List<VehiclePickupLocation> pickupLocations)?
+        vehiclePickupLocationsChanged,
+    TResult Function()? submitVehicle,
+    TResult Function()? next,
+    TResult Function(VehiclePickupLocation vehiclePickupLocation)?
+        removePickupLocation,
+    TResult Function(User user)? removeUsers,
+    required TResult orElse(),
+  }) {
+    if (removeDriver != null) {
+      return removeDriver(driver);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) initalized,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
+    required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
+    required TResult Function(_VehicleCapacityChanged value)
+        vehicleCapacityChanged,
+    required TResult Function(_VehicleUsersChanged value) vehicleUsersChanged,
+    required TResult Function(_VehiclePickupLocationsChanged value)
+        vehiclePickupLocationsChanged,
+    required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
+    required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
+  }) {
+    return removeDriver(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? initalized,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
+    TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
+    TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
+    TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
+    TResult? Function(_VehiclePickupLocationsChanged value)?
+        vehiclePickupLocationsChanged,
+    TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
+    TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
+  }) {
+    return removeDriver?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? initalized,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
+    TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
+    TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
+    TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
+    TResult Function(_VehiclePickupLocationsChanged value)?
+        vehiclePickupLocationsChanged,
+    TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
+    TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
+    required TResult orElse(),
+  }) {
+    if (removeDriver != null) {
+      return removeDriver(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveDriver implements VehicleFormEvent {
+  const factory _RemoveDriver(final User driver) = _$RemoveDriverImpl;
+
+  User get driver;
+  @JsonKey(ignore: true)
+  _$$RemoveDriverImplCopyWith<_$RemoveDriverImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -765,15 +1059,18 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Vehicle? vehicle) initalized,
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String driverId) driverChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<String> userIds) vehicleUsersChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
+    required TResult Function() next,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
+    required TResult Function(User user) removeUsers,
   }) {
     return vehicleNumberChanged(vehicleNumber);
   }
@@ -783,15 +1080,18 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Vehicle? vehicle)? initalized,
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String driverId)? driverChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<String> userIds)? vehicleUsersChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
+    TResult? Function()? next,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult? Function(User user)? removeUsers,
   }) {
     return vehicleNumberChanged?.call(vehicleNumber);
   }
@@ -801,15 +1101,18 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Vehicle? vehicle)? initalized,
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(String driverId)? driverChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<String> userIds)? vehicleUsersChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
+    TResult Function()? next,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) {
     if (vehicleNumberChanged != null) {
@@ -824,6 +1127,7 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
     required TResult Function(_Started value) initalized,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
     required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
     required TResult Function(_VehicleCapacityChanged value)
         vehicleCapacityChanged,
@@ -831,7 +1135,9 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
     required TResult Function(_VehiclePickupLocationsChanged value)
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
   }) {
     return vehicleNumberChanged(this);
   }
@@ -842,13 +1148,16 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
     TResult? Function(_Started value)? initalized,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
     TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult? Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
     return vehicleNumberChanged?.call(this);
   }
@@ -859,13 +1168,16 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
     TResult Function(_Started value)? initalized,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
     TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
   }) {
     if (vehicleNumberChanged != null) {
@@ -955,15 +1267,18 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Vehicle? vehicle) initalized,
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String driverId) driverChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<String> userIds) vehicleUsersChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
+    required TResult Function() next,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
+    required TResult Function(User user) removeUsers,
   }) {
     return vehicleCapacityChanged(vehicleCapacity);
   }
@@ -973,15 +1288,18 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Vehicle? vehicle)? initalized,
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String driverId)? driverChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<String> userIds)? vehicleUsersChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
+    TResult? Function()? next,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult? Function(User user)? removeUsers,
   }) {
     return vehicleCapacityChanged?.call(vehicleCapacity);
   }
@@ -991,15 +1309,18 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Vehicle? vehicle)? initalized,
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(String driverId)? driverChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<String> userIds)? vehicleUsersChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
+    TResult Function()? next,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) {
     if (vehicleCapacityChanged != null) {
@@ -1014,6 +1335,7 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
     required TResult Function(_Started value) initalized,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
     required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
     required TResult Function(_VehicleCapacityChanged value)
         vehicleCapacityChanged,
@@ -1021,7 +1343,9 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
     required TResult Function(_VehiclePickupLocationsChanged value)
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
   }) {
     return vehicleCapacityChanged(this);
   }
@@ -1032,13 +1356,16 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
     TResult? Function(_Started value)? initalized,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
     TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult? Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
     return vehicleCapacityChanged?.call(this);
   }
@@ -1049,13 +1376,16 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
     TResult Function(_Started value)? initalized,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
     TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
   }) {
     if (vehicleCapacityChanged != null) {
@@ -1081,7 +1411,7 @@ abstract class _$$VehicleUsersChangedImplCopyWith<$Res> {
           $Res Function(_$VehicleUsersChangedImpl) then) =
       __$$VehicleUsersChangedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<String> userIds});
+  $Res call({List<User> users});
 }
 
 /// @nodoc
@@ -1095,13 +1425,13 @@ class __$$VehicleUsersChangedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userIds = null,
+    Object? users = null,
   }) {
     return _then(_$VehicleUsersChangedImpl(
-      null == userIds
-          ? _value._userIds
-          : userIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      null == users
+          ? _value._users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<User>,
     ));
   }
 }
@@ -1109,20 +1439,19 @@ class __$$VehicleUsersChangedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
-  const _$VehicleUsersChangedImpl(final List<String> userIds)
-      : _userIds = userIds;
+  const _$VehicleUsersChangedImpl(final List<User> users) : _users = users;
 
-  final List<String> _userIds;
+  final List<User> _users;
   @override
-  List<String> get userIds {
-    if (_userIds is EqualUnmodifiableListView) return _userIds;
+  List<User> get users {
+    if (_users is EqualUnmodifiableListView) return _users;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_userIds);
+    return EqualUnmodifiableListView(_users);
   }
 
   @override
   String toString() {
-    return 'VehicleFormEvent.vehicleUsersChanged(userIds: $userIds)';
+    return 'VehicleFormEvent.vehicleUsersChanged(users: $users)';
   }
 
   @override
@@ -1130,12 +1459,12 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VehicleUsersChangedImpl &&
-            const DeepCollectionEquality().equals(other._userIds, _userIds));
+            const DeepCollectionEquality().equals(other._users, _users));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_userIds));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_users));
 
   @JsonKey(ignore: true)
   @override
@@ -1149,17 +1478,20 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Vehicle? vehicle) initalized,
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String driverId) driverChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<String> userIds) vehicleUsersChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
+    required TResult Function() next,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
+    required TResult Function(User user) removeUsers,
   }) {
-    return vehicleUsersChanged(userIds);
+    return vehicleUsersChanged(users);
   }
 
   @override
@@ -1167,17 +1499,20 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Vehicle? vehicle)? initalized,
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String driverId)? driverChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<String> userIds)? vehicleUsersChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
+    TResult? Function()? next,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult? Function(User user)? removeUsers,
   }) {
-    return vehicleUsersChanged?.call(userIds);
+    return vehicleUsersChanged?.call(users);
   }
 
   @override
@@ -1185,19 +1520,22 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Vehicle? vehicle)? initalized,
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(String driverId)? driverChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<String> userIds)? vehicleUsersChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
+    TResult Function()? next,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) {
     if (vehicleUsersChanged != null) {
-      return vehicleUsersChanged(userIds);
+      return vehicleUsersChanged(users);
     }
     return orElse();
   }
@@ -1208,6 +1546,7 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
     required TResult Function(_Started value) initalized,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
     required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
     required TResult Function(_VehicleCapacityChanged value)
         vehicleCapacityChanged,
@@ -1215,7 +1554,9 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
     required TResult Function(_VehiclePickupLocationsChanged value)
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
   }) {
     return vehicleUsersChanged(this);
   }
@@ -1226,13 +1567,16 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
     TResult? Function(_Started value)? initalized,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
     TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult? Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
     return vehicleUsersChanged?.call(this);
   }
@@ -1243,13 +1587,16 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
     TResult Function(_Started value)? initalized,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
     TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
   }) {
     if (vehicleUsersChanged != null) {
@@ -1260,10 +1607,10 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
 }
 
 abstract class _VehicleUsersChanged implements VehicleFormEvent {
-  const factory _VehicleUsersChanged(final List<String> userIds) =
+  const factory _VehicleUsersChanged(final List<User> users) =
       _$VehicleUsersChangedImpl;
 
-  List<String> get userIds;
+  List<User> get users;
   @JsonKey(ignore: true)
   _$$VehicleUsersChangedImplCopyWith<_$VehicleUsersChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1350,15 +1697,18 @@ class _$VehiclePickupLocationsChangedImpl
   TResult when<TResult extends Object?>({
     required TResult Function(Vehicle? vehicle) initalized,
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String driverId) driverChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<String> userIds) vehicleUsersChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
+    required TResult Function() next,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
+    required TResult Function(User user) removeUsers,
   }) {
     return vehiclePickupLocationsChanged(pickupLocations);
   }
@@ -1368,15 +1718,18 @@ class _$VehiclePickupLocationsChangedImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Vehicle? vehicle)? initalized,
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String driverId)? driverChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<String> userIds)? vehicleUsersChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
+    TResult? Function()? next,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult? Function(User user)? removeUsers,
   }) {
     return vehiclePickupLocationsChanged?.call(pickupLocations);
   }
@@ -1386,15 +1739,18 @@ class _$VehiclePickupLocationsChangedImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Vehicle? vehicle)? initalized,
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(String driverId)? driverChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<String> userIds)? vehicleUsersChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
+    TResult Function()? next,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) {
     if (vehiclePickupLocationsChanged != null) {
@@ -1409,6 +1765,7 @@ class _$VehiclePickupLocationsChangedImpl
     required TResult Function(_Started value) initalized,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
     required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
     required TResult Function(_VehicleCapacityChanged value)
         vehicleCapacityChanged,
@@ -1416,7 +1773,9 @@ class _$VehiclePickupLocationsChangedImpl
     required TResult Function(_VehiclePickupLocationsChanged value)
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
   }) {
     return vehiclePickupLocationsChanged(this);
   }
@@ -1427,13 +1786,16 @@ class _$VehiclePickupLocationsChangedImpl
     TResult? Function(_Started value)? initalized,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
     TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult? Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
     return vehiclePickupLocationsChanged?.call(this);
   }
@@ -1444,13 +1806,16 @@ class _$VehiclePickupLocationsChangedImpl
     TResult Function(_Started value)? initalized,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
     TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
   }) {
     if (vehiclePickupLocationsChanged != null) {
@@ -1512,15 +1877,18 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
   TResult when<TResult extends Object?>({
     required TResult Function(Vehicle? vehicle) initalized,
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String driverId) driverChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<String> userIds) vehicleUsersChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
+    required TResult Function() next,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
+    required TResult Function(User user) removeUsers,
   }) {
     return submitVehicle();
   }
@@ -1530,15 +1898,18 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Vehicle? vehicle)? initalized,
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String driverId)? driverChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<String> userIds)? vehicleUsersChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
+    TResult? Function()? next,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult? Function(User user)? removeUsers,
   }) {
     return submitVehicle?.call();
   }
@@ -1548,15 +1919,18 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Vehicle? vehicle)? initalized,
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(String driverId)? driverChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<String> userIds)? vehicleUsersChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
+    TResult Function()? next,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) {
     if (submitVehicle != null) {
@@ -1571,6 +1945,7 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
     required TResult Function(_Started value) initalized,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
     required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
     required TResult Function(_VehicleCapacityChanged value)
         vehicleCapacityChanged,
@@ -1578,7 +1953,9 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
     required TResult Function(_VehiclePickupLocationsChanged value)
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
   }) {
     return submitVehicle(this);
   }
@@ -1589,13 +1966,16 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
     TResult? Function(_Started value)? initalized,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
     TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult? Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
     return submitVehicle?.call(this);
   }
@@ -1606,13 +1986,16 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
     TResult Function(_Started value)? initalized,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
     TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
   }) {
     if (submitVehicle != null) {
@@ -1624,6 +2007,177 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
 
 abstract class _SubmitVehicle implements VehicleFormEvent {
   const factory _SubmitVehicle() = _$SubmitVehicleImpl;
+}
+
+/// @nodoc
+abstract class _$$NextImplCopyWith<$Res> {
+  factory _$$NextImplCopyWith(
+          _$NextImpl value, $Res Function(_$NextImpl) then) =
+      __$$NextImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NextImplCopyWithImpl<$Res>
+    extends _$VehicleFormEventCopyWithImpl<$Res, _$NextImpl>
+    implements _$$NextImplCopyWith<$Res> {
+  __$$NextImplCopyWithImpl(_$NextImpl _value, $Res Function(_$NextImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NextImpl implements _Next {
+  const _$NextImpl();
+
+  @override
+  String toString() {
+    return 'VehicleFormEvent.next()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NextImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Vehicle? vehicle) initalized,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
+    required TResult Function(int vehicleNumber) vehicleNumberChanged,
+    required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(List<VehiclePickupLocation> pickupLocations)
+        vehiclePickupLocationsChanged,
+    required TResult Function() submitVehicle,
+    required TResult Function() next,
+    required TResult Function(VehiclePickupLocation vehiclePickupLocation)
+        removePickupLocation,
+    required TResult Function(User user) removeUsers,
+  }) {
+    return next();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Vehicle? vehicle)? initalized,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
+    TResult? Function(int vehicleNumber)? vehicleNumberChanged,
+    TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(List<VehiclePickupLocation> pickupLocations)?
+        vehiclePickupLocationsChanged,
+    TResult? Function()? submitVehicle,
+    TResult? Function()? next,
+    TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
+        removePickupLocation,
+    TResult? Function(User user)? removeUsers,
+  }) {
+    return next?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Vehicle? vehicle)? initalized,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
+    TResult Function(int vehicleNumber)? vehicleNumberChanged,
+    TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(List<VehiclePickupLocation> pickupLocations)?
+        vehiclePickupLocationsChanged,
+    TResult Function()? submitVehicle,
+    TResult Function()? next,
+    TResult Function(VehiclePickupLocation vehiclePickupLocation)?
+        removePickupLocation,
+    TResult Function(User user)? removeUsers,
+    required TResult orElse(),
+  }) {
+    if (next != null) {
+      return next();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) initalized,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
+    required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
+    required TResult Function(_VehicleCapacityChanged value)
+        vehicleCapacityChanged,
+    required TResult Function(_VehicleUsersChanged value) vehicleUsersChanged,
+    required TResult Function(_VehiclePickupLocationsChanged value)
+        vehiclePickupLocationsChanged,
+    required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
+    required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
+  }) {
+    return next(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? initalized,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
+    TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
+    TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
+    TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
+    TResult? Function(_VehiclePickupLocationsChanged value)?
+        vehiclePickupLocationsChanged,
+    TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
+    TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
+  }) {
+    return next?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? initalized,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
+    TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
+    TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
+    TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
+    TResult Function(_VehiclePickupLocationsChanged value)?
+        vehiclePickupLocationsChanged,
+    TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
+    TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
+    required TResult orElse(),
+  }) {
+    if (next != null) {
+      return next(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Next implements VehicleFormEvent {
+  const factory _Next() = _$NextImpl;
 }
 
 /// @nodoc
@@ -1706,15 +2260,18 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
   TResult when<TResult extends Object?>({
     required TResult Function(Vehicle? vehicle) initalized,
     required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String driverId) driverChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<String> userIds) vehicleUsersChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
+    required TResult Function() next,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
+    required TResult Function(User user) removeUsers,
   }) {
     return removePickupLocation(vehiclePickupLocation);
   }
@@ -1724,15 +2281,18 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Vehicle? vehicle)? initalized,
     TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String driverId)? driverChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<String> userIds)? vehicleUsersChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
+    TResult? Function()? next,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult? Function(User user)? removeUsers,
   }) {
     return removePickupLocation?.call(vehiclePickupLocation);
   }
@@ -1742,15 +2302,18 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Vehicle? vehicle)? initalized,
     TResult Function(String nameStr)? nameChanged,
-    TResult Function(String driverId)? driverChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<String> userIds)? vehicleUsersChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
+    TResult Function()? next,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
+    TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) {
     if (removePickupLocation != null) {
@@ -1765,6 +2328,7 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
     required TResult Function(_Started value) initalized,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
     required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
     required TResult Function(_VehicleCapacityChanged value)
         vehicleCapacityChanged,
@@ -1772,7 +2336,9 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
     required TResult Function(_VehiclePickupLocationsChanged value)
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
   }) {
     return removePickupLocation(this);
   }
@@ -1783,13 +2349,16 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
     TResult? Function(_Started value)? initalized,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
     TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult? Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
     return removePickupLocation?.call(this);
   }
@@ -1800,13 +2369,16 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
     TResult Function(_Started value)? initalized,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
     TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
     TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
     TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
     TResult Function(_VehiclePickupLocationsChanged value)?
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
   }) {
     if (removePickupLocation != null) {
@@ -1828,12 +2400,227 @@ abstract class _RemovePickupLocation implements VehicleFormEvent {
 }
 
 /// @nodoc
+abstract class _$$RemoveUsersImplCopyWith<$Res> {
+  factory _$$RemoveUsersImplCopyWith(
+          _$RemoveUsersImpl value, $Res Function(_$RemoveUsersImpl) then) =
+      __$$RemoveUsersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({User user});
+
+  $UserCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$RemoveUsersImplCopyWithImpl<$Res>
+    extends _$VehicleFormEventCopyWithImpl<$Res, _$RemoveUsersImpl>
+    implements _$$RemoveUsersImplCopyWith<$Res> {
+  __$$RemoveUsersImplCopyWithImpl(
+      _$RemoveUsersImpl _value, $Res Function(_$RemoveUsersImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$RemoveUsersImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$RemoveUsersImpl implements _RemoveUsers {
+  const _$RemoveUsersImpl({required this.user});
+
+  @override
+  final User user;
+
+  @override
+  String toString() {
+    return 'VehicleFormEvent.removeUsers(user: $user)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveUsersImpl &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveUsersImplCopyWith<_$RemoveUsersImpl> get copyWith =>
+      __$$RemoveUsersImplCopyWithImpl<_$RemoveUsersImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Vehicle? vehicle) initalized,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
+    required TResult Function(int vehicleNumber) vehicleNumberChanged,
+    required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
+    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(List<VehiclePickupLocation> pickupLocations)
+        vehiclePickupLocationsChanged,
+    required TResult Function() submitVehicle,
+    required TResult Function() next,
+    required TResult Function(VehiclePickupLocation vehiclePickupLocation)
+        removePickupLocation,
+    required TResult Function(User user) removeUsers,
+  }) {
+    return removeUsers(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Vehicle? vehicle)? initalized,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
+    TResult? Function(int vehicleNumber)? vehicleNumberChanged,
+    TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
+    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(List<VehiclePickupLocation> pickupLocations)?
+        vehiclePickupLocationsChanged,
+    TResult? Function()? submitVehicle,
+    TResult? Function()? next,
+    TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
+        removePickupLocation,
+    TResult? Function(User user)? removeUsers,
+  }) {
+    return removeUsers?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Vehicle? vehicle)? initalized,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
+    TResult Function(int vehicleNumber)? vehicleNumberChanged,
+    TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
+    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(List<VehiclePickupLocation> pickupLocations)?
+        vehiclePickupLocationsChanged,
+    TResult Function()? submitVehicle,
+    TResult Function()? next,
+    TResult Function(VehiclePickupLocation vehiclePickupLocation)?
+        removePickupLocation,
+    TResult Function(User user)? removeUsers,
+    required TResult orElse(),
+  }) {
+    if (removeUsers != null) {
+      return removeUsers(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) initalized,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
+    required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
+    required TResult Function(_VehicleCapacityChanged value)
+        vehicleCapacityChanged,
+    required TResult Function(_VehicleUsersChanged value) vehicleUsersChanged,
+    required TResult Function(_VehiclePickupLocationsChanged value)
+        vehiclePickupLocationsChanged,
+    required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
+    required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
+  }) {
+    return removeUsers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? initalized,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
+    TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
+    TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
+    TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
+    TResult? Function(_VehiclePickupLocationsChanged value)?
+        vehiclePickupLocationsChanged,
+    TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
+    TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
+  }) {
+    return removeUsers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? initalized,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
+    TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
+    TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
+    TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
+    TResult Function(_VehiclePickupLocationsChanged value)?
+        vehiclePickupLocationsChanged,
+    TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
+    TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
+    required TResult orElse(),
+  }) {
+    if (removeUsers != null) {
+      return removeUsers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveUsers implements VehicleFormEvent {
+  const factory _RemoveUsers({required final User user}) = _$RemoveUsersImpl;
+
+  User get user;
+  @JsonKey(ignore: true)
+  _$$RemoveUsersImplCopyWith<_$RemoveUsersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$VehicleFormState {
   Vehicle get vehicle => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   bool get isSaved => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
+  bool get next => throw _privateConstructorUsedError;
+  bool get back => throw _privateConstructorUsedError;
   Option<Either<VehicleFailure, Vehicle>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1844,6 +2631,8 @@ mixin _$VehicleFormState {
             bool isSaving,
             bool isSaved,
             bool isEditing,
+            bool next,
+            bool back,
             Option<Either<VehicleFailure, Vehicle>> saveFailureOrSuccessOption)
         initial,
   }) =>
@@ -1856,6 +2645,8 @@ mixin _$VehicleFormState {
             bool isSaving,
             bool isSaved,
             bool isEditing,
+            bool next,
+            bool back,
             Option<Either<VehicleFailure, Vehicle>> saveFailureOrSuccessOption)?
         initial,
   }) =>
@@ -1868,6 +2659,8 @@ mixin _$VehicleFormState {
             bool isSaving,
             bool isSaved,
             bool isEditing,
+            bool next,
+            bool back,
             Option<Either<VehicleFailure, Vehicle>> saveFailureOrSuccessOption)?
         initial,
     required TResult orElse(),
@@ -1907,6 +2700,8 @@ abstract class $VehicleFormStateCopyWith<$Res> {
       bool isSaving,
       bool isSaved,
       bool isEditing,
+      bool next,
+      bool back,
       Option<Either<VehicleFailure, Vehicle>> saveFailureOrSuccessOption});
 
   $VehicleCopyWith<$Res> get vehicle;
@@ -1930,6 +2725,8 @@ class _$VehicleFormStateCopyWithImpl<$Res, $Val extends VehicleFormState>
     Object? isSaving = null,
     Object? isSaved = null,
     Object? isEditing = null,
+    Object? next = null,
+    Object? back = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
@@ -1952,6 +2749,14 @@ class _$VehicleFormStateCopyWithImpl<$Res, $Val extends VehicleFormState>
       isEditing: null == isEditing
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      next: null == next
+          ? _value.next
+          : next // ignore: cast_nullable_to_non_nullable
+              as bool,
+      back: null == back
+          ? _value.back
+          : back // ignore: cast_nullable_to_non_nullable
               as bool,
       saveFailureOrSuccessOption: null == saveFailureOrSuccessOption
           ? _value.saveFailureOrSuccessOption
@@ -1983,6 +2788,8 @@ abstract class _$$InitialImplCopyWith<$Res>
       bool isSaving,
       bool isSaved,
       bool isEditing,
+      bool next,
+      bool back,
       Option<Either<VehicleFailure, Vehicle>> saveFailureOrSuccessOption});
 
   @override
@@ -2005,6 +2812,8 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? isSaving = null,
     Object? isSaved = null,
     Object? isEditing = null,
+    Object? next = null,
+    Object? back = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
     return _then(_$InitialImpl(
@@ -2028,6 +2837,14 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
               as bool,
+      next: null == next
+          ? _value.next
+          : next // ignore: cast_nullable_to_non_nullable
+              as bool,
+      back: null == back
+          ? _value.back
+          : back // ignore: cast_nullable_to_non_nullable
+              as bool,
       saveFailureOrSuccessOption: null == saveFailureOrSuccessOption
           ? _value.saveFailureOrSuccessOption
           : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -2045,6 +2862,8 @@ class _$InitialImpl implements _Initial {
       required this.isSaving,
       required this.isSaved,
       required this.isEditing,
+      required this.next,
+      required this.back,
       required this.saveFailureOrSuccessOption});
 
   @override
@@ -2058,11 +2877,15 @@ class _$InitialImpl implements _Initial {
   @override
   final bool isEditing;
   @override
+  final bool next;
+  @override
+  final bool back;
+  @override
   final Option<Either<VehicleFailure, Vehicle>> saveFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'VehicleFormState.initial(vehicle: $vehicle, showErrorMessages: $showErrorMessages, isSaving: $isSaving, isSaved: $isSaved, isEditing: $isEditing, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'VehicleFormState.initial(vehicle: $vehicle, showErrorMessages: $showErrorMessages, isSaving: $isSaving, isSaved: $isSaved, isEditing: $isEditing, next: $next, back: $back, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -2078,6 +2901,8 @@ class _$InitialImpl implements _Initial {
             (identical(other.isSaved, isSaved) || other.isSaved == isSaved) &&
             (identical(other.isEditing, isEditing) ||
                 other.isEditing == isEditing) &&
+            (identical(other.next, next) || other.next == next) &&
+            (identical(other.back, back) || other.back == back) &&
             (identical(other.saveFailureOrSuccessOption,
                     saveFailureOrSuccessOption) ||
                 other.saveFailureOrSuccessOption ==
@@ -2086,7 +2911,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   int get hashCode => Object.hash(runtimeType, vehicle, showErrorMessages,
-      isSaving, isSaved, isEditing, saveFailureOrSuccessOption);
+      isSaving, isSaved, isEditing, next, back, saveFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -2103,11 +2928,13 @@ class _$InitialImpl implements _Initial {
             bool isSaving,
             bool isSaved,
             bool isEditing,
+            bool next,
+            bool back,
             Option<Either<VehicleFailure, Vehicle>> saveFailureOrSuccessOption)
         initial,
   }) {
     return initial(vehicle, showErrorMessages, isSaving, isSaved, isEditing,
-        saveFailureOrSuccessOption);
+        next, back, saveFailureOrSuccessOption);
   }
 
   @override
@@ -2119,11 +2946,13 @@ class _$InitialImpl implements _Initial {
             bool isSaving,
             bool isSaved,
             bool isEditing,
+            bool next,
+            bool back,
             Option<Either<VehicleFailure, Vehicle>> saveFailureOrSuccessOption)?
         initial,
   }) {
     return initial?.call(vehicle, showErrorMessages, isSaving, isSaved,
-        isEditing, saveFailureOrSuccessOption);
+        isEditing, next, back, saveFailureOrSuccessOption);
   }
 
   @override
@@ -2135,13 +2964,15 @@ class _$InitialImpl implements _Initial {
             bool isSaving,
             bool isSaved,
             bool isEditing,
+            bool next,
+            bool back,
             Option<Either<VehicleFailure, Vehicle>> saveFailureOrSuccessOption)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
       return initial(vehicle, showErrorMessages, isSaving, isSaved, isEditing,
-          saveFailureOrSuccessOption);
+          next, back, saveFailureOrSuccessOption);
     }
     return orElse();
   }
@@ -2182,6 +3013,8 @@ abstract class _Initial implements VehicleFormState {
       required final bool isSaving,
       required final bool isSaved,
       required final bool isEditing,
+      required final bool next,
+      required final bool back,
       required final Option<Either<VehicleFailure, Vehicle>>
           saveFailureOrSuccessOption}) = _$InitialImpl;
 
@@ -2195,6 +3028,10 @@ abstract class _Initial implements VehicleFormState {
   bool get isSaved;
   @override
   bool get isEditing;
+  @override
+  bool get next;
+  @override
+  bool get back;
   @override
   Option<Either<VehicleFailure, Vehicle>> get saveFailureOrSuccessOption;
   @override

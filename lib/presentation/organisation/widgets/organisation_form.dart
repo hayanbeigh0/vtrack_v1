@@ -33,84 +33,86 @@ class OrganisationForm extends StatelessWidget {
             autovalidateMode: state.showErrorMessages
                 ? AutovalidateMode.always
                 : AutovalidateMode.disabled,
-            child: Column(
-              children: [
-                AppTextFormField(
-                  controller: _nameController,
-                  label: 'Name',
-                  hintText: 'Ex: John Doe',
-                  onChanged: (value) {
-                    BlocProvider.of<OrganisationFormBloc>(context).add(
-                      OrganisationFormEvent.nameChanged(value),
-                    );
-                  },
-                  validator: (_) {
-                    return BlocProvider.of<OrganisationFormBloc>(context)
-                        .state
-                        .organisation
-                        .name
-                        .value
-                        .fold(
-                          (f) => f.maybeMap(
-                            invalidName: (_) => 'Invalid organisation name!',
-                            orElse: () => null,
-                          ),
-                          (_) => null,
-                        );
-                  },
-                ),
-                SizedBox(height: 10.h),
-                AppTextFormField(
-                  controller: _addressController,
-                  label: 'Address',
-                  hintText: '31, Main Street, London',
-                  onChanged: (value) {
-                    BlocProvider.of<OrganisationFormBloc>(context).add(
-                      OrganisationFormEvent.addressChanged(value),
-                    );
-                  },
-                  validator: (value) {
-                    if (value!.length < 4) {
-                      return 'Address should be longer than 4 characters!';
-                    }
-                  },
-                ),
-                SizedBox(height: 10.h),
-                AppTextFormField(
-                  controller: _codeController,
-                  label: 'Code',
-                  hintText: 'MYORG01',
-                  onChanged: (value) {
-                    BlocProvider.of<OrganisationFormBloc>(context).add(
-                      OrganisationFormEvent.codeChanged(value),
-                    );
-                  },
-                  validator: (_) {
-                    return BlocProvider.of<OrganisationFormBloc>(context)
-                        .state
-                        .organisation
-                        .code
-                        .value
-                        .fold(
-                          (f) => f.maybeMap(
-                            invalidCode: (_) => 'Invalid organisation code!',
-                            orElse: () => null,
-                          ),
-                          (_) => null,
-                        );
-                  },
-                ),
-                SizedBox(height: 10.h),
-                ElevatedButton(
-                  onPressed: () {
-                    _formKey.currentState!.validate();
-                    BlocProvider.of<OrganisationFormBloc>(context).add(
-                      const OrganisationFormEvent.submitOrganisation(),
-                    );
-                  },
-                  child: const Text('Submit'),
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  AppTextFormField(
+                    controller: _nameController,
+                    label: 'Name',
+                    hintText: 'Ex: John Doe',
+                    onChanged: (value) {
+                      BlocProvider.of<OrganisationFormBloc>(context).add(
+                        OrganisationFormEvent.nameChanged(value),
+                      );
+                    },
+                    validator: (_) {
+                      return BlocProvider.of<OrganisationFormBloc>(context)
+                          .state
+                          .organisation
+                          .name
+                          .value
+                          .fold(
+                            (f) => f.maybeMap(
+                              invalidName: (_) => 'Invalid organisation name!',
+                              orElse: () => null,
+                            ),
+                            (_) => null,
+                          );
+                    },
+                  ),
+                  SizedBox(height: 10.h),
+                  AppTextFormField(
+                    controller: _addressController,
+                    label: 'Address',
+                    hintText: '31, Main Street, London',
+                    onChanged: (value) {
+                      BlocProvider.of<OrganisationFormBloc>(context).add(
+                        OrganisationFormEvent.addressChanged(value),
+                      );
+                    },
+                    validator: (value) {
+                      if (value!.length < 4) {
+                        return 'Address should be longer than 4 characters!';
+                      }
+                    },
+                  ),
+                  SizedBox(height: 10.h),
+                  AppTextFormField(
+                    controller: _codeController,
+                    label: 'Code',
+                    hintText: 'MYORG01',
+                    onChanged: (value) {
+                      BlocProvider.of<OrganisationFormBloc>(context).add(
+                        OrganisationFormEvent.codeChanged(value),
+                      );
+                    },
+                    validator: (_) {
+                      return BlocProvider.of<OrganisationFormBloc>(context)
+                          .state
+                          .organisation
+                          .code
+                          .value
+                          .fold(
+                            (f) => f.maybeMap(
+                              invalidCode: (_) => 'Invalid organisation code!',
+                              orElse: () => null,
+                            ),
+                            (_) => null,
+                          );
+                    },
+                  ),
+                  SizedBox(height: 10.h),
+                  ElevatedButton(
+                    onPressed: () {
+                      _formKey.currentState!.validate();
+                      BlocProvider.of<OrganisationFormBloc>(context).add(
+                        const OrganisationFormEvent.submitOrganisation(),
+                      );
+                    },
+                    child: const Text('Submit'),
+                  ),
+                ],
+              ),
             ),
           ),
         );

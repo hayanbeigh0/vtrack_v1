@@ -1,6 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:vtrack_v1/domain/user/user.dart';
 import 'package:vtrack_v1/domain/vehicle/value_objects.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
+import 'package:vtrack_v1/infrastructure/user/user_dtos.dart';
 
 part 'vehicle_dtos.freezed.dart';
 part 'vehicle_dtos.g.dart';
@@ -19,7 +21,7 @@ class VehicleDto with _$VehicleDto {
     String? createdBy,
     DateTime? createdAt,
     required String organisation,
-    required List<String> users,
+    required List<UserDto> users,
     required List<VehiclePickupLocationsDto> pickupLocations,
   }) = _VehicleDto;
 
@@ -33,7 +35,7 @@ class VehicleDto with _$VehicleDto {
       route: vehicle.route.getOrCrash(),
       owner: vehicle.owner.getOrCrash(),
       organisation: vehicle.organisation.getOrCrash(),
-      users: vehicle.users,
+      users: vehicle.users.map((el) => UserDto.fromDomain(el)).toList(),
       pickupLocations: vehicle.pickupLocations
           .map((pickupLocation) =>
               VehiclePickupLocationsDto.fromDomain(pickupLocation))
@@ -53,7 +55,7 @@ class VehicleDto with _$VehicleDto {
       createdAt: createdAt,
       organisation: VehicleOrganisation(organisation),
       vehicleCapacity: vehicleCapacity,
-      users: users,
+      users: users.map((dto) => dto.toDomain()).toList(),
       pickupLocations: pickupLocations.map((dto) => dto.toDomain()).toList(),
     );
   }
