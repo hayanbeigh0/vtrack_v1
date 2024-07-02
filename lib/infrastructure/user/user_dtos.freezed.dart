@@ -21,7 +21,6 @@ UserDto _$UserDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserDto {
 // ignore: invalid_annotation_target
-  @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
   String? get accessToken => throw _privateConstructorUsedError;
   String get role => throw _privateConstructorUsedError;
@@ -44,7 +43,7 @@ abstract class $UserDtoCopyWith<$Res> {
       _$UserDtoCopyWithImpl<$Res, UserDto>;
   @useResult
   $Res call(
-      {@JsonKey(name: '_id') String id,
+      {String id,
       String? accessToken,
       String role,
       String name,
@@ -131,7 +130,7 @@ abstract class _$$UserDtoImplCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '_id') String id,
+      {String id,
       String? accessToken,
       String role,
       String name,
@@ -205,7 +204,7 @@ class __$$UserDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserDtoImpl extends _UserDto {
   const _$UserDtoImpl(
-      {@JsonKey(name: '_id') required this.id,
+      {required this.id,
       this.accessToken,
       required this.role,
       required this.name,
@@ -222,7 +221,6 @@ class _$UserDtoImpl extends _UserDto {
 
 // ignore: invalid_annotation_target
   @override
-  @JsonKey(name: '_id')
   final String id;
   @override
   final String? accessToken;
@@ -303,7 +301,7 @@ class _$UserDtoImpl extends _UserDto {
 
 abstract class _UserDto extends UserDto {
   const factory _UserDto(
-      {@JsonKey(name: '_id') required final String id,
+      {required final String id,
       final String? accessToken,
       required final String role,
       required final String name,
@@ -316,7 +314,6 @@ abstract class _UserDto extends UserDto {
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$UserDtoImpl.fromJson;
 
   @override // ignore: invalid_annotation_target
-  @JsonKey(name: '_id')
   String get id;
   @override
   String? get accessToken;

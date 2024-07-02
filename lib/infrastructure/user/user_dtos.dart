@@ -13,7 +13,7 @@ class UserDto with _$UserDto {
   const UserDto._();
   const factory UserDto({
     // ignore: invalid_annotation_target
-    @JsonKey(name: '_id') required String id,
+    required String id,
     String? accessToken,
     required String role,
     required String name,

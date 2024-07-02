@@ -8,7 +8,7 @@ part of 'vehicle_dtos.dart';
 
 _$VehicleDtoImpl _$$VehicleDtoImplFromJson(Map<String, dynamic> json) =>
     _$VehicleDtoImpl(
-      id: json['_id'] as String?,
+      id: json['id'] as String?,
       name: json['name'] as String,
       driver: json['driver'] as String,
       vehicleNumber: (json['vehicleNumber'] as num).toInt(),
@@ -31,7 +31,7 @@ _$VehicleDtoImpl _$$VehicleDtoImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$VehicleDtoImplToJson(_$VehicleDtoImpl instance) =>
     <String, dynamic>{
-      '_id': instance.id,
+      'id': instance.id,
       'name': instance.name,
       'driver': instance.driver,
       'vehicleNumber': instance.vehicleNumber,

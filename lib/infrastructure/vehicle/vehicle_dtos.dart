@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vtrack_v1/domain/user/user.dart';
 import 'package:vtrack_v1/domain/vehicle/value_objects.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
 import 'package:vtrack_v1/infrastructure/user/user_dtos.dart';
@@ -11,7 +10,7 @@ part 'vehicle_dtos.g.dart';
 class VehicleDto with _$VehicleDto {
   const VehicleDto._();
   const factory VehicleDto({
-    @JsonKey(name: '_id') String? id,
+    String? id,
     required String name,
     required String driver,
     required int vehicleNumber,

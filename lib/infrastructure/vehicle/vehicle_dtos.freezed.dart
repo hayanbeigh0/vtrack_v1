@@ -20,7 +20,6 @@ VehicleDto _$VehicleDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$VehicleDto {
-  @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get driver => throw _privateConstructorUsedError;
@@ -48,7 +47,7 @@ abstract class $VehicleDtoCopyWith<$Res> {
       _$VehicleDtoCopyWithImpl<$Res, VehicleDto>;
   @useResult
   $Res call(
-      {@JsonKey(name: '_id') String? id,
+      {String? id,
       String name,
       String driver,
       int vehicleNumber,
@@ -150,7 +149,7 @@ abstract class _$$VehicleDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '_id') String? id,
+      {String? id,
       String name,
       String driver,
       int vehicleNumber,
@@ -245,7 +244,7 @@ class __$$VehicleDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$VehicleDtoImpl extends _VehicleDto {
   const _$VehicleDtoImpl(
-      {@JsonKey(name: '_id') this.id,
+      {this.id,
       required this.name,
       required this.driver,
       required this.vehicleNumber,
@@ -265,7 +264,6 @@ class _$VehicleDtoImpl extends _VehicleDto {
       _$$VehicleDtoImplFromJson(json);
 
   @override
-  @JsonKey(name: '_id')
   final String? id;
   @override
   final String name;
@@ -364,7 +362,7 @@ class _$VehicleDtoImpl extends _VehicleDto {
 
 abstract class _VehicleDto extends VehicleDto {
   const factory _VehicleDto(
-          {@JsonKey(name: '_id') final String? id,
+          {final String? id,
           required final String name,
           required final String driver,
           required final int vehicleNumber,
@@ -383,7 +381,6 @@ abstract class _VehicleDto extends VehicleDto {
       _$VehicleDtoImpl.fromJson;
 
   @override
-  @JsonKey(name: '_id')
   String? get id;
   @override
   String get name;
