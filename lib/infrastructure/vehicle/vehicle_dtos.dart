@@ -69,7 +69,7 @@ class VehiclePickupLocationsDto with _$VehiclePickupLocationsDto {
   const factory VehiclePickupLocationsDto({
     required String type,
     required List<num?> coordinates,
-    @JsonKey(name: '_id') String? id,
+    String? id,
     required String name,
     required String address,
     required String description,

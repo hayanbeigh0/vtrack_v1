@@ -51,7 +51,7 @@ _$VehiclePickupLocationsDtoImpl _$$VehiclePickupLocationsDtoImplFromJson(
       type: json['type'] as String,
       coordinates:
           (json['coordinates'] as List<dynamic>).map((e) => e as num?).toList(),
-      id: json['_id'] as String?,
+      id: json['id'] as String?,
       name: json['name'] as String,
       address: json['address'] as String,
       description: json['description'] as String,
@@ -62,7 +62,7 @@ Map<String, dynamic> _$$VehiclePickupLocationsDtoImplToJson(
     <String, dynamic>{
       'type': instance.type,
       'coordinates': instance.coordinates,
-      '_id': instance.id,
+      'id': instance.id,
       'name': instance.name,
       'address': instance.address,
       'description': instance.description,

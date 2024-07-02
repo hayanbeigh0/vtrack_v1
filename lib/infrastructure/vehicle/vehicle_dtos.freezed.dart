@@ -419,7 +419,6 @@ VehiclePickupLocationsDto _$VehiclePickupLocationsDtoFromJson(
 mixin _$VehiclePickupLocationsDto {
   String get type => throw _privateConstructorUsedError;
   List<num?> get coordinates => throw _privateConstructorUsedError;
-  @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
@@ -440,7 +439,7 @@ abstract class $VehiclePickupLocationsDtoCopyWith<$Res> {
   $Res call(
       {String type,
       List<num?> coordinates,
-      @JsonKey(name: '_id') String? id,
+      String? id,
       String name,
       String address,
       String description});
@@ -508,7 +507,7 @@ abstract class _$$VehiclePickupLocationsDtoImplCopyWith<$Res>
   $Res call(
       {String type,
       List<num?> coordinates,
-      @JsonKey(name: '_id') String? id,
+      String? id,
       String name,
       String address,
       String description});
@@ -569,7 +568,7 @@ class _$VehiclePickupLocationsDtoImpl extends _VehiclePickupLocationsDto {
   const _$VehiclePickupLocationsDtoImpl(
       {required this.type,
       required final List<num?> coordinates,
-      @JsonKey(name: '_id') this.id,
+      this.id,
       required this.name,
       required this.address,
       required this.description})
@@ -590,7 +589,6 @@ class _$VehiclePickupLocationsDtoImpl extends _VehiclePickupLocationsDto {
   }
 
   @override
-  @JsonKey(name: '_id')
   final String? id;
   @override
   final String name;
@@ -649,7 +647,7 @@ abstract class _VehiclePickupLocationsDto extends VehiclePickupLocationsDto {
   const factory _VehiclePickupLocationsDto(
       {required final String type,
       required final List<num?> coordinates,
-      @JsonKey(name: '_id') final String? id,
+      final String? id,
       required final String name,
       required final String address,
       required final String description}) = _$VehiclePickupLocationsDtoImpl;
@@ -663,7 +661,6 @@ abstract class _VehiclePickupLocationsDto extends VehiclePickupLocationsDto {
   @override
   List<num?> get coordinates;
   @override
-  @JsonKey(name: '_id')
   String? get id;
   @override
   String get name;
