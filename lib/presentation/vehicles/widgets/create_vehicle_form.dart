@@ -404,7 +404,7 @@ class PickupPointSheet extends StatelessWidget {
       padding: EdgeInsets.only(top: 30.0.h),
       child: PlacePicker(
         apiKey: Platform.isAndroid
-            ? "AIzaSyCfvZyO8ByqrEv9LFONctX2fS04ObjTGZE"
+            ? "AIzaSyCPX-1fUT1iPwWKjZAIjLFFcpBYNMO4SX0"
             : "AIzaSyCfvZyO8ByqrEv9LFONctX2fS04ObjTGZE",
         onPlacePicked: (result) {
           pickupLocations.add(VehiclePickupLocation(
