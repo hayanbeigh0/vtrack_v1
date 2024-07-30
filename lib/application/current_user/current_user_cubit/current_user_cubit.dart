@@ -25,6 +25,7 @@ class CurrentUserCubit extends Cubit<CurrentUserState> {
   }
 
   getSignedInUser() async {
+    emit(const CurrentUserState.loading());
     final Either<UserFailure, User> userOrFailure =
         await _userRepository.getSignedInUser();
     return userOrFailure.fold((f) => emit(CurrentUserState.failure(failure: f)),

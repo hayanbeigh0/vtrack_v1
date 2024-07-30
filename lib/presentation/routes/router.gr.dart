@@ -12,7 +12,8 @@ import 'package:auto_route/auto_route.dart' as _i9;
 import 'package:flutter/material.dart' as _i10;
 import 'package:vtrack_v1/domain/organisation/organisation.dart' as _i11;
 import 'package:vtrack_v1/presentation/home/home_page.dart' as _i3;
-import 'package:vtrack_v1/presentation/notifications/notifications.dart' as _i4;
+import 'package:vtrack_v1/presentation/notifications/notifications_page.dart'
+    as _i4;
 import 'package:vtrack_v1/presentation/organisation/create_organisation.dart'
     as _i1;
 import 'package:vtrack_v1/presentation/organisation/organisation_detail_page.dart'

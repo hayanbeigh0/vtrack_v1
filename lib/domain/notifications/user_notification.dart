@@ -8,6 +8,9 @@ class UserNotification with _$UserNotification {
   const factory UserNotification({
     String? id,
     String? type,
+    String? status,
+    String? token,
+    String? organisationId,
     String? userId,
     bool? readStatus,
     String? content,
@@ -21,6 +24,9 @@ class UserNotification with _$UserNotification {
         readStatus: null,
         type: '',
         userId: '',
+        token: '',
+        organisationId: '',
+        status:'',
       );
 
   // Option<UserNotificationValueFailure<dynamic>> get failureOption {

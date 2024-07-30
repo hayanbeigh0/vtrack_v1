@@ -2,14 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vtrack_v1/application/user/organisation_users/organisation_user_cubit.dart';
 import 'package:vtrack_v1/application/vehicle/vehicle_cubit/vehicle_cubit.dart';
 import 'package:vtrack_v1/domain/organisation/organisation.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets/app_text_form_field.dart';
+import 'package:vtrack_v1/presentation/core/widgets/buttons/primary_elevated_button.dart';
 
 @RoutePage()
 class OrganisationDetailPage extends StatefulWidget {
-  OrganisationDetailPage({
+  const OrganisationDetailPage({
     super.key,
     required this.organisation,
   });
@@ -47,12 +49,23 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
           style: Theme.of(context).textTheme.displaySmall,
         ),
       ),
-      body: BlocProvider(
-        create: (context) => getIt<VehicleCubit>()
-          ..getAllOrgVehicles(
-            organisationId: widget.organisation.id!,
-            pageNumber: 0,
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<VehicleCubit>()
+              ..getAllOrgVehicles(
+                organisationId: widget.organisation.id!,
+                pageNumber: 0,
+              ),
           ),
+          BlocProvider(
+            create: (context) => getIt<OrganisationUserCubit>()
+              ..getOrganisationUsers(
+                organisationId: widget.organisation.id!,
+                pageNumber: 0,
+              ),
+          ),
+        ],
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.0.sp),
           child: Form(
@@ -206,6 +219,83 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                     ],
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Users'),
+                      SizedBox(height: 5.h),
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.sp),
+                          border: Border.all(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        padding: EdgeInsets.all(12.sp),
+                        child: BlocBuilder<OrganisationUserCubit,
+                            OrganisationUserState>(
+                          builder: (context, state) {
+                            return state.maybeMap(
+                              orElse: () => const SizedBox(),
+                              loaded: (users) {
+                                if (users.users.isEmpty) {
+                                  return Center(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        const Text('No users added yet!'),
+                                        TextButton(
+                                          onPressed: () {
+                                            context.router
+                                                .pushNamed('/add-users');
+                                          },
+                                          child: const Text('Add User'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                } else {
+                                  return Row(
+                                    children: [
+                                      Expanded(
+                                        child: Wrap(
+                                          children: users.users
+                                              .map(
+                                                (vehicle) => Container(
+                                                  padding: EdgeInsets.all(8.sp),
+                                                  child: Text(vehicle.name
+                                                      .getOrCrash()),
+                                                ),
+                                              )
+                                              .toList(),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20.h,
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            // Navigate to user list screen
+                                          },
+                                          child: const Text(
+                                            'Manage',
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  );
+                                }
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 SizedBox(height: 20.h),
                 PrimaryElevatedButton(
                   onPressed: () {
@@ -219,35 +309,6 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class PrimaryElevatedButton extends StatelessWidget {
-  const PrimaryElevatedButton({
-    super.key,
-    this.onPressed,
-    required this.buttonText,
-  });
-  final void Function()? onPressed;
-  final String buttonText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.sp),
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.sp)),
-          padding: EdgeInsets.all(8.sp),
-          backgroundColor: Theme.of(context).primaryColor,
-          foregroundColor: Colors.white,
-        ),
-        onPressed: onPressed,
-        child: Text(buttonText),
       ),
     );
   }

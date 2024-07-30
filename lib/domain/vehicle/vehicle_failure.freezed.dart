@@ -26,6 +26,7 @@ mixin _$VehicleFailure<T> {
     required TResult Function() invalidDriver,
     required TResult Function() invalidName,
     required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
     required TResult Function() invalidPickupLocations,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ mixin _$VehicleFailure<T> {
     TResult? Function()? invalidDriver,
     TResult? Function()? invalidName,
     TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
     TResult? Function()? invalidPickupLocations,
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +54,7 @@ mixin _$VehicleFailure<T> {
     TResult Function()? invalidDriver,
     TResult Function()? invalidName,
     TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
     TResult Function()? invalidPickupLocations,
     required TResult orElse(),
   }) =>
@@ -66,6 +69,7 @@ mixin _$VehicleFailure<T> {
     required TResult Function(InvalidDriver<T> value) invalidDriver,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
     required TResult Function(InvalidPickupLocations<T> value)
         invalidPickupLocations,
   }) =>
@@ -80,6 +84,7 @@ mixin _$VehicleFailure<T> {
     TResult? Function(InvalidDriver<T> value)? invalidDriver,
     TResult? Function(InvalidName<T> value)? invalidName,
     TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) =>
       throw _privateConstructorUsedError;
@@ -93,6 +98,7 @@ mixin _$VehicleFailure<T> {
     TResult Function(InvalidDriver<T> value)? invalidDriver,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
   }) =>
@@ -163,6 +169,7 @@ class _$CancelledByUserImpl<T> implements CancelledByUser<T> {
     required TResult Function() invalidDriver,
     required TResult Function() invalidName,
     required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
     required TResult Function() invalidPickupLocations,
   }) {
     return cancelledByUser();
@@ -179,6 +186,7 @@ class _$CancelledByUserImpl<T> implements CancelledByUser<T> {
     TResult? Function()? invalidDriver,
     TResult? Function()? invalidName,
     TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
     TResult? Function()? invalidPickupLocations,
   }) {
     return cancelledByUser?.call();
@@ -195,6 +203,7 @@ class _$CancelledByUserImpl<T> implements CancelledByUser<T> {
     TResult Function()? invalidDriver,
     TResult Function()? invalidName,
     TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
     TResult Function()? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -215,6 +224,7 @@ class _$CancelledByUserImpl<T> implements CancelledByUser<T> {
     required TResult Function(InvalidDriver<T> value) invalidDriver,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
     required TResult Function(InvalidPickupLocations<T> value)
         invalidPickupLocations,
   }) {
@@ -232,6 +242,7 @@ class _$CancelledByUserImpl<T> implements CancelledByUser<T> {
     TResult? Function(InvalidDriver<T> value)? invalidDriver,
     TResult? Function(InvalidName<T> value)? invalidName,
     TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
     return cancelledByUser?.call(this);
@@ -248,6 +259,7 @@ class _$CancelledByUserImpl<T> implements CancelledByUser<T> {
     TResult Function(InvalidDriver<T> value)? invalidDriver,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -308,6 +320,7 @@ class _$ServerErrorImpl<T> implements ServerError<T> {
     required TResult Function() invalidDriver,
     required TResult Function() invalidName,
     required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
     required TResult Function() invalidPickupLocations,
   }) {
     return serverError();
@@ -324,6 +337,7 @@ class _$ServerErrorImpl<T> implements ServerError<T> {
     TResult? Function()? invalidDriver,
     TResult? Function()? invalidName,
     TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
     TResult? Function()? invalidPickupLocations,
   }) {
     return serverError?.call();
@@ -340,6 +354,7 @@ class _$ServerErrorImpl<T> implements ServerError<T> {
     TResult Function()? invalidDriver,
     TResult Function()? invalidName,
     TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
     TResult Function()? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -360,6 +375,7 @@ class _$ServerErrorImpl<T> implements ServerError<T> {
     required TResult Function(InvalidDriver<T> value) invalidDriver,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
     required TResult Function(InvalidPickupLocations<T> value)
         invalidPickupLocations,
   }) {
@@ -377,6 +393,7 @@ class _$ServerErrorImpl<T> implements ServerError<T> {
     TResult? Function(InvalidDriver<T> value)? invalidDriver,
     TResult? Function(InvalidName<T> value)? invalidName,
     TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
     return serverError?.call(this);
@@ -393,6 +410,7 @@ class _$ServerErrorImpl<T> implements ServerError<T> {
     TResult Function(InvalidDriver<T> value)? invalidDriver,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -453,6 +471,7 @@ class _$VehicleNotFoundImpl<T> implements VehicleNotFound<T> {
     required TResult Function() invalidDriver,
     required TResult Function() invalidName,
     required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
     required TResult Function() invalidPickupLocations,
   }) {
     return vehicleNotFound();
@@ -469,6 +488,7 @@ class _$VehicleNotFoundImpl<T> implements VehicleNotFound<T> {
     TResult? Function()? invalidDriver,
     TResult? Function()? invalidName,
     TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
     TResult? Function()? invalidPickupLocations,
   }) {
     return vehicleNotFound?.call();
@@ -485,6 +505,7 @@ class _$VehicleNotFoundImpl<T> implements VehicleNotFound<T> {
     TResult Function()? invalidDriver,
     TResult Function()? invalidName,
     TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
     TResult Function()? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -505,6 +526,7 @@ class _$VehicleNotFoundImpl<T> implements VehicleNotFound<T> {
     required TResult Function(InvalidDriver<T> value) invalidDriver,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
     required TResult Function(InvalidPickupLocations<T> value)
         invalidPickupLocations,
   }) {
@@ -522,6 +544,7 @@ class _$VehicleNotFoundImpl<T> implements VehicleNotFound<T> {
     TResult? Function(InvalidDriver<T> value)? invalidDriver,
     TResult? Function(InvalidName<T> value)? invalidName,
     TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
     return vehicleNotFound?.call(this);
@@ -538,6 +561,7 @@ class _$VehicleNotFoundImpl<T> implements VehicleNotFound<T> {
     TResult Function(InvalidDriver<T> value)? invalidDriver,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -598,6 +622,7 @@ class _$UnAuthenticatedImpl<T> implements UnAuthenticated<T> {
     required TResult Function() invalidDriver,
     required TResult Function() invalidName,
     required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
     required TResult Function() invalidPickupLocations,
   }) {
     return unAuthenticated();
@@ -614,6 +639,7 @@ class _$UnAuthenticatedImpl<T> implements UnAuthenticated<T> {
     TResult? Function()? invalidDriver,
     TResult? Function()? invalidName,
     TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
     TResult? Function()? invalidPickupLocations,
   }) {
     return unAuthenticated?.call();
@@ -630,6 +656,7 @@ class _$UnAuthenticatedImpl<T> implements UnAuthenticated<T> {
     TResult Function()? invalidDriver,
     TResult Function()? invalidName,
     TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
     TResult Function()? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -650,6 +677,7 @@ class _$UnAuthenticatedImpl<T> implements UnAuthenticated<T> {
     required TResult Function(InvalidDriver<T> value) invalidDriver,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
     required TResult Function(InvalidPickupLocations<T> value)
         invalidPickupLocations,
   }) {
@@ -667,6 +695,7 @@ class _$UnAuthenticatedImpl<T> implements UnAuthenticated<T> {
     TResult? Function(InvalidDriver<T> value)? invalidDriver,
     TResult? Function(InvalidName<T> value)? invalidName,
     TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
     return unAuthenticated?.call(this);
@@ -683,6 +712,7 @@ class _$UnAuthenticatedImpl<T> implements UnAuthenticated<T> {
     TResult Function(InvalidDriver<T> value)? invalidDriver,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -743,6 +773,7 @@ class _$UnKnownErrorImpl<T> implements UnKnownError<T> {
     required TResult Function() invalidDriver,
     required TResult Function() invalidName,
     required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
     required TResult Function() invalidPickupLocations,
   }) {
     return unKnownError();
@@ -759,6 +790,7 @@ class _$UnKnownErrorImpl<T> implements UnKnownError<T> {
     TResult? Function()? invalidDriver,
     TResult? Function()? invalidName,
     TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
     TResult? Function()? invalidPickupLocations,
   }) {
     return unKnownError?.call();
@@ -775,6 +807,7 @@ class _$UnKnownErrorImpl<T> implements UnKnownError<T> {
     TResult Function()? invalidDriver,
     TResult Function()? invalidName,
     TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
     TResult Function()? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -795,6 +828,7 @@ class _$UnKnownErrorImpl<T> implements UnKnownError<T> {
     required TResult Function(InvalidDriver<T> value) invalidDriver,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
     required TResult Function(InvalidPickupLocations<T> value)
         invalidPickupLocations,
   }) {
@@ -812,6 +846,7 @@ class _$UnKnownErrorImpl<T> implements UnKnownError<T> {
     TResult? Function(InvalidDriver<T> value)? invalidDriver,
     TResult? Function(InvalidName<T> value)? invalidName,
     TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
     return unKnownError?.call(this);
@@ -828,6 +863,7 @@ class _$UnKnownErrorImpl<T> implements UnKnownError<T> {
     TResult Function(InvalidDriver<T> value)? invalidDriver,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -888,6 +924,7 @@ class _$InvalidDriverImpl<T> implements InvalidDriver<T> {
     required TResult Function() invalidDriver,
     required TResult Function() invalidName,
     required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
     required TResult Function() invalidPickupLocations,
   }) {
     return invalidDriver();
@@ -904,6 +941,7 @@ class _$InvalidDriverImpl<T> implements InvalidDriver<T> {
     TResult? Function()? invalidDriver,
     TResult? Function()? invalidName,
     TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
     TResult? Function()? invalidPickupLocations,
   }) {
     return invalidDriver?.call();
@@ -920,6 +958,7 @@ class _$InvalidDriverImpl<T> implements InvalidDriver<T> {
     TResult Function()? invalidDriver,
     TResult Function()? invalidName,
     TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
     TResult Function()? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -940,6 +979,7 @@ class _$InvalidDriverImpl<T> implements InvalidDriver<T> {
     required TResult Function(InvalidDriver<T> value) invalidDriver,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
     required TResult Function(InvalidPickupLocations<T> value)
         invalidPickupLocations,
   }) {
@@ -957,6 +997,7 @@ class _$InvalidDriverImpl<T> implements InvalidDriver<T> {
     TResult? Function(InvalidDriver<T> value)? invalidDriver,
     TResult? Function(InvalidName<T> value)? invalidName,
     TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
     return invalidDriver?.call(this);
@@ -973,6 +1014,7 @@ class _$InvalidDriverImpl<T> implements InvalidDriver<T> {
     TResult Function(InvalidDriver<T> value)? invalidDriver,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -1033,6 +1075,7 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
     required TResult Function() invalidDriver,
     required TResult Function() invalidName,
     required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
     required TResult Function() invalidPickupLocations,
   }) {
     return invalidName();
@@ -1049,6 +1092,7 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
     TResult? Function()? invalidDriver,
     TResult? Function()? invalidName,
     TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
     TResult? Function()? invalidPickupLocations,
   }) {
     return invalidName?.call();
@@ -1065,6 +1109,7 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
     TResult Function()? invalidDriver,
     TResult Function()? invalidName,
     TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
     TResult Function()? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -1085,6 +1130,7 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
     required TResult Function(InvalidDriver<T> value) invalidDriver,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
     required TResult Function(InvalidPickupLocations<T> value)
         invalidPickupLocations,
   }) {
@@ -1102,6 +1148,7 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
     TResult? Function(InvalidDriver<T> value)? invalidDriver,
     TResult? Function(InvalidName<T> value)? invalidName,
     TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
     return invalidName?.call(this);
@@ -1118,6 +1165,7 @@ class _$InvalidNameImpl<T> implements InvalidName<T> {
     TResult Function(InvalidDriver<T> value)? invalidDriver,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -1178,6 +1226,7 @@ class _$InvalidCapacityImpl<T> implements InvalidCapacity<T> {
     required TResult Function() invalidDriver,
     required TResult Function() invalidName,
     required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
     required TResult Function() invalidPickupLocations,
   }) {
     return invalidCapacity();
@@ -1194,6 +1243,7 @@ class _$InvalidCapacityImpl<T> implements InvalidCapacity<T> {
     TResult? Function()? invalidDriver,
     TResult? Function()? invalidName,
     TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
     TResult? Function()? invalidPickupLocations,
   }) {
     return invalidCapacity?.call();
@@ -1210,6 +1260,7 @@ class _$InvalidCapacityImpl<T> implements InvalidCapacity<T> {
     TResult Function()? invalidDriver,
     TResult Function()? invalidName,
     TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
     TResult Function()? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -1230,6 +1281,7 @@ class _$InvalidCapacityImpl<T> implements InvalidCapacity<T> {
     required TResult Function(InvalidDriver<T> value) invalidDriver,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
     required TResult Function(InvalidPickupLocations<T> value)
         invalidPickupLocations,
   }) {
@@ -1247,6 +1299,7 @@ class _$InvalidCapacityImpl<T> implements InvalidCapacity<T> {
     TResult? Function(InvalidDriver<T> value)? invalidDriver,
     TResult? Function(InvalidName<T> value)? invalidName,
     TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
     return invalidCapacity?.call(this);
@@ -1263,6 +1316,7 @@ class _$InvalidCapacityImpl<T> implements InvalidCapacity<T> {
     TResult Function(InvalidDriver<T> value)? invalidDriver,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -1275,6 +1329,157 @@ class _$InvalidCapacityImpl<T> implements InvalidCapacity<T> {
 
 abstract class InvalidCapacity<T> implements VehicleFailure<T> {
   const factory InvalidCapacity() = _$InvalidCapacityImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$AddUsersFailedImplCopyWith<T, $Res> {
+  factory _$$AddUsersFailedImplCopyWith(_$AddUsersFailedImpl<T> value,
+          $Res Function(_$AddUsersFailedImpl<T>) then) =
+      __$$AddUsersFailedImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$AddUsersFailedImplCopyWithImpl<T, $Res>
+    extends _$VehicleFailureCopyWithImpl<T, $Res, _$AddUsersFailedImpl<T>>
+    implements _$$AddUsersFailedImplCopyWith<T, $Res> {
+  __$$AddUsersFailedImplCopyWithImpl(_$AddUsersFailedImpl<T> _value,
+      $Res Function(_$AddUsersFailedImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AddUsersFailedImpl<T> implements AddUsersFailed<T> {
+  const _$AddUsersFailedImpl();
+
+  @override
+  String toString() {
+    return 'VehicleFailure<$T>.addUsersFailed()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AddUsersFailedImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() vehicleNotFound,
+    required TResult Function() unAuthenticated,
+    required TResult Function() unKnownError,
+    required TResult Function() invalidDriver,
+    required TResult Function() invalidName,
+    required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
+    required TResult Function() invalidPickupLocations,
+  }) {
+    return addUsersFailed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? vehicleNotFound,
+    TResult? Function()? unAuthenticated,
+    TResult? Function()? unKnownError,
+    TResult? Function()? invalidDriver,
+    TResult? Function()? invalidName,
+    TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
+    TResult? Function()? invalidPickupLocations,
+  }) {
+    return addUsersFailed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? vehicleNotFound,
+    TResult Function()? unAuthenticated,
+    TResult Function()? unKnownError,
+    TResult Function()? invalidDriver,
+    TResult Function()? invalidName,
+    TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
+    TResult Function()? invalidPickupLocations,
+    required TResult orElse(),
+  }) {
+    if (addUsersFailed != null) {
+      return addUsersFailed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(VehicleNotFound<T> value) vehicleNotFound,
+    required TResult Function(UnAuthenticated<T> value) unAuthenticated,
+    required TResult Function(UnKnownError<T> value) unKnownError,
+    required TResult Function(InvalidDriver<T> value) invalidDriver,
+    required TResult Function(InvalidName<T> value) invalidName,
+    required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
+    required TResult Function(InvalidPickupLocations<T> value)
+        invalidPickupLocations,
+  }) {
+    return addUsersFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult? Function(ServerError<T> value)? serverError,
+    TResult? Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult? Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult? Function(UnKnownError<T> value)? unKnownError,
+    TResult? Function(InvalidDriver<T> value)? invalidDriver,
+    TResult? Function(InvalidName<T> value)? invalidName,
+    TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
+    TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
+  }) {
+    return addUsersFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(VehicleNotFound<T> value)? vehicleNotFound,
+    TResult Function(UnAuthenticated<T> value)? unAuthenticated,
+    TResult Function(UnKnownError<T> value)? unKnownError,
+    TResult Function(InvalidDriver<T> value)? invalidDriver,
+    TResult Function(InvalidName<T> value)? invalidName,
+    TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
+    TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
+    required TResult orElse(),
+  }) {
+    if (addUsersFailed != null) {
+      return addUsersFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddUsersFailed<T> implements VehicleFailure<T> {
+  const factory AddUsersFailed() = _$AddUsersFailedImpl<T>;
 }
 
 /// @nodoc
@@ -1327,6 +1532,7 @@ class _$InvalidPickupLocationsImpl<T> implements InvalidPickupLocations<T> {
     required TResult Function() invalidDriver,
     required TResult Function() invalidName,
     required TResult Function() invalidCapacity,
+    required TResult Function() addUsersFailed,
     required TResult Function() invalidPickupLocations,
   }) {
     return invalidPickupLocations();
@@ -1343,6 +1549,7 @@ class _$InvalidPickupLocationsImpl<T> implements InvalidPickupLocations<T> {
     TResult? Function()? invalidDriver,
     TResult? Function()? invalidName,
     TResult? Function()? invalidCapacity,
+    TResult? Function()? addUsersFailed,
     TResult? Function()? invalidPickupLocations,
   }) {
     return invalidPickupLocations?.call();
@@ -1359,6 +1566,7 @@ class _$InvalidPickupLocationsImpl<T> implements InvalidPickupLocations<T> {
     TResult Function()? invalidDriver,
     TResult Function()? invalidName,
     TResult Function()? invalidCapacity,
+    TResult Function()? addUsersFailed,
     TResult Function()? invalidPickupLocations,
     required TResult orElse(),
   }) {
@@ -1379,6 +1587,7 @@ class _$InvalidPickupLocationsImpl<T> implements InvalidPickupLocations<T> {
     required TResult Function(InvalidDriver<T> value) invalidDriver,
     required TResult Function(InvalidName<T> value) invalidName,
     required TResult Function(InvalidCapacity<T> value) invalidCapacity,
+    required TResult Function(AddUsersFailed<T> value) addUsersFailed,
     required TResult Function(InvalidPickupLocations<T> value)
         invalidPickupLocations,
   }) {
@@ -1396,6 +1605,7 @@ class _$InvalidPickupLocationsImpl<T> implements InvalidPickupLocations<T> {
     TResult? Function(InvalidDriver<T> value)? invalidDriver,
     TResult? Function(InvalidName<T> value)? invalidName,
     TResult? Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult? Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult? Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
   }) {
     return invalidPickupLocations?.call(this);
@@ -1412,6 +1622,7 @@ class _$InvalidPickupLocationsImpl<T> implements InvalidPickupLocations<T> {
     TResult Function(InvalidDriver<T> value)? invalidDriver,
     TResult Function(InvalidName<T> value)? invalidName,
     TResult Function(InvalidCapacity<T> value)? invalidCapacity,
+    TResult Function(AddUsersFailed<T> value)? addUsersFailed,
     TResult Function(InvalidPickupLocations<T> value)? invalidPickupLocations,
     required TResult orElse(),
   }) {

@@ -100,13 +100,13 @@ class UserOrganisationDto with _$UserOrganisationDto {
   const UserOrganisationDto._();
   const factory UserOrganisationDto({
     required String id,
-    required String name,
-    required String address,
-    required String code,
-    required String createdBy,
-    required String createdAt,
-    required String owner,
-    required List<String> vehicles,
+    required String? name,
+    required String? address,
+    required String? code,
+    required String? createdBy,
+    required String? createdAt,
+    required String? owner,
+    required List<String>? vehicles,
   }) = _UserOrganisationDto;
 
   factory UserOrganisationDto.fromDomain(Organisation organisation) {
@@ -125,10 +125,10 @@ class UserOrganisationDto with _$UserOrganisationDto {
   Organisation toDomain() {
     return Organisation(
       id: id,
-      name: OrganisationName(name),
-      address: address,
-      code: OrganisationCode(code),
-      vehicles: vehicles,
+      name: OrganisationName(name!),
+      address: address!,
+      code: OrganisationCode(code!),
+      vehicles: vehicles!,
       createdBy: createdBy,
       owner: owner,
       createdAt: createdAt,

@@ -13,6 +13,7 @@ import 'package:vtrack_v1/infrastructure/vehicle/vehicle_dtos.dart';
 @LazySingleton(as: IVehicleRepository)
 class VehicleRepository implements IVehicleRepository {
   final Dio dio = GetIt.instance<Dio>();
+  final List<String> _userIds = [];
   @override
   Future<Either<VehicleFailure, Vehicle>> createVehicle({
     required Vehicle vehicle,
@@ -205,5 +206,51 @@ class VehicleRepository implements IVehicleRepository {
       log('Error while updating the vehicle: $e');
       return left(const VehicleFailure.serverError());
     }
+  }
+
+  @override
+  Future<Either<VehicleFailure, Unit>> addVehicleUsers({
+    required String vehicleId,
+    required List<String> userIds,
+  }) async {
+    try {
+      final Response response = await dio.post(
+        '/vehicles/addUsersToVehicle/$vehicleId',
+        data: {"userIds": userIds},
+      );
+      log(response.data.toString());
+      return right(unit);
+    } on DioException catch (e) {
+      log('Error while adding users the vehicle: $e');
+      return left(const VehicleFailure.addUsersFailed());
+    } catch (e) {
+      log('Error while adding users the vehicle: $e');
+      return left(const VehicleFailure.addUsersFailed());
+    }
+  }
+
+  @override
+  List<String> getSelectedVehicleUserIds() {
+    return _userIds;
+  }
+
+  @override
+  void addVehicleUsersToLocalList({
+    required String userId,
+  }) {
+    _userIds.add(userId);
+  }
+
+  @override
+  void removeVehicleUsersFromLocalList({
+    required String userId,
+  }) {
+    _userIds.remove(userId);
+  }
+
+  @override
+  void setSelectedVehicleUserIds(List<String> userIds) {
+    _userIds.clear();
+    _userIds.addAll(userIds);
   }
 }

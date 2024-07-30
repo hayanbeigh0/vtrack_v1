@@ -18,6 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UserNotification {
   String? get id => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
+  String? get status => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
+  String? get organisationId => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
   bool? get readStatus => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
@@ -37,6 +40,9 @@ abstract class $UserNotificationCopyWith<$Res> {
   $Res call(
       {String? id,
       String? type,
+      String? status,
+      String? token,
+      String? organisationId,
       String? userId,
       bool? readStatus,
       String? content,
@@ -58,6 +64,9 @@ class _$UserNotificationCopyWithImpl<$Res, $Val extends UserNotification>
   $Res call({
     Object? id = freezed,
     Object? type = freezed,
+    Object? status = freezed,
+    Object? token = freezed,
+    Object? organisationId = freezed,
     Object? userId = freezed,
     Object? readStatus = freezed,
     Object? content = freezed,
@@ -71,6 +80,18 @@ class _$UserNotificationCopyWithImpl<$Res, $Val extends UserNotification>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
+      organisationId: freezed == organisationId
+          ? _value.organisationId
+          : organisationId // ignore: cast_nullable_to_non_nullable
               as String?,
       userId: freezed == userId
           ? _value.userId
@@ -103,6 +124,9 @@ abstract class _$$UserNotificationImplCopyWith<$Res>
   $Res call(
       {String? id,
       String? type,
+      String? status,
+      String? token,
+      String? organisationId,
       String? userId,
       bool? readStatus,
       String? content,
@@ -122,6 +146,9 @@ class __$$UserNotificationImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? type = freezed,
+    Object? status = freezed,
+    Object? token = freezed,
+    Object? organisationId = freezed,
     Object? userId = freezed,
     Object? readStatus = freezed,
     Object? content = freezed,
@@ -135,6 +162,18 @@ class __$$UserNotificationImplCopyWithImpl<$Res>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
+      organisationId: freezed == organisationId
+          ? _value.organisationId
+          : organisationId // ignore: cast_nullable_to_non_nullable
               as String?,
       userId: freezed == userId
           ? _value.userId
@@ -162,6 +201,9 @@ class _$UserNotificationImpl extends _UserNotification {
   const _$UserNotificationImpl(
       {this.id,
       this.type,
+      this.status,
+      this.token,
+      this.organisationId,
       this.userId,
       this.readStatus,
       this.content,
@@ -173,6 +215,12 @@ class _$UserNotificationImpl extends _UserNotification {
   @override
   final String? type;
   @override
+  final String? status;
+  @override
+  final String? token;
+  @override
+  final String? organisationId;
+  @override
   final String? userId;
   @override
   final bool? readStatus;
@@ -183,7 +231,7 @@ class _$UserNotificationImpl extends _UserNotification {
 
   @override
   String toString() {
-    return 'UserNotification(id: $id, type: $type, userId: $userId, readStatus: $readStatus, content: $content, createdAt: $createdAt)';
+    return 'UserNotification(id: $id, type: $type, status: $status, token: $token, organisationId: $organisationId, userId: $userId, readStatus: $readStatus, content: $content, createdAt: $createdAt)';
   }
 
   @override
@@ -193,6 +241,10 @@ class _$UserNotificationImpl extends _UserNotification {
             other is _$UserNotificationImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.organisationId, organisationId) ||
+                other.organisationId == organisationId) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.readStatus, readStatus) ||
                 other.readStatus == readStatus) &&
@@ -202,8 +254,8 @@ class _$UserNotificationImpl extends _UserNotification {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, type, userId, readStatus, content, createdAt);
+  int get hashCode => Object.hash(runtimeType, id, type, status, token,
+      organisationId, userId, readStatus, content, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -217,6 +269,9 @@ abstract class _UserNotification extends UserNotification {
   const factory _UserNotification(
       {final String? id,
       final String? type,
+      final String? status,
+      final String? token,
+      final String? organisationId,
       final String? userId,
       final bool? readStatus,
       final String? content,
@@ -227,6 +282,12 @@ abstract class _UserNotification extends UserNotification {
   String? get id;
   @override
   String? get type;
+  @override
+  String? get status;
+  @override
+  String? get token;
+  @override
+  String? get organisationId;
   @override
   String? get userId;
   @override

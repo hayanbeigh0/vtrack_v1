@@ -8,25 +8,41 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
+import 'package:vtrack_v1/application/vehicle/add_vehicle_users/add_vehicle_users_cubit.dart';
 import 'package:vtrack_v1/application/vehicle/vehicle_cubit/vehicle_cubit.dart';
 import 'package:vtrack_v1/application/vehicle/vehicle_form_bloc/vehicle_form_bloc.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets/app_text_form_field.dart';
-import 'package:vtrack_v1/presentation/organisation/organisation_detail_page.dart';
+import 'package:vtrack_v1/presentation/core/widgets/buttons/primary_elevated_button.dart';
 import 'package:vtrack_v1/presentation/vehicles/widgets/add_users.dart';
 import 'package:vtrack_v1/presentation/vehicles/widgets/current_location.dart';
 
-class CreateVehicleForm extends StatelessWidget {
+class CreateVehicleForm extends StatefulWidget {
   final Vehicle? vehicle;
-  CreateVehicleForm({
+  const CreateVehicleForm({
     super.key,
     this.vehicle,
   });
+
+  @override
+  State<CreateVehicleForm> createState() => _CreateVehicleFormState();
+}
+
+class _CreateVehicleFormState extends State<CreateVehicleForm> {
   final _nameController = TextEditingController();
+
   final _vehicleRouteController = TextEditingController();
+
   final _vehicleNumberController = TextEditingController();
+
   final _vehicleCapacityController = TextEditingController();
+
+  @override
+  void initState() {
+    BlocProvider.of<AddVehicleUsersCubit>(context).clearLocalVehicleUsersList();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +50,7 @@ class CreateVehicleForm extends StatelessWidget {
       providers: [
         BlocProvider<VehicleFormBloc>(
           create: (context) => getIt<VehicleFormBloc>()
-            ..add(VehicleFormEvent.initalized(vehicle: vehicle)),
+            ..add(VehicleFormEvent.initalized(vehicle: widget.vehicle)),
         ),
         BlocProvider<VehicleCubit>(
           create: (context) => getIt<VehicleCubit>(),
@@ -53,7 +69,8 @@ class CreateVehicleForm extends StatelessWidget {
             (failure) {
               failure.fold(
                 (l) => FlushbarHelper.createError(
-                  message: l.map(
+                  message: l.maybeMap(
+                    orElse: () => '',
                     invalidCapacity: (_) => 'Invalid capacity!',
                     invalidDriver: (value) => 'Invalid driver',
                     invalidName: (value) => 'Invalid name',

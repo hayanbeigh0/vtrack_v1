@@ -136,7 +136,7 @@ class HomePage extends StatelessWidget {
                                               DropdownButton<String>(
                                         isExpanded: true,
                                         value: selectedOrganisation.id,
-                                        items: value.organisations.organisations
+                                        items: value.organisations.organisations // When accepting organisation invite, it throws error w.r.t DropdownItems
                                             .map(
                                               (el) => DropdownMenuItem<String>(
                                                 value: el.id,

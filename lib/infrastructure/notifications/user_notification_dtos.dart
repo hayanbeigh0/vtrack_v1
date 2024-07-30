@@ -10,6 +10,9 @@ class UserNotificationDto with _$UserNotificationDto {
   factory UserNotificationDto({
     String? id,
     String? type,
+    String? status,
+    String? token,
+    String? organisationId,
     String? userId,
     bool? readStatus,
     String? content,
@@ -24,6 +27,9 @@ class UserNotificationDto with _$UserNotificationDto {
       readStatus: notification.readStatus,
       type: notification.type,
       userId: notification.userId,
+      token: notification.token,
+      organisationId: notification.organisationId,
+      status: notification.status,
     );
   }
   UserNotification toDomain() {
@@ -34,6 +40,9 @@ class UserNotificationDto with _$UserNotificationDto {
       readStatus: readStatus,
       type: type,
       userId: userId,
+      token: token,
+      organisationId: organisationId,
+      status: status,
     );
   }
 

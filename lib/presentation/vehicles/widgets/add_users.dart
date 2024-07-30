@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vtrack_v1/application/organisation/selected_organisation_bloc/selected_organisation_bloc.dart';
 import 'package:vtrack_v1/application/user/search_user/search_user_bloc.dart';
+import 'package:vtrack_v1/application/vehicle/add_vehicle_users/add_vehicle_users_cubit.dart';
 import 'package:vtrack_v1/application/vehicle/vehicle_form_bloc/vehicle_form_bloc.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets/app_text_form_field.dart';
@@ -26,8 +27,16 @@ class _AddUsersState extends State<AddUsers> {
           appBar: AppBar(
             title: const Text('Add users'),
           ),
-          body: BlocProvider(
-            create: (context) => getIt<SearchUserBloc>(),
+          body: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<SearchUserBloc>(),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    getIt<AddVehicleUsersCubit>()..getLocalVehicleUsersList(),
+              ),
+            ],
             child: BlocBuilder<SelectedOrganisationBloc,
                 SelectedOrganisationState>(
               builder: (context, selectedOrganisationState) {
@@ -161,9 +170,39 @@ class _AddUsersState extends State<AddUsers> {
                             ],
                           ),
                           const Expanded(child: SizedBox()),
-                          TextButton(
-                            onPressed: () {},
-                            child: const Text('Invite'),
+                          BlocBuilder<AddVehicleUsersCubit,
+                              AddVehicleUsersState>(
+                            builder: (context, addVehicleUsersState) {
+                              return addVehicleUsersState.maybeMap(
+                                orElse: () => const SizedBox(),
+                                done: (value) {
+                                  if (value.selectedUsersForVehicle
+                                      .contains(state.users[index].id)) {
+                                    return TextButton(
+                                      onPressed: () {
+                                        BlocProvider.of<AddVehicleUsersCubit>(
+                                                context)
+                                            .removeVehicleUsersFromLocalList(
+                                          userId: state.users[index].id,
+                                        );
+                                      },
+                                      child: const Text('Remove'),
+                                    );
+                                  } else {
+                                    return TextButton(
+                                      onPressed: () {
+                                        BlocProvider.of<AddVehicleUsersCubit>(
+                                                context)
+                                            .addVehicleUsersToLocalList(
+                                          state.users[index].id,
+                                        );
+                                      },
+                                      child: const Text('Select'),
+                                    );
+                                  }
+                                },
+                              );
+                            },
                           ),
                         ],
                       ),

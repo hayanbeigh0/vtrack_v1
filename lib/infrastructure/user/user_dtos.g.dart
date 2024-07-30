@@ -54,14 +54,15 @@ _$UserOrganisationDtoImpl _$$UserOrganisationDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$UserOrganisationDtoImpl(
       id: json['id'] as String,
-      name: json['name'] as String,
-      address: json['address'] as String,
-      code: json['code'] as String,
-      createdBy: json['createdBy'] as String,
-      createdAt: json['createdAt'] as String,
-      owner: json['owner'] as String,
-      vehicles:
-          (json['vehicles'] as List<dynamic>).map((e) => e as String).toList(),
+      name: json['name'] as String?,
+      address: json['address'] as String?,
+      code: json['code'] as String?,
+      createdBy: json['createdBy'] as String?,
+      createdAt: json['createdAt'] as String?,
+      owner: json['owner'] as String?,
+      vehicles: (json['vehicles'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$UserOrganisationDtoImplToJson(

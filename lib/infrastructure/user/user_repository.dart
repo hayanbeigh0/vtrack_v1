@@ -17,12 +17,14 @@ class UserRepository extends IUserRepository {
   @override
   Future<Either<UserFailure, User>> getSignedInUser() async {
     try {
+      final prefs = await SharedPreferences.getInstance();
       final Response response = await dio.get(
         '/users/me',
       );
       log(response.data.toString());
-      final User user =
-          UserDto.fromJson(response.data['data']['user']).toDomain();
+      User user = UserDto.fromJson(response.data['data']['data']).toDomain();
+      final String? token = prefs.getString('token');
+      user = user.copyWith(accessToken: token);
 
       return right(user);
     } on DioException catch (e) {
@@ -41,6 +43,7 @@ class UserRepository extends IUserRepository {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', user.accessToken!);
+      await prefs.remove('user');
       await prefs.setString(
         'user',
         jsonEncode(UserDto.fromDomain(user).toJson()),
@@ -137,11 +140,20 @@ class UserRepository extends IUserRepository {
       final Response response = await dio.get(
         '/users/getAllOrgUsers/$organisationId',
       );
-      log(response.data.toString());
-      final List<User> userList = response.data['data']['data']
-          .map((el) => UserDto.fromJson(el).toDomain())
+      final responseData = response.data['data'];
+      if (responseData != null &&
+          responseData['data'] != null &&
+          responseData['data'].isEmpty) {
+        return right([]);
+      }
+      // List<UserDto> userDtos =
+      //     responseData['users'].map((el) => UserDto.fromJson(el)).toList();
+      List<UserDto> userDtos = (responseData['data'] as List)
+          .map((el) => UserDto.fromJson(el as Map<String, dynamic>))
           .toList();
-      return right(userList);
+
+      final List<User> users = userDtos.map((el) => el.toDomain()).toList();
+      return right(users);
     } on DioException catch (e) {
       log('Error while getting all org users: $e');
       return left(const UserFailure.serverError());

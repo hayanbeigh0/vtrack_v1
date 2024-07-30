@@ -514,13 +514,13 @@ UserOrganisationDto _$UserOrganisationDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserOrganisationDto {
   String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
-  String get code => throw _privateConstructorUsedError;
-  String get createdBy => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get owner => throw _privateConstructorUsedError;
-  List<String> get vehicles => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
+  String? get code => throw _privateConstructorUsedError;
+  String? get createdBy => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get owner => throw _privateConstructorUsedError;
+  List<String>? get vehicles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -536,13 +536,13 @@ abstract class $UserOrganisationDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String name,
-      String address,
-      String code,
-      String createdBy,
-      String createdAt,
-      String owner,
-      List<String> vehicles});
+      String? name,
+      String? address,
+      String? code,
+      String? createdBy,
+      String? createdAt,
+      String? owner,
+      List<String>? vehicles});
 }
 
 /// @nodoc
@@ -559,47 +559,47 @@ class _$UserOrganisationDtoCopyWithImpl<$Res, $Val extends UserOrganisationDto>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
-    Object? address = null,
-    Object? code = null,
-    Object? createdBy = null,
-    Object? createdAt = null,
-    Object? owner = null,
-    Object? vehicles = null,
+    Object? name = freezed,
+    Object? address = freezed,
+    Object? code = freezed,
+    Object? createdBy = freezed,
+    Object? createdAt = freezed,
+    Object? owner = freezed,
+    Object? vehicles = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
+              as String?,
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      code: null == code
+              as String?,
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdBy: null == createdBy
+              as String?,
+      createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      owner: null == owner
+              as String?,
+      owner: freezed == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as String,
-      vehicles: null == vehicles
+              as String?,
+      vehicles: freezed == vehicles
           ? _value.vehicles
           : vehicles // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -614,13 +614,13 @@ abstract class _$$UserOrganisationDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String name,
-      String address,
-      String code,
-      String createdBy,
-      String createdAt,
-      String owner,
-      List<String> vehicles});
+      String? name,
+      String? address,
+      String? code,
+      String? createdBy,
+      String? createdAt,
+      String? owner,
+      List<String>? vehicles});
 }
 
 /// @nodoc
@@ -635,47 +635,47 @@ class __$$UserOrganisationDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
-    Object? address = null,
-    Object? code = null,
-    Object? createdBy = null,
-    Object? createdAt = null,
-    Object? owner = null,
-    Object? vehicles = null,
+    Object? name = freezed,
+    Object? address = freezed,
+    Object? code = freezed,
+    Object? createdBy = freezed,
+    Object? createdAt = freezed,
+    Object? owner = freezed,
+    Object? vehicles = freezed,
   }) {
     return _then(_$UserOrganisationDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
+              as String?,
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      code: null == code
+              as String?,
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdBy: null == createdBy
+              as String?,
+      createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      owner: null == owner
+              as String?,
+      owner: freezed == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as String,
-      vehicles: null == vehicles
+              as String?,
+      vehicles: freezed == vehicles
           ? _value._vehicles
           : vehicles // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
     ));
   }
 }
@@ -691,7 +691,7 @@ class _$UserOrganisationDtoImpl extends _UserOrganisationDto {
       required this.createdBy,
       required this.createdAt,
       required this.owner,
-      required final List<String> vehicles})
+      required final List<String>? vehicles})
       : _vehicles = vehicles,
         super._();
 
@@ -701,23 +701,25 @@ class _$UserOrganisationDtoImpl extends _UserOrganisationDto {
   @override
   final String id;
   @override
-  final String name;
+  final String? name;
   @override
-  final String address;
+  final String? address;
   @override
-  final String code;
+  final String? code;
   @override
-  final String createdBy;
+  final String? createdBy;
   @override
-  final String createdAt;
+  final String? createdAt;
   @override
-  final String owner;
-  final List<String> _vehicles;
+  final String? owner;
+  final List<String>? _vehicles;
   @override
-  List<String> get vehicles {
+  List<String>? get vehicles {
+    final value = _vehicles;
+    if (value == null) return null;
     if (_vehicles is EqualUnmodifiableListView) return _vehicles;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_vehicles);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -773,13 +775,13 @@ class _$UserOrganisationDtoImpl extends _UserOrganisationDto {
 abstract class _UserOrganisationDto extends UserOrganisationDto {
   const factory _UserOrganisationDto(
       {required final String id,
-      required final String name,
-      required final String address,
-      required final String code,
-      required final String createdBy,
-      required final String createdAt,
-      required final String owner,
-      required final List<String> vehicles}) = _$UserOrganisationDtoImpl;
+      required final String? name,
+      required final String? address,
+      required final String? code,
+      required final String? createdBy,
+      required final String? createdAt,
+      required final String? owner,
+      required final List<String>? vehicles}) = _$UserOrganisationDtoImpl;
   const _UserOrganisationDto._() : super._();
 
   factory _UserOrganisationDto.fromJson(Map<String, dynamic> json) =
@@ -788,19 +790,19 @@ abstract class _UserOrganisationDto extends UserOrganisationDto {
   @override
   String get id;
   @override
-  String get name;
+  String? get name;
   @override
-  String get address;
+  String? get address;
   @override
-  String get code;
+  String? get code;
   @override
-  String get createdBy;
+  String? get createdBy;
   @override
-  String get createdAt;
+  String? get createdAt;
   @override
-  String get owner;
+  String? get owner;
   @override
-  List<String> get vehicles;
+  List<String>? get vehicles;
   @override
   @JsonKey(ignore: true)
   _$$UserOrganisationDtoImplCopyWith<_$UserOrganisationDtoImpl> get copyWith =>
