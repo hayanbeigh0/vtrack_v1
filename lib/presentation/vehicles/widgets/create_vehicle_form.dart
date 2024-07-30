@@ -55,6 +55,10 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
         BlocProvider<VehicleCubit>(
           create: (context) => getIt<VehicleCubit>(),
         ),
+        BlocProvider<AddVehicleUsersCubit>(
+          create: (context) =>
+              getIt<AddVehicleUsersCubit>()..getLocalVehicleUsersList(),
+        ),
       ],
       child: BlocConsumer<VehicleFormBloc, VehicleFormState>(
         listener: (context, state) {
@@ -177,16 +181,44 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                       child: Visibility(
                         visible: state.vehicle.users.isNotEmpty,
                         replacement: Center(
-                          child: Column(
-                            children: [
-                              const Text('No users added yet!'),
-                              TextButton(
-                                onPressed: () async {
-                                  await showAddUsersSheet(context);
+                          child: BlocBuilder<AddVehicleUsersCubit,
+                              AddVehicleUsersState>(
+                            builder: (context, state) {
+                              return state.maybeMap(
+                                orElse: () => const SizedBox(),
+                                done: (value) {
+                                  return Column(
+                                    children: [
+                                      if (value.selectedUsersForVehicle.isEmpty)
+                                        const Text('No users selected yet!'),
+                                      if (value
+                                          .selectedUsersForVehicle.isNotEmpty)
+                                        Text(
+                                          '${value.selectedUsersForVehicle.length} user${value.selectedUsersForVehicle.length > 1 ? 's' : ''} selected',
+                                        ),
+                                      TextButton(
+                                        onPressed: () async {
+                                          showAddUsersSheet(context).then(
+                                            (value) {
+                                              BlocProvider.of<
+                                                          AddVehicleUsersCubit>(
+                                                      context)
+                                                  .getLocalVehicleUsersList();
+                                            },
+                                          );
+                                        },
+                                        child: Text(
+                                          value.selectedUsersForVehicle
+                                                  .isNotEmpty
+                                              ? 'Select more users'
+                                              : 'Select users',
+                                        ),
+                                      ),
+                                    ],
+                                  );
                                 },
-                                child: const Text('Add'),
-                              ),
-                            ],
+                              );
+                            },
                           ),
                         ),
                         child: Column(
