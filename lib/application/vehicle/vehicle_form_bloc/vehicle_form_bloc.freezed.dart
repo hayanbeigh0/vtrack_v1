@@ -24,11 +24,12 @@ mixin _$VehicleFormEvent {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -42,11 +43,12 @@ mixin _$VehicleFormEvent {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -60,11 +62,12 @@ mixin _$VehicleFormEvent {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -85,6 +88,7 @@ mixin _$VehicleFormEvent {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) =>
@@ -102,6 +106,7 @@ mixin _$VehicleFormEvent {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) =>
@@ -119,6 +124,7 @@ mixin _$VehicleFormEvent {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -228,11 +234,12 @@ class _$StartedImpl implements _Started {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -249,11 +256,12 @@ class _$StartedImpl implements _Started {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -270,11 +278,12 @@ class _$StartedImpl implements _Started {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -301,6 +310,7 @@ class _$StartedImpl implements _Started {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -321,6 +331,7 @@ class _$StartedImpl implements _Started {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -341,6 +352,7 @@ class _$StartedImpl implements _Started {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -431,11 +443,12 @@ class _$NameChangedImpl implements _NameChanged {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -452,11 +465,12 @@ class _$NameChangedImpl implements _NameChanged {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -473,11 +487,12 @@ class _$NameChangedImpl implements _NameChanged {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -504,6 +519,7 @@ class _$NameChangedImpl implements _NameChanged {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -524,6 +540,7 @@ class _$NameChangedImpl implements _NameChanged {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -544,6 +561,7 @@ class _$NameChangedImpl implements _NameChanged {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -644,11 +662,12 @@ class _$DriverChangedImpl implements _DriverChanged {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -665,11 +684,12 @@ class _$DriverChangedImpl implements _DriverChanged {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -686,11 +706,12 @@ class _$DriverChangedImpl implements _DriverChanged {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -717,6 +738,7 @@ class _$DriverChangedImpl implements _DriverChanged {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -737,6 +759,7 @@ class _$DriverChangedImpl implements _DriverChanged {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -757,6 +780,7 @@ class _$DriverChangedImpl implements _DriverChanged {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -857,11 +881,12 @@ class _$RemoveDriverImpl implements _RemoveDriver {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -878,11 +903,12 @@ class _$RemoveDriverImpl implements _RemoveDriver {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -899,11 +925,12 @@ class _$RemoveDriverImpl implements _RemoveDriver {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -930,6 +957,7 @@ class _$RemoveDriverImpl implements _RemoveDriver {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -950,6 +978,7 @@ class _$RemoveDriverImpl implements _RemoveDriver {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -970,6 +999,7 @@ class _$RemoveDriverImpl implements _RemoveDriver {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -1063,11 +1093,12 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -1084,11 +1115,12 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -1105,11 +1137,12 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -1136,6 +1169,7 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -1156,6 +1190,7 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -1176,6 +1211,7 @@ class _$VehicleNumberChangedImpl implements _VehicleNumberChanged {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -1271,11 +1307,12 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -1292,11 +1329,12 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -1313,11 +1351,12 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -1344,6 +1383,7 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -1364,6 +1404,7 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -1384,6 +1425,7 @@ class _$VehicleCapacityChangedImpl implements _VehicleCapacityChanged {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -1411,7 +1453,9 @@ abstract class _$$VehicleUsersChangedImplCopyWith<$Res> {
           $Res Function(_$VehicleUsersChangedImpl) then) =
       __$$VehicleUsersChangedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<User> users});
+  $Res call({User user});
+
+  $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -1425,33 +1469,36 @@ class __$$VehicleUsersChangedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? users = null,
+    Object? user = null,
   }) {
     return _then(_$VehicleUsersChangedImpl(
-      null == users
-          ? _value._users
-          : users // ignore: cast_nullable_to_non_nullable
-              as List<User>,
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
-  const _$VehicleUsersChangedImpl(final List<User> users) : _users = users;
+  const _$VehicleUsersChangedImpl(this.user);
 
-  final List<User> _users;
   @override
-  List<User> get users {
-    if (_users is EqualUnmodifiableListView) return _users;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_users);
-  }
+  final User user;
 
   @override
   String toString() {
-    return 'VehicleFormEvent.vehicleUsersChanged(users: $users)';
+    return 'VehicleFormEvent.vehicleUsersChanged(user: $user)';
   }
 
   @override
@@ -1459,12 +1506,11 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VehicleUsersChangedImpl &&
-            const DeepCollectionEquality().equals(other._users, _users));
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_users));
+  int get hashCode => Object.hash(runtimeType, user);
 
   @JsonKey(ignore: true)
   @override
@@ -1482,16 +1528,17 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
   }) {
-    return vehicleUsersChanged(users);
+    return vehicleUsersChanged(user);
   }
 
   @override
@@ -1503,16 +1550,17 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
   }) {
-    return vehicleUsersChanged?.call(users);
+    return vehicleUsersChanged?.call(user);
   }
 
   @override
@@ -1524,18 +1572,19 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
     required TResult orElse(),
   }) {
     if (vehicleUsersChanged != null) {
-      return vehicleUsersChanged(users);
+      return vehicleUsersChanged(user);
     }
     return orElse();
   }
@@ -1555,6 +1604,7 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -1575,6 +1625,7 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -1595,6 +1646,7 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -1607,10 +1659,10 @@ class _$VehicleUsersChangedImpl implements _VehicleUsersChanged {
 }
 
 abstract class _VehicleUsersChanged implements VehicleFormEvent {
-  const factory _VehicleUsersChanged(final List<User> users) =
+  const factory _VehicleUsersChanged(final User user) =
       _$VehicleUsersChangedImpl;
 
-  List<User> get users;
+  User get user;
   @JsonKey(ignore: true)
   _$$VehicleUsersChangedImplCopyWith<_$VehicleUsersChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1701,11 +1753,12 @@ class _$VehiclePickupLocationsChangedImpl
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -1722,11 +1775,12 @@ class _$VehiclePickupLocationsChangedImpl
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -1743,11 +1797,12 @@ class _$VehiclePickupLocationsChangedImpl
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -1774,6 +1829,7 @@ class _$VehiclePickupLocationsChangedImpl
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -1794,6 +1850,7 @@ class _$VehiclePickupLocationsChangedImpl
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -1814,6 +1871,7 @@ class _$VehiclePickupLocationsChangedImpl
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -1881,11 +1939,12 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -1902,11 +1961,12 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -1923,11 +1983,12 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -1954,6 +2015,7 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -1974,6 +2036,7 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -1994,6 +2057,7 @@ class _$SubmitVehicleImpl implements _SubmitVehicle {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -2052,11 +2116,12 @@ class _$NextImpl implements _Next {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -2073,11 +2138,12 @@ class _$NextImpl implements _Next {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -2094,11 +2160,12 @@ class _$NextImpl implements _Next {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -2125,6 +2192,7 @@ class _$NextImpl implements _Next {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -2145,6 +2213,7 @@ class _$NextImpl implements _Next {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -2165,6 +2234,7 @@ class _$NextImpl implements _Next {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -2178,6 +2248,184 @@ class _$NextImpl implements _Next {
 
 abstract class _Next implements VehicleFormEvent {
   const factory _Next() = _$NextImpl;
+}
+
+/// @nodoc
+abstract class _$$RebuildImplCopyWith<$Res> {
+  factory _$$RebuildImplCopyWith(
+          _$RebuildImpl value, $Res Function(_$RebuildImpl) then) =
+      __$$RebuildImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RebuildImplCopyWithImpl<$Res>
+    extends _$VehicleFormEventCopyWithImpl<$Res, _$RebuildImpl>
+    implements _$$RebuildImplCopyWith<$Res> {
+  __$$RebuildImplCopyWithImpl(
+      _$RebuildImpl _value, $Res Function(_$RebuildImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RebuildImpl implements _Rebuild {
+  const _$RebuildImpl();
+
+  @override
+  String toString() {
+    return 'VehicleFormEvent.rebuild()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RebuildImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Vehicle? vehicle) initalized,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(User driver) driverChanged,
+    required TResult Function(User driver) removeDriver,
+    required TResult Function(int vehicleNumber) vehicleNumberChanged,
+    required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
+    required TResult Function(User user) vehicleUsersChanged,
+    required TResult Function(List<VehiclePickupLocation> pickupLocations)
+        vehiclePickupLocationsChanged,
+    required TResult Function() submitVehicle,
+    required TResult Function() next,
+    required TResult Function() rebuild,
+    required TResult Function(VehiclePickupLocation vehiclePickupLocation)
+        removePickupLocation,
+    required TResult Function(User user) removeUsers,
+  }) {
+    return rebuild();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Vehicle? vehicle)? initalized,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(User driver)? driverChanged,
+    TResult? Function(User driver)? removeDriver,
+    TResult? Function(int vehicleNumber)? vehicleNumberChanged,
+    TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
+    TResult? Function(List<VehiclePickupLocation> pickupLocations)?
+        vehiclePickupLocationsChanged,
+    TResult? Function()? submitVehicle,
+    TResult? Function()? next,
+    TResult? Function()? rebuild,
+    TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
+        removePickupLocation,
+    TResult? Function(User user)? removeUsers,
+  }) {
+    return rebuild?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Vehicle? vehicle)? initalized,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(User driver)? driverChanged,
+    TResult Function(User driver)? removeDriver,
+    TResult Function(int vehicleNumber)? vehicleNumberChanged,
+    TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
+    TResult Function(User user)? vehicleUsersChanged,
+    TResult Function(List<VehiclePickupLocation> pickupLocations)?
+        vehiclePickupLocationsChanged,
+    TResult Function()? submitVehicle,
+    TResult Function()? next,
+    TResult Function()? rebuild,
+    TResult Function(VehiclePickupLocation vehiclePickupLocation)?
+        removePickupLocation,
+    TResult Function(User user)? removeUsers,
+    required TResult orElse(),
+  }) {
+    if (rebuild != null) {
+      return rebuild();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) initalized,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_DriverChanged value) driverChanged,
+    required TResult Function(_RemoveDriver value) removeDriver,
+    required TResult Function(_VehicleNumberChanged value) vehicleNumberChanged,
+    required TResult Function(_VehicleCapacityChanged value)
+        vehicleCapacityChanged,
+    required TResult Function(_VehicleUsersChanged value) vehicleUsersChanged,
+    required TResult Function(_VehiclePickupLocationsChanged value)
+        vehiclePickupLocationsChanged,
+    required TResult Function(_SubmitVehicle value) submitVehicle,
+    required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
+    required TResult Function(_RemovePickupLocation value) removePickupLocation,
+    required TResult Function(_RemoveUsers value) removeUsers,
+  }) {
+    return rebuild(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? initalized,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_DriverChanged value)? driverChanged,
+    TResult? Function(_RemoveDriver value)? removeDriver,
+    TResult? Function(_VehicleNumberChanged value)? vehicleNumberChanged,
+    TResult? Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
+    TResult? Function(_VehicleUsersChanged value)? vehicleUsersChanged,
+    TResult? Function(_VehiclePickupLocationsChanged value)?
+        vehiclePickupLocationsChanged,
+    TResult? Function(_SubmitVehicle value)? submitVehicle,
+    TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
+    TResult? Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult? Function(_RemoveUsers value)? removeUsers,
+  }) {
+    return rebuild?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? initalized,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_DriverChanged value)? driverChanged,
+    TResult Function(_RemoveDriver value)? removeDriver,
+    TResult Function(_VehicleNumberChanged value)? vehicleNumberChanged,
+    TResult Function(_VehicleCapacityChanged value)? vehicleCapacityChanged,
+    TResult Function(_VehicleUsersChanged value)? vehicleUsersChanged,
+    TResult Function(_VehiclePickupLocationsChanged value)?
+        vehiclePickupLocationsChanged,
+    TResult Function(_SubmitVehicle value)? submitVehicle,
+    TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
+    TResult Function(_RemovePickupLocation value)? removePickupLocation,
+    TResult Function(_RemoveUsers value)? removeUsers,
+    required TResult orElse(),
+  }) {
+    if (rebuild != null) {
+      return rebuild(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Rebuild implements VehicleFormEvent {
+  const factory _Rebuild() = _$RebuildImpl;
 }
 
 /// @nodoc
@@ -2264,11 +2512,12 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -2285,11 +2534,12 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -2306,11 +2556,12 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -2337,6 +2588,7 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -2357,6 +2609,7 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -2377,6 +2630,7 @@ class _$RemovePickupLocationImpl implements _RemovePickupLocation {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),
@@ -2479,11 +2733,12 @@ class _$RemoveUsersImpl implements _RemoveUsers {
     required TResult Function(User driver) removeDriver,
     required TResult Function(int vehicleNumber) vehicleNumberChanged,
     required TResult Function(int vehicleCapacity) vehicleCapacityChanged,
-    required TResult Function(List<User> users) vehicleUsersChanged,
+    required TResult Function(User user) vehicleUsersChanged,
     required TResult Function(List<VehiclePickupLocation> pickupLocations)
         vehiclePickupLocationsChanged,
     required TResult Function() submitVehicle,
     required TResult Function() next,
+    required TResult Function() rebuild,
     required TResult Function(VehiclePickupLocation vehiclePickupLocation)
         removePickupLocation,
     required TResult Function(User user) removeUsers,
@@ -2500,11 +2755,12 @@ class _$RemoveUsersImpl implements _RemoveUsers {
     TResult? Function(User driver)? removeDriver,
     TResult? Function(int vehicleNumber)? vehicleNumberChanged,
     TResult? Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult? Function(List<User> users)? vehicleUsersChanged,
+    TResult? Function(User user)? vehicleUsersChanged,
     TResult? Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult? Function()? submitVehicle,
     TResult? Function()? next,
+    TResult? Function()? rebuild,
     TResult? Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult? Function(User user)? removeUsers,
@@ -2521,11 +2777,12 @@ class _$RemoveUsersImpl implements _RemoveUsers {
     TResult Function(User driver)? removeDriver,
     TResult Function(int vehicleNumber)? vehicleNumberChanged,
     TResult Function(int vehicleCapacity)? vehicleCapacityChanged,
-    TResult Function(List<User> users)? vehicleUsersChanged,
+    TResult Function(User user)? vehicleUsersChanged,
     TResult Function(List<VehiclePickupLocation> pickupLocations)?
         vehiclePickupLocationsChanged,
     TResult Function()? submitVehicle,
     TResult Function()? next,
+    TResult Function()? rebuild,
     TResult Function(VehiclePickupLocation vehiclePickupLocation)?
         removePickupLocation,
     TResult Function(User user)? removeUsers,
@@ -2552,6 +2809,7 @@ class _$RemoveUsersImpl implements _RemoveUsers {
         vehiclePickupLocationsChanged,
     required TResult Function(_SubmitVehicle value) submitVehicle,
     required TResult Function(_Next value) next,
+    required TResult Function(_Rebuild value) rebuild,
     required TResult Function(_RemovePickupLocation value) removePickupLocation,
     required TResult Function(_RemoveUsers value) removeUsers,
   }) {
@@ -2572,6 +2830,7 @@ class _$RemoveUsersImpl implements _RemoveUsers {
         vehiclePickupLocationsChanged,
     TResult? Function(_SubmitVehicle value)? submitVehicle,
     TResult? Function(_Next value)? next,
+    TResult? Function(_Rebuild value)? rebuild,
     TResult? Function(_RemovePickupLocation value)? removePickupLocation,
     TResult? Function(_RemoveUsers value)? removeUsers,
   }) {
@@ -2592,6 +2851,7 @@ class _$RemoveUsersImpl implements _RemoveUsers {
         vehiclePickupLocationsChanged,
     TResult Function(_SubmitVehicle value)? submitVehicle,
     TResult Function(_Next value)? next,
+    TResult Function(_Rebuild value)? rebuild,
     TResult Function(_RemovePickupLocation value)? removePickupLocation,
     TResult Function(_RemoveUsers value)? removeUsers,
     required TResult orElse(),

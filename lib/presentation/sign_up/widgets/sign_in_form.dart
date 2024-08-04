@@ -18,10 +18,10 @@ class _SignInFormState extends State<SignInForm> {
     WidgetsBinding.instance.addPostFrameCallback(
       (timeStamp) {
         BlocProvider.of<SignInFormBloc>(context).add(
-          SignInFormEvent.emailChanged('hayanbeigh50@gmail.com'),
+          const SignInFormEvent.emailChanged('hayanbeigh50@gmail.com'),
         );
         BlocProvider.of<SignInFormBloc>(context).add(
-          SignInFormEvent.passwordChanged('hayan123'),
+          const SignInFormEvent.passwordChanged('hayan123'),
         );
       },
     );

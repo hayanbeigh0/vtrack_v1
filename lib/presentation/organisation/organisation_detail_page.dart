@@ -85,6 +85,8 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                     // );
                   },
                   validator: (_) {
+                    return null;
+                  
                     // return BlocProvider.of<OrganisationFormBloc>(context)
                     //     .state
                     //     .organisation
@@ -114,6 +116,7 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                     if (value!.length < 4) {
                       return 'Address should be longer than 4 characters!';
                     }
+                    return null;
                   },
                 ),
                 SizedBox(height: 10.h),
@@ -128,6 +131,8 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                     // );
                   },
                   validator: (_) {
+                    return null;
+                  
                     // return BlocProvider.of<OrganisationFormBloc>(context)
                     //     .state
                     //     .organisation

@@ -48,3 +48,11 @@ class VehiclePickupLocation with _$VehiclePickupLocation {
     required String description,
   }) = _VehiclePickupLocation;
 }
+
+@freezed
+class SelectedVehicleDriver with _$SelectedVehicleDriver {
+  const factory SelectedVehicleDriver({
+    required String id,
+    required String name,
+  }) = _SelectedVehicleDriver;
+}

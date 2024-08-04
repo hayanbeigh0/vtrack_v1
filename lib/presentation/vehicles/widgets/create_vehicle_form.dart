@@ -8,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
-import 'package:vtrack_v1/application/vehicle/add_vehicle_users/add_vehicle_users_cubit.dart';
 import 'package:vtrack_v1/application/vehicle/vehicle_cubit/vehicle_cubit.dart';
 import 'package:vtrack_v1/application/vehicle/vehicle_form_bloc/vehicle_form_bloc.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
@@ -40,7 +39,6 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
 
   @override
   void initState() {
-    BlocProvider.of<AddVehicleUsersCubit>(context).clearLocalVehicleUsersList();
     super.initState();
   }
 
@@ -55,15 +53,12 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
         BlocProvider<VehicleCubit>(
           create: (context) => getIt<VehicleCubit>(),
         ),
-        BlocProvider<AddVehicleUsersCubit>(
-          create: (context) =>
-              getIt<AddVehicleUsersCubit>()..getLocalVehicleUsersList(),
-        ),
       ],
       child: BlocConsumer<VehicleFormBloc, VehicleFormState>(
         listener: (context, state) {
           if (state.isSaved) {
             log('Vehicle saved');
+          } else if (state.next && !state.isSaving) {
             context.router.replaceNamed('/create-vehicle');
           } else {
             log('Vehicle not saved!');
@@ -154,7 +149,7 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                     SizedBox(height: 10.h),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8.0.sp),
-                      child: const Text('Users'),
+                      child: const Text('Driver'),
                     ),
                     SizedBox(height: 5.h),
                     // BlocBuilder<VehicleCubit, VehicleState>(
@@ -178,89 +173,114 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                       ),
                       margin: EdgeInsets.symmetric(horizontal: 8.sp),
                       padding: EdgeInsets.all(8.sp),
-                      child: Visibility(
-                        visible: state.vehicle.users.isNotEmpty,
-                        replacement: Center(
-                          child: BlocBuilder<AddVehicleUsersCubit,
-                              AddVehicleUsersState>(
-                            builder: (context, state) {
-                              return state.maybeMap(
-                                orElse: () => const SizedBox(),
-                                done: (value) {
-                                  return Column(
-                                    children: [
-                                      if (value.selectedUsersForVehicle.isEmpty)
-                                        const Text('No users selected yet!'),
-                                      if (value
-                                          .selectedUsersForVehicle.isNotEmpty)
-                                        Text(
-                                          '${value.selectedUsersForVehicle.length} user${value.selectedUsersForVehicle.length > 1 ? 's' : ''} selected',
-                                        ),
-                                      TextButton(
-                                        onPressed: () async {
-                                          showAddUsersSheet(context).then(
-                                            (value) {
-                                              BlocProvider.of<
-                                                          AddVehicleUsersCubit>(
-                                                      context)
-                                                  .getLocalVehicleUsersList();
-                                            },
-                                          );
-                                        },
-                                        child: Text(
-                                          value.selectedUsersForVehicle
-                                                  .isNotEmpty
-                                              ? 'Select more users'
-                                              : 'Select users',
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                          ),
-                        ),
+                      child: Center(
                         child: Column(
                           children: [
-                            ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: state.vehicle.pickupLocations.length,
-                              itemBuilder: (context, index) {
-                                return Row(
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        state.vehicle.users[index].name
-                                            .getOrCrash(),
-                                      ),
-                                    ),
-                                    IconButton(
-                                      onPressed: () {
-                                        BlocProvider.of<VehicleFormBloc>(
-                                          context,
-                                        ).add(
-                                          VehicleFormEvent.vehicleUsersChanged(
-                                            state.vehicle.users,
-                                          ),
-                                        );
-                                      },
-                                      icon: const Icon(Icons.close),
-                                    ),
-                                  ],
-                                );
-                              },
-                            ),
+                            if (!state.vehicle.driver.isValid())
+                              const Text('No driver selected yet!'),
+                            if (state.vehicle.driver.isValid())
+                              Text(
+                                '${state.vehicle.driver.getOrCrash()} selected as Driver',
+                              ),
                             TextButton(
                               onPressed: () async {
-                                await showAddUsersSheet(context);
+                                if (!state.vehicle.driver.isValid()) {
+                                  showAddDriverSheet(context).then(
+                                    (value) {},
+                                  );
+                                } else {}
                               },
-                              child: const Text('Add more'),
+                              child: Text(
+                                state.vehicle.driver.isValid()
+                                    ? 'Remove'
+                                    : 'Select driver',
+                              ),
                             ),
                           ],
                         ),
                       ),
                     ),
+                    SizedBox(height: 15.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0.sp),
+                      child: const Text('Users'),
+                    ),
+                    SizedBox(height: 5.h),
+                    if (!state.isSaving)
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.sp),
+                          border: Border.all(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        margin: EdgeInsets.symmetric(horizontal: 8.sp),
+                        padding: EdgeInsets.all(8.sp),
+                        child: Visibility(
+                          visible: state.vehicle.users.isNotEmpty,
+                          replacement: Center(
+                            child: Column(
+                              children: [
+                                if (state.vehicle.users.isEmpty)
+                                  const Text('No users selected yet!'),
+                                if (state.vehicle.users.isNotEmpty)
+                                  Text(
+                                    '${state.vehicle.users.length} user${state.vehicle.users.length > 1 ? 's' : ''} selected',
+                                  ),
+                                TextButton(
+                                  onPressed: () async {
+                                    await showAddUsersSheet(context);
+                                    setState(() {});
+                                  },
+                                  child: Text(
+                                    state.vehicle.users.isNotEmpty
+                                        ? 'Select more users'
+                                        : 'Select users',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                              ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: state.vehicle.users.length,
+                                itemBuilder: (context, index) {
+                                  return Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          state.vehicle.users[index].name
+                                              .getOrCrash(),
+                                        ),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          BlocProvider.of<VehicleFormBloc>(
+                                                  context)
+                                              .add(VehicleFormEvent.removeUsers(
+                                            user: state.vehicle.users[index],
+                                          ));
+                                        },
+                                        icon: const Icon(Icons.close),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ),
+                              TextButton(
+                                onPressed: () async {
+                                  await showAddUsersSheet(context);
+                                  setState(() {});
+                                },
+                                child: const Text('Add more'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     SizedBox(height: 15.h),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8.0.sp),
@@ -380,6 +400,23 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
     } catch (e) {
       log(e.toString());
     }
+  }
+
+  Future<void> showAddDriverSheet(BuildContext context) async {
+    return await showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (ctx) {
+        return Center(
+          child: BlocProvider.value(
+            value: BlocProvider.of<VehicleFormBloc>(context),
+            child: const AddUsers(
+              role: 'driver',
+            ),
+          ),
+        );
+      },
+    );
   }
 
   Future<void> showAddUsersSheet(BuildContext context) async {

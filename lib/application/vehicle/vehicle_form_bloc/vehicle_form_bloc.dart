@@ -16,7 +16,6 @@ part 'vehicle_form_bloc.freezed.dart';
 class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
   final IVehicleRepository _iVehicleRepository;
   final List<VehiclePickupLocation> vehiclePickupLocation = [];
-  final List<User> vehicleUsers = [];
   User? vehicleDriver;
   VehicleFormBloc(this._iVehicleRepository)
       : super(
@@ -36,7 +35,7 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
               route: VehicleRoute(''),
               owner: VehicleOwner(''),
               organisation: VehicleOrganisation(''),
-              users: [],
+              users: _iVehicleRepository.getSelectedVehicleUsers(),
               pickupLocations: [],
             ),
           ),
@@ -53,6 +52,14 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
           } else {
             emit(state);
           }
+        },
+        rebuild: (value) {
+          emit(state.copyWith(
+            isSaving: true,
+          ));
+          emit(state.copyWith(
+            isSaving: false,
+          ));
         },
         nameChanged: (value) {
           emit(state.copyWith(
@@ -89,21 +96,22 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
         },
         vehicleUsersChanged: (value) {
           emit(state.copyWith(isSaving: true));
-          vehicleUsers.addAll(value.users);
+          _iVehicleRepository.addVehicleUsersToLocalList(user: value.user);
           emit(state.copyWith(
             vehicle: state.vehicle.copyWith(
-              users: vehicleUsers,
+              users: _iVehicleRepository.getSelectedVehicleUsers(),
             ),
             isSaving: false,
             saveFailureOrSuccessOption: none(),
+            // Vehicle is resettng its users when navigating back
           ));
         },
         removeUsers: (value) {
           emit(state.copyWith(isSaving: true));
-          vehicleUsers.removeWhere((el) => el.id == value.user.id);
+          _iVehicleRepository.removeVehicleUsersFromLocalList(user: value.user);
           emit(state.copyWith(
             vehicle: state.vehicle.copyWith(
-              users: vehicleUsers,
+              users: _iVehicleRepository.getSelectedVehicleUsers(),
             ),
             isSaving: false,
             saveFailureOrSuccessOption: none(),

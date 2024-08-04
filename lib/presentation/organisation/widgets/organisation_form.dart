@@ -74,6 +74,7 @@ class OrganisationForm extends StatelessWidget {
                       if (value!.length < 4) {
                         return 'Address should be longer than 4 characters!';
                       }
+                      return null;
                     },
                   ),
                   SizedBox(height: 10.h),

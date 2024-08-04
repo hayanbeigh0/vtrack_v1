@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
+import 'package:vtrack_v1/domain/user/user.dart';
 
 import 'package:vtrack_v1/domain/vehicle/i_vehicle.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
@@ -13,7 +14,8 @@ import 'package:vtrack_v1/infrastructure/vehicle/vehicle_dtos.dart';
 @LazySingleton(as: IVehicleRepository)
 class VehicleRepository implements IVehicleRepository {
   final Dio dio = GetIt.instance<Dio>();
-  final List<String> _userIds = [];
+  final List<User> _users = [];
+  SelectedVehicleDriver? selectedVehicleDriver;
   @override
   Future<Either<VehicleFailure, Vehicle>> createVehicle({
     required Vehicle vehicle,
@@ -230,27 +232,43 @@ class VehicleRepository implements IVehicleRepository {
   }
 
   @override
-  List<String> getSelectedVehicleUserIds() {
-    return _userIds;
+  List<User> getSelectedVehicleUsers() {
+    return _users;
   }
 
   @override
   void addVehicleUsersToLocalList({
-    required String userId,
+    required User user,
   }) {
-    _userIds.add(userId);
+    _users.add(user);
   }
 
   @override
   void removeVehicleUsersFromLocalList({
-    required String userId,
+    required User user,
   }) {
-    _userIds.remove(userId);
+    _users.removeWhere((el) => el.id == user.id);
   }
 
   @override
-  void setSelectedVehicleUserIds(List<String> userIds) {
-    _userIds.clear();
-    _userIds.addAll(userIds);
+  void setSelectedVehicleUserIds(List<User> users) {
+    _users.clear();
+    _users.addAll(users);
+  }
+
+  @override
+  SelectedVehicleDriver? getSelectedVehicleDriver() {
+    return selectedVehicleDriver;
+  }
+
+  @override
+  void removeSelectedVehicleDriver() {
+    selectedVehicleDriver = null;
+  }
+
+  @override
+  void setSelectedVehicleDriver(SelectedVehicleDriver selectedVehicleDriver) {
+    // TODO: implement setSelectedVehicleDriver
+    selectedVehicleDriver = selectedVehicleDriver;
   }
 }

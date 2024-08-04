@@ -12,13 +12,14 @@ class VehicleFormEvent with _$VehicleFormEvent {
       _VehicleNumberChanged;
   const factory VehicleFormEvent.vehicleCapacityChanged(int vehicleCapacity) =
       _VehicleCapacityChanged;
-  const factory VehicleFormEvent.vehicleUsersChanged(List<User> users) =
+  const factory VehicleFormEvent.vehicleUsersChanged(User user) =
       _VehicleUsersChanged;
   const factory VehicleFormEvent.vehiclePickupLocationsChanged(
           List<VehiclePickupLocation> pickupLocations) =
       _VehiclePickupLocationsChanged;
   const factory VehicleFormEvent.submitVehicle() = _SubmitVehicle;
   const factory VehicleFormEvent.next() = _Next;
+  const factory VehicleFormEvent.rebuild() = _Rebuild;
   const factory VehicleFormEvent.removePickupLocation({
     required VehiclePickupLocation vehiclePickupLocation,
   }) = _RemovePickupLocation;

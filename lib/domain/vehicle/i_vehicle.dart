@@ -1,15 +1,22 @@
 import 'package:dartz/dartz.dart';
+import 'package:vtrack_v1/domain/user/user.dart';
 
 import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle_failure.dart';
 
 abstract class IVehicleRepository {
-  List<String> getSelectedVehicleUserIds();
-  void setSelectedVehicleUserIds(List<String> userIds);
+  List<User> getSelectedVehicleUsers();
+  void setSelectedVehicleUserIds(List<User> users);
 
-  void addVehicleUsersToLocalList({required String userId});
+  void addVehicleUsersToLocalList({required User user});
 
-  void removeVehicleUsersFromLocalList({required String userId});
+  void removeVehicleUsersFromLocalList({required User user});
+  
+  SelectedVehicleDriver? getSelectedVehicleDriver();
+
+  void setSelectedVehicleDriver(SelectedVehicleDriver selectedVehicleDriver);
+
+  void removeSelectedVehicleDriver();
 
   Future<Either<VehicleFailure, Vehicle>> createVehicle({
     required Vehicle vehicle,
