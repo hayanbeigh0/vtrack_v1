@@ -163,43 +163,48 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                     //     return const SizedBox();
                     //   },
                     // ),
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.sp),
-                        border: Border.all(
-                          color: Theme.of(context).primaryColor,
+                    if (!state.isSaving)
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.sp),
+                          border: Border.all(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        margin: EdgeInsets.symmetric(horizontal: 8.sp),
+                        padding: EdgeInsets.all(8.sp),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              if (state.selectedVehicleDriver == null)
+                                const Text('No driver selected yet!'),
+                              if (state.selectedVehicleDriver != null)
+                                Text(
+                                  '${state.selectedVehicleDriver!.name} selected as Driver',
+                                ),
+                              TextButton(
+                                onPressed: () async {
+                                  if (state.selectedVehicleDriver == null) {
+                                    await showAddDriverSheet(context);
+                                    setState(() {});
+                                  } else {
+                                    BlocProvider.of<VehicleFormBloc>(context)
+                                        .add(VehicleFormEvent.removeDriver(
+                                      state.selectedVehicleDriver!,
+                                    ));
+                                  }
+                                },
+                                child: Text(
+                                  state.selectedVehicleDriver != null
+                                      ? 'Remove'
+                                      : 'Select driver',
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      margin: EdgeInsets.symmetric(horizontal: 8.sp),
-                      padding: EdgeInsets.all(8.sp),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            if (!state.vehicle.driver.isValid())
-                              const Text('No driver selected yet!'),
-                            if (state.vehicle.driver.isValid())
-                              Text(
-                                '${state.vehicle.driver.getOrCrash()} selected as Driver',
-                              ),
-                            TextButton(
-                              onPressed: () async {
-                                if (!state.vehicle.driver.isValid()) {
-                                  showAddDriverSheet(context).then(
-                                    (value) {},
-                                  );
-                                } else {}
-                              },
-                              child: Text(
-                                state.vehicle.driver.isValid()
-                                    ? 'Remove'
-                                    : 'Select driver',
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
                     SizedBox(height: 15.h),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8.0.sp),

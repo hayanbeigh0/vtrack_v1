@@ -4,7 +4,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:vtrack_v1/domain/user/user.dart';
 
 import 'package:vtrack_v1/domain/vehicle/i_vehicle.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
@@ -14,7 +13,6 @@ import 'package:vtrack_v1/infrastructure/vehicle/vehicle_dtos.dart';
 @LazySingleton(as: IVehicleRepository)
 class VehicleRepository implements IVehicleRepository {
   final Dio dio = GetIt.instance<Dio>();
-  final List<User> _users = [];
   SelectedVehicleDriver? selectedVehicleDriver;
   @override
   Future<Either<VehicleFailure, Vehicle>> createVehicle({
@@ -94,8 +92,8 @@ class VehicleRepository implements IVehicleRepository {
     required int pageNumber,
   }) async {
     try {
-      final Response response = await dio.post(
-        '/vehicles/',
+      final Response response = await dio.get(
+        '/vehicles',
       );
       log(response.data.toString());
       final List<Vehicle> vehicleList = response.data['data']['data']
@@ -229,46 +227,5 @@ class VehicleRepository implements IVehicleRepository {
       log('Error while adding users the vehicle: $e');
       return left(const VehicleFailure.addUsersFailed());
     }
-  }
-
-  @override
-  List<User> getSelectedVehicleUsers() {
-    return _users;
-  }
-
-  @override
-  void addVehicleUsersToLocalList({
-    required User user,
-  }) {
-    _users.add(user);
-  }
-
-  @override
-  void removeVehicleUsersFromLocalList({
-    required User user,
-  }) {
-    _users.removeWhere((el) => el.id == user.id);
-  }
-
-  @override
-  void setSelectedVehicleUserIds(List<User> users) {
-    _users.clear();
-    _users.addAll(users);
-  }
-
-  @override
-  SelectedVehicleDriver? getSelectedVehicleDriver() {
-    return selectedVehicleDriver;
-  }
-
-  @override
-  void removeSelectedVehicleDriver() {
-    selectedVehicleDriver = null;
-  }
-
-  @override
-  void setSelectedVehicleDriver(SelectedVehicleDriver selectedVehicleDriver) {
-    // TODO: implement setSelectedVehicleDriver
-    selectedVehicleDriver = selectedVehicleDriver;
   }
 }

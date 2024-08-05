@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vtrack_v1/application/organisation/selected_organisation_bloc/selected_organisation_bloc.dart';
 import 'package:vtrack_v1/application/user/search_user/search_user_bloc.dart';
 import 'package:vtrack_v1/application/vehicle/vehicle_form_bloc/vehicle_form_bloc.dart';
+import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets/app_text_form_field.dart';
 
@@ -25,8 +27,8 @@ class _AddUsersState extends State<AddUsers> {
           BlocProvider(
             create: (context) => getIt<SearchUserBloc>(),
           ),
-          BlocProvider(
-            create: (context) => getIt<VehicleFormBloc>(),
+          BlocProvider.value(
+            value: BlocProvider.of<VehicleFormBloc>(context),
           ),
         ],
         child: Padding(
@@ -202,24 +204,57 @@ class _AddUsersState extends State<AddUsers> {
                               },
                             ),
                           if (widget.role == 'driver')
-                            BlocBuilder<VehicleFormBloc, VehicleFormState>(
+                            BlocConsumer<VehicleFormBloc, VehicleFormState>(
+                              listener: (context, vehicleFormState) {
+                                if (vehicleFormState.selectedVehicleDriver !=
+                                    null) {
+                                  context.router.popForced();
+                                }
+                              },
                               builder: (context, vehicleFormState) {
-                                if (vehicleFormState.vehicle.driver.isValid() &&
-                                    vehicleFormState.vehicle.driver
-                                            .getOrCrash() ==
-                                        state.users[index].id) {
-                                  return TextButton(
-                                    onPressed: () {},
-                                    child: const Text('Remove'),
-                                  );
-                                } else {
-                                  return TextButton(
-                                    onPressed: !vehicleFormState.vehicle.driver
-                                            .isValid()
-                                        ? null
-                                        : () {},
-                                    child: const Text('Select'),
-                                  );
+                                if (!vehicleFormState.isSaving) {
+                                  if (vehicleFormState.selectedVehicleDriver !=
+                                          null &&
+                                      vehicleFormState
+                                              .selectedVehicleDriver!.id ==
+                                          state.users[index].id) {
+                                    return TextButton(
+                                      onPressed: () {
+                                        BlocProvider.of<VehicleFormBloc>(
+                                                context)
+                                            .add(
+                                          VehicleFormEvent.removeDriver(
+                                            SelectedVehicleDriver(
+                                              id: state.users[index].id,
+                                              name: state.users[index].name
+                                                  .getOrCrash(),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text('Remove'),
+                                    );
+                                  } else {
+                                    return TextButton(
+                                      onPressed: vehicleFormState
+                                                  .selectedVehicleDriver !=
+                                              null
+                                          ? null
+                                          : () {
+                                              BlocProvider.of<VehicleFormBloc>(
+                                                      context)
+                                                  .add(
+                                                VehicleFormEvent.driverChanged(
+                                                    SelectedVehicleDriver(
+                                                  id: state.users[index].id,
+                                                  name: state.users[index].name
+                                                      .getOrCrash(),
+                                                )),
+                                              );
+                                            },
+                                      child: const Text('Select'),
+                                    );
+                                  }
                                 }
                                 return const SizedBox();
                               },

@@ -16,7 +16,8 @@ part 'vehicle_form_bloc.freezed.dart';
 class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
   final IVehicleRepository _iVehicleRepository;
   final List<VehiclePickupLocation> vehiclePickupLocation = [];
-  User? vehicleDriver;
+  SelectedVehicleDriver? vehicleDriver;
+  final List<User> _users = [];
   VehicleFormBloc(this._iVehicleRepository)
       : super(
           VehicleFormState.initial(
@@ -27,6 +28,7 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
             back: false,
             next: false,
             saveFailureOrSuccessOption: none(),
+            selectedVehicleDriver: null,
             vehicle: Vehicle(
               name: VehicleName(''),
               driver: VehicleDriver(''),
@@ -35,7 +37,7 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
               route: VehicleRoute(''),
               owner: VehicleOwner(''),
               organisation: VehicleOrganisation(''),
-              users: _iVehicleRepository.getSelectedVehicleUsers(),
+              users: [],
               pickupLocations: [],
             ),
           ),
@@ -70,14 +72,31 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
           ));
         },
         driverChanged: (value) {
+          emit(state.copyWith(isSaving: true));
+          vehicleDriver = SelectedVehicleDriver(
+            id: value.driver.id,
+            name: value.driver.name,
+          );
           emit(state.copyWith(
+            selectedVehicleDriver: vehicleDriver,
             vehicle: state.vehicle.copyWith(
               driver: VehicleDriver(value.driver.id),
             ),
+            isSaving: false,
             saveFailureOrSuccessOption: none(),
           ));
         },
-        removeDriver: (value) {},
+        removeDriver: (value) {
+          emit(state.copyWith(isSaving: true));
+          emit(state.copyWith(
+            selectedVehicleDriver: null,
+            vehicle: state.vehicle.copyWith(
+              driver: VehicleDriver(''),
+            ),
+            isSaving: false,
+            saveFailureOrSuccessOption: none(),
+          ));
+        },
         vehicleNumberChanged: (value) {
           emit(state.copyWith(
             vehicle: state.vehicle.copyWith(
@@ -96,10 +115,10 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
         },
         vehicleUsersChanged: (value) {
           emit(state.copyWith(isSaving: true));
-          _iVehicleRepository.addVehicleUsersToLocalList(user: value.user);
+          _users.add(value.user);
           emit(state.copyWith(
             vehicle: state.vehicle.copyWith(
-              users: _iVehicleRepository.getSelectedVehicleUsers(),
+              users: _users,
             ),
             isSaving: false,
             saveFailureOrSuccessOption: none(),
@@ -108,10 +127,10 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
         },
         removeUsers: (value) {
           emit(state.copyWith(isSaving: true));
-          _iVehicleRepository.removeVehicleUsersFromLocalList(user: value.user);
+          _users.removeWhere((el) => el.id == value.user.id);
           emit(state.copyWith(
             vehicle: state.vehicle.copyWith(
-              users: _iVehicleRepository.getSelectedVehicleUsers(),
+              users: _users,
             ),
             isSaving: false,
             saveFailureOrSuccessOption: none(),
