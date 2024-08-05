@@ -71,6 +71,14 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
             saveFailureOrSuccessOption: none(),
           ));
         },
+        routeChanged: (value) {
+          emit(state.copyWith(
+            vehicle: state.vehicle.copyWith(
+              route: VehicleRoute(value.routeStr),
+            ),
+            saveFailureOrSuccessOption: none(),
+          ));
+        },
         driverChanged: (value) {
           emit(state.copyWith(isSaving: true));
           vehicleDriver = SelectedVehicleDriver(

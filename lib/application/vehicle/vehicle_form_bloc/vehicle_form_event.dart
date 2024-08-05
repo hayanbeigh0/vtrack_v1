@@ -4,6 +4,7 @@ part of 'vehicle_form_bloc.dart';
 class VehicleFormEvent with _$VehicleFormEvent {
   const factory VehicleFormEvent.initalized({Vehicle? vehicle}) = _Started;
   const factory VehicleFormEvent.nameChanged(String nameStr) = _NameChanged;
+  const factory VehicleFormEvent.routeChanged(String routeStr) = _RouteChanged;
   const factory VehicleFormEvent.driverChanged(SelectedVehicleDriver driver) =
       _DriverChanged;
   const factory VehicleFormEvent.removeDriver(SelectedVehicleDriver driver) =

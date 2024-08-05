@@ -24,12 +24,13 @@ mixin _$VehicleDto {
   String get name => throw _privateConstructorUsedError;
   String get driver => throw _privateConstructorUsedError;
   int get vehicleNumber => throw _privateConstructorUsedError;
-  int get vehicleCapacity => throw _privateConstructorUsedError;
+  int get capacity => throw _privateConstructorUsedError;
   String get route => throw _privateConstructorUsedError;
   String get owner => throw _privateConstructorUsedError;
   String? get createdBy => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   String get organisation => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
   List<UserDto> get users => throw _privateConstructorUsedError;
   List<VehiclePickupLocationsDto> get pickupLocations =>
       throw _privateConstructorUsedError;
@@ -51,12 +52,13 @@ abstract class $VehicleDtoCopyWith<$Res> {
       String name,
       String driver,
       int vehicleNumber,
-      int vehicleCapacity,
+      int capacity,
       String route,
       String owner,
       String? createdBy,
       DateTime? createdAt,
       String organisation,
+      @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
       List<UserDto> users,
       List<VehiclePickupLocationsDto> pickupLocations});
 }
@@ -78,7 +80,7 @@ class _$VehicleDtoCopyWithImpl<$Res, $Val extends VehicleDto>
     Object? name = null,
     Object? driver = null,
     Object? vehicleNumber = null,
-    Object? vehicleCapacity = null,
+    Object? capacity = null,
     Object? route = null,
     Object? owner = null,
     Object? createdBy = freezed,
@@ -104,9 +106,9 @@ class _$VehicleDtoCopyWithImpl<$Res, $Val extends VehicleDto>
           ? _value.vehicleNumber
           : vehicleNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      vehicleCapacity: null == vehicleCapacity
-          ? _value.vehicleCapacity
-          : vehicleCapacity // ignore: cast_nullable_to_non_nullable
+      capacity: null == capacity
+          ? _value.capacity
+          : capacity // ignore: cast_nullable_to_non_nullable
               as int,
       route: null == route
           ? _value.route
@@ -153,12 +155,13 @@ abstract class _$$VehicleDtoImplCopyWith<$Res>
       String name,
       String driver,
       int vehicleNumber,
-      int vehicleCapacity,
+      int capacity,
       String route,
       String owner,
       String? createdBy,
       DateTime? createdAt,
       String organisation,
+      @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
       List<UserDto> users,
       List<VehiclePickupLocationsDto> pickupLocations});
 }
@@ -178,7 +181,7 @@ class __$$VehicleDtoImplCopyWithImpl<$Res>
     Object? name = null,
     Object? driver = null,
     Object? vehicleNumber = null,
-    Object? vehicleCapacity = null,
+    Object? capacity = null,
     Object? route = null,
     Object? owner = null,
     Object? createdBy = freezed,
@@ -204,9 +207,9 @@ class __$$VehicleDtoImplCopyWithImpl<$Res>
           ? _value.vehicleNumber
           : vehicleNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      vehicleCapacity: null == vehicleCapacity
-          ? _value.vehicleCapacity
-          : vehicleCapacity // ignore: cast_nullable_to_non_nullable
+      capacity: null == capacity
+          ? _value.capacity
+          : capacity // ignore: cast_nullable_to_non_nullable
               as int,
       route: null == route
           ? _value.route
@@ -248,12 +251,13 @@ class _$VehicleDtoImpl extends _VehicleDto {
       required this.name,
       required this.driver,
       required this.vehicleNumber,
-      required this.vehicleCapacity,
+      required this.capacity,
       required this.route,
       required this.owner,
       this.createdBy,
       this.createdAt,
       required this.organisation,
+      @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
       required final List<UserDto> users,
       required final List<VehiclePickupLocationsDto> pickupLocations})
       : _users = users,
@@ -272,7 +276,7 @@ class _$VehicleDtoImpl extends _VehicleDto {
   @override
   final int vehicleNumber;
   @override
-  final int vehicleCapacity;
+  final int capacity;
   @override
   final String route;
   @override
@@ -285,6 +289,7 @@ class _$VehicleDtoImpl extends _VehicleDto {
   final String organisation;
   final List<UserDto> _users;
   @override
+  @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
   List<UserDto> get users {
     if (_users is EqualUnmodifiableListView) return _users;
     // ignore: implicit_dynamic_type
@@ -301,7 +306,7 @@ class _$VehicleDtoImpl extends _VehicleDto {
 
   @override
   String toString() {
-    return 'VehicleDto(id: $id, name: $name, driver: $driver, vehicleNumber: $vehicleNumber, vehicleCapacity: $vehicleCapacity, route: $route, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, organisation: $organisation, users: $users, pickupLocations: $pickupLocations)';
+    return 'VehicleDto(id: $id, name: $name, driver: $driver, vehicleNumber: $vehicleNumber, capacity: $capacity, route: $route, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, organisation: $organisation, users: $users, pickupLocations: $pickupLocations)';
   }
 
   @override
@@ -314,8 +319,8 @@ class _$VehicleDtoImpl extends _VehicleDto {
             (identical(other.driver, driver) || other.driver == driver) &&
             (identical(other.vehicleNumber, vehicleNumber) ||
                 other.vehicleNumber == vehicleNumber) &&
-            (identical(other.vehicleCapacity, vehicleCapacity) ||
-                other.vehicleCapacity == vehicleCapacity) &&
+            (identical(other.capacity, capacity) ||
+                other.capacity == capacity) &&
             (identical(other.route, route) || other.route == route) &&
             (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.createdBy, createdBy) ||
@@ -337,7 +342,7 @@ class _$VehicleDtoImpl extends _VehicleDto {
       name,
       driver,
       vehicleNumber,
-      vehicleCapacity,
+      capacity,
       route,
       owner,
       createdBy,
@@ -366,12 +371,13 @@ abstract class _VehicleDto extends VehicleDto {
           required final String name,
           required final String driver,
           required final int vehicleNumber,
-          required final int vehicleCapacity,
+          required final int capacity,
           required final String route,
           required final String owner,
           final String? createdBy,
           final DateTime? createdAt,
           required final String organisation,
+          @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
           required final List<UserDto> users,
           required final List<VehiclePickupLocationsDto> pickupLocations}) =
       _$VehicleDtoImpl;
@@ -389,7 +395,7 @@ abstract class _VehicleDto extends VehicleDto {
   @override
   int get vehicleNumber;
   @override
-  int get vehicleCapacity;
+  int get capacity;
   @override
   String get route;
   @override
@@ -401,6 +407,7 @@ abstract class _VehicleDto extends VehicleDto {
   @override
   String get organisation;
   @override
+  @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
   List<UserDto> get users;
   @override
   List<VehiclePickupLocationsDto> get pickupLocations;

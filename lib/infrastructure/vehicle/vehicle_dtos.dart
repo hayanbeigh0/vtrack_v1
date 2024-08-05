@@ -14,13 +14,13 @@ class VehicleDto with _$VehicleDto {
     required String name,
     required String driver,
     required int vehicleNumber,
-    required int vehicleCapacity,
+    required int capacity,
     required String route,
     required String owner,
     String? createdBy,
     DateTime? createdAt,
     required String organisation,
-    required List<UserDto> users,
+    @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson) required List<UserDto> users,
     required List<VehiclePickupLocationsDto> pickupLocations,
   }) = _VehicleDto;
 
@@ -30,7 +30,7 @@ class VehicleDto with _$VehicleDto {
       name: vehicle.name.getOrCrash(),
       driver: vehicle.driver.getOrCrash(),
       vehicleNumber: vehicle.vehicleNumber,
-      vehicleCapacity: vehicle.vehicleCapacity,
+      capacity: vehicle.vehicleCapacity,
       route: vehicle.route.getOrCrash(),
       owner: vehicle.owner.getOrCrash(),
       organisation: vehicle.organisation.getOrCrash(),
@@ -53,7 +53,7 @@ class VehicleDto with _$VehicleDto {
       createdBy: createdBy,
       createdAt: createdAt,
       organisation: VehicleOrganisation(organisation),
-      vehicleCapacity: vehicleCapacity,
+      vehicleCapacity: capacity,
       users: users.map((dto) => dto.toDomain()).toList(),
       pickupLocations: pickupLocations.map((dto) => dto.toDomain()).toList(),
     );
@@ -62,6 +62,13 @@ class VehicleDto with _$VehicleDto {
   factory VehicleDto.fromJson(Map<String, dynamic> json) =>
       _$VehicleDtoFromJson(json);
 }
+
+// Helper Functions
+List<UserDto> _usersFromJson(List<dynamic> json) =>
+    json.map((e) => UserDto.fromJson(e as Map<String, dynamic>)).toList();
+
+List<String> _usersToJson(List<UserDto> users) =>
+    users.map((e) => e.id).toList();
 
 @freezed
 class VehiclePickupLocationsDto with _$VehiclePickupLocationsDto {
