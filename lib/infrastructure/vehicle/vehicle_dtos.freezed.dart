@@ -30,7 +30,7 @@ mixin _$VehicleDto {
   String? get createdBy => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   String get organisation => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
+  @JsonKey(toJson: _usersToJson)
   List<UserDto> get users => throw _privateConstructorUsedError;
   List<VehiclePickupLocationsDto> get pickupLocations =>
       throw _privateConstructorUsedError;
@@ -58,8 +58,7 @@ abstract class $VehicleDtoCopyWith<$Res> {
       String? createdBy,
       DateTime? createdAt,
       String organisation,
-      @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
-      List<UserDto> users,
+      @JsonKey(toJson: _usersToJson) List<UserDto> users,
       List<VehiclePickupLocationsDto> pickupLocations});
 }
 
@@ -161,8 +160,7 @@ abstract class _$$VehicleDtoImplCopyWith<$Res>
       String? createdBy,
       DateTime? createdAt,
       String organisation,
-      @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
-      List<UserDto> users,
+      @JsonKey(toJson: _usersToJson) List<UserDto> users,
       List<VehiclePickupLocationsDto> pickupLocations});
 }
 
@@ -257,8 +255,7 @@ class _$VehicleDtoImpl extends _VehicleDto {
       this.createdBy,
       this.createdAt,
       required this.organisation,
-      @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
-      required final List<UserDto> users,
+      @JsonKey(toJson: _usersToJson) required final List<UserDto> users,
       required final List<VehiclePickupLocationsDto> pickupLocations})
       : _users = users,
         _pickupLocations = pickupLocations,
@@ -289,7 +286,7 @@ class _$VehicleDtoImpl extends _VehicleDto {
   final String organisation;
   final List<UserDto> _users;
   @override
-  @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
+  @JsonKey(toJson: _usersToJson)
   List<UserDto> get users {
     if (_users is EqualUnmodifiableListView) return _users;
     // ignore: implicit_dynamic_type
@@ -377,8 +374,7 @@ abstract class _VehicleDto extends VehicleDto {
           final String? createdBy,
           final DateTime? createdAt,
           required final String organisation,
-          @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
-          required final List<UserDto> users,
+          @JsonKey(toJson: _usersToJson) required final List<UserDto> users,
           required final List<VehiclePickupLocationsDto> pickupLocations}) =
       _$VehicleDtoImpl;
   const _VehicleDto._() : super._();
@@ -407,7 +403,7 @@ abstract class _VehicleDto extends VehicleDto {
   @override
   String get organisation;
   @override
-  @JsonKey(fromJson: _usersFromJson, toJson: _usersToJson)
+  @JsonKey(toJson: _usersToJson)
   List<UserDto> get users;
   @override
   List<VehiclePickupLocationsDto> get pickupLocations;

@@ -69,8 +69,9 @@ class VehicleRepository implements IVehicleRepository {
       if (response.data['data']['data'].length == 0) {
         return right([]);
       }
-      final List<Vehicle> vehicleList = response.data['data']['data']
-          .map((el) => VehicleDto.fromJson(el).toDomain())
+      final List<Vehicle> vehicleList = (response.data['data']['data'] as List)
+          .map((el) =>
+              VehicleDto.fromJson(el as Map<String, dynamic>).toDomain())
           .toList();
 
       return right(vehicleList);

@@ -20,7 +20,9 @@ _$VehicleDtoImpl _$$VehicleDtoImplFromJson(Map<String, dynamic> json) =>
           ? null
           : DateTime.parse(json['createdAt'] as String),
       organisation: json['organisation'] as String,
-      users: _usersFromJson(json['users'] as List),
+      users: (json['users'] as List<dynamic>)
+          .map((e) => UserDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
       pickupLocations: (json['pickupLocations'] as List<dynamic>)
           .map((e) =>
               VehiclePickupLocationsDto.fromJson(e as Map<String, dynamic>))
