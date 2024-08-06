@@ -106,7 +106,9 @@ class UserOrganisationDto with _$UserOrganisationDto {
     required String? createdBy,
     required String? createdAt,
     required String? owner,
-    // required List<String>? vehicles,
+    required int? userCount,
+    required int? vehicleCount,
+    required List<String>? vehicles,
   }) = _UserOrganisationDto;
 
   factory UserOrganisationDto.fromDomain(Organisation organisation) {
@@ -115,10 +117,12 @@ class UserOrganisationDto with _$UserOrganisationDto {
       name: organisation.name.getOrCrash(),
       address: organisation.address,
       code: organisation.code.getOrCrash(),
-      // vehicles: organisation.vehicles,
+      vehicles: organisation.vehicles,
       createdBy: organisation.createdBy!,
       createdAt: organisation.createdAt!,
       owner: organisation.owner!,
+      userCount: organisation.userCount,
+      vehicleCount: organisation.vehicleCount,
     );
   }
 
@@ -128,10 +132,12 @@ class UserOrganisationDto with _$UserOrganisationDto {
       name: OrganisationName(name!),
       address: address!,
       code: OrganisationCode(code!),
-      // vehicles: vehicles!,
+      vehicles: vehicles!,
       createdBy: createdBy,
       owner: owner,
       createdAt: createdAt,
+      userCount: userCount,
+      vehicleCount: vehicleCount,
     );
   }
 

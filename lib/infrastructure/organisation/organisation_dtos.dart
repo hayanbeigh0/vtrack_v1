@@ -15,7 +15,7 @@ abstract class OrganisationDto implements _$OrganisationDto {
     required String code,
     int? userCount,
     int? vehicleCount,
-    // required List<String> vehicles,
+    required List<String>? vehicles,
   }) = _OrganisationDto;
 
   factory OrganisationDto.fromDomain(Organisation organisation) {
@@ -23,7 +23,7 @@ abstract class OrganisationDto implements _$OrganisationDto {
       name: organisation.name.getOrCrash(),
       code: organisation.code.getOrCrash(),
       address: organisation.address,
-      // vehicles: organisation.vehicles,
+      vehicles: organisation.vehicles,
     );
   }
 
@@ -32,7 +32,7 @@ abstract class OrganisationDto implements _$OrganisationDto {
       name: OrganisationName(name),
       address: address,
       code: OrganisationCode(code),
-      // vehicles: vehicles,
+      vehicles: vehicles,
       userCount: userCount,
       vehicleCount: vehicleCount,
     );

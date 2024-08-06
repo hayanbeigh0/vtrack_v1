@@ -183,7 +183,7 @@ class HomePage extends StatelessWidget {
                                       name: OrganisationName(''),
                                       address: '',
                                       code: OrganisationCode(''),
-                                      // vehicles: [],
+                                      vehicles: [],
                                       vehicleCount: 0,
                                       userCount: 0,
                                     ),
@@ -208,8 +208,8 @@ class HomePage extends StatelessWidget {
                                         MyOrganisationCard(
                                           organisationName:
                                               organisation.name.getOrCrash(),
-                                          totalUsers: '10',
-                                          totalVehicles: '3',
+                                          totalUsers: organisation.userCount.toString(),
+                                          totalVehicles: organisation.vehicleCount.toString(),
                                           onTap: () {
                                             context.router
                                                 .push(OrganisationDetailRoute(

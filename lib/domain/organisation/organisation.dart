@@ -19,14 +19,16 @@ class Organisation with _$Organisation {
     String? createdAt,
     int? userCount,
     int? vehicleCount,
-    // required List<String> vehicles,
+    required List<String>? vehicles,
   }) = _Organisation;
 
   factory Organisation.empty() => Organisation(
         name: OrganisationName(''),
         address: '',
         code: OrganisationCode(''),
-        // vehicles: [],
+        vehicles: [],
+        vehicleCount: 0,
+        userCount: 0,
       );
 
   Option<OrganisationValueFailure<dynamic>> get failureOption {

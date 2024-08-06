@@ -15,6 +15,9 @@ _$OrganisationDtoImpl _$$OrganisationDtoImplFromJson(
       code: json['code'] as String,
       userCount: (json['userCount'] as num?)?.toInt(),
       vehicleCount: (json['vehicleCount'] as num?)?.toInt(),
+      vehicles: (json['vehicles'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$OrganisationDtoImplToJson(
@@ -26,4 +29,5 @@ Map<String, dynamic> _$$OrganisationDtoImplToJson(
       'code': instance.code,
       'userCount': instance.userCount,
       'vehicleCount': instance.vehicleCount,
+      'vehicles': instance.vehicles,
     };

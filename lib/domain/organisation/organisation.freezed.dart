@@ -26,6 +26,7 @@ mixin _$Organisation {
   String? get createdAt => throw _privateConstructorUsedError;
   int? get userCount => throw _privateConstructorUsedError;
   int? get vehicleCount => throw _privateConstructorUsedError;
+  List<String>? get vehicles => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $OrganisationCopyWith<Organisation> get copyWith =>
@@ -48,7 +49,8 @@ abstract class $OrganisationCopyWith<$Res> {
       String? createdBy,
       String? createdAt,
       int? userCount,
-      int? vehicleCount});
+      int? vehicleCount,
+      List<String>? vehicles});
 }
 
 /// @nodoc
@@ -74,6 +76,7 @@ class _$OrganisationCopyWithImpl<$Res, $Val extends Organisation>
     Object? createdAt = freezed,
     Object? userCount = freezed,
     Object? vehicleCount = freezed,
+    Object? vehicles = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -116,6 +119,10 @@ class _$OrganisationCopyWithImpl<$Res, $Val extends Organisation>
           ? _value.vehicleCount
           : vehicleCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      vehicles: freezed == vehicles
+          ? _value.vehicles
+          : vehicles // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -138,7 +145,8 @@ abstract class _$$OrganisationImplCopyWith<$Res>
       String? createdBy,
       String? createdAt,
       int? userCount,
-      int? vehicleCount});
+      int? vehicleCount,
+      List<String>? vehicles});
 }
 
 /// @nodoc
@@ -162,6 +170,7 @@ class __$$OrganisationImplCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? userCount = freezed,
     Object? vehicleCount = freezed,
+    Object? vehicles = freezed,
   }) {
     return _then(_$OrganisationImpl(
       id: freezed == id
@@ -204,6 +213,10 @@ class __$$OrganisationImplCopyWithImpl<$Res>
           ? _value.vehicleCount
           : vehicleCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      vehicles: freezed == vehicles
+          ? _value._vehicles
+          : vehicles // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -221,8 +234,10 @@ class _$OrganisationImpl extends _Organisation {
       this.createdBy,
       this.createdAt,
       this.userCount,
-      this.vehicleCount})
-      : super._();
+      this.vehicleCount,
+      required final List<String>? vehicles})
+      : _vehicles = vehicles,
+        super._();
 
   @override
   final String? id;
@@ -244,10 +259,19 @@ class _$OrganisationImpl extends _Organisation {
   final int? userCount;
   @override
   final int? vehicleCount;
+  final List<String>? _vehicles;
+  @override
+  List<String>? get vehicles {
+    final value = _vehicles;
+    if (value == null) return null;
+    if (_vehicles is EqualUnmodifiableListView) return _vehicles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'Organisation(id: $id, role: $role, name: $name, address: $address, code: $code, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, userCount: $userCount, vehicleCount: $vehicleCount)';
+    return 'Organisation(id: $id, role: $role, name: $name, address: $address, code: $code, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, userCount: $userCount, vehicleCount: $vehicleCount, vehicles: $vehicles)';
   }
 
   @override
@@ -268,12 +292,24 @@ class _$OrganisationImpl extends _Organisation {
             (identical(other.userCount, userCount) ||
                 other.userCount == userCount) &&
             (identical(other.vehicleCount, vehicleCount) ||
-                other.vehicleCount == vehicleCount));
+                other.vehicleCount == vehicleCount) &&
+            const DeepCollectionEquality().equals(other._vehicles, _vehicles));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, role, name, address, code,
-      owner, createdBy, createdAt, userCount, vehicleCount);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      role,
+      name,
+      address,
+      code,
+      owner,
+      createdBy,
+      createdAt,
+      userCount,
+      vehicleCount,
+      const DeepCollectionEquality().hash(_vehicles));
 
   @JsonKey(ignore: true)
   @override
@@ -293,7 +329,8 @@ abstract class _Organisation extends Organisation {
       final String? createdBy,
       final String? createdAt,
       final int? userCount,
-      final int? vehicleCount}) = _$OrganisationImpl;
+      final int? vehicleCount,
+      required final List<String>? vehicles}) = _$OrganisationImpl;
   const _Organisation._() : super._();
 
   @override
@@ -316,6 +353,8 @@ abstract class _Organisation extends Organisation {
   int? get userCount;
   @override
   int? get vehicleCount;
+  @override
+  List<String>? get vehicles;
   @override
   @JsonKey(ignore: true)
   _$$OrganisationImplCopyWith<_$OrganisationImpl> get copyWith =>

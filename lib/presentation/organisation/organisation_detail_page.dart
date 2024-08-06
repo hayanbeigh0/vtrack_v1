@@ -51,20 +51,18 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
       ),
       body: MultiBlocProvider(
         providers: [
-          BlocProvider(
-            create: (context) => getIt<VehicleCubit>()
+          BlocProvider(create: (context) => getIt<VehicleCubit>()
               // ..getAllOrgVehicles(
               //   organisationId: widget.organisation.id!,
               //   pageNumber: 0,
               // ),
-          ),
-          BlocProvider(
-            create: (context) => getIt<OrganisationUserCubit>()
+              ),
+          BlocProvider(create: (context) => getIt<OrganisationUserCubit>()
               // ..getOrganisationUsers(
               //   organisationId: widget.organisation.id!,
               //   pageNumber: 0,
               // ),
-          ),
+              ),
         ],
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.0.sp),
@@ -86,7 +84,7 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                   },
                   validator: (_) {
                     return null;
-                  
+
                     // return BlocProvider.of<OrganisationFormBloc>(context)
                     //     .state
                     //     .organisation
@@ -132,7 +130,7 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                   },
                   validator: (_) {
                     return null;
-                  
+
                     // return BlocProvider.of<OrganisationFormBloc>(context)
                     //     .state
                     //     .organisation
@@ -164,61 +162,41 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                           ),
                         ),
                         padding: EdgeInsets.all(12.sp),
-                        child: BlocBuilder<VehicleCubit, VehicleState>(
-                          builder: (context, state) {
-                            return state.maybeMap(
-                              orElse: () => const SizedBox(),
-                              allOrgVehicles: (vehicles) {
-                                if (vehicles.vehicles.isEmpty) {
-                                  return Center(
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        const Text('No vehicles added yet!'),
-                                        TextButton(
-                                          onPressed: () {
-                                            context.router
-                                                .pushNamed('/create-vehicle');
-                                          },
-                                          child: const Text('Add Vehicle'),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                } else {
-                                  return Row(
-                                    children: [
-                                      Expanded(
-                                        child: Wrap(
-                                          children: vehicles.vehicles
-                                              .map(
-                                                (vehicle) => Container(
-                                                  padding: EdgeInsets.all(8.sp),
-                                                  child: Text(vehicle.name
-                                                      .getOrCrash()),
-                                                ),
-                                              )
-                                              .toList(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 20.h,
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            // Navigate to vehicle list screen
-                                          },
-                                          child: const Text(
-                                            'Manage',
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  );
-                                }
-                              },
-                            );
-                          },
+                        child: Visibility(
+                          visible: widget.organisation.vehicleCount == 0,
+                          replacement: Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                    '${widget.organisation.vehicleCount} vehicles'),
+                              ),
+                              SizedBox(
+                                height: 20.h,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    // Navigate to vehicle list screen
+                                  },
+                                  child: const Text(
+                                    'Manage',
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text('No vehicles added yet!'),
+                                TextButton(
+                                  onPressed: () {
+                                    context.router.pushNamed('/create-vehicle');
+                                  },
+                                  child: const Text('Add Vehicle'),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ],
@@ -241,62 +219,45 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                           ),
                         ),
                         padding: EdgeInsets.all(12.sp),
-                        child: BlocBuilder<OrganisationUserCubit,
-                            OrganisationUserState>(
-                          builder: (context, state) {
-                            return state.maybeMap(
-                              orElse: () => const SizedBox(),
-                              loaded: (users) {
-                                if (users.users.isEmpty) {
-                                  return Center(
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        const Text('No users added yet!'),
-                                        TextButton(
-                                          onPressed: () {
-                                            context.router
-                                                .pushNamed('/add-users');
-                                          },
-                                          child: const Text('Add User'),
-                                        ),
-                                      ],
+                        child: Column(
+                          children: [
+                            Visibility(
+                              visible: widget.organisation.userCount != 0,
+                              replacement: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text('No users added yet!'),
+                                    TextButton(
+                                      onPressed: () {
+                                        context.router.pushNamed('/add-users');
+                                      },
+                                      child: const Text('Add User'),
                                     ),
-                                  );
-                                } else {
-                                  return Row(
-                                    children: [
-                                      Expanded(
-                                        child: Wrap(
-                                          children: users.users
-                                              .map(
-                                                (vehicle) => Container(
-                                                  padding: EdgeInsets.all(8.sp),
-                                                  child: Text(vehicle.name
-                                                      .getOrCrash()),
-                                                ),
-                                              )
-                                              .toList(),
-                                        ),
+                                  ],
+                                ),
+                              ),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                        '${widget.organisation.userCount} users'),
+                                  ),
+                                  SizedBox(
+                                    height: 20.h,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        // Navigate to user list screen
+                                      },
+                                      child: const Text(
+                                        'Manage',
                                       ),
-                                      SizedBox(
-                                        height: 20.h,
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            // Navigate to user list screen
-                                          },
-                                          child: const Text(
-                                            'Manage',
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  );
-                                }
-                              },
-                            );
-                          },
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],

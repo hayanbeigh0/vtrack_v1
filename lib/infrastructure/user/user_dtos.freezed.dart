@@ -520,6 +520,9 @@ mixin _$UserOrganisationDto {
   String? get createdBy => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get owner => throw _privateConstructorUsedError;
+  int? get userCount => throw _privateConstructorUsedError;
+  int? get vehicleCount => throw _privateConstructorUsedError;
+  List<String>? get vehicles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -540,7 +543,10 @@ abstract class $UserOrganisationDtoCopyWith<$Res> {
       String? code,
       String? createdBy,
       String? createdAt,
-      String? owner});
+      String? owner,
+      int? userCount,
+      int? vehicleCount,
+      List<String>? vehicles});
 }
 
 /// @nodoc
@@ -563,6 +569,9 @@ class _$UserOrganisationDtoCopyWithImpl<$Res, $Val extends UserOrganisationDto>
     Object? createdBy = freezed,
     Object? createdAt = freezed,
     Object? owner = freezed,
+    Object? userCount = freezed,
+    Object? vehicleCount = freezed,
+    Object? vehicles = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -593,6 +602,18 @@ class _$UserOrganisationDtoCopyWithImpl<$Res, $Val extends UserOrganisationDto>
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
               as String?,
+      userCount: freezed == userCount
+          ? _value.userCount
+          : userCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      vehicleCount: freezed == vehicleCount
+          ? _value.vehicleCount
+          : vehicleCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      vehicles: freezed == vehicles
+          ? _value.vehicles
+          : vehicles // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -612,7 +633,10 @@ abstract class _$$UserOrganisationDtoImplCopyWith<$Res>
       String? code,
       String? createdBy,
       String? createdAt,
-      String? owner});
+      String? owner,
+      int? userCount,
+      int? vehicleCount,
+      List<String>? vehicles});
 }
 
 /// @nodoc
@@ -633,6 +657,9 @@ class __$$UserOrganisationDtoImplCopyWithImpl<$Res>
     Object? createdBy = freezed,
     Object? createdAt = freezed,
     Object? owner = freezed,
+    Object? userCount = freezed,
+    Object? vehicleCount = freezed,
+    Object? vehicles = freezed,
   }) {
     return _then(_$UserOrganisationDtoImpl(
       id: null == id
@@ -663,6 +690,18 @@ class __$$UserOrganisationDtoImplCopyWithImpl<$Res>
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
               as String?,
+      userCount: freezed == userCount
+          ? _value.userCount
+          : userCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      vehicleCount: freezed == vehicleCount
+          ? _value.vehicleCount
+          : vehicleCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      vehicles: freezed == vehicles
+          ? _value._vehicles
+          : vehicles // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -677,8 +716,12 @@ class _$UserOrganisationDtoImpl extends _UserOrganisationDto {
       required this.code,
       required this.createdBy,
       required this.createdAt,
-      required this.owner})
-      : super._();
+      required this.owner,
+      required this.userCount,
+      required this.vehicleCount,
+      required final List<String>? vehicles})
+      : _vehicles = vehicles,
+        super._();
 
   factory _$UserOrganisationDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserOrganisationDtoImplFromJson(json);
@@ -697,10 +740,23 @@ class _$UserOrganisationDtoImpl extends _UserOrganisationDto {
   final String? createdAt;
   @override
   final String? owner;
+  @override
+  final int? userCount;
+  @override
+  final int? vehicleCount;
+  final List<String>? _vehicles;
+  @override
+  List<String>? get vehicles {
+    final value = _vehicles;
+    if (value == null) return null;
+    if (_vehicles is EqualUnmodifiableListView) return _vehicles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'UserOrganisationDto(id: $id, name: $name, address: $address, code: $code, createdBy: $createdBy, createdAt: $createdAt, owner: $owner)';
+    return 'UserOrganisationDto(id: $id, name: $name, address: $address, code: $code, createdBy: $createdBy, createdAt: $createdAt, owner: $owner, userCount: $userCount, vehicleCount: $vehicleCount, vehicles: $vehicles)';
   }
 
   @override
@@ -716,13 +772,28 @@ class _$UserOrganisationDtoImpl extends _UserOrganisationDto {
                 other.createdBy == createdBy) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.owner, owner) || other.owner == owner));
+            (identical(other.owner, owner) || other.owner == owner) &&
+            (identical(other.userCount, userCount) ||
+                other.userCount == userCount) &&
+            (identical(other.vehicleCount, vehicleCount) ||
+                other.vehicleCount == vehicleCount) &&
+            const DeepCollectionEquality().equals(other._vehicles, _vehicles));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, address, code, createdBy, createdAt, owner);
+      runtimeType,
+      id,
+      name,
+      address,
+      code,
+      createdBy,
+      createdAt,
+      owner,
+      userCount,
+      vehicleCount,
+      const DeepCollectionEquality().hash(_vehicles));
 
   @JsonKey(ignore: true)
   @override
@@ -747,7 +818,10 @@ abstract class _UserOrganisationDto extends UserOrganisationDto {
       required final String? code,
       required final String? createdBy,
       required final String? createdAt,
-      required final String? owner}) = _$UserOrganisationDtoImpl;
+      required final String? owner,
+      required final int? userCount,
+      required final int? vehicleCount,
+      required final List<String>? vehicles}) = _$UserOrganisationDtoImpl;
   const _UserOrganisationDto._() : super._();
 
   factory _UserOrganisationDto.fromJson(Map<String, dynamic> json) =
@@ -767,6 +841,12 @@ abstract class _UserOrganisationDto extends UserOrganisationDto {
   String? get createdAt;
   @override
   String? get owner;
+  @override
+  int? get userCount;
+  @override
+  int? get vehicleCount;
+  @override
+  List<String>? get vehicles;
   @override
   @JsonKey(ignore: true)
   _$$UserOrganisationDtoImplCopyWith<_$UserOrganisationDtoImpl> get copyWith =>
