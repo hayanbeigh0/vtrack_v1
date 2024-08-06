@@ -13,8 +13,8 @@ _$OrganisationDtoImpl _$$OrganisationDtoImplFromJson(
       name: json['name'] as String,
       address: json['address'] as String,
       code: json['code'] as String,
-      vehicles:
-          (json['vehicles'] as List<dynamic>).map((e) => e as String).toList(),
+      userCount: (json['userCount'] as num?)?.toInt(),
+      vehicleCount: (json['vehicleCount'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$OrganisationDtoImplToJson(
@@ -24,5 +24,6 @@ Map<String, dynamic> _$$OrganisationDtoImplToJson(
       'name': instance.name,
       'address': instance.address,
       'code': instance.code,
-      'vehicles': instance.vehicles,
+      'userCount': instance.userCount,
+      'vehicleCount': instance.vehicleCount,
     };

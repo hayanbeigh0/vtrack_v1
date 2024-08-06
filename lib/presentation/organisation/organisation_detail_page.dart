@@ -53,17 +53,17 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
         providers: [
           BlocProvider(
             create: (context) => getIt<VehicleCubit>()
-              ..getAllOrgVehicles(
-                organisationId: widget.organisation.id!,
-                pageNumber: 0,
-              ),
+              // ..getAllOrgVehicles(
+              //   organisationId: widget.organisation.id!,
+              //   pageNumber: 0,
+              // ),
           ),
           BlocProvider(
             create: (context) => getIt<OrganisationUserCubit>()
-              ..getOrganisationUsers(
-                organisationId: widget.organisation.id!,
-                pageNumber: 0,
-              ),
+              // ..getOrganisationUsers(
+              //   organisationId: widget.organisation.id!,
+              //   pageNumber: 0,
+              // ),
           ),
         ],
         child: Padding(
@@ -224,6 +224,7 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                     ],
                   ),
                 ),
+                SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Column(

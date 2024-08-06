@@ -60,9 +60,6 @@ _$UserOrganisationDtoImpl _$$UserOrganisationDtoImplFromJson(
       createdBy: json['createdBy'] as String?,
       createdAt: json['createdAt'] as String?,
       owner: json['owner'] as String?,
-      vehicles: (json['vehicles'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
     );
 
 Map<String, dynamic> _$$UserOrganisationDtoImplToJson(
@@ -75,5 +72,4 @@ Map<String, dynamic> _$$UserOrganisationDtoImplToJson(
       'createdBy': instance.createdBy,
       'createdAt': instance.createdAt,
       'owner': instance.owner,
-      'vehicles': instance.vehicles,
     };

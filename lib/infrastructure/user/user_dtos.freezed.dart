@@ -520,7 +520,6 @@ mixin _$UserOrganisationDto {
   String? get createdBy => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get owner => throw _privateConstructorUsedError;
-  List<String>? get vehicles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -541,8 +540,7 @@ abstract class $UserOrganisationDtoCopyWith<$Res> {
       String? code,
       String? createdBy,
       String? createdAt,
-      String? owner,
-      List<String>? vehicles});
+      String? owner});
 }
 
 /// @nodoc
@@ -565,7 +563,6 @@ class _$UserOrganisationDtoCopyWithImpl<$Res, $Val extends UserOrganisationDto>
     Object? createdBy = freezed,
     Object? createdAt = freezed,
     Object? owner = freezed,
-    Object? vehicles = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -596,10 +593,6 @@ class _$UserOrganisationDtoCopyWithImpl<$Res, $Val extends UserOrganisationDto>
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
               as String?,
-      vehicles: freezed == vehicles
-          ? _value.vehicles
-          : vehicles // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
     ) as $Val);
   }
 }
@@ -619,8 +612,7 @@ abstract class _$$UserOrganisationDtoImplCopyWith<$Res>
       String? code,
       String? createdBy,
       String? createdAt,
-      String? owner,
-      List<String>? vehicles});
+      String? owner});
 }
 
 /// @nodoc
@@ -641,7 +633,6 @@ class __$$UserOrganisationDtoImplCopyWithImpl<$Res>
     Object? createdBy = freezed,
     Object? createdAt = freezed,
     Object? owner = freezed,
-    Object? vehicles = freezed,
   }) {
     return _then(_$UserOrganisationDtoImpl(
       id: null == id
@@ -672,10 +663,6 @@ class __$$UserOrganisationDtoImplCopyWithImpl<$Res>
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
               as String?,
-      vehicles: freezed == vehicles
-          ? _value._vehicles
-          : vehicles // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
     ));
   }
 }
@@ -690,10 +677,8 @@ class _$UserOrganisationDtoImpl extends _UserOrganisationDto {
       required this.code,
       required this.createdBy,
       required this.createdAt,
-      required this.owner,
-      required final List<String>? vehicles})
-      : _vehicles = vehicles,
-        super._();
+      required this.owner})
+      : super._();
 
   factory _$UserOrganisationDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserOrganisationDtoImplFromJson(json);
@@ -712,19 +697,10 @@ class _$UserOrganisationDtoImpl extends _UserOrganisationDto {
   final String? createdAt;
   @override
   final String? owner;
-  final List<String>? _vehicles;
-  @override
-  List<String>? get vehicles {
-    final value = _vehicles;
-    if (value == null) return null;
-    if (_vehicles is EqualUnmodifiableListView) return _vehicles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
 
   @override
   String toString() {
-    return 'UserOrganisationDto(id: $id, name: $name, address: $address, code: $code, createdBy: $createdBy, createdAt: $createdAt, owner: $owner, vehicles: $vehicles)';
+    return 'UserOrganisationDto(id: $id, name: $name, address: $address, code: $code, createdBy: $createdBy, createdAt: $createdAt, owner: $owner)';
   }
 
   @override
@@ -740,22 +716,13 @@ class _$UserOrganisationDtoImpl extends _UserOrganisationDto {
                 other.createdBy == createdBy) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.owner, owner) || other.owner == owner) &&
-            const DeepCollectionEquality().equals(other._vehicles, _vehicles));
+            (identical(other.owner, owner) || other.owner == owner));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      address,
-      code,
-      createdBy,
-      createdAt,
-      owner,
-      const DeepCollectionEquality().hash(_vehicles));
+      runtimeType, id, name, address, code, createdBy, createdAt, owner);
 
   @JsonKey(ignore: true)
   @override
@@ -780,8 +747,7 @@ abstract class _UserOrganisationDto extends UserOrganisationDto {
       required final String? code,
       required final String? createdBy,
       required final String? createdAt,
-      required final String? owner,
-      required final List<String>? vehicles}) = _$UserOrganisationDtoImpl;
+      required final String? owner}) = _$UserOrganisationDtoImpl;
   const _UserOrganisationDto._() : super._();
 
   factory _UserOrganisationDto.fromJson(Map<String, dynamic> json) =
@@ -801,8 +767,6 @@ abstract class _UserOrganisationDto extends UserOrganisationDto {
   String? get createdAt;
   @override
   String? get owner;
-  @override
-  List<String>? get vehicles;
   @override
   @JsonKey(ignore: true)
   _$$UserOrganisationDtoImplCopyWith<_$UserOrganisationDtoImpl> get copyWith =>

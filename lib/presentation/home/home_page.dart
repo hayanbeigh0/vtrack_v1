@@ -183,7 +183,9 @@ class HomePage extends StatelessWidget {
                                       name: OrganisationName(''),
                                       address: '',
                                       code: OrganisationCode(''),
-                                      vehicles: [],
+                                      // vehicles: [],
+                                      vehicleCount: 0,
+                                      userCount: 0,
                                     ),
                                   );
                                   if (organisation.id != null) {
