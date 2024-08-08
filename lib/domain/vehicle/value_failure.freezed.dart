@@ -16,11 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$VehicleValueFailure<T> {
-  Object get failedValue => throw _privateConstructorUsedError;
+  Object? get failedValue => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue, int maxLength) invalidName,
-    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(Driver? failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
     required TResult Function(String failedValue) invalidVehicleOwner,
@@ -33,7 +33,7 @@ mixin _$VehicleValueFailure<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String failedValue, int maxLength)? invalidName,
-    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(Driver? failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
     TResult? Function(String failedValue)? invalidVehicleOwner,
@@ -46,7 +46,7 @@ mixin _$VehicleValueFailure<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String failedValue, int maxLength)? invalidName,
-    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(Driver? failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
     TResult Function(String failedValue)? invalidVehicleOwner,
@@ -197,7 +197,7 @@ class _$InvalidNameImpl<T> implements _InvalidName<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue, int maxLength) invalidName,
-    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(Driver? failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
     required TResult Function(String failedValue) invalidVehicleOwner,
@@ -213,7 +213,7 @@ class _$InvalidNameImpl<T> implements _InvalidName<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String failedValue, int maxLength)? invalidName,
-    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(Driver? failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
     TResult? Function(String failedValue)? invalidVehicleOwner,
@@ -229,7 +229,7 @@ class _$InvalidNameImpl<T> implements _InvalidName<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String failedValue, int maxLength)? invalidName,
-    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(Driver? failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
     TResult Function(String failedValue)? invalidVehicleOwner,
@@ -320,7 +320,9 @@ abstract class _$$InvalidDriverImplCopyWith<T, $Res> {
           $Res Function(_$InvalidDriverImpl<T>) then) =
       __$$InvalidDriverImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String failedValue});
+  $Res call({Driver? failedValue});
+
+  $DriverCopyWith<$Res>? get failedValue;
 }
 
 /// @nodoc
@@ -334,14 +336,26 @@ class __$$InvalidDriverImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failedValue = null,
+    Object? failedValue = freezed,
   }) {
     return _then(_$InvalidDriverImpl<T>(
-      failedValue: null == failedValue
+      failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Driver?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DriverCopyWith<$Res>? get failedValue {
+    if (_value.failedValue == null) {
+      return null;
+    }
+
+    return $DriverCopyWith<$Res>(_value.failedValue!, (value) {
+      return _then(_value.copyWith(failedValue: value));
+    });
   }
 }
 
@@ -351,7 +365,7 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
   const _$InvalidDriverImpl({required this.failedValue});
 
   @override
-  final String failedValue;
+  final Driver? failedValue;
 
   @override
   String toString() {
@@ -381,7 +395,7 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue, int maxLength) invalidName,
-    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(Driver? failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
     required TResult Function(String failedValue) invalidVehicleOwner,
@@ -397,7 +411,7 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String failedValue, int maxLength)? invalidName,
-    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(Driver? failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
     TResult? Function(String failedValue)? invalidVehicleOwner,
@@ -413,7 +427,7 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String failedValue, int maxLength)? invalidName,
-    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(Driver? failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
     TResult Function(String failedValue)? invalidVehicleOwner,
@@ -486,11 +500,11 @@ class _$InvalidDriverImpl<T> implements _InvalidDriver<T> {
 }
 
 abstract class _InvalidDriver<T> implements VehicleValueFailure<T> {
-  const factory _InvalidDriver({required final String failedValue}) =
+  const factory _InvalidDriver({required final Driver? failedValue}) =
       _$InvalidDriverImpl<T>;
 
   @override
-  String get failedValue;
+  Driver? get failedValue;
   @JsonKey(ignore: true)
   _$$InvalidDriverImplCopyWith<T, _$InvalidDriverImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -565,7 +579,7 @@ class _$InvalidVehicleNumberImpl<T> implements _InvalidVehicleNumber<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue, int maxLength) invalidName,
-    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(Driver? failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
     required TResult Function(String failedValue) invalidVehicleOwner,
@@ -581,7 +595,7 @@ class _$InvalidVehicleNumberImpl<T> implements _InvalidVehicleNumber<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String failedValue, int maxLength)? invalidName,
-    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(Driver? failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
     TResult? Function(String failedValue)? invalidVehicleOwner,
@@ -597,7 +611,7 @@ class _$InvalidVehicleNumberImpl<T> implements _InvalidVehicleNumber<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String failedValue, int maxLength)? invalidName,
-    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(Driver? failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
     TResult Function(String failedValue)? invalidVehicleOwner,
@@ -747,7 +761,7 @@ class _$InvalidRouteImpl<T> implements _InvalidRoute<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue, int maxLength) invalidName,
-    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(Driver? failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
     required TResult Function(String failedValue) invalidVehicleOwner,
@@ -763,7 +777,7 @@ class _$InvalidRouteImpl<T> implements _InvalidRoute<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String failedValue, int maxLength)? invalidName,
-    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(Driver? failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
     TResult? Function(String failedValue)? invalidVehicleOwner,
@@ -779,7 +793,7 @@ class _$InvalidRouteImpl<T> implements _InvalidRoute<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String failedValue, int maxLength)? invalidName,
-    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(Driver? failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
     TResult Function(String failedValue)? invalidVehicleOwner,
@@ -930,7 +944,7 @@ class _$InvalidVehicleOwnerImpl<T> implements _InvalidVehicleOwner<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue, int maxLength) invalidName,
-    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(Driver? failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
     required TResult Function(String failedValue) invalidVehicleOwner,
@@ -946,7 +960,7 @@ class _$InvalidVehicleOwnerImpl<T> implements _InvalidVehicleOwner<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String failedValue, int maxLength)? invalidName,
-    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(Driver? failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
     TResult? Function(String failedValue)? invalidVehicleOwner,
@@ -962,7 +976,7 @@ class _$InvalidVehicleOwnerImpl<T> implements _InvalidVehicleOwner<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String failedValue, int maxLength)? invalidName,
-    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(Driver? failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
     TResult Function(String failedValue)? invalidVehicleOwner,
@@ -1117,7 +1131,7 @@ class _$InvalidVehicleOrganisationImpl<T>
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue, int maxLength) invalidName,
-    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(Driver? failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
     required TResult Function(String failedValue) invalidVehicleOwner,
@@ -1133,7 +1147,7 @@ class _$InvalidVehicleOrganisationImpl<T>
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String failedValue, int maxLength)? invalidName,
-    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(Driver? failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
     TResult? Function(String failedValue)? invalidVehicleOwner,
@@ -1149,7 +1163,7 @@ class _$InvalidVehicleOrganisationImpl<T>
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String failedValue, int maxLength)? invalidName,
-    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(Driver? failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
     TResult Function(String failedValue)? invalidVehicleOwner,
@@ -1310,7 +1324,7 @@ class _$InvalidUsersListImpl<T> implements _InvalidUsersList<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue, int maxLength) invalidName,
-    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(Driver? failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
     required TResult Function(String failedValue) invalidVehicleOwner,
@@ -1326,7 +1340,7 @@ class _$InvalidUsersListImpl<T> implements _InvalidUsersList<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String failedValue, int maxLength)? invalidName,
-    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(Driver? failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
     TResult? Function(String failedValue)? invalidVehicleOwner,
@@ -1342,7 +1356,7 @@ class _$InvalidUsersListImpl<T> implements _InvalidUsersList<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String failedValue, int maxLength)? invalidName,
-    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(Driver? failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
     TResult Function(String failedValue)? invalidVehicleOwner,
@@ -1503,7 +1517,7 @@ class _$InvalidPickupLocationsImpl<T> implements _InvalidPickupLocations<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue, int maxLength) invalidName,
-    required TResult Function(String failedValue) invalidDriver,
+    required TResult Function(Driver? failedValue) invalidDriver,
     required TResult Function(int failedValue) invalidVehicleNumber,
     required TResult Function(String failedValue) invalidRoute,
     required TResult Function(String failedValue) invalidVehicleOwner,
@@ -1519,7 +1533,7 @@ class _$InvalidPickupLocationsImpl<T> implements _InvalidPickupLocations<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String failedValue, int maxLength)? invalidName,
-    TResult? Function(String failedValue)? invalidDriver,
+    TResult? Function(Driver? failedValue)? invalidDriver,
     TResult? Function(int failedValue)? invalidVehicleNumber,
     TResult? Function(String failedValue)? invalidRoute,
     TResult? Function(String failedValue)? invalidVehicleOwner,
@@ -1535,7 +1549,7 @@ class _$InvalidPickupLocationsImpl<T> implements _InvalidPickupLocations<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String failedValue, int maxLength)? invalidName,
-    TResult Function(String failedValue)? invalidDriver,
+    TResult Function(Driver? failedValue)? invalidDriver,
     TResult Function(int failedValue)? invalidVehicleNumber,
     TResult Function(String failedValue)? invalidRoute,
     TResult Function(String failedValue)? invalidVehicleOwner,

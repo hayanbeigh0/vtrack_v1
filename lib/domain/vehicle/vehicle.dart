@@ -15,6 +15,7 @@ abstract class Vehicle with _$Vehicle {
     required VehicleDriver driver,
     required int vehicleNumber,
     required int vehicleCapacity,
+    required int userCount,
     required VehicleRoute route,
     required VehicleOwner owner,
     String? createdBy,
@@ -55,4 +56,11 @@ class SelectedVehicleDriver with _$SelectedVehicleDriver {
     required String id,
     required String name,
   }) = _SelectedVehicleDriver;
+}
+@freezed
+class Driver with _$Driver {
+  const factory Driver({
+    required String id,
+    required String name,
+  }) = _Driver;
 }

@@ -19,12 +19,12 @@ class VehicleName extends ValueObject<String, VehicleValueFailure> {
   const VehicleName._(this.value);
 }
 
-class VehicleDriver extends ValueObject<String, VehicleValueFailure> {
+class VehicleDriver extends ValueObject<Driver, VehicleValueFailure> {
   @override
-  final Either<VehicleValueFailure<String>, String> value;
+  final Either<VehicleValueFailure<Driver>, Driver> value;
 
   static const maxLength = 50;
-  factory VehicleDriver(String input) {
+  factory VehicleDriver(Driver? input) {
     return VehicleDriver._(validateVehicleDriver(
       input: input,
       maxLength: maxLength,

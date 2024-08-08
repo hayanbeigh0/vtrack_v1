@@ -10,8 +10,9 @@ _$VehicleDtoImpl _$$VehicleDtoImplFromJson(Map<String, dynamic> json) =>
     _$VehicleDtoImpl(
       id: json['id'] as String?,
       name: json['name'] as String,
-      driver: json['driver'] as String,
+      driver: DriverDto.fromJson(json['driver'] as Map<String, dynamic>),
       vehicleNumber: (json['vehicleNumber'] as num).toInt(),
+      userCount: (json['userCount'] as num).toInt(),
       capacity: (json['capacity'] as num).toInt(),
       route: json['route'] as String,
       owner: json['owner'] as String,
@@ -20,8 +21,8 @@ _$VehicleDtoImpl _$$VehicleDtoImplFromJson(Map<String, dynamic> json) =>
           ? null
           : DateTime.parse(json['createdAt'] as String),
       organisation: json['organisation'] as String,
-      users: (json['users'] as List<dynamic>)
-          .map((e) => UserDto.fromJson(e as Map<String, dynamic>))
+      users: (json['users'] as List<dynamic>?)
+          ?.map((e) => UserDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       pickupLocations: (json['pickupLocations'] as List<dynamic>)
           .map((e) =>
@@ -33,8 +34,9 @@ Map<String, dynamic> _$$VehicleDtoImplToJson(_$VehicleDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'driver': instance.driver,
+      'driver': _driverToJson(instance.driver),
       'vehicleNumber': instance.vehicleNumber,
+      'userCount': instance.userCount,
       'capacity': instance.capacity,
       'route': instance.route,
       'owner': instance.owner,
@@ -66,4 +68,16 @@ Map<String, dynamic> _$$VehiclePickupLocationsDtoImplToJson(
       'name': instance.name,
       'address': instance.address,
       'description': instance.description,
+    };
+
+_$DriverDtoImpl _$$DriverDtoImplFromJson(Map<String, dynamic> json) =>
+    _$DriverDtoImpl(
+      id: json['id'] as String,
+      name: json['name'] as String,
+    );
+
+Map<String, dynamic> _$$DriverDtoImplToJson(_$DriverDtoImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
     };

@@ -21,6 +21,7 @@ mixin _$Vehicle {
   VehicleDriver get driver => throw _privateConstructorUsedError;
   int get vehicleNumber => throw _privateConstructorUsedError;
   int get vehicleCapacity => throw _privateConstructorUsedError;
+  int get userCount => throw _privateConstructorUsedError;
   VehicleRoute get route => throw _privateConstructorUsedError;
   VehicleOwner get owner => throw _privateConstructorUsedError;
   String? get createdBy => throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $VehicleCopyWith<$Res> {
       VehicleDriver driver,
       int vehicleNumber,
       int vehicleCapacity,
+      int userCount,
       VehicleRoute route,
       VehicleOwner owner,
       String? createdBy,
@@ -72,6 +74,7 @@ class _$VehicleCopyWithImpl<$Res, $Val extends Vehicle>
     Object? driver = null,
     Object? vehicleNumber = null,
     Object? vehicleCapacity = null,
+    Object? userCount = null,
     Object? route = null,
     Object? owner = null,
     Object? createdBy = freezed,
@@ -100,6 +103,10 @@ class _$VehicleCopyWithImpl<$Res, $Val extends Vehicle>
       vehicleCapacity: null == vehicleCapacity
           ? _value.vehicleCapacity
           : vehicleCapacity // ignore: cast_nullable_to_non_nullable
+              as int,
+      userCount: null == userCount
+          ? _value.userCount
+          : userCount // ignore: cast_nullable_to_non_nullable
               as int,
       route: null == route
           ? _value.route
@@ -146,6 +153,7 @@ abstract class _$$VehicleImplCopyWith<$Res> implements $VehicleCopyWith<$Res> {
       VehicleDriver driver,
       int vehicleNumber,
       int vehicleCapacity,
+      int userCount,
       VehicleRoute route,
       VehicleOwner owner,
       String? createdBy,
@@ -171,6 +179,7 @@ class __$$VehicleImplCopyWithImpl<$Res>
     Object? driver = null,
     Object? vehicleNumber = null,
     Object? vehicleCapacity = null,
+    Object? userCount = null,
     Object? route = null,
     Object? owner = null,
     Object? createdBy = freezed,
@@ -199,6 +208,10 @@ class __$$VehicleImplCopyWithImpl<$Res>
       vehicleCapacity: null == vehicleCapacity
           ? _value.vehicleCapacity
           : vehicleCapacity // ignore: cast_nullable_to_non_nullable
+              as int,
+      userCount: null == userCount
+          ? _value.userCount
+          : userCount // ignore: cast_nullable_to_non_nullable
               as int,
       route: null == route
           ? _value.route
@@ -241,6 +254,7 @@ class _$VehicleImpl extends _Vehicle {
       required this.driver,
       required this.vehicleNumber,
       required this.vehicleCapacity,
+      required this.userCount,
       required this.route,
       required this.owner,
       this.createdBy,
@@ -262,6 +276,8 @@ class _$VehicleImpl extends _Vehicle {
   final int vehicleNumber;
   @override
   final int vehicleCapacity;
+  @override
+  final int userCount;
   @override
   final VehicleRoute route;
   @override
@@ -290,7 +306,7 @@ class _$VehicleImpl extends _Vehicle {
 
   @override
   String toString() {
-    return 'Vehicle(id: $id, name: $name, driver: $driver, vehicleNumber: $vehicleNumber, vehicleCapacity: $vehicleCapacity, route: $route, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, organisation: $organisation, users: $users, pickupLocations: $pickupLocations)';
+    return 'Vehicle(id: $id, name: $name, driver: $driver, vehicleNumber: $vehicleNumber, vehicleCapacity: $vehicleCapacity, userCount: $userCount, route: $route, owner: $owner, createdBy: $createdBy, createdAt: $createdAt, organisation: $organisation, users: $users, pickupLocations: $pickupLocations)';
   }
 
   @override
@@ -305,6 +321,8 @@ class _$VehicleImpl extends _Vehicle {
                 other.vehicleNumber == vehicleNumber) &&
             (identical(other.vehicleCapacity, vehicleCapacity) ||
                 other.vehicleCapacity == vehicleCapacity) &&
+            (identical(other.userCount, userCount) ||
+                other.userCount == userCount) &&
             (identical(other.route, route) || other.route == route) &&
             (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.createdBy, createdBy) ||
@@ -326,6 +344,7 @@ class _$VehicleImpl extends _Vehicle {
       driver,
       vehicleNumber,
       vehicleCapacity,
+      userCount,
       route,
       owner,
       createdBy,
@@ -348,6 +367,7 @@ abstract class _Vehicle extends Vehicle {
           required final VehicleDriver driver,
           required final int vehicleNumber,
           required final int vehicleCapacity,
+          required final int userCount,
           required final VehicleRoute route,
           required final VehicleOwner owner,
           final String? createdBy,
@@ -368,6 +388,8 @@ abstract class _Vehicle extends Vehicle {
   int get vehicleNumber;
   @override
   int get vehicleCapacity;
+  @override
+  int get userCount;
   @override
   VehicleRoute get route;
   @override
@@ -766,4 +788,135 @@ abstract class _SelectedVehicleDriver implements SelectedVehicleDriver {
   @JsonKey(ignore: true)
   _$$SelectedVehicleDriverImplCopyWith<_$SelectedVehicleDriverImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$Driver {
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $DriverCopyWith<Driver> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DriverCopyWith<$Res> {
+  factory $DriverCopyWith(Driver value, $Res Function(Driver) then) =
+      _$DriverCopyWithImpl<$Res, Driver>;
+  @useResult
+  $Res call({String id, String name});
+}
+
+/// @nodoc
+class _$DriverCopyWithImpl<$Res, $Val extends Driver>
+    implements $DriverCopyWith<$Res> {
+  _$DriverCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DriverImplCopyWith<$Res> implements $DriverCopyWith<$Res> {
+  factory _$$DriverImplCopyWith(
+          _$DriverImpl value, $Res Function(_$DriverImpl) then) =
+      __$$DriverImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id, String name});
+}
+
+/// @nodoc
+class __$$DriverImplCopyWithImpl<$Res>
+    extends _$DriverCopyWithImpl<$Res, _$DriverImpl>
+    implements _$$DriverImplCopyWith<$Res> {
+  __$$DriverImplCopyWithImpl(
+      _$DriverImpl _value, $Res Function(_$DriverImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+  }) {
+    return _then(_$DriverImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DriverImpl implements _Driver {
+  const _$DriverImpl({required this.id, required this.name});
+
+  @override
+  final String id;
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'Driver(id: $id, name: $name)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DriverImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DriverImplCopyWith<_$DriverImpl> get copyWith =>
+      __$$DriverImplCopyWithImpl<_$DriverImpl>(this, _$identity);
+}
+
+abstract class _Driver implements Driver {
+  const factory _Driver(
+      {required final String id, required final String name}) = _$DriverImpl;
+
+  @override
+  String get id;
+  @override
+  String get name;
+  @override
+  @JsonKey(ignore: true)
+  _$$DriverImplCopyWith<_$DriverImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

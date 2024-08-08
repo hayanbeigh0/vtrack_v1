@@ -31,12 +31,13 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
             selectedVehicleDriver: null,
             vehicle: Vehicle(
               name: VehicleName(''),
-              driver: VehicleDriver(''),
+              driver: VehicleDriver(const Driver(id: '', name: '')),
               vehicleNumber: 0,
               vehicleCapacity: 0,
               route: VehicleRoute(''),
               owner: VehicleOwner(''),
               organisation: VehicleOrganisation(''),
+              userCount: 0,
               users: [],
               pickupLocations: [],
             ),
@@ -48,7 +49,13 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
           if (value.vehicle != null) {
             emit(state.copyWith(
               vehicle: value.vehicle!,
-              isEditing: false,
+              isEditing: value.vehicle!.id != null ? true : false,
+              selectedVehicleDriver: value.vehicle!.id == null
+                  ? null
+                  : SelectedVehicleDriver(
+                      id: value.vehicle!.driver.getOrCrash().id,
+                      name: value.vehicle!.driver.getOrCrash().name,
+                    ),
               isSaved: false,
             ));
           } else {
@@ -88,7 +95,12 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
           emit(state.copyWith(
             selectedVehicleDriver: vehicleDriver,
             vehicle: state.vehicle.copyWith(
-              driver: VehicleDriver(value.driver.id),
+              driver: VehicleDriver(
+                Driver(
+                  id: value.driver.id,
+                  name: value.driver.name,
+                ),
+              ),
             ),
             isSaving: false,
             saveFailureOrSuccessOption: none(),
@@ -99,7 +111,7 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
           emit(state.copyWith(
             selectedVehicleDriver: null,
             vehicle: state.vehicle.copyWith(
-              driver: VehicleDriver(''),
+              driver: VehicleDriver(null),
             ),
             isSaving: false,
             saveFailureOrSuccessOption: none(),

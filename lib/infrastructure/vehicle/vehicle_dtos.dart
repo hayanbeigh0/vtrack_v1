@@ -12,15 +12,16 @@ class VehicleDto with _$VehicleDto {
   const factory VehicleDto({
     String? id,
     required String name,
-    required String driver,
+    @JsonKey(toJson: _driverToJson) required DriverDto driver,
     required int vehicleNumber,
+    required int userCount,
     required int capacity,
     required String route,
     required String owner,
     String? createdBy,
     DateTime? createdAt,
     required String organisation,
-    @JsonKey(toJson: _usersToJson) required List<UserDto> users,
+    @JsonKey(toJson: _usersToJson) required List<UserDto>? users,
     required List<VehiclePickupLocationsDto> pickupLocations,
   }) = _VehicleDto;
 
@@ -28,9 +29,13 @@ class VehicleDto with _$VehicleDto {
     return VehicleDto(
       id: vehicle.id,
       name: vehicle.name.getOrCrash(),
-      driver: vehicle.driver.getOrCrash(),
+      driver: DriverDto.fromDomain(Driver(
+        id: vehicle.driver.getOrCrash().id,
+        name: vehicle.driver.getOrCrash().name,
+      )),
       vehicleNumber: vehicle.vehicleNumber,
       capacity: vehicle.vehicleCapacity,
+      userCount: vehicle.userCount,
       route: vehicle.route.getOrCrash(),
       owner: vehicle.owner.getOrCrash(),
       organisation: vehicle.organisation.getOrCrash(),
@@ -46,7 +51,7 @@ class VehicleDto with _$VehicleDto {
     return Vehicle(
       id: id,
       name: VehicleName(name),
-      driver: VehicleDriver(driver),
+      driver: VehicleDriver(driver.toDomain()),
       vehicleNumber: vehicleNumber,
       route: VehicleRoute(route),
       owner: VehicleOwner(owner),
@@ -54,7 +59,8 @@ class VehicleDto with _$VehicleDto {
       createdAt: createdAt,
       organisation: VehicleOrganisation(organisation),
       vehicleCapacity: capacity,
-      users: users.map((dto) => dto.toDomain()).toList(),
+      userCount: userCount,
+      users: users == null ? [] : users!.map((dto) => dto.toDomain()).toList(),
       pickupLocations: pickupLocations.map((dto) => dto.toDomain()).toList(),
     );
   }
@@ -64,11 +70,16 @@ class VehicleDto with _$VehicleDto {
 }
 
 // Helper Functions
-// List<UserDto> _usersFromJson(List<dynamic> json) =>
-//     json.map((e) => UserDto.fromJson(e as Map<String, dynamic>)).toList();
+// List<String> _usersFromJson(List<dynamic> json) =>
+//     json.map((e) => e.toString()).toList();
 
-List<String> _usersToJson(List<UserDto> users) =>
-    users.map((e) => e.id).toList();
+List<String> _usersToJson(List<UserDto>? users) => users == null
+    ? []
+    : users
+        .map((e) => e.id)
+        .toList(); // This is required as when the users are sent to the backend, it is always sent as a list of userId's which is always a list of string.
+
+String _driverToJson(DriverDto driver) => driver.id;
 
 @freezed
 class VehiclePickupLocationsDto with _$VehiclePickupLocationsDto {
@@ -107,4 +118,30 @@ class VehiclePickupLocationsDto with _$VehiclePickupLocationsDto {
 
   factory VehiclePickupLocationsDto.fromJson(Map<String, dynamic> json) =>
       _$VehiclePickupLocationsDtoFromJson(json);
+}
+
+@freezed
+class DriverDto with _$DriverDto {
+  const DriverDto._();
+  const factory DriverDto({
+    required String id,
+    required String name,
+  }) = _DriverDto;
+
+  factory DriverDto.fromDomain(Driver driver) {
+    return DriverDto(
+      id: driver.id,
+      name: driver.name,
+    );
+  }
+
+  Driver toDomain() {
+    return Driver(
+      id: id,
+      name: name,
+    );
+  }
+
+  factory DriverDto.fromJson(Map<String, dynamic> json) =>
+      _$DriverDtoFromJson(json);
 }

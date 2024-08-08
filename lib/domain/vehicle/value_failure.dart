@@ -10,7 +10,7 @@ abstract class VehicleValueFailure<T> with _$VehicleValueFailure {
     required int maxLength,
   }) = _InvalidName;
   const factory VehicleValueFailure.invalidDriver({
-    required String failedValue,
+    required Driver? failedValue,
   }) = _InvalidDriver;
   const factory VehicleValueFailure.invalidVehicleNumber({
     required int failedValue,

@@ -17,6 +17,7 @@ import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets/app_text_form_field.dart';
 import 'package:vtrack_v1/presentation/core/widgets/buttons/primary_elevated_button.dart';
+import 'package:vtrack_v1/presentation/routes/router.gr.dart';
 import 'package:vtrack_v1/presentation/vehicles/widgets/add_users.dart';
 import 'package:vtrack_v1/presentation/vehicles/widgets/current_location.dart';
 
@@ -82,13 +83,15 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                                   vehicle: widget.vehicle == null
                                       ? Vehicle(
                                           name: VehicleName(''),
-                                          driver: VehicleDriver(''),
+                                          driver: VehicleDriver(null),
                                           vehicleNumber: -1,
                                           vehicleCapacity: -1,
                                           route: VehicleRoute(''),
                                           owner: VehicleOwner(value.user.id),
                                           organisation: VehicleOrganisation(
-                                              selectedOrganisationValue.id),
+                                            selectedOrganisationValue.id,
+                                          ),
+                                          userCount: 0,
                                           users: [],
                                           pickupLocations: [],
                                         )
@@ -102,6 +105,23 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                         ],
                         child: BlocConsumer<VehicleFormBloc, VehicleFormState>(
                           listener: (context, state) {
+                            if (state.isEditing) {
+                              _nameController.text =
+                                  state.vehicle.name.getOrCrash();
+                              _vehicleRouteController.text =
+                                  state.vehicle.route.getOrCrash();
+                              _vehicleNumberController.text =
+                                  state.vehicle.vehicleNumber.toString();
+                              _vehicleCapacityController.text =
+                                  state.vehicle.vehicleCapacity.toString();
+                              // BlocProvider.of<VehicleFormBloc>(context).add(
+                              //   VehicleFormEvent.driverChanged(
+                              //       SelectedVehicleDriver(
+                              //     id: state.vehicle.driver.getOrCrash(),
+                              //     name: '',
+                              //   )),
+                              // );
+                            }
                             if (state.isSaved) {
                               log('Vehicle saved');
                             } else if (state.next && !state.isSaving) {
@@ -199,7 +219,8 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                                           BlocProvider.of<VehicleFormBloc>(
                                                   context)
                                               .add(
-                                            VehicleFormEvent.vehicleCapacityChanged(
+                                            VehicleFormEvent
+                                                .vehicleCapacityChanged(
                                               int.parse(value),
                                             ),
                                           );
@@ -217,7 +238,8 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                                           BlocProvider.of<VehicleFormBloc>(
                                                   context)
                                               .add(
-                                            VehicleFormEvent.vehicleNumberChanged(
+                                            VehicleFormEvent
+                                                .vehicleNumberChanged(
                                               int.parse(value),
                                             ),
                                           );
@@ -233,63 +255,61 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                                         child: const Text('Driver'),
                                       ),
                                       SizedBox(height: 5.h),
-                                        Container(
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(8.sp),
-                                            border: Border.all(
-                                              color: Theme.of(context)
-                                                  .primaryColor,
-                                            ),
-                                          ),
-                                          margin: EdgeInsets.symmetric(
-                                              horizontal: 8.sp),
-                                          padding: EdgeInsets.all(8.sp),
-                                          child: Center(
-                                            child: Column(
-                                              children: [
-                                                if (state
-                                                        .selectedVehicleDriver ==
-                                                    null)
-                                                  const Text(
-                                                      'No driver selected yet!'),
-                                                if (state
-                                                        .selectedVehicleDriver !=
-                                                    null)
-                                                  Text(
-                                                    '${state.selectedVehicleDriver!.name} selected as Driver',
-                                                  ),
-                                                TextButton(
-                                                  onPressed: () async {
-                                                    if (state
-                                                            .selectedVehicleDriver ==
-                                                        null) {
-                                                      await showAddDriverSheet(
-                                                          context);
-                                                      setState(() {});
-                                                    } else {
-                                                      BlocProvider.of<
-                                                                  VehicleFormBloc>(
-                                                              context)
-                                                          .add(VehicleFormEvent
-                                                              .removeDriver(
-                                                        state
-                                                            .selectedVehicleDriver!,
-                                                      ));
-                                                    }
-                                                  },
-                                                  child: Text(
-                                                    state.selectedVehicleDriver !=
-                                                            null
-                                                        ? 'Remove'
-                                                        : 'Select driver',
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
+                                      Container(
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8.sp),
+                                          border: Border.all(
+                                            color:
+                                                Theme.of(context).primaryColor,
                                           ),
                                         ),
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 8.sp),
+                                        padding: EdgeInsets.all(8.sp),
+                                        child: Center(
+                                          child: Column(
+                                            children: [
+                                              if (state.selectedVehicleDriver ==
+                                                  null)
+                                                const Text(
+                                                    'No driver selected yet!'),
+                                              if (state.selectedVehicleDriver !=
+                                                  null)
+                                                Text(
+                                                  '${state.selectedVehicleDriver!.name} selected as Driver',
+                                                ),
+                                              TextButton(
+                                                onPressed: () async {
+                                                  if (state
+                                                          .selectedVehicleDriver ==
+                                                      null) {
+                                                    await showAddDriverSheet(
+                                                        context);
+                                                    setState(() {});
+                                                  } else {
+                                                    BlocProvider.of<
+                                                                VehicleFormBloc>(
+                                                            context)
+                                                        .add(VehicleFormEvent
+                                                            .removeDriver(
+                                                      state
+                                                          .selectedVehicleDriver!,
+                                                    ));
+                                                  }
+                                                },
+                                                child: Text(
+                                                  state.selectedVehicleDriver !=
+                                                          null
+                                                      ? 'Remove'
+                                                      : 'Select driver',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                       SizedBox(height: 15.h),
                                       Padding(
                                         padding: EdgeInsets.symmetric(
@@ -297,23 +317,50 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                                         child: const Text('Users'),
                                       ),
                                       SizedBox(height: 5.h),
-                                        Container(
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(8.sp),
-                                            border: Border.all(
-                                              color: Theme.of(context)
-                                                  .primaryColor,
-                                            ),
+                                      Container(
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8.sp),
+                                          border: Border.all(
+                                            color:
+                                                Theme.of(context).primaryColor,
                                           ),
-                                          margin: EdgeInsets.symmetric(
-                                              horizontal: 8.sp),
-                                          padding: EdgeInsets.all(8.sp),
-                                          child: Visibility(
-                                            visible:
-                                                state.vehicle.users.isNotEmpty,
-                                            replacement: Center(
+                                        ),
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 8.sp),
+                                        padding: EdgeInsets.all(8.sp),
+                                        child: Visibility(
+                                          visible:
+                                              state.vehicle.users!.isNotEmpty &&
+                                                  state.vehicle.userCount == 0,
+                                          replacement: Center(
+                                            child: Visibility(
+                                              visible: !state.isEditing,
+                                              replacement: Column(
+                                                children: [
+                                                  if (state.vehicle.userCount >
+                                                      0)
+                                                    Text(
+                                                      '${state.vehicle.userCount} user${state.vehicle.userCount > 1 ? 's' : ''} added',
+                                                    ),
+                                                  TextButton(
+                                                    onPressed: () async {
+                                                      context.router.push(
+                                                        VehicleUsersRoute(
+                                                          id: state.vehicle.id!,
+                                                        ),
+                                                      );
+                                                    },
+                                                    child: Text(
+                                                      state.vehicle.userCount >
+                                                              0
+                                                          ? 'Manage'
+                                                          : 'Add users',
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                               child: Column(
                                                 children: [
                                                   if (state
@@ -341,56 +388,53 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                                                 ],
                                               ),
                                             ),
-                                            child: Column(
-                                              children: [
-                                                ListView.builder(
-                                                  shrinkWrap: true,
-                                                  itemCount: state
-                                                      .vehicle.users.length,
-                                                  itemBuilder:
-                                                      (context, index) {
-                                                    return Row(
-                                                      children: [
-                                                        Expanded(
-                                                          child: Text(
-                                                            state
-                                                                .vehicle
-                                                                .users[index]
-                                                                .name
-                                                                .getOrCrash(),
-                                                          ),
+                                          ),
+                                          child: Column(
+                                            children: [
+                                              ListView.builder(
+                                                shrinkWrap: true,
+                                                itemCount:
+                                                    state.vehicle.users.length,
+                                                itemBuilder: (context, index) {
+                                                  return Row(
+                                                    children: [
+                                                      Expanded(
+                                                        child: Text(
+                                                          state.vehicle
+                                                              .users[index].name
+                                                              .getOrCrash(),
                                                         ),
-                                                        IconButton(
-                                                          onPressed: () {
-                                                            BlocProvider.of<
-                                                                        VehicleFormBloc>(
-                                                                    context)
-                                                                .add(VehicleFormEvent
-                                                                    .removeUsers(
-                                                              user: state
-                                                                  .vehicle
-                                                                  .users[index],
-                                                            ));
-                                                          },
-                                                          icon: const Icon(
-                                                              Icons.close),
-                                                        ),
-                                                      ],
-                                                    );
-                                                  },
-                                                ),
-                                                TextButton(
-                                                  onPressed: () async {
-                                                    await showAddUsersSheet(
-                                                        context);
-                                                    setState(() {});
-                                                  },
-                                                  child: const Text('Add more'),
-                                                ),
-                                              ],
-                                            ),
+                                                      ),
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          BlocProvider.of<
+                                                                      VehicleFormBloc>(
+                                                                  context)
+                                                              .add(VehicleFormEvent
+                                                                  .removeUsers(
+                                                            user: state.vehicle
+                                                                .users[index],
+                                                          ));
+                                                        },
+                                                        icon: const Icon(
+                                                            Icons.close),
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              ),
+                                              TextButton(
+                                                onPressed: () async {
+                                                  await showAddUsersSheet(
+                                                      context);
+                                                  setState(() {});
+                                                },
+                                                child: const Text('Add more'),
+                                              ),
+                                            ],
                                           ),
                                         ),
+                                      ),
                                       SizedBox(height: 15.h),
                                       Padding(
                                         padding: EdgeInsets.symmetric(

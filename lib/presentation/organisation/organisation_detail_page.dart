@@ -32,7 +32,6 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     _nameController.text = widget.organisation.name.getOrCrash();
     _addressController.text = widget.organisation.address;
     _codeController.text = widget.organisation.code.getOrCrash();
@@ -51,18 +50,8 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
       ),
       body: MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => getIt<VehicleCubit>()
-              // ..getAllOrgVehicles(
-              //   organisationId: widget.organisation.id!,
-              //   pageNumber: 0,
-              // ),
-              ),
-          BlocProvider(create: (context) => getIt<OrganisationUserCubit>()
-              // ..getOrganisationUsers(
-              //   organisationId: widget.organisation.id!,
-              //   pageNumber: 0,
-              // ),
-              ),
+          BlocProvider(create: (context) => getIt<VehicleCubit>()),
+          BlocProvider(create: (context) => getIt<OrganisationUserCubit>()),
         ],
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.0.sp),
@@ -175,6 +164,7 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                                 child: GestureDetector(
                                   onTap: () {
                                     // Navigate to vehicle list screen
+                                    context.router.pushNamed('/vehicle-list');
                                   },
                                   child: const Text(
                                     'Manage',

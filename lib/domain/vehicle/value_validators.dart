@@ -19,12 +19,12 @@ Either<VehicleValueFailure<String>, String> validateVehicleName({
   }
 }
 
-Either<VehicleValueFailure<String>, String> validateVehicleDriver({
-  required String input,
+Either<VehicleValueFailure<Driver>, Driver> validateVehicleDriver({
+  required Driver? input,
   required int maxLength,
 }) {
   // Validation logic for invalid vehicles driver which is not yet decided.
-  if (input.isNotEmpty && input.length < maxLength) {
+  if (input != null && input.id.isNotEmpty && input.name.length < maxLength) {
     return right(input);
   } else {
     return left(
