@@ -229,4 +229,27 @@ class VehicleRepository implements IVehicleRepository {
       return left(const VehicleFailure.addUsersFailed());
     }
   }
+
+  @override
+  Future<Either<VehicleFailure, List<VehicleUser>>> getVehicleUsers({
+    required String vehicleId,
+  }) async {
+    try {
+      final Response response = await dio.get(
+        '/vehicles/getVehicleUsers/$vehicleId',
+      );
+      log(response.data.toString());
+      final List<VehicleUser> vehicleUsers =
+          List<VehicleUser>.from(response.data['data']['users'].map(
+        (el) => VehicleUserDto.fromJson(el).toDomain(),
+      ));
+      return right(vehicleUsers);
+    } on DioException catch (e) {
+      log('Error while getting users of the vehicle: $e');
+      return left(const VehicleFailure.addUsersFailed());
+    } catch (e) {
+      log('Error while getting users of the vehicle: $e');
+      return left(const VehicleFailure.addUsersFailed());
+    }
+  }
 }

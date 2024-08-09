@@ -869,3 +869,178 @@ abstract class _DriverDto extends DriverDto {
   _$$DriverDtoImplCopyWith<_$DriverDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+VehicleUserDto _$VehicleUserDtoFromJson(Map<String, dynamic> json) {
+  return _VehicleUserDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$VehicleUserDto {
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $VehicleUserDtoCopyWith<VehicleUserDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $VehicleUserDtoCopyWith<$Res> {
+  factory $VehicleUserDtoCopyWith(
+          VehicleUserDto value, $Res Function(VehicleUserDto) then) =
+      _$VehicleUserDtoCopyWithImpl<$Res, VehicleUserDto>;
+  @useResult
+  $Res call({String id, String name, String email});
+}
+
+/// @nodoc
+class _$VehicleUserDtoCopyWithImpl<$Res, $Val extends VehicleUserDto>
+    implements $VehicleUserDtoCopyWith<$Res> {
+  _$VehicleUserDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? email = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$VehicleUserDtoImplCopyWith<$Res>
+    implements $VehicleUserDtoCopyWith<$Res> {
+  factory _$$VehicleUserDtoImplCopyWith(_$VehicleUserDtoImpl value,
+          $Res Function(_$VehicleUserDtoImpl) then) =
+      __$$VehicleUserDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id, String name, String email});
+}
+
+/// @nodoc
+class __$$VehicleUserDtoImplCopyWithImpl<$Res>
+    extends _$VehicleUserDtoCopyWithImpl<$Res, _$VehicleUserDtoImpl>
+    implements _$$VehicleUserDtoImplCopyWith<$Res> {
+  __$$VehicleUserDtoImplCopyWithImpl(
+      _$VehicleUserDtoImpl _value, $Res Function(_$VehicleUserDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? email = null,
+  }) {
+    return _then(_$VehicleUserDtoImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$VehicleUserDtoImpl extends _VehicleUserDto {
+  const _$VehicleUserDtoImpl(
+      {required this.id, required this.name, required this.email})
+      : super._();
+
+  factory _$VehicleUserDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VehicleUserDtoImplFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String name;
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'VehicleUserDto(id: $id, name: $name, email: $email)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VehicleUserDtoImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, email);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VehicleUserDtoImplCopyWith<_$VehicleUserDtoImpl> get copyWith =>
+      __$$VehicleUserDtoImplCopyWithImpl<_$VehicleUserDtoImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$VehicleUserDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _VehicleUserDto extends VehicleUserDto {
+  const factory _VehicleUserDto(
+      {required final String id,
+      required final String name,
+      required final String email}) = _$VehicleUserDtoImpl;
+  const _VehicleUserDto._() : super._();
+
+  factory _VehicleUserDto.fromJson(Map<String, dynamic> json) =
+      _$VehicleUserDtoImpl.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get name;
+  @override
+  String get email;
+  @override
+  @JsonKey(ignore: true)
+  _$$VehicleUserDtoImplCopyWith<_$VehicleUserDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

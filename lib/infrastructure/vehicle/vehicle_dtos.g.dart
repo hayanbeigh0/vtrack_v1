@@ -81,3 +81,18 @@ Map<String, dynamic> _$$DriverDtoImplToJson(_$DriverDtoImpl instance) =>
       'id': instance.id,
       'name': instance.name,
     };
+
+_$VehicleUserDtoImpl _$$VehicleUserDtoImplFromJson(Map<String, dynamic> json) =>
+    _$VehicleUserDtoImpl(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      email: json['email'] as String,
+    );
+
+Map<String, dynamic> _$$VehicleUserDtoImplToJson(
+        _$VehicleUserDtoImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'email': instance.email,
+    };

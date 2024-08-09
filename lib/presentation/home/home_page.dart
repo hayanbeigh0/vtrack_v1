@@ -10,6 +10,7 @@ import 'package:vtrack_v1/application/organisation/selected_organisation_bloc/se
 import 'package:vtrack_v1/domain/organisation/organisation.dart';
 import 'package:vtrack_v1/domain/organisation/value_objects.dart';
 import 'package:vtrack_v1/injection.dart';
+import 'package:vtrack_v1/presentation/core/widgets/buttons/floating_action_button.dart';
 import 'package:vtrack_v1/presentation/home/widgets/associated_vehicles_card.dart';
 import 'package:vtrack_v1/presentation/home/widgets/my_organisation_card.dart';
 import 'package:vtrack_v1/presentation/home/widgets/running_vehicles_card.dart';
@@ -136,7 +137,8 @@ class HomePage extends StatelessWidget {
                                               DropdownButton<String>(
                                         isExpanded: true,
                                         value: selectedOrganisation.id,
-                                        items: value.organisations.organisations // When accepting organisation invite, it throws error w.r.t DropdownItems
+                                        items: value.organisations
+                                            .organisations // When accepting organisation invite, it throws error w.r.t DropdownItems
                                             .map(
                                               (el) => DropdownMenuItem<String>(
                                                 value: el.id,
@@ -208,8 +210,11 @@ class HomePage extends StatelessWidget {
                                         MyOrganisationCard(
                                           organisationName:
                                               organisation.name.getOrCrash(),
-                                          totalUsers: organisation.userCount.toString(),
-                                          totalVehicles: organisation.vehicleCount.toString(),
+                                          totalUsers:
+                                              organisation.userCount.toString(),
+                                          totalVehicles: organisation
+                                              .vehicleCount
+                                              .toString(),
                                           onTap: () {
                                             context.router
                                                 .push(OrganisationDetailRoute(
@@ -285,15 +290,8 @@ class HomePage extends StatelessWidget {
             );
           },
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Theme.of(context).primaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(100),
-          ),
-          child: const Icon(
-            Icons.notifications,
-            color: Colors.white,
-          ),
+        floatingActionButton: AppFloatingActionButton(
+          iconData: Icons.notifications,
           onPressed: () {
             context.router.pushNamed('/notifications');
           },

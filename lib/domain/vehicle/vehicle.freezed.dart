@@ -920,3 +920,156 @@ abstract class _Driver implements Driver {
   _$$DriverImplCopyWith<_$DriverImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$VehicleUser {
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $VehicleUserCopyWith<VehicleUser> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $VehicleUserCopyWith<$Res> {
+  factory $VehicleUserCopyWith(
+          VehicleUser value, $Res Function(VehicleUser) then) =
+      _$VehicleUserCopyWithImpl<$Res, VehicleUser>;
+  @useResult
+  $Res call({String id, String name, String email});
+}
+
+/// @nodoc
+class _$VehicleUserCopyWithImpl<$Res, $Val extends VehicleUser>
+    implements $VehicleUserCopyWith<$Res> {
+  _$VehicleUserCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? email = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$VehicleUserImplCopyWith<$Res>
+    implements $VehicleUserCopyWith<$Res> {
+  factory _$$VehicleUserImplCopyWith(
+          _$VehicleUserImpl value, $Res Function(_$VehicleUserImpl) then) =
+      __$$VehicleUserImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id, String name, String email});
+}
+
+/// @nodoc
+class __$$VehicleUserImplCopyWithImpl<$Res>
+    extends _$VehicleUserCopyWithImpl<$Res, _$VehicleUserImpl>
+    implements _$$VehicleUserImplCopyWith<$Res> {
+  __$$VehicleUserImplCopyWithImpl(
+      _$VehicleUserImpl _value, $Res Function(_$VehicleUserImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? email = null,
+  }) {
+    return _then(_$VehicleUserImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VehicleUserImpl implements _VehicleUser {
+  const _$VehicleUserImpl(
+      {required this.id, required this.name, required this.email});
+
+  @override
+  final String id;
+  @override
+  final String name;
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'VehicleUser(id: $id, name: $name, email: $email)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VehicleUserImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, email);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VehicleUserImplCopyWith<_$VehicleUserImpl> get copyWith =>
+      __$$VehicleUserImplCopyWithImpl<_$VehicleUserImpl>(this, _$identity);
+}
+
+abstract class _VehicleUser implements VehicleUser {
+  const factory _VehicleUser(
+      {required final String id,
+      required final String name,
+      required final String email}) = _$VehicleUserImpl;
+
+  @override
+  String get id;
+  @override
+  String get name;
+  @override
+  String get email;
+  @override
+  @JsonKey(ignore: true)
+  _$$VehicleUserImplCopyWith<_$VehicleUserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -57,10 +57,20 @@ class SelectedVehicleDriver with _$SelectedVehicleDriver {
     required String name,
   }) = _SelectedVehicleDriver;
 }
+
 @freezed
 class Driver with _$Driver {
   const factory Driver({
     required String id,
     required String name,
   }) = _Driver;
+}
+
+@freezed
+class VehicleUser with _$VehicleUser {
+  const factory VehicleUser({
+    required String id,
+    required String name,
+    required String email,
+  }) = _VehicleUser;
 }

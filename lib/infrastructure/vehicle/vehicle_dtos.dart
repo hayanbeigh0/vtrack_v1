@@ -145,3 +145,32 @@ class DriverDto with _$DriverDto {
   factory DriverDto.fromJson(Map<String, dynamic> json) =>
       _$DriverDtoFromJson(json);
 }
+
+@freezed
+class VehicleUserDto with _$VehicleUserDto {
+  const VehicleUserDto._();
+  const factory VehicleUserDto({
+    required String id,
+    required String name,
+    required String email,
+  }) = _VehicleUserDto;
+
+  factory VehicleUserDto.fromDomain(VehicleUser vehicleUser) {
+    return VehicleUserDto(
+      id: vehicleUser.id,
+      name: vehicleUser.name,
+      email: vehicleUser.email,
+    );
+  }
+
+  VehicleUser toDomain() {
+    return VehicleUser(
+      id: id,
+      name: name,
+      email: email,
+    );
+  }
+
+  factory VehicleUserDto.fromJson(Map<String, dynamic> json) =>
+      _$VehicleUserDtoFromJson(json);
+}

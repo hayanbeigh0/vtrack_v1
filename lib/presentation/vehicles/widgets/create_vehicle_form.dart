@@ -332,7 +332,7 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                                         padding: EdgeInsets.all(8.sp),
                                         child: Visibility(
                                           visible:
-                                              state.vehicle.users!.isNotEmpty &&
+                                              state.vehicle.users.isNotEmpty &&
                                                   state.vehicle.userCount == 0,
                                           replacement: Center(
                                             child: Visibility(

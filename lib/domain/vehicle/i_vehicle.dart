@@ -4,7 +4,6 @@ import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle_failure.dart';
 
 abstract class IVehicleRepository {
-
   Future<Either<VehicleFailure, Vehicle>> createVehicle({
     required Vehicle vehicle,
   });
@@ -36,5 +35,8 @@ abstract class IVehicleRepository {
   Future<Either<VehicleFailure, Unit>> addVehicleUsers({
     required String vehicleId,
     required List<String> userIds,
+  });
+  Future<Either<VehicleFailure, List<VehicleUser>>> getVehicleUsers({
+    required String vehicleId,
   });
 }
