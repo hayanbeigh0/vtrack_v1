@@ -23,12 +23,6 @@ class VehicleUsersPage extends StatelessWidget {
         ),
       child: Scaffold(
         appBar: defaultAppBar(context: context, title: 'Vehicle users'),
-        floatingActionButton: AppFloatingActionButton(
-          iconData: Icons.add,
-          onPressed: () {
-            // showAddUserSheet()
-          },
-        ),
         body: BlocBuilder<VehicleUsersCubit, VehicleUsersState>(
           builder: (context, state) {
             return state.maybeMap(
@@ -75,8 +69,7 @@ class VehicleUsersPage extends StatelessWidget {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(value.users[index].name
-                                              ),
+                                          Text(value.users[index].name),
                                           Text(
                                             value.users[index].email,
                                           ),
@@ -101,6 +94,12 @@ class VehicleUsersPage extends StatelessWidget {
                 );
               },
             );
+          },
+        ),
+        floatingActionButton: AppFloatingActionButton(
+          iconData: Icons.add,
+          onPressed: () {
+            // showAddUserSheet()
           },
         ),
       ),
