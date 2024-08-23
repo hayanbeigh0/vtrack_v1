@@ -197,9 +197,9 @@ class VehicleRepository implements IVehicleRepository {
         data: VehicleDto.fromDomain(vehicle).toJson(),
       );
       log(response.data.toString());
-      final newVehicle =
-          VehicleDto.fromJson(response.data['data']['data']).toDomain();
-      return right(newVehicle);
+      // final newVehicle =
+      //     VehicleDto.fromJson(response.data['data']['data']).toDomain();
+      return right(vehicle);
     } on DioException catch (e) {
       log('Error while updating the vehicle: $e');
       return left(const VehicleFailure.serverError());
@@ -212,12 +212,12 @@ class VehicleRepository implements IVehicleRepository {
   @override
   Future<Either<VehicleFailure, Unit>> addVehicleUsers({
     required String vehicleId,
-    required List<String> userIds,
+    required String userId,
   }) async {
     try {
       final Response response = await dio.post(
         '/vehicles/addUsersToVehicle/$vehicleId',
-        data: {"userIds": userIds},
+        data: {"userIds": [userId]},
       );
       log(response.data.toString());
       return right(unit);
@@ -229,6 +229,26 @@ class VehicleRepository implements IVehicleRepository {
       return left(const VehicleFailure.addUsersFailed());
     }
   }
+  // @override
+  // Future<Either<VehicleFailure, Unit>> addVehicleUsers({
+  //   required String vehicleId,
+  //   required List<String> userIds,
+  // }) async {
+  //   try {
+  //     final Response response = await dio.post(
+  //       '/vehicles/addUsersToVehicle/$vehicleId',
+  //       data: {"userIds": userIds},
+  //     );
+  //     log(response.data.toString());
+  //     return right(unit);
+  //   } on DioException catch (e) {
+  //     log('Error while adding users the vehicle: $e');
+  //     return left(const VehicleFailure.addUsersFailed());
+  //   } catch (e) {
+  //     log('Error while adding users the vehicle: $e');
+  //     return left(const VehicleFailure.addUsersFailed());
+  //   }
+  // }
 
   @override
   Future<Either<VehicleFailure, List<VehicleUser>>> getVehicleUsers({
@@ -249,6 +269,27 @@ class VehicleRepository implements IVehicleRepository {
       return left(const VehicleFailure.addUsersFailed());
     } catch (e) {
       log('Error while getting users of the vehicle: $e');
+      return left(const VehicleFailure.addUsersFailed());
+    }
+  }
+
+  @override
+  Future<Either<VehicleFailure, Unit>> removeVehicleUser({
+    required String vehicleId,
+    required String userId,
+  }) async {
+    try {
+      final Response response = await dio.post(
+        '/vehicles/removeUserFromVehicle/$vehicleId',
+        data: {"userId": userId},
+      );
+      log(response.data.toString());
+      return right(unit);
+    } on DioException catch (e) {
+      log('Error while adding users the vehicle: $e');
+      return left(const VehicleFailure.addUsersFailed());
+    } catch (e) {
+      log('Error while adding users the vehicle: $e');
       return left(const VehicleFailure.addUsersFailed());
     }
   }

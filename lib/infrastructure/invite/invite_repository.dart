@@ -48,7 +48,7 @@ class InviteRepository implements IInviteRepository {
     try {
       await dio.post(
         '/invite',
-        queryParameters: {
+        data: {
           "userId": userId,
           "organisationId": organisationId,
           "email": email,

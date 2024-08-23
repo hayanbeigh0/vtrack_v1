@@ -24,4 +24,31 @@ class VehicleUsersCubit extends Cubit<VehicleUsersState> {
       (users) => emit(VehicleUsersState.success(users: users)),
     );
   }
+
+  addVehicleUsers({required String vehicleId, required String userId}) async {
+    emit(const VehicleUsersState.loading());
+    final failureOrSuccess = await _iVehicleRepository.addVehicleUsers(
+      vehicleId: vehicleId,
+      userId: userId,
+    );
+    failureOrSuccess.fold(
+      (l) => emit(VehicleUsersState.failed(failure: l)),
+      (users) => getVehicleUsers(vehicleId: vehicleId),
+    );
+  }
+
+  removeVehicleUsers({
+    required String vehicleId,
+    required String userId,
+  }) async {
+    emit(const VehicleUsersState.loading());
+    final failureOrSuccess = await _iVehicleRepository.removeVehicleUser(
+      vehicleId: vehicleId,
+      userId: userId,
+    );
+    failureOrSuccess.fold(
+      (l) => emit(VehicleUsersState.failed(failure: l)),
+      (users) => getVehicleUsers(vehicleId: vehicleId),
+    );
+  }
 }

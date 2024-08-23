@@ -34,7 +34,11 @@ abstract class IVehicleRepository {
   });
   Future<Either<VehicleFailure, Unit>> addVehicleUsers({
     required String vehicleId,
-    required List<String> userIds,
+    required String userId,
+  });
+  Future<Either<VehicleFailure, Unit>> removeVehicleUser({
+    required String vehicleId,
+    required String userId,
   });
   Future<Either<VehicleFailure, List<VehicleUser>>> getVehicleUsers({
     required String vehicleId,

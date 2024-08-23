@@ -23,6 +23,10 @@ class AppRouter extends $AppRouter {
           path: '/vehicle-list',
         ),
         AutoRoute(
+          page: UserListRoute.page,
+          path: '/user-list',
+        ),
+        AutoRoute(
           page: VehicleDetailsRoute.page,
           path: '/vehicle-details',
         ),

@@ -238,6 +238,7 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                                     child: GestureDetector(
                                       onTap: () {
                                         // Navigate to user list screen
+                                        context.router.pushNamed('/user-list');
                                       },
                                       child: const Text(
                                         'Manage',

@@ -2,14 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vtrack_v1/application/organisation/selected_organisation_bloc/selected_organisation_bloc.dart';
-import 'package:vtrack_v1/application/vehicle/vehicle_cubit/vehicle_cubit.dart';
+import 'package:vtrack_v1/application/user/organisation_users/organisation_user_cubit.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets/buttons/floating_action_button.dart';
-import 'package:vtrack_v1/presentation/routes/router.gr.dart';
+import 'package:vtrack_v1/presentation/organisation/widgets/add_users.dart';
 
 @RoutePage()
-class VehicleListPage extends StatelessWidget {
-  const VehicleListPage({
+class UserListPage extends StatelessWidget {
+  const UserListPage({
     super.key,
   });
 
@@ -18,7 +18,7 @@ class VehicleListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Vehicle list',
+          'User list',
           style: Theme.of(context).textTheme.displaySmall,
         ),
       ),
@@ -46,13 +46,33 @@ class VehicleListPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: AppFloatingActionButton(
-        onPressed: () {
-          context.router.pushNamed('/create-vehicle');
+        onPressed: () async {
+          await showAddUsersSheet(
+            context: context,
+            forAllUsers: true,
+          );
         },
         iconData: Icons.add,
       ),
     );
   }
+}
+Future<void> showAddUsersSheet({
+  required BuildContext context,
+  required bool forAllUsers,
+}) async {
+  return await showModalBottomSheet(
+    isScrollControlled: true,
+    context: context,
+    builder: (ctx) {
+      return Center(
+        child: AddUsersToOrg(
+          role: 'user',
+          forAllUsers: forAllUsers,
+        ),
+      );
+    },
+  );
 }
 
 class AppListWidget extends StatelessWidget {
@@ -65,24 +85,27 @@ class AppListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<VehicleCubit>()
-        ..getAllOrgVehicles(organisationId: organisationId, pageNumber: 0),
-      child: BlocBuilder<VehicleCubit, VehicleState>(
+      create: (context) => getIt<OrganisationUserCubit>()
+        ..getOrganisationUsers(
+          organisationId: organisationId,
+          pageNumber: 0,
+        ),
+      child: BlocBuilder<OrganisationUserCubit, OrganisationUserState>(
         builder: (context, state) {
           return state.maybeMap(
             orElse: () => const SizedBox(),
-            allOrgVehicles: (value) {
+            loaded: (value) {
               return ListView.separated(
-                itemCount: value.vehicles.length,
+                itemCount: value.users.length,
                 separatorBuilder: (context, index) => const SizedBox(
                   height: 10,
                 ),
                 itemBuilder: (context, index) {
                   return Container(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color.fromARGB(255, 232, 243, 251),
+                      color: const Color.fromARGB(255, 232, 243, 251),
                     ),
                     child: Row(
                       children: [
@@ -90,22 +113,22 @@ class AppListWidget extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(value.vehicles[index].name.getOrCrash()),
+                              Text(value.users[index].name.getOrCrash()),
                               Text(
-                                value.vehicles[index].route.getOrCrash(),
+                                value.users[index].emailAddress.getOrCrash(),
                               ),
                             ],
                           ),
                         ),
                         TextButton(
                           onPressed: () {
-                            context.router.push(
-                              VehicleDetailsRoute(
-                                vehicle: value.vehicles[index],
-                              ),
-                            );
+                            // context.router.push(
+                            //   VehicleDetailsRoute(
+                            //     vehicle: value.vehicles[index],
+                            //   ),
+                            // );
                           },
-                          child: const Text('View'),
+                          child: const Text('Remove'),
                         ),
                       ],
                     ),

@@ -47,6 +47,7 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
       await event.map(
         initalized: (value) {
           if (value.vehicle != null) {
+            vehiclePickupLocation.addAll(value.vehicle!.pickupLocations);
             emit(state.copyWith(
               vehicle: value.vehicle!,
               isEditing: value.vehicle!.id != null ? true : false,
@@ -156,15 +157,15 @@ class VehicleFormBloc extends Bloc<VehicleFormEvent, VehicleFormState> {
             saveFailureOrSuccessOption: none(),
           ));
         },
-        vehiclePickupLocationsChanged: (value) {
+        vehiclePickupLocationsChanged: (value) async {
           emit(state.copyWith(isSaving: true));
           vehiclePickupLocation.addAll(value.pickupLocations);
           emit(state.copyWith(
             vehicle: state.vehicle.copyWith(
               pickupLocations: vehiclePickupLocation,
             ),
-            isSaving: false,
             saveFailureOrSuccessOption: none(),
+            isSaving:false,
           ));
         },
         removePickupLocation: (value) {

@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,13 +6,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vtrack_v1/application/organisation/selected_organisation_bloc/selected_organisation_bloc.dart';
 import 'package:vtrack_v1/application/user/search_user/search_user_bloc.dart';
 import 'package:vtrack_v1/application/vehicle/vehicle_form_bloc/vehicle_form_bloc.dart';
+import 'package:vtrack_v1/application/vehicle/vehicle_users_cubit/vehicle_users_cubit.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets/app_text_form_field.dart';
+import 'package:vtrack_v1/presentation/core/widgets/spinner_overlay.dart';
 
 class AddUsers extends StatefulWidget {
-  const AddUsers({super.key, required this.role});
+  const AddUsers({
+    super.key,
+    required this.role,
+    this.standAlone = false,
+    this.vehicleId,
+  });
   final String role;
+  final bool standAlone;
+  final String? vehicleId;
 
   @override
   State<AddUsers> createState() => _AddUsersState();
@@ -27,9 +37,18 @@ class _AddUsersState extends State<AddUsers> {
           BlocProvider(
             create: (context) => getIt<SearchUserBloc>(),
           ),
-          BlocProvider.value(
-            value: BlocProvider.of<VehicleFormBloc>(context),
-          ),
+          if (!widget.standAlone)
+            BlocProvider.value(
+              value: BlocProvider.of<VehicleFormBloc>(context),
+            ),
+          if (widget.standAlone)
+            BlocProvider(
+              create: (context) => getIt<VehicleFormBloc>(),
+            ),
+          if (widget.standAlone)
+            BlocProvider(
+              create: (context) => getIt<VehicleUsersCubit>(),
+            ),
         ],
         child: Padding(
           padding: EdgeInsets.only(top: 28.0.h),
@@ -170,7 +189,7 @@ class _AddUsersState extends State<AddUsers> {
                             ],
                           ),
                           const Expanded(child: SizedBox()),
-                          if (widget.role == 'user')
+                          if (widget.role == 'user' && !widget.standAlone)
                             BlocBuilder<VehicleFormBloc, VehicleFormState>(
                               builder: (context, vehicleFormState) {
                                 if (!vehicleFormState.isSaving) {
@@ -203,7 +222,7 @@ class _AddUsersState extends State<AddUsers> {
                                 return const SizedBox();
                               },
                             ),
-                          if (widget.role == 'driver')
+                          if (widget.role == 'driver' && !widget.standAlone)
                             BlocConsumer<VehicleFormBloc, VehicleFormState>(
                               listener: (context, vehicleFormState) {
                                 if (vehicleFormState.selectedVehicleDriver !=
@@ -257,6 +276,43 @@ class _AddUsersState extends State<AddUsers> {
                                   }
                                 }
                                 return const SizedBox();
+                              },
+                            ),
+                          if (widget.role == 'user' &&
+                              widget.standAlone &&
+                              widget.vehicleId != null)
+                            BlocConsumer<VehicleUsersCubit, VehicleUsersState>(
+                              listener: (context, vehicleUsersState) {
+                                vehicleUsersState.mapOrNull(
+                                  success: (value) {
+                                    SpinnerOverlay().hide();
+                                    FlushbarHelper.createSuccess(
+                                      message: 'User added successfully!',
+                                    ).show(context);
+                                    _searchController.clear();
+                                  },
+                                  failed: (value) {
+                                    FlushbarHelper.createError(
+                                      message: 'Adding user failed!',
+                                    ).show(context);
+                                    SpinnerOverlay().hide();
+                                  },
+                                  loading: (value) {
+                                    SpinnerOverlay().show(context);
+                                  },
+                                );
+                              },
+                              builder: (context, vehicleUsersState) {
+                                return TextButton(
+                                  onPressed: () {
+                                    BlocProvider.of<VehicleUsersCubit>(context)
+                                        .addVehicleUsers(
+                                      vehicleId: widget.vehicleId!,
+                                      userId: state.users[index].id,
+                                    );
+                                  },
+                                  child: const Text('Add'),
+                                );
                               },
                             ),
                         ],

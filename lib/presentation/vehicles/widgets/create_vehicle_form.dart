@@ -124,6 +124,9 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                             }
                             if (state.isSaved) {
                               log('Vehicle saved');
+                              FlushbarHelper.createSuccess(
+                                      message: 'Vehicle saved successfully!')
+                                  .show(context);
                             } else if (state.next && !state.isSaving) {
                               context.router.replaceNamed('/create-vehicle');
                             } else {
@@ -375,7 +378,9 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                                                   TextButton(
                                                     onPressed: () async {
                                                       await showAddUsersSheet(
-                                                          context);
+                                                        context: context,
+                                                        forAllUsers: false,
+                                                      );
                                                       setState(() {});
                                                     },
                                                     child: Text(
@@ -426,7 +431,9 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                                               TextButton(
                                                 onPressed: () async {
                                                   await showAddUsersSheet(
-                                                      context);
+                                                    context: context,
+                                                    forAllUsers: false,
+                                                  );
                                                   setState(() {});
                                                 },
                                                 child: const Text('Add more'),
@@ -535,7 +542,8 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
                                           //   const VehicleFormEvent.next(),
                                           // );
                                         },
-                                        buttonText: 'Next',
+                                        buttonText:
+                                            state.isEditing ? 'Save' : 'Next',
                                       ),
                                     ],
                                   ),
@@ -601,7 +609,10 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
     );
   }
 
-  Future<void> showAddUsersSheet(BuildContext context) async {
+  Future<void> showAddUsersSheet({
+    required BuildContext context,
+    required bool forAllUsers,
+  }) async {
     return await showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -611,6 +622,7 @@ class _CreateVehicleFormState extends State<CreateVehicleForm> {
             value: BlocProvider.of<VehicleFormBloc>(context),
             child: const AddUsers(
               role: 'user',
+              standAlone: false,
             ),
           ),
         );
@@ -668,66 +680,39 @@ class PickupPointSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 30.0.h),
-      child: PlacePicker(
-        apiKey: Platform.isAndroid
-            ? "AIzaSyCPX-1fUT1iPwWKjZAIjLFFcpBYNMO4SX0"
-            : "AIzaSyCfvZyO8ByqrEv9LFONctX2fS04ObjTGZE",
-        onPlacePicked: (result) {
-          pickupLocations.add(VehiclePickupLocation(
-            type: 'Point',
-            coordinates: [
-              result.geometry!.location.lat,
-              result.geometry!.location.lng
-            ],
-            name: result.formattedAddress!,
-            address: result.formattedAddress!,
-            description: 'Pickup point',
-          ));
-          BlocProvider.of<VehicleFormBloc>(context).add(
-              VehicleFormEvent.vehiclePickupLocationsChanged(pickupLocations));
-          Navigator.of(context).pop();
-        },
-        initialPosition: currentLocation,
-        useCurrentLocation: true,
-        enableMyLocationButton: true,
-        // automaticallyImplyAppBarLeading: false,
-        selectText: 'Select',
-        onTapBack: () => context.router.popForced(),
-        // selectedPlaceWidgetBuilder:
-        //     (context, selectedPlace, state, isSearchBarFocused) => Positioned(
-        //   bottom: 50,
-        //   right: 0,
-        //   left: 0,
-        //   child: Container(
-        //     margin: EdgeInsets.all(20.sp),
-        //     color: Colors.orange,
-        //     padding: EdgeInsets.all(20.sp),
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       mainAxisSize: MainAxisSize.min,
-        //       children: [
-        //         Text(
-        //           selectedPlace!.formattedAddress!,
-        //         ),
-        //         PrimaryElevatedButton(
-        //           buttonText: 'Add',
-        //           onPressed: () {
-        //             BlocProvider.of<VehicleFormBloc>(context)
-        //                 .add(VehicleFormEvent.vehiclePickupLocationsChanged(
-        //               pickupLocations,
-        //             ));
-        //           },
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
-
-        // resizeToAvoidBottomInset:
-        //     false, // only works in page mode, less flickery, remove if wrong offsets
-      ),
+    return BlocBuilder<VehicleFormBloc, VehicleFormState>(
+      builder: (context, state) {
+        return Padding(
+          padding: EdgeInsets.only(top: 30.0.h),
+          child: PlacePicker(
+            apiKey: Platform.isAndroid
+                ? "AIzaSyBGiL6tvDFee_XBHcrFExHxr5fUrhKH6WM"
+                : "AIzaSyCfvZyO8ByqrEv9LFONctX2fS04ObjTGZE",
+            onPlacePicked: (result) {
+              pickupLocations.add(VehiclePickupLocation(
+                type: 'Point',
+                coordinates: [
+                  result.geometry!.location.lat,
+                  result.geometry!.location.lng
+                ],
+                name: result.formattedAddress!,
+                address: result.formattedAddress!,
+                description: 'Pickup point',
+              ));
+              BlocProvider.of<VehicleFormBloc>(context)
+                  .add(VehicleFormEvent.vehiclePickupLocationsChanged(
+                pickupLocations,
+              ));
+              Navigator.of(context).pop();
+            },
+            initialPosition: currentLocation,
+            useCurrentLocation: true,
+            enableMyLocationButton: true,
+            selectText: 'Select',
+            onTapBack: () => context.router.popForced(),
+          ),
+        );
+      },
     );
   }
 }
