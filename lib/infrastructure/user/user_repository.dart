@@ -255,4 +255,27 @@ class UserRepository extends IUserRepository {
       return left(const UserFailure.serverError());
     }
   }
+
+  @override
+  Future<Either<UserFailure, Unit>> removeOrganisationUser({
+    required String userId,
+    required String organisationId,
+  }) async {
+    try {
+      final Response response = await dio.delete(
+        '/users/orgUsers/$organisationId/$userId',
+      );
+      log(response.data.toString());
+      return right(unit);
+    } on DioException catch (e) {
+      log('Error while getting user by id: $e');
+      if (e.response != null && e.response!.data['errorCode'] == '0001') {
+        return left(const UserFailure.userIsTheOrgOwner());
+      }
+      return left(const UserFailure.serverError());
+    } catch (e) {
+      log(e.toString());
+      return left(const UserFailure.serverError());
+    }
+  }
 }

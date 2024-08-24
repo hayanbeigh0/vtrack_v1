@@ -24,6 +24,7 @@ mixin _$UserFailure {
     required TResult Function() unAuthenticated,
     required TResult Function() unKnownError,
     required TResult Function() logoutErro,
+    required TResult Function() userIsTheOrgOwner,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$UserFailure {
     TResult? Function()? unAuthenticated,
     TResult? Function()? unKnownError,
     TResult? Function()? logoutErro,
+    TResult? Function()? userIsTheOrgOwner,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$UserFailure {
     TResult Function()? unAuthenticated,
     TResult Function()? unKnownError,
     TResult Function()? logoutErro,
+    TResult Function()? userIsTheOrgOwner,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$UserFailure {
     required TResult Function(UnAuthenticated value) unAuthenticated,
     required TResult Function(UnKnownError value) unKnownError,
     required TResult Function(LogourError value) logoutErro,
+    required TResult Function(UserIsTheOrgOwner value) userIsTheOrgOwner,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$UserFailure {
     TResult? Function(UnAuthenticated value)? unAuthenticated,
     TResult? Function(UnKnownError value)? unKnownError,
     TResult? Function(LogourError value)? logoutErro,
+    TResult? Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$UserFailure {
     TResult Function(UnAuthenticated value)? unAuthenticated,
     TResult Function(UnKnownError value)? unKnownError,
     TResult Function(LogourError value)? logoutErro,
+    TResult Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +148,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     required TResult Function() unAuthenticated,
     required TResult Function() unKnownError,
     required TResult Function() logoutErro,
+    required TResult Function() userIsTheOrgOwner,
   }) {
     return cancelledByUser();
   }
@@ -155,6 +162,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult? Function()? unAuthenticated,
     TResult? Function()? unKnownError,
     TResult? Function()? logoutErro,
+    TResult? Function()? userIsTheOrgOwner,
   }) {
     return cancelledByUser?.call();
   }
@@ -168,6 +176,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult Function()? unAuthenticated,
     TResult Function()? unKnownError,
     TResult Function()? logoutErro,
+    TResult Function()? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -185,6 +194,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     required TResult Function(UnAuthenticated value) unAuthenticated,
     required TResult Function(UnKnownError value) unKnownError,
     required TResult Function(LogourError value) logoutErro,
+    required TResult Function(UserIsTheOrgOwner value) userIsTheOrgOwner,
   }) {
     return cancelledByUser(this);
   }
@@ -198,6 +208,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult? Function(UnAuthenticated value)? unAuthenticated,
     TResult? Function(UnKnownError value)? unKnownError,
     TResult? Function(LogourError value)? logoutErro,
+    TResult? Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -211,6 +222,7 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult Function(UnAuthenticated value)? unAuthenticated,
     TResult Function(UnKnownError value)? unKnownError,
     TResult Function(LogourError value)? logoutErro,
+    TResult Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -268,6 +280,7 @@ class _$ServerErrorImpl implements ServerError {
     required TResult Function() unAuthenticated,
     required TResult Function() unKnownError,
     required TResult Function() logoutErro,
+    required TResult Function() userIsTheOrgOwner,
   }) {
     return serverError();
   }
@@ -281,6 +294,7 @@ class _$ServerErrorImpl implements ServerError {
     TResult? Function()? unAuthenticated,
     TResult? Function()? unKnownError,
     TResult? Function()? logoutErro,
+    TResult? Function()? userIsTheOrgOwner,
   }) {
     return serverError?.call();
   }
@@ -294,6 +308,7 @@ class _$ServerErrorImpl implements ServerError {
     TResult Function()? unAuthenticated,
     TResult Function()? unKnownError,
     TResult Function()? logoutErro,
+    TResult Function()? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -311,6 +326,7 @@ class _$ServerErrorImpl implements ServerError {
     required TResult Function(UnAuthenticated value) unAuthenticated,
     required TResult Function(UnKnownError value) unKnownError,
     required TResult Function(LogourError value) logoutErro,
+    required TResult Function(UserIsTheOrgOwner value) userIsTheOrgOwner,
   }) {
     return serverError(this);
   }
@@ -324,6 +340,7 @@ class _$ServerErrorImpl implements ServerError {
     TResult? Function(UnAuthenticated value)? unAuthenticated,
     TResult? Function(UnKnownError value)? unKnownError,
     TResult? Function(LogourError value)? logoutErro,
+    TResult? Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
   }) {
     return serverError?.call(this);
   }
@@ -337,6 +354,7 @@ class _$ServerErrorImpl implements ServerError {
     TResult Function(UnAuthenticated value)? unAuthenticated,
     TResult Function(UnKnownError value)? unKnownError,
     TResult Function(LogourError value)? logoutErro,
+    TResult Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -394,6 +412,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function() unAuthenticated,
     required TResult Function() unKnownError,
     required TResult Function() logoutErro,
+    required TResult Function() userIsTheOrgOwner,
   }) {
     return userNotFound();
   }
@@ -407,6 +426,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function()? unAuthenticated,
     TResult? Function()? unKnownError,
     TResult? Function()? logoutErro,
+    TResult? Function()? userIsTheOrgOwner,
   }) {
     return userNotFound?.call();
   }
@@ -420,6 +440,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function()? unAuthenticated,
     TResult Function()? unKnownError,
     TResult Function()? logoutErro,
+    TResult Function()? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -437,6 +458,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function(UnAuthenticated value) unAuthenticated,
     required TResult Function(UnKnownError value) unKnownError,
     required TResult Function(LogourError value) logoutErro,
+    required TResult Function(UserIsTheOrgOwner value) userIsTheOrgOwner,
   }) {
     return userNotFound(this);
   }
@@ -450,6 +472,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function(UnAuthenticated value)? unAuthenticated,
     TResult? Function(UnKnownError value)? unKnownError,
     TResult? Function(LogourError value)? logoutErro,
+    TResult? Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
   }) {
     return userNotFound?.call(this);
   }
@@ -463,6 +486,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function(UnAuthenticated value)? unAuthenticated,
     TResult Function(UnKnownError value)? unKnownError,
     TResult Function(LogourError value)? logoutErro,
+    TResult Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -520,6 +544,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     required TResult Function() unAuthenticated,
     required TResult Function() unKnownError,
     required TResult Function() logoutErro,
+    required TResult Function() userIsTheOrgOwner,
   }) {
     return unAuthenticated();
   }
@@ -533,6 +558,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     TResult? Function()? unAuthenticated,
     TResult? Function()? unKnownError,
     TResult? Function()? logoutErro,
+    TResult? Function()? userIsTheOrgOwner,
   }) {
     return unAuthenticated?.call();
   }
@@ -546,6 +572,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     TResult Function()? unAuthenticated,
     TResult Function()? unKnownError,
     TResult Function()? logoutErro,
+    TResult Function()? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (unAuthenticated != null) {
@@ -563,6 +590,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     required TResult Function(UnAuthenticated value) unAuthenticated,
     required TResult Function(UnKnownError value) unKnownError,
     required TResult Function(LogourError value) logoutErro,
+    required TResult Function(UserIsTheOrgOwner value) userIsTheOrgOwner,
   }) {
     return unAuthenticated(this);
   }
@@ -576,6 +604,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     TResult? Function(UnAuthenticated value)? unAuthenticated,
     TResult? Function(UnKnownError value)? unKnownError,
     TResult? Function(LogourError value)? logoutErro,
+    TResult? Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
   }) {
     return unAuthenticated?.call(this);
   }
@@ -589,6 +618,7 @@ class _$UnAuthenticatedImpl implements UnAuthenticated {
     TResult Function(UnAuthenticated value)? unAuthenticated,
     TResult Function(UnKnownError value)? unKnownError,
     TResult Function(LogourError value)? logoutErro,
+    TResult Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (unAuthenticated != null) {
@@ -646,6 +676,7 @@ class _$UnKnownErrorImpl implements UnKnownError {
     required TResult Function() unAuthenticated,
     required TResult Function() unKnownError,
     required TResult Function() logoutErro,
+    required TResult Function() userIsTheOrgOwner,
   }) {
     return unKnownError();
   }
@@ -659,6 +690,7 @@ class _$UnKnownErrorImpl implements UnKnownError {
     TResult? Function()? unAuthenticated,
     TResult? Function()? unKnownError,
     TResult? Function()? logoutErro,
+    TResult? Function()? userIsTheOrgOwner,
   }) {
     return unKnownError?.call();
   }
@@ -672,6 +704,7 @@ class _$UnKnownErrorImpl implements UnKnownError {
     TResult Function()? unAuthenticated,
     TResult Function()? unKnownError,
     TResult Function()? logoutErro,
+    TResult Function()? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (unKnownError != null) {
@@ -689,6 +722,7 @@ class _$UnKnownErrorImpl implements UnKnownError {
     required TResult Function(UnAuthenticated value) unAuthenticated,
     required TResult Function(UnKnownError value) unKnownError,
     required TResult Function(LogourError value) logoutErro,
+    required TResult Function(UserIsTheOrgOwner value) userIsTheOrgOwner,
   }) {
     return unKnownError(this);
   }
@@ -702,6 +736,7 @@ class _$UnKnownErrorImpl implements UnKnownError {
     TResult? Function(UnAuthenticated value)? unAuthenticated,
     TResult? Function(UnKnownError value)? unKnownError,
     TResult? Function(LogourError value)? logoutErro,
+    TResult? Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
   }) {
     return unKnownError?.call(this);
   }
@@ -715,6 +750,7 @@ class _$UnKnownErrorImpl implements UnKnownError {
     TResult Function(UnAuthenticated value)? unAuthenticated,
     TResult Function(UnKnownError value)? unKnownError,
     TResult Function(LogourError value)? logoutErro,
+    TResult Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (unKnownError != null) {
@@ -772,6 +808,7 @@ class _$LogourErrorImpl implements LogourError {
     required TResult Function() unAuthenticated,
     required TResult Function() unKnownError,
     required TResult Function() logoutErro,
+    required TResult Function() userIsTheOrgOwner,
   }) {
     return logoutErro();
   }
@@ -785,6 +822,7 @@ class _$LogourErrorImpl implements LogourError {
     TResult? Function()? unAuthenticated,
     TResult? Function()? unKnownError,
     TResult? Function()? logoutErro,
+    TResult? Function()? userIsTheOrgOwner,
   }) {
     return logoutErro?.call();
   }
@@ -798,6 +836,7 @@ class _$LogourErrorImpl implements LogourError {
     TResult Function()? unAuthenticated,
     TResult Function()? unKnownError,
     TResult Function()? logoutErro,
+    TResult Function()? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (logoutErro != null) {
@@ -815,6 +854,7 @@ class _$LogourErrorImpl implements LogourError {
     required TResult Function(UnAuthenticated value) unAuthenticated,
     required TResult Function(UnKnownError value) unKnownError,
     required TResult Function(LogourError value) logoutErro,
+    required TResult Function(UserIsTheOrgOwner value) userIsTheOrgOwner,
   }) {
     return logoutErro(this);
   }
@@ -828,6 +868,7 @@ class _$LogourErrorImpl implements LogourError {
     TResult? Function(UnAuthenticated value)? unAuthenticated,
     TResult? Function(UnKnownError value)? unKnownError,
     TResult? Function(LogourError value)? logoutErro,
+    TResult? Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
   }) {
     return logoutErro?.call(this);
   }
@@ -841,6 +882,7 @@ class _$LogourErrorImpl implements LogourError {
     TResult Function(UnAuthenticated value)? unAuthenticated,
     TResult Function(UnKnownError value)? unKnownError,
     TResult Function(LogourError value)? logoutErro,
+    TResult Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
     required TResult orElse(),
   }) {
     if (logoutErro != null) {
@@ -852,4 +894,136 @@ class _$LogourErrorImpl implements LogourError {
 
 abstract class LogourError implements UserFailure {
   const factory LogourError() = _$LogourErrorImpl;
+}
+
+/// @nodoc
+abstract class _$$UserIsTheOrgOwnerImplCopyWith<$Res> {
+  factory _$$UserIsTheOrgOwnerImplCopyWith(_$UserIsTheOrgOwnerImpl value,
+          $Res Function(_$UserIsTheOrgOwnerImpl) then) =
+      __$$UserIsTheOrgOwnerImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserIsTheOrgOwnerImplCopyWithImpl<$Res>
+    extends _$UserFailureCopyWithImpl<$Res, _$UserIsTheOrgOwnerImpl>
+    implements _$$UserIsTheOrgOwnerImplCopyWith<$Res> {
+  __$$UserIsTheOrgOwnerImplCopyWithImpl(_$UserIsTheOrgOwnerImpl _value,
+      $Res Function(_$UserIsTheOrgOwnerImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserIsTheOrgOwnerImpl implements UserIsTheOrgOwner {
+  const _$UserIsTheOrgOwnerImpl();
+
+  @override
+  String toString() {
+    return 'UserFailure.userIsTheOrgOwner()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UserIsTheOrgOwnerImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() userNotFound,
+    required TResult Function() unAuthenticated,
+    required TResult Function() unKnownError,
+    required TResult Function() logoutErro,
+    required TResult Function() userIsTheOrgOwner,
+  }) {
+    return userIsTheOrgOwner();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? userNotFound,
+    TResult? Function()? unAuthenticated,
+    TResult? Function()? unKnownError,
+    TResult? Function()? logoutErro,
+    TResult? Function()? userIsTheOrgOwner,
+  }) {
+    return userIsTheOrgOwner?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? userNotFound,
+    TResult Function()? unAuthenticated,
+    TResult Function()? unKnownError,
+    TResult Function()? logoutErro,
+    TResult Function()? userIsTheOrgOwner,
+    required TResult orElse(),
+  }) {
+    if (userIsTheOrgOwner != null) {
+      return userIsTheOrgOwner();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(UnKnownError value) unKnownError,
+    required TResult Function(LogourError value) logoutErro,
+    required TResult Function(UserIsTheOrgOwner value) userIsTheOrgOwner,
+  }) {
+    return userIsTheOrgOwner(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(UnAuthenticated value)? unAuthenticated,
+    TResult? Function(UnKnownError value)? unKnownError,
+    TResult? Function(LogourError value)? logoutErro,
+    TResult? Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
+  }) {
+    return userIsTheOrgOwner?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(UnKnownError value)? unKnownError,
+    TResult Function(LogourError value)? logoutErro,
+    TResult Function(UserIsTheOrgOwner value)? userIsTheOrgOwner,
+    required TResult orElse(),
+  }) {
+    if (userIsTheOrgOwner != null) {
+      return userIsTheOrgOwner(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserIsTheOrgOwner implements UserFailure {
+  const factory UserIsTheOrgOwner() = _$UserIsTheOrgOwnerImpl;
 }

@@ -4,8 +4,9 @@ part of 'organisation_user_cubit.dart';
 class OrganisationUserState with _$OrganisationUserState {
   const factory OrganisationUserState.initial() = _Initial;
   const factory OrganisationUserState.loading() = _Loading;
-  const factory OrganisationUserState.loaded({required List<User> users}) =
-      _Loaded;
+  const factory OrganisationUserState.loaded({required List<User> users}) = _Loaded;
+  const factory OrganisationUserState.removeOrganisationUserSuccess() =
+      _RemoveOrganisationUserSuccess;
   const factory OrganisationUserState.failed({
     required UserFailure failure,
   }) = _Failed;

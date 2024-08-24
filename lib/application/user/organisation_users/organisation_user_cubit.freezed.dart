@@ -21,6 +21,7 @@ mixin _$OrganisationUserState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
+    required TResult Function() removeOrganisationUserSuccess,
     required TResult Function(UserFailure failure) failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$OrganisationUserState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<User> users)? loaded,
+    TResult? Function()? removeOrganisationUserSuccess,
     TResult? Function(UserFailure failure)? failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$OrganisationUserState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? removeOrganisationUserSuccess,
     TResult Function(UserFailure failure)? failed,
     required TResult orElse(),
   }) =>
@@ -46,6 +49,8 @@ mixin _$OrganisationUserState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_RemoveOrganisationUserSuccess value)
+        removeOrganisationUserSuccess,
     required TResult Function(_Failed value) failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +59,8 @@ mixin _$OrganisationUserState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
     TResult? Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +69,8 @@ mixin _$OrganisationUserState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) =>
@@ -128,6 +137,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
+    required TResult Function() removeOrganisationUserSuccess,
     required TResult Function(UserFailure failure) failed,
   }) {
     return initial();
@@ -139,6 +149,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<User> users)? loaded,
+    TResult? Function()? removeOrganisationUserSuccess,
     TResult? Function(UserFailure failure)? failed,
   }) {
     return initial?.call();
@@ -150,6 +161,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? removeOrganisationUserSuccess,
     TResult Function(UserFailure failure)? failed,
     required TResult orElse(),
   }) {
@@ -165,6 +177,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_RemoveOrganisationUserSuccess value)
+        removeOrganisationUserSuccess,
     required TResult Function(_Failed value) failed,
   }) {
     return initial(this);
@@ -176,6 +190,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
     TResult? Function(_Failed value)? failed,
   }) {
     return initial?.call(this);
@@ -187,6 +203,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -242,6 +260,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
+    required TResult Function() removeOrganisationUserSuccess,
     required TResult Function(UserFailure failure) failed,
   }) {
     return loading();
@@ -253,6 +272,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<User> users)? loaded,
+    TResult? Function()? removeOrganisationUserSuccess,
     TResult? Function(UserFailure failure)? failed,
   }) {
     return loading?.call();
@@ -264,6 +284,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? removeOrganisationUserSuccess,
     TResult Function(UserFailure failure)? failed,
     required TResult orElse(),
   }) {
@@ -279,6 +300,8 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_RemoveOrganisationUserSuccess value)
+        removeOrganisationUserSuccess,
     required TResult Function(_Failed value) failed,
   }) {
     return loading(this);
@@ -290,6 +313,8 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
     TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
@@ -301,6 +326,8 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -388,6 +415,7 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
+    required TResult Function() removeOrganisationUserSuccess,
     required TResult Function(UserFailure failure) failed,
   }) {
     return loaded(users);
@@ -399,6 +427,7 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<User> users)? loaded,
+    TResult? Function()? removeOrganisationUserSuccess,
     TResult? Function(UserFailure failure)? failed,
   }) {
     return loaded?.call(users);
@@ -410,6 +439,7 @@ class _$LoadedImpl implements _Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? removeOrganisationUserSuccess,
     TResult Function(UserFailure failure)? failed,
     required TResult orElse(),
   }) {
@@ -425,6 +455,8 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_RemoveOrganisationUserSuccess value)
+        removeOrganisationUserSuccess,
     required TResult Function(_Failed value) failed,
   }) {
     return loaded(this);
@@ -436,6 +468,8 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
     TResult? Function(_Failed value)? failed,
   }) {
     return loaded?.call(this);
@@ -447,6 +481,8 @@ class _$LoadedImpl implements _Loaded {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -464,6 +500,135 @@ abstract class _Loaded implements OrganisationUserState {
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveOrganisationUserSuccessImplCopyWith<$Res> {
+  factory _$$RemoveOrganisationUserSuccessImplCopyWith(
+          _$RemoveOrganisationUserSuccessImpl value,
+          $Res Function(_$RemoveOrganisationUserSuccessImpl) then) =
+      __$$RemoveOrganisationUserSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RemoveOrganisationUserSuccessImplCopyWithImpl<$Res>
+    extends _$OrganisationUserStateCopyWithImpl<$Res,
+        _$RemoveOrganisationUserSuccessImpl>
+    implements _$$RemoveOrganisationUserSuccessImplCopyWith<$Res> {
+  __$$RemoveOrganisationUserSuccessImplCopyWithImpl(
+      _$RemoveOrganisationUserSuccessImpl _value,
+      $Res Function(_$RemoveOrganisationUserSuccessImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RemoveOrganisationUserSuccessImpl
+    implements _RemoveOrganisationUserSuccess {
+  const _$RemoveOrganisationUserSuccessImpl();
+
+  @override
+  String toString() {
+    return 'OrganisationUserState.removeOrganisationUserSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveOrganisationUserSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) loaded,
+    required TResult Function() removeOrganisationUserSuccess,
+    required TResult Function(UserFailure failure) failed,
+  }) {
+    return removeOrganisationUserSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<User> users)? loaded,
+    TResult? Function()? removeOrganisationUserSuccess,
+    TResult? Function(UserFailure failure)? failed,
+  }) {
+    return removeOrganisationUserSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? loaded,
+    TResult Function()? removeOrganisationUserSuccess,
+    TResult Function(UserFailure failure)? failed,
+    required TResult orElse(),
+  }) {
+    if (removeOrganisationUserSuccess != null) {
+      return removeOrganisationUserSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_RemoveOrganisationUserSuccess value)
+        removeOrganisationUserSuccess,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return removeOrganisationUserSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
+    TResult? Function(_Failed value)? failed,
+  }) {
+    return removeOrganisationUserSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (removeOrganisationUserSuccess != null) {
+      return removeOrganisationUserSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveOrganisationUserSuccess implements OrganisationUserState {
+  const factory _RemoveOrganisationUserSuccess() =
+      _$RemoveOrganisationUserSuccessImpl;
 }
 
 /// @nodoc
@@ -543,6 +708,7 @@ class _$FailedImpl implements _Failed {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
+    required TResult Function() removeOrganisationUserSuccess,
     required TResult Function(UserFailure failure) failed,
   }) {
     return failed(failure);
@@ -554,6 +720,7 @@ class _$FailedImpl implements _Failed {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<User> users)? loaded,
+    TResult? Function()? removeOrganisationUserSuccess,
     TResult? Function(UserFailure failure)? failed,
   }) {
     return failed?.call(failure);
@@ -565,6 +732,7 @@ class _$FailedImpl implements _Failed {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
+    TResult Function()? removeOrganisationUserSuccess,
     TResult Function(UserFailure failure)? failed,
     required TResult orElse(),
   }) {
@@ -580,6 +748,8 @@ class _$FailedImpl implements _Failed {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_RemoveOrganisationUserSuccess value)
+        removeOrganisationUserSuccess,
     required TResult Function(_Failed value) failed,
   }) {
     return failed(this);
@@ -591,6 +761,8 @@ class _$FailedImpl implements _Failed {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
     TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
@@ -602,6 +774,8 @@ class _$FailedImpl implements _Failed {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_RemoveOrganisationUserSuccess value)?
+        removeOrganisationUserSuccess,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {

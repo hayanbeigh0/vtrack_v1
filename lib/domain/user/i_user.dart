@@ -16,6 +16,10 @@ abstract class IUserRepository {
     required String organisationId,
     required int pageNumber,
   });
+  Future<Either<UserFailure, Unit>> removeOrganisationUser({
+    required String userId,
+    required String organisationId,
+  });
   Future<Either<UserFailure, User>> getUserById({
     required String userId,
   });

@@ -86,7 +86,7 @@ class HomePage extends StatelessWidget {
               failure: (value) => Center(
                 child: Text(
                   value
-                      .map(
+                      .mapOrNull(
                         logoutErro: (value) =>
                             'Could not logout due to some reason!',
                         cancelledByUser: (value) => '',

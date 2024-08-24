@@ -30,4 +30,35 @@ class OrganisationUserCubit extends Cubit<OrganisationUserState> {
       (users) => emit(OrganisationUserState.loaded(users: users)),
     );
   }
+
+  removeUserFromOrganisation({
+    required String userId,
+    required String organisationId,
+    required List<User> users,
+  }) async {
+    emit(const OrganisationUserState.loading());
+    Either<UserFailure, Unit> failureOrSuccessOption =
+        await _userRepository.removeOrganisationUser(
+      organisationId: organisationId,
+      userId: userId,
+    );
+    failureOrSuccessOption.fold(
+      (failure) => emit(OrganisationUserState.failed(failure: failure)),
+      (_) => emit(
+        const OrganisationUserState.removeOrganisationUserSuccess(),
+      ),
+    );
+    if (failureOrSuccessOption.isLeft()) {
+      emit(OrganisationUserState.loaded(users: users));
+    } else {
+      // Create a modifiable copy of the list
+      List<User> modifiableUserList = List<User>.from(users);
+
+      // Remove the user from the modifiable list
+      modifiableUserList.removeWhere((user) => user.id == userId);
+
+      // Emit the new state with the updated list
+      emit(OrganisationUserState.loaded(users: modifiableUserList));
+    }
+  }
 }
