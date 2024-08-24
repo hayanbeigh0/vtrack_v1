@@ -28,103 +28,6 @@ import 'package:vtrack_v1/presentation/vehicles/vehicle_details.dart' as _i10;
 import 'package:vtrack_v1/presentation/vehicles/vehicle_list.dart' as _i11;
 import 'package:vtrack_v1/presentation/vehicles/vehicle_users.dart' as _i12;
 
-abstract class $AppRouter extends _i13.RootStackRouter {
-  $AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, _i13.PageFactory> pagesMap = {
-    CreateOrganisation.name: (routeData) {
-      final args = routeData.argsAs<CreateOrganisationArgs>(
-          orElse: () => const CreateOrganisationArgs());
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i1.CreateOrganisation(
-          key: args.key,
-          organisation: args.organisation,
-        ),
-      );
-    },
-    CreateVehicleRoute.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i2.CreateVehiclePage(),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i3.HomePage(),
-      );
-    },
-    NotificationsRoute.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i4.NotificationsPage(),
-      );
-    },
-    OrganisationDetailRoute.name: (routeData) {
-      final args = routeData.argsAs<OrganisationDetailRouteArgs>();
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i5.OrganisationDetailPage(
-          key: args.key,
-          organisation: args.organisation,
-        ),
-      );
-    },
-    SettingsRoute.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i6.SettingsPage(),
-      );
-    },
-    SigninRoute.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i7.SigninPage(),
-      );
-    },
-    SplashRoute.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i8.SplashPage(),
-      );
-    },
-    UserListRoute.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i9.UserListPage(),
-      );
-    },
-    VehicleDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<VehicleDetailsRouteArgs>();
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i10.VehicleDetailsPage(
-          key: args.key,
-          vehicle: args.vehicle,
-        ),
-      );
-    },
-    VehicleListRoute.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i11.VehicleListPage(),
-      );
-    },
-    VehicleUsersRoute.name: (routeData) {
-      final args = routeData.argsAs<VehicleUsersRouteArgs>();
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i12.VehicleUsersPage(
-          key: args.key,
-          id: args.id,
-        ),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [_i1.CreateOrganisation]
 class CreateOrganisation extends _i13.PageRouteInfo<CreateOrganisationArgs> {
@@ -143,8 +46,17 @@ class CreateOrganisation extends _i13.PageRouteInfo<CreateOrganisationArgs> {
 
   static const String name = 'CreateOrganisation';
 
-  static const _i13.PageInfo<CreateOrganisationArgs> page =
-      _i13.PageInfo<CreateOrganisationArgs>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<CreateOrganisationArgs>(
+          orElse: () => const CreateOrganisationArgs());
+      return _i1.CreateOrganisation(
+        key: args.key,
+        organisation: args.organisation,
+      );
+    },
+  );
 }
 
 class CreateOrganisationArgs {
@@ -174,7 +86,12 @@ class CreateVehicleRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'CreateVehicleRoute';
 
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      return const _i2.CreateVehiclePage();
+    },
+  );
 }
 
 /// generated route for
@@ -188,7 +105,12 @@ class HomeRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      return const _i3.HomePage();
+    },
+  );
 }
 
 /// generated route for
@@ -202,7 +124,12 @@ class NotificationsRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'NotificationsRoute';
 
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      return const _i4.NotificationsPage();
+    },
+  );
 }
 
 /// generated route for
@@ -224,8 +151,16 @@ class OrganisationDetailRoute
 
   static const String name = 'OrganisationDetailRoute';
 
-  static const _i13.PageInfo<OrganisationDetailRouteArgs> page =
-      _i13.PageInfo<OrganisationDetailRouteArgs>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<OrganisationDetailRouteArgs>();
+      return _i5.OrganisationDetailPage(
+        key: args.key,
+        organisation: args.organisation,
+      );
+    },
+  );
 }
 
 class OrganisationDetailRouteArgs {
@@ -255,7 +190,12 @@ class SettingsRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'SettingsRoute';
 
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      return const _i6.SettingsPage();
+    },
+  );
 }
 
 /// generated route for
@@ -269,7 +209,12 @@ class SigninRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'SigninRoute';
 
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      return const _i7.SigninPage();
+    },
+  );
 }
 
 /// generated route for
@@ -283,7 +228,12 @@ class SplashRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'SplashRoute';
 
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      return const _i8.SplashPage();
+    },
+  );
 }
 
 /// generated route for
@@ -297,7 +247,12 @@ class UserListRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'UserListRoute';
 
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      return const _i9.UserListPage();
+    },
+  );
 }
 
 /// generated route for
@@ -318,8 +273,16 @@ class VehicleDetailsRoute extends _i13.PageRouteInfo<VehicleDetailsRouteArgs> {
 
   static const String name = 'VehicleDetailsRoute';
 
-  static const _i13.PageInfo<VehicleDetailsRouteArgs> page =
-      _i13.PageInfo<VehicleDetailsRouteArgs>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<VehicleDetailsRouteArgs>();
+      return _i10.VehicleDetailsPage(
+        key: args.key,
+        vehicle: args.vehicle,
+      );
+    },
+  );
 }
 
 class VehicleDetailsRouteArgs {
@@ -349,7 +312,12 @@ class VehicleListRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'VehicleListRoute';
 
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      return const _i11.VehicleListPage();
+    },
+  );
 }
 
 /// generated route for
@@ -370,8 +338,16 @@ class VehicleUsersRoute extends _i13.PageRouteInfo<VehicleUsersRouteArgs> {
 
   static const String name = 'VehicleUsersRoute';
 
-  static const _i13.PageInfo<VehicleUsersRouteArgs> page =
-      _i13.PageInfo<VehicleUsersRouteArgs>(name);
+  static _i13.PageInfo page = _i13.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<VehicleUsersRouteArgs>();
+      return _i12.VehicleUsersPage(
+        key: args.key,
+        id: args.id,
+      );
+    },
+  );
 }
 
 class VehicleUsersRouteArgs {
