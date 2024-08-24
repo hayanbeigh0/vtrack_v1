@@ -193,7 +193,7 @@ class _AddUsersState extends State<AddUsers> {
                             BlocBuilder<VehicleFormBloc, VehicleFormState>(
                               builder: (context, vehicleFormState) {
                                 if (!vehicleFormState.isSaving) {
-                                  if (vehicleFormState.vehicle.users!.any(
+                                  if (vehicleFormState.vehicle.users.any(
                                       (el) => el.id == state.users[index].id)) {
                                     return TextButton(
                                       onPressed: () {
