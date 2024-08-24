@@ -47,10 +47,12 @@ class HomePage extends StatelessWidget {
           listener: (context, state) {
             state.maybeWhen(
               success: (user) {
-                BlocProvider.of<SelectedOrganisationBloc>(context)
-                    .add(SelectedOrganisationEvent.selectOrganisation(
-                  id: user.organisations.organisations.first.id!,
-                ));
+                if (user.organisations.organisations.isNotEmpty) {
+                  BlocProvider.of<SelectedOrganisationBloc>(context)
+                      .add(SelectedOrganisationEvent.selectOrganisation(
+                    id: user.organisations.organisations.first.id!,
+                  ));
+                }
               },
               orElse: () {
                 log(
@@ -79,7 +81,7 @@ class HomePage extends StatelessWidget {
           builder: (context, state) {
             return state.maybeWhen(
               orElse: () => const Center(
-                child: Text('Something went wrong!'),
+                child: Text('Something went very wrong!'),
               ),
               failure: (value) => Center(
                 child: Text(
