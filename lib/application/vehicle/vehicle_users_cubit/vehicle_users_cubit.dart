@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:vtrack_v1/domain/user/user.dart';
 import 'package:vtrack_v1/domain/vehicle/i_vehicle.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
 import 'package:vtrack_v1/domain/vehicle/vehicle_failure.dart';

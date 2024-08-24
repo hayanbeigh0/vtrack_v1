@@ -79,10 +79,10 @@ class AppListWidget extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   return Container(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color.fromARGB(255, 232, 243, 251),
+                      color: const Color.fromARGB(255, 232, 243, 251),
                     ),
                     child: Row(
                       children: [
