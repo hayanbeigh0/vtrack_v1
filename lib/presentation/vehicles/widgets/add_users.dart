@@ -1,4 +1,3 @@
-import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,10 +6,10 @@ import 'package:vtrack_v1/application/organisation/selected_organisation_bloc/se
 import 'package:vtrack_v1/application/user/search_user/search_user_bloc.dart';
 import 'package:vtrack_v1/application/vehicle/vehicle_form_bloc/vehicle_form_bloc.dart';
 import 'package:vtrack_v1/application/vehicle/vehicle_users_cubit/vehicle_users_cubit.dart';
-import 'package:vtrack_v1/domain/vehicle/vehicle.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets/app_text_form_field.dart';
-import 'package:vtrack_v1/presentation/core/widgets/spinner_overlay.dart';
+import 'package:vtrack_v1/presentation/core/widgets/buttons/primary_elevated_button.dart';
+import 'package:vtrack_v1/presentation/vehicles/widgets/search_user_results_widget.dart';
 
 class AddUsers extends StatefulWidget {
   const AddUsers({
@@ -28,7 +27,7 @@ class AddUsers extends StatefulWidget {
 }
 
 class _AddUsersState extends State<AddUsers> {
-  final TextEditingController _searchController = TextEditingController();
+  final TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -75,7 +74,7 @@ class _AddUsersState extends State<AddUsers> {
                           child: Column(
                             children: [
                               AppTextFormField(
-                                controller: _searchController,
+                                controller: searchController,
                                 hintText: 'Ex: John',
                                 label: '',
                                 suffix: GestureDetector(
@@ -84,7 +83,7 @@ class _AddUsersState extends State<AddUsers> {
                                     color: Colors.grey,
                                   ),
                                   onTap: () {
-                                    _searchController.clear();
+                                    searchController.clear();
                                   },
                                 ),
                                 onChanged: (value) {
@@ -120,7 +119,7 @@ class _AddUsersState extends State<AddUsers> {
                                   return Visibility(
                                     visible: state.users.isNotEmpty,
                                     child: Text(
-                                      'Search Results for "${_searchController.text}"',
+                                      'Search Results for "${searchController.text}"',
                                       style: TextStyle(fontSize: 16.0.sp),
                                     ),
                                   );
@@ -129,7 +128,13 @@ class _AddUsersState extends State<AddUsers> {
                               SizedBox(
                                 height: 6.h,
                               ),
-                              Expanded(child: _buildSearchResults()),
+                              Expanded(
+                                child: SearchResults(
+                                  role: widget.role,
+                                  standAlone: widget.standAlone,
+                                  searchController: searchController,
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -145,192 +150,9 @@ class _AddUsersState extends State<AddUsers> {
     );
   }
 
-  Widget _buildSearchResults() {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(8.0.sp),
-            child: BlocBuilder<SearchUserBloc, SearchUserState>(
-              builder: (context, state) {
-                if (state.users.isEmpty && _searchController.text.isNotEmpty) {
-                  return const Center(
-                    child: Text('No user found!'),
-                  );
-                } else if (_searchController.text.isEmpty) {
-                  return const Center(
-                    child: Text('Start by typing a name'),
-                  );
-                }
-                return ListView.separated(
-                  physics: const NeverScrollableScrollPhysics(),
-                  padding: EdgeInsets.only(bottom: 10.h),
-                  itemCount: state.users.length,
-                  shrinkWrap: true,
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 12.h,
-                  ),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(6.sp),
-                        color: const Color.fromARGB(255, 243, 243, 243),
-                      ),
-                      padding: EdgeInsets.all(12.sp),
-                      child: Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(state.users[index].name.getOrCrash()),
-                              Text(
-                                state.users[index].emailAddress.getOrCrash(),
-                              ),
-                            ],
-                          ),
-                          const Expanded(child: SizedBox()),
-                          if (widget.role == 'user' && !widget.standAlone)
-                            BlocBuilder<VehicleFormBloc, VehicleFormState>(
-                              builder: (context, vehicleFormState) {
-                                if (!vehicleFormState.isSaving) {
-                                  if (vehicleFormState.vehicle.users.any(
-                                      (el) => el.id == state.users[index].id)) {
-                                    return TextButton(
-                                      onPressed: () {
-                                        BlocProvider.of<VehicleFormBloc>(
-                                                context)
-                                            .add(VehicleFormEvent.removeUsers(
-                                          user: state.users[index],
-                                        ));
-                                      },
-                                      child: const Text('Remove'),
-                                    );
-                                  } else {
-                                    return TextButton(
-                                      onPressed: () {
-                                        BlocProvider.of<VehicleFormBloc>(
-                                                context)
-                                            .add(VehicleFormEvent
-                                                .vehicleUsersChanged(
-                                          state.users[index],
-                                        ));
-                                      },
-                                      child: const Text('Select'),
-                                    );
-                                  }
-                                }
-                                return const SizedBox();
-                              },
-                            ),
-                          if (widget.role == 'driver' && !widget.standAlone)
-                            BlocConsumer<VehicleFormBloc, VehicleFormState>(
-                              listener: (context, vehicleFormState) {
-                                if (vehicleFormState.selectedVehicleDriver !=
-                                    null) {
-                                  context.router.popForced();
-                                }
-                              },
-                              builder: (context, vehicleFormState) {
-                                if (!vehicleFormState.isSaving) {
-                                  if (vehicleFormState.selectedVehicleDriver !=
-                                          null &&
-                                      vehicleFormState
-                                              .selectedVehicleDriver!.id ==
-                                          state.users[index].id) {
-                                    return TextButton(
-                                      onPressed: () {
-                                        BlocProvider.of<VehicleFormBloc>(
-                                                context)
-                                            .add(
-                                          VehicleFormEvent.removeDriver(
-                                            SelectedVehicleDriver(
-                                              id: state.users[index].id,
-                                              name: state.users[index].name
-                                                  .getOrCrash(),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      child: const Text('Remove'),
-                                    );
-                                  } else {
-                                    return TextButton(
-                                      onPressed: vehicleFormState
-                                                  .selectedVehicleDriver !=
-                                              null
-                                          ? null
-                                          : () {
-                                              BlocProvider.of<VehicleFormBloc>(
-                                                      context)
-                                                  .add(
-                                                VehicleFormEvent.driverChanged(
-                                                    SelectedVehicleDriver(
-                                                  id: state.users[index].id,
-                                                  name: state.users[index].name
-                                                      .getOrCrash(),
-                                                )),
-                                              );
-                                            },
-                                      child: const Text('Select'),
-                                    );
-                                  }
-                                }
-                                return const SizedBox();
-                              },
-                            ),
-                          if (widget.role == 'user' &&
-                              widget.standAlone &&
-                              widget.vehicleId != null)
-                            BlocConsumer<VehicleUsersCubit, VehicleUsersState>(
-                              listener: (context, vehicleUsersState) {
-                                vehicleUsersState.mapOrNull(
-                                  success: (value) {
-                                    SpinnerOverlay().hide();
-                                    FlushbarHelper.createSuccess(
-                                      message: 'User added successfully!',
-                                    ).show(context);
-                                    _searchController.clear();
-                                  },
-                                  failed: (value) {
-                                    FlushbarHelper.createError(
-                                      message: 'Adding user failed!',
-                                    ).show(context);
-                                    SpinnerOverlay().hide();
-                                  },
-                                  loading: (value) {
-                                    SpinnerOverlay().show(context);
-                                  },
-                                );
-                              },
-                              builder: (context, vehicleUsersState) {
-                                return TextButton(
-                                  onPressed: () {
-                                    BlocProvider.of<VehicleUsersCubit>(context)
-                                        .addVehicleUsers(
-                                      vehicleId: widget.vehicleId!,
-                                      userId: state.users[index].id,
-                                    );
-                                  },
-                                  child: const Text('Add'),
-                                );
-                              },
-                            ),
-                        ],
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   @override
   void dispose() {
-    _searchController.dispose();
+    searchController.dispose();
     super.dispose();
   }
 }
