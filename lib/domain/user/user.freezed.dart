@@ -23,6 +23,7 @@ mixin _$User {
   UserEmail get emailAddress => throw _privateConstructorUsedError;
   UserOrganisations get organisations => throw _privateConstructorUsedError;
   UserVehicles get vehicles => throw _privateConstructorUsedError;
+  int? get lastSelectedOrganisationIndex => throw _privateConstructorUsedError;
   UserPickupLocations get pickupLocation => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -42,6 +43,7 @@ abstract class $UserCopyWith<$Res> {
       UserEmail emailAddress,
       UserOrganisations organisations,
       UserVehicles vehicles,
+      int? lastSelectedOrganisationIndex,
       UserPickupLocations pickupLocation});
 
   $UserOrganisationsCopyWith<$Res> get organisations;
@@ -67,6 +69,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? emailAddress = null,
     Object? organisations = null,
     Object? vehicles = null,
+    Object? lastSelectedOrganisationIndex = freezed,
     Object? pickupLocation = null,
   }) {
     return _then(_value.copyWith(
@@ -98,6 +101,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.vehicles
           : vehicles // ignore: cast_nullable_to_non_nullable
               as UserVehicles,
+      lastSelectedOrganisationIndex: freezed == lastSelectedOrganisationIndex
+          ? _value.lastSelectedOrganisationIndex
+          : lastSelectedOrganisationIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
       pickupLocation: null == pickupLocation
           ? _value.pickupLocation
           : pickupLocation // ignore: cast_nullable_to_non_nullable
@@ -129,6 +136,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       UserEmail emailAddress,
       UserOrganisations organisations,
       UserVehicles vehicles,
+      int? lastSelectedOrganisationIndex,
       UserPickupLocations pickupLocation});
 
   @override
@@ -152,6 +160,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? emailAddress = null,
     Object? organisations = null,
     Object? vehicles = null,
+    Object? lastSelectedOrganisationIndex = freezed,
     Object? pickupLocation = null,
   }) {
     return _then(_$UserImpl(
@@ -183,6 +192,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.vehicles
           : vehicles // ignore: cast_nullable_to_non_nullable
               as UserVehicles,
+      lastSelectedOrganisationIndex: freezed == lastSelectedOrganisationIndex
+          ? _value.lastSelectedOrganisationIndex
+          : lastSelectedOrganisationIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
       pickupLocation: null == pickupLocation
           ? _value.pickupLocation
           : pickupLocation // ignore: cast_nullable_to_non_nullable
@@ -202,6 +215,7 @@ class _$UserImpl implements _User {
       required this.emailAddress,
       required this.organisations,
       required this.vehicles,
+      required this.lastSelectedOrganisationIndex,
       required this.pickupLocation});
 
   @override
@@ -219,11 +233,13 @@ class _$UserImpl implements _User {
   @override
   final UserVehicles vehicles;
   @override
+  final int? lastSelectedOrganisationIndex;
+  @override
   final UserPickupLocations pickupLocation;
 
   @override
   String toString() {
-    return 'User(id: $id, accessToken: $accessToken, role: $role, name: $name, emailAddress: $emailAddress, organisations: $organisations, vehicles: $vehicles, pickupLocation: $pickupLocation)';
+    return 'User(id: $id, accessToken: $accessToken, role: $role, name: $name, emailAddress: $emailAddress, organisations: $organisations, vehicles: $vehicles, lastSelectedOrganisationIndex: $lastSelectedOrganisationIndex, pickupLocation: $pickupLocation)';
   }
 
   @override
@@ -242,13 +258,26 @@ class _$UserImpl implements _User {
                 other.organisations == organisations) &&
             (identical(other.vehicles, vehicles) ||
                 other.vehicles == vehicles) &&
+            (identical(other.lastSelectedOrganisationIndex,
+                    lastSelectedOrganisationIndex) ||
+                other.lastSelectedOrganisationIndex ==
+                    lastSelectedOrganisationIndex) &&
             (identical(other.pickupLocation, pickupLocation) ||
                 other.pickupLocation == pickupLocation));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, accessToken, role, name,
-      emailAddress, organisations, vehicles, pickupLocation);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      accessToken,
+      role,
+      name,
+      emailAddress,
+      organisations,
+      vehicles,
+      lastSelectedOrganisationIndex,
+      pickupLocation);
 
   @JsonKey(ignore: true)
   @override
@@ -266,6 +295,7 @@ abstract class _User implements User {
       required final UserEmail emailAddress,
       required final UserOrganisations organisations,
       required final UserVehicles vehicles,
+      required final int? lastSelectedOrganisationIndex,
       required final UserPickupLocations pickupLocation}) = _$UserImpl;
 
   @override
@@ -282,6 +312,8 @@ abstract class _User implements User {
   UserOrganisations get organisations;
   @override
   UserVehicles get vehicles;
+  @override
+  int? get lastSelectedOrganisationIndex;
   @override
   UserPickupLocations get pickupLocation;
   @override

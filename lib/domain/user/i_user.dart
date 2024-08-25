@@ -35,6 +35,9 @@ abstract class IUserRepository {
   Future<Either<UserFailure, Unit>> saveCurrentUser({
     required User user,
   });
+  Future<Either<UserFailure, Unit>> saveLastSelectedOrganisationIndex({
+    required int? index,
+  });
   Future<Either<UserFailure, User>> getCurrentSavedUser();
   Future<Either<UserFailure, Unit>> logout();
 }

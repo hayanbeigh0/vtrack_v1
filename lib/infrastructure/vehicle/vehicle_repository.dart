@@ -24,10 +24,10 @@ class VehicleRepository implements IVehicleRepository {
         data: VehicleDto.fromDomain(vehicle).toJson(),
       );
       log(response.data.toString());
-      final newVehicle =
-          VehicleDto.fromJson(response.data['data']['data']).toDomain();
+      // final newVehicle =
+      //     VehicleDto.fromJson(response.data['data']['data']).toDomain();
 
-      return right(newVehicle);
+      return right(vehicle);
     } on DioException catch (e) {
       log('Error while getting signed in user: $e');
       return left(const VehicleFailure.serverError());
@@ -66,10 +66,10 @@ class VehicleRepository implements IVehicleRepository {
         '/vehicles/getOrgVehicles/$organisationId',
       );
       log(response.data.toString());
-      if (response.data['data']['data'].length == 0) {
+      if (response.data['data']['vehicles'].length == 0) {
         return right([]);
       }
-      final List<Vehicle> vehicleList = (response.data['data']['data'] as List)
+      final List<Vehicle> vehicleList = (response.data['data']['vehicles'] as List)
           .map((el) =>
               VehicleDto.fromJson(el as Map<String, dynamic>).toDomain())
           .toList();

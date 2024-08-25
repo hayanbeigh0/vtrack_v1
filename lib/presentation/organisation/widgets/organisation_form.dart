@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vtrack_v1/application/organisation/organisation_form_bloc/organisation_form_bloc.dart';
 import 'package:vtrack_v1/presentation/core/widgets/app_text_form_field.dart';
+import 'package:vtrack_v1/presentation/routes/router.gr.dart';
 
 class OrganisationForm extends StatelessWidget {
   OrganisationForm({super.key});
@@ -20,7 +21,7 @@ class OrganisationForm extends StatelessWidget {
       listener: (context, state) {
         if (state.isSaved) {
           log('Organisation saved');
-          context.router.replaceNamed('/create-vehicle');
+          context.router.navigate(OrganisationDetailRoute(organisation: state.organisation));
         } else {
           log('Organisation not saved!');
         }

@@ -8,6 +8,7 @@ import 'package:vtrack_v1/domain/organisation/organisation.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets/app_text_form_field.dart';
 import 'package:vtrack_v1/presentation/core/widgets/buttons/primary_elevated_button.dart';
+import 'package:vtrack_v1/presentation/core/widgets/spinner_overlay.dart';
 
 @RoutePage()
 class OrganisationDetailPage extends StatefulWidget {
@@ -163,6 +164,7 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                                 height: 20.h,
                                 child: GestureDetector(
                                   onTap: () {
+                                    SpinnerOverlay().show(context); // Need to hide this spinner on the next screen.
                                     // Navigate to vehicle list screen
                                     context.router.pushNamed('/vehicle-list');
                                   },
@@ -220,7 +222,7 @@ class _OrganisationDetailPageState extends State<OrganisationDetailPage> {
                                     const Text('No users added yet!'),
                                     TextButton(
                                       onPressed: () {
-                                        context.router.pushNamed('/add-users');
+                                        context.router.pushNamed('/user-list');
                                       },
                                       child: const Text('Add User'),
                                     ),

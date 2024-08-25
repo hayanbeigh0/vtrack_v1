@@ -33,7 +33,14 @@ class AuthFacade extends IAuthFacade {
           "passwordConfirm": passwordStr
         },
       );
-      return right(UserDto.fromJson(response.data['data']['user']).toDomain());
+      log(response.data.toString());
+      final Map<String, dynamic> responseData = response.data;
+      final String accessToken = responseData['token'];
+      final Map<String, dynamic> userData = responseData['data']['user'];
+
+      UserDto userDto = UserDto.fromJson(userData);
+      userDto = userDto.copyWith(accessToken: accessToken);
+      return right(userDto.toDomain());
     } on DioException catch (e) {
       log('Error while signing up: $e');
       return left(const AuthFailure.serverError());

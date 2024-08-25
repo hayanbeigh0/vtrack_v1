@@ -51,6 +51,7 @@ class UserDto with _$UserDto {
       ),
       pickupLocation: UserPickupLocations(pickupLocation.toDomain()),
       role: UserRole(role),
+      lastSelectedOrganisationIndex: 0,
     );
   }
 

@@ -23,8 +23,17 @@ class UserRepository extends IUserRepository {
       );
       log(response.data.toString());
       User user = UserDto.fromJson(response.data['data']['data']).toDomain();
+      final lastSelectedOrganisationIndexJson =
+          prefs.getString('lastSelectedOrganisationIndex');
       final String? token = prefs.getString('token');
-      user = user.copyWith(accessToken: token);
+      user = user.copyWith(
+        accessToken: token,
+        lastSelectedOrganisationIndex: lastSelectedOrganisationIndexJson == null
+            ? null
+            : jsonDecode(
+                lastSelectedOrganisationIndexJson,
+              ),
+      );
 
       return right(user);
     } on DioException catch (e) {
@@ -56,13 +65,40 @@ class UserRepository extends IUserRepository {
   }
 
   @override
+  Future<Either<UserFailure, Unit>> saveLastSelectedOrganisationIndex({
+    required int? index,
+  }) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('lastSelectedOrganisationIndex');
+      await prefs.setString(
+        'lastSelectedOrganisationIndex',
+        jsonEncode(index),
+      );
+      return right(unit);
+    } catch (e) {
+      log("error while saving last selected organisation index: $e");
+      return left(const UserFailure.unKnownError());
+    }
+  }
+
+  @override
   Future<Either<UserFailure, User>> getCurrentSavedUser() async {
     try {
       final prefs = await SharedPreferences.getInstance();
       final userJson = prefs.getString('user');
+      final lastSelectedOrganisationIndexJson =
+          prefs.getString('lastSelectedOrganisationIndex');
       if (userJson != null) {
         final User user = UserDto.fromJson(jsonDecode(userJson)).toDomain();
-        return right(user);
+        return right(
+          user.copyWith(
+            lastSelectedOrganisationIndex:
+                lastSelectedOrganisationIndexJson == null
+                    ? null
+                    : jsonDecode(lastSelectedOrganisationIndexJson),
+          ),
+        );
       } else {
         return left(const UserFailure.userNotFound());
       }
@@ -83,8 +119,18 @@ class UserRepository extends IUserRepository {
       UserDto userDto = UserDto.fromJson(response.data['data']['user']);
       userDto = userDto.copyWith(accessToken: user.accessToken);
       final User newUser = userDto.toDomain();
+      final prefs = await SharedPreferences.getInstance();
+      final lastSelectedOrganisationIndexJson =
+          prefs.getString('lastSelectedOrganisationIndex');
 
-      return right(newUser);
+      return right(
+        newUser.copyWith(
+          lastSelectedOrganisationIndex:
+              lastSelectedOrganisationIndexJson == null
+                  ? null
+                  : jsonDecode(lastSelectedOrganisationIndexJson),
+        ),
+      );
     } on DioException catch (e) {
       log('Error while updating me: $e');
       return left(const UserFailure.serverError());

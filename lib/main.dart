@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
 import 'package:vtrack_v1/application/auth/auth_bloc/auth_bloc.dart';
+import 'package:vtrack_v1/application/current_user/current_user_cubit/current_user_cubit.dart';
 import 'package:vtrack_v1/application/organisation/selected_organisation_bloc/selected_organisation_bloc.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/routes/router.dart';
@@ -34,6 +35,9 @@ class MainApp extends StatelessWidget {
           ),
           BlocProvider<SelectedOrganisationBloc>(
             create: (context) => getIt<SelectedOrganisationBloc>(),
+          ),
+          BlocProvider<CurrentUserCubit>(
+            create: (context) => getIt<CurrentUserCubit>(),
           ),
         ],
         child: MaterialApp.router(

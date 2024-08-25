@@ -14,6 +14,7 @@ abstract class User with _$User {
     required UserEmail emailAddress,
     required UserOrganisations organisations,
     required UserVehicles vehicles,
+    required int? lastSelectedOrganisationIndex,
     required UserPickupLocations pickupLocation,
   }) = _User;
 
@@ -26,6 +27,7 @@ abstract class User with _$User {
         role: UserRole(''),
         accessToken: '',
         id: '',
+        lastSelectedOrganisationIndex: 0,
       );
 }
 

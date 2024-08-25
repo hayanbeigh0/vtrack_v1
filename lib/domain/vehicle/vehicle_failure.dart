@@ -13,6 +13,7 @@ abstract class VehicleFailure<T> with _$VehicleFailure<T> {
   const factory VehicleFailure.invalidName() = InvalidName;
   const factory VehicleFailure.invalidCapacity() = InvalidCapacity;
   const factory VehicleFailure.addUsersFailed() = AddUsersFailed;
+  const factory VehicleFailure.driverAlreadyAssociated() = DriverAlreadyAssociated;
   const factory VehicleFailure.invalidPickupLocations() =
       InvalidPickupLocations;
 }

@@ -24,6 +24,12 @@ class CurrentUserCubit extends Cubit<CurrentUserState> {
     );
   }
 
+  saveCurrentSelectedOrganisationIndex({
+    required int? index,
+  }) async {
+    await _userRepository.saveLastSelectedOrganisationIndex(index: index);
+  }
+
   getSignedInUser() async {
     emit(const CurrentUserState.loading());
     final Either<UserFailure, User> userOrFailure =

@@ -14,14 +14,13 @@ class SignInForm extends StatefulWidget {
 class _SignInFormState extends State<SignInForm> {
   @override
   void initState() {
-    // TODO: implement initState
     WidgetsBinding.instance.addPostFrameCallback(
       (timeStamp) {
         BlocProvider.of<SignInFormBloc>(context).add(
-          const SignInFormEvent.emailChanged('hayanbeigh50@gmail.com'),
+          const SignInFormEvent.emailChanged('hayan1@gmail.com'),
         );
         BlocProvider.of<SignInFormBloc>(context).add(
-          const SignInFormEvent.passwordChanged('hayan123'),
+          const SignInFormEvent.passwordChanged('test1234'),
         );
       },
     );
@@ -81,7 +80,7 @@ class _SignInFormState extends State<SignInForm> {
                     color: Colors.grey,
                   ),
                 ),
-                initialValue: 'hayanbeigh50@gmail.com',
+                initialValue: 'hayan1@gmail.com',
                 autocorrect: false,
                 onChanged: (value) {
                   BlocProvider.of<SignInFormBloc>(context).add(
@@ -117,7 +116,7 @@ class _SignInFormState extends State<SignInForm> {
                   floatingLabelStyle: TextStyle(color: Colors.green),
                 ),
                 autocorrect: false,
-                initialValue: 'hayan123',
+                initialValue: 'test1234',
                 obscureText: true,
                 onChanged: (value) {
                   BlocProvider.of<SignInFormBloc>(context).add(

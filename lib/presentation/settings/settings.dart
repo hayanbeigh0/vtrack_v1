@@ -21,8 +21,8 @@ class SettingsPage extends StatelessWidget {
           style: Theme.of(context).textTheme.displaySmall,
         ),
       ),
-      body: BlocProvider(
-        create: (context) => getIt<CurrentUserCubit>()..getCurrentSavedUser(),
+      body: BlocProvider.value(
+        value: BlocProvider.of<CurrentUserCubit>(context),
         child: BlocConsumer<CurrentUserCubit, CurrentUserState>(
           listener: (context, state) {
             state.maybeMap(
@@ -63,9 +63,10 @@ class SettingsPage extends StatelessWidget {
                           // Based on the value we pass to the isSwitchActive, we will decide whether to create organisation on switch change or to disable the organisation if already created.
                           if (value.user.role.getOrCrash() == 'org-admin') {
                             // Disable organisation
-                          BlocProvider.of<CurrentUserCubit>(context).updateMe(
-                              user:
-                                  value.user.copyWith(role: UserRole('user')));
+                            BlocProvider.of<CurrentUserCubit>(context).updateMe(
+                                user: value.user.copyWith(
+                              role: UserRole('user'),
+                            ));
                           } else if (value.user.role.getOrCrash() == 'user') {
                             // Navigate to Create Organisation
                             context.router.pushNamed('/create-organisation');
@@ -76,6 +77,10 @@ class SettingsPage extends StatelessWidget {
                       Center(
                         child: ElevatedButton(
                           onPressed: () {
+                            BlocProvider.of<CurrentUserCubit>(context)
+                                .saveCurrentSelectedOrganisationIndex(
+                              index: null,
+                            );
                             BlocProvider.of<CurrentUserCubit>(context).logout();
                           },
                           child: const Text('Logout'),
