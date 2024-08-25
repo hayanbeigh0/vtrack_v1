@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +7,6 @@ import 'package:vtrack_v1/application/vehicle/vehicle_form_bloc/vehicle_form_blo
 import 'package:vtrack_v1/application/vehicle/vehicle_users_cubit/vehicle_users_cubit.dart';
 import 'package:vtrack_v1/injection.dart';
 import 'package:vtrack_v1/presentation/core/widgets/app_text_form_field.dart';
-import 'package:vtrack_v1/presentation/core/widgets/buttons/primary_elevated_button.dart';
 import 'package:vtrack_v1/presentation/vehicles/widgets/search_user_results_widget.dart';
 
 class AddUsers extends StatefulWidget {
